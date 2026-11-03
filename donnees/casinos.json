@@ -1,0 +1,588 @@
+{
+  "_lisezMoi": "Toutes les informations affichées sur le site viennent de ce fichier. Chaque fait a une source et une date de vérification. Mettre « actif »: false retire un casino du site entier au prochain déploiement. Ne jamais modifier les liens d'affiliation sans l'accord du gestionnaire d'affiliation.",
+  "casinos": [
+    {
+      "id": "rolletto",
+      "actif": true,
+      "nom": "Rolletto",
+      "slug": "rolletto-casino",
+      "initiale": "R",
+      "couleur": "#C2410C",
+      "lien": "https://track.rollettoaffiliate.com/visit/?bta=42389&brand=rolletto&afp=simon",
+      "accroche": "Le plus gros pack de bienvenue du comparatif, avec un opérateur et un numéro de licence affichés.",
+      "sousPages": [
+        "bonus",
+        "fiable",
+        "inscription"
+      ],
+      "operateur": {
+        "nom": "Santeda International B.V.",
+        "registre": "151296",
+        "pays": "Curaçao",
+        "source": "https://r0lletto.com/fr/static/promos",
+        "verifieLe": "2026-11-03"
+      },
+      "licence": {
+        "statut": "numero-affiche",
+        "autorite": "Curacao Gaming Authority (CGA)",
+        "numero": "OGL/2024/1798/1048",
+        "note": "Licence délivrée par la Curacao Gaming Authority. Ce n'est pas une autorisation du gouvernement du Québec.",
+        "source": "https://r0lletto.com/fr/static/promos",
+        "verifieLe": "2026-11-03"
+      },
+      "offre": {
+        "titre": "Jusqu'à 5 500 $ + 200 tours gratuits",
+        "sousTitre": "Pack de bienvenue casino sur vos 3 premiers dépôts",
+        "devise": "$",
+        "noteDevise": "L'opérateur affiche ses montants en £/€/$ : la devise appliquée est celle de votre compte.",
+        "paliers": [
+          {
+            "depot": 1,
+            "pourcentage": 150,
+            "plafond": 500,
+            "tours": 50
+          },
+          {
+            "depot": 2,
+            "pourcentage": 100,
+            "plafond": 2000,
+            "tours": 0
+          },
+          {
+            "depot": 3,
+            "pourcentage": 50,
+            "plafond": 3000,
+            "tours": 0
+          }
+        ],
+        "toursTotal": 200,
+        "toursDetail": "50 tours au premier dépôt, puis 30 tours par jour pendant 5 jours de connexion consécutifs, sur Rolletto Luck Bonus Buy. Un jour manqué fait perdre les tours restants. Les tours sont valables 72 heures.",
+        "mise": {
+          "multiplicateur": 30,
+          "base": "depot+bonus",
+          "delaiJours": 5
+        },
+        "depotMin": 20,
+        "miseMax": "5 $ par tour",
+        "jeuxAdmissibles": "Machines à sous seulement",
+        "activation": "Manuelle, dans l'onglet BONUS du compte, avant de jouer",
+        "autres": [
+          "Un seul bonus actif à la fois, non cumulable avec une autre promotion.",
+          "Les fonds du bonus et l'argent réel ne sont pas séparés : annuler le bonus retire le bonus, les gains obtenus avec lui et les mises faites entre l'activation et l'annulation.",
+          "Si la mise n'est pas complétée en 5 jours, le bonus et les gains liés sont perdus."
+        ],
+        "source": "https://r0lletto.com/fr/static/promos",
+        "verifieLe": "2026-11-03"
+      },
+      "autresOffres": [
+        {
+          "titre": "Bonus crypto",
+          "detail": "100 % jusqu'à 1 000 $ + 200 tours gratuits, dépôt minimum 20 $ (à la place du pack casino)."
+        },
+        {
+          "titre": "Bienvenue paris sportifs",
+          "detail": "150 % jusqu'à 1 500 $ + jusqu'à 200 $ en paris gratuits."
+        },
+        {
+          "titre": "Bienvenue esports",
+          "detail": "100 % jusqu'à 500 $, dépôt minimum 20 $."
+        }
+      ],
+      "paiements": {
+        "crypto": [
+          "BTC",
+          "ETH",
+          "LTC",
+          "USDT",
+          "USDC",
+          "TRX",
+          "DOGE",
+          "XRP"
+        ],
+        "autres": [],
+        "interac": "non-confirme",
+        "source": "https://r0lletto.com/fr/static/promos",
+        "verifieLe": "2026-11-03"
+      },
+      "produit": {
+        "casino": true,
+        "live": true,
+        "sport": true,
+        "esport": true,
+        "nombreJeux": null
+      },
+      "retraits": null,
+      "quebec": {
+        "statut": "a-confirmer",
+        "note": ""
+      },
+      "notes": {
+        "transparence": {
+          "note": 9.5,
+          "raison": "Société exploitante, numéro d'immatriculation et numéro de licence CGA affichés : tout se vérifie."
+        },
+        "bonus": {
+          "note": 6,
+          "raison": "Offre très généreuse, mais 30 fois (dépôt + bonus) à boucler en 5 jours seulement, sur les machines à sous uniquement."
+        },
+        "retraits": {
+          "note": 6,
+          "raison": "Plafonds et délais de retrait non publiés sur les pages consultées : note neutre en attendant."
+        },
+        "produit": {
+          "note": 8.5,
+          "raison": "Casino, paris sportifs et esports dans un seul compte, huit cryptomonnaies acceptées."
+        },
+        "protection": {
+          "note": 6,
+          "raison": "Outils de jeu responsable non vérifiés en détail : note neutre."
+        }
+      },
+      "pointsForts": [
+        "Le pack le plus élevé du comparatif : jusqu'à 5 500 $ sur 3 dépôts",
+        "Opérateur et numéro de licence affichés",
+        "200 tours gratuits en plus du bonus en argent",
+        "Huit cryptomonnaies acceptées"
+      ],
+      "pointsFaibles": [
+        "Seulement 5 jours pour compléter la mise de 30 fois (dépôt + bonus)",
+        "Tours quotidiens perdus si vous manquez un seul jour de connexion",
+        "Bonus valable sur les machines à sous seulement",
+        "Plafonds de retrait non publiés sur les pages consultées"
+      ],
+      "aConfirmer": [
+        "Plafonds et délais de retrait",
+        "Prise en charge d'Interac et du dollar canadien",
+        "Inscription ouverte aux résidents du Québec"
+      ]
+    },
+    {
+      "id": "celsius",
+      "actif": true,
+      "nom": "Celsius",
+      "slug": "celsius-casino",
+      "initiale": "C",
+      "couleur": "#0E7490",
+      "lien": "https://celsius.games/BODjXUCkAl",
+      "accroche": "Un très grand catalogue et des règles de retrait publiées noir sur blanc.",
+      "sousPages": [
+        "bonus",
+        "retrait",
+        "fiable",
+        "inscription"
+      ],
+      "operateur": {
+        "nom": "Celsius Holdings N.V.",
+        "registre": "157856",
+        "pays": "Curaçao (Willemstad)",
+        "source": "https://celsiuscasino.com/bonuses-terms",
+        "verifieLe": "2026-11-03"
+      },
+      "licence": {
+        "statut": "sans-numero",
+        "autorite": "Anjouan (Union des Comores)",
+        "numero": null,
+        "note": "Le pied de page indique « Anjouan Gaming Licence » sans numéro. Un badge « Gaming Curacao » apparaît aussi mais renvoie vers BeGambleAware : il ne prouve pas une licence de Curaçao.",
+        "source": "https://celsiuscasino.com",
+        "verifieLe": "2026-11-03"
+      },
+      "offre": {
+        "titre": "100 % puis 200 % sur vos 2 premiers dépôts",
+        "sousTitre": "Bonus de bienvenue casino",
+        "devise": "€",
+        "noteDevise": "La page officielle affiche l'offre en euros sans indiquer de plafond. Nous n'affichons pas de montant maximal tant qu'il n'est pas confirmé par l'opérateur.",
+        "paliers": [
+          {
+            "depot": 1,
+            "pourcentage": 100,
+            "plafond": null,
+            "tours": 0
+          },
+          {
+            "depot": 2,
+            "pourcentage": 200,
+            "plafond": null,
+            "tours": 0
+          }
+        ],
+        "toursTotal": 0,
+        "toursDetail": "",
+        "mise": {
+          "multiplicateur": 50,
+          "base": "depot+bonus",
+          "delaiJours": 20
+        },
+        "depotMin": 10,
+        "miseMax": "5 $ ou 10 % du solde disponible, le plus bas des deux",
+        "jeuxAdmissibles": "Selon les conditions de chaque promotion",
+        "activation": null,
+        "autres": [
+          "Le bonus expire 20 jours après avoir été réclamé si la mise n'est pas complétée.",
+          "Les gains issus d'un bonus sans dépôt ou de tours gratuits sont plafonnés à 100 €/$.",
+          "La règle des 10 % du solde ne s'applique pas aux mises de moins de 0,50 €/$."
+        ],
+        "source": "https://celsiuscasino.com/bonuses-terms",
+        "verifieLe": "2026-11-03"
+      },
+      "autresOffres": [],
+      "paiements": {
+        "crypto": [
+          "BTC",
+          "ETH",
+          "LTC",
+          "USDT",
+          "TRX",
+          "BCH",
+          "BNB",
+          "DOGE",
+          "XRP"
+        ],
+        "autres": [
+          "Visa",
+          "Mastercard",
+          "Apple Pay",
+          "Google Pay",
+          "Skrill",
+          "PayPal",
+          "Paysafecard"
+        ],
+        "interac": "non-affiche",
+        "devises": "EUR et cryptomonnaies (pas de dollar canadien affiché)",
+        "source": "https://celsiuscasino.com",
+        "verifieLe": "2026-11-03"
+      },
+      "produit": {
+        "casino": true,
+        "live": true,
+        "sport": null,
+        "esport": null,
+        "nombreJeux": "Plus de 6 000 machines à sous et 800 jeux en direct, selon l'opérateur"
+      },
+      "retraits": {
+        "resume": "Jusqu'à 2 500 € par semaine",
+        "detail": [
+          "Gains jusqu'à 10 000 € : versés par tranches hebdomadaires de 2 500 € maximum.",
+          "Gains au-delà de 10 000 € : versés par tranches mensuelles de 10 000 € maximum.",
+          "Rakeback : retrait plafonné à 20 fois le montant, sauf mention contraire."
+        ],
+        "source": "https://celsiuscasino.com/bonuses-terms",
+        "verifieLe": "2026-11-03"
+      },
+      "quebec": {
+        "statut": "a-confirmer",
+        "note": "Le Canada ne figure pas dans la liste des pays exclus consultée, mais l'opérateur précise que cette liste peut varier."
+      },
+      "notes": {
+        "transparence": {
+          "note": 6,
+          "raison": "Société et numéro d'immatriculation affichés, mais licence d'Anjouan sans numéro et badge de Curaçao contradictoire."
+        },
+        "bonus": {
+          "note": 5,
+          "raison": "Mise de 50 fois (dépôt + bonus), l'une des plus lourdes du marché, et plafond du bonus non indiqué."
+        },
+        "retraits": {
+          "note": 6.5,
+          "raison": "Règles publiées clairement, mais limite de 2 500 € par semaine pour les gros gains."
+        },
+        "produit": {
+          "note": 8.5,
+          "raison": "Très grand catalogue (plus de 6 000 machines à sous et 800 jeux en direct annoncés), nombreuses cryptomonnaies."
+        },
+        "protection": {
+          "note": 6,
+          "raison": "Outils de jeu responsable non vérifiés en détail : note neutre."
+        }
+      },
+      "pointsForts": [
+        "Plus de 6 000 machines à sous et 800 jeux en direct annoncés",
+        "Règles de retrait publiées et chiffrées",
+        "Dépôt minimum bas : 10 $",
+        "Neuf cryptomonnaies et plusieurs portefeuilles électroniques"
+      ],
+      "pointsFaibles": [
+        "Mise de 50 fois (dépôt + bonus) : très exigeante",
+        "Licence d'Anjouan sans numéro affiché",
+        "Retraits limités à 2 500 € par semaine",
+        "Pas de dollar canadien ni d'Interac affichés"
+      ],
+      "aConfirmer": [
+        "Plafond en dollars de chaque palier du bonus",
+        "Numéro de la licence d'Anjouan",
+        "Inscription ouverte aux résidents du Québec"
+      ]
+    },
+    {
+      "id": "betportal",
+      "actif": true,
+      "nom": "BetPortal",
+      "slug": "betportal-casino",
+      "initiale": "B",
+      "couleur": "#6D28D9",
+      "lien": "https://amliiink.com/g/vxcvg69",
+      "accroche": "La condition de mise la plus légère du comparatif, calculée sur le bonus seulement.",
+      "sousPages": [
+        "bonus",
+        "fiable",
+        "inscription"
+      ],
+      "operateur": {
+        "nom": null,
+        "registre": null,
+        "pays": null,
+        "source": "https://betportal888.com/fr/help",
+        "verifieLe": "2026-11-03"
+      },
+      "licence": {
+        "statut": "non-affichee",
+        "autorite": "Droit d'Anjouan cité dans les conditions générales",
+        "numero": null,
+        "note": "Le site se dit « sous licence et réglementé », mais nous n'avons trouvé ni nom de société exploitante ni numéro de licence. Les conditions générales (mises à jour en février 2026) sont régies par le droit d'Anjouan.",
+        "source": "https://betportal888.com/fr/help",
+        "verifieLe": "2026-11-03"
+      },
+      "offre": {
+        "titre": "Jusqu'à 1 000 € + 250 tours gratuits",
+        "sousTitre": "Bonus de bienvenue sur vos 3 premiers dépôts",
+        "devise": "€",
+        "noteDevise": "Montants relevés en euros. La devise proposée à un compte canadien peut être différente.",
+        "paliers": [
+          {
+            "depot": 1,
+            "pourcentage": 150,
+            "plafond": 500,
+            "tours": 200
+          },
+          {
+            "depot": 2,
+            "pourcentage": 100,
+            "plafond": 300,
+            "tours": 50
+          },
+          {
+            "depot": 3,
+            "pourcentage": 50,
+            "plafond": 200,
+            "tours": 0
+          }
+        ],
+        "toursTotal": 250,
+        "toursDetail": "Jusqu'à 200 tours gratuits au premier dépôt et 50 au deuxième.",
+        "mise": {
+          "multiplicateur": 30,
+          "base": "bonus",
+          "delaiJours": null
+        },
+        "depotMin": null,
+        "miseMax": null,
+        "jeuxAdmissibles": "Casino (une mise de 15 fois s'applique aux bonus sportifs)",
+        "activation": null,
+        "autres": [],
+        "source": "https://betportal888.com/fr/",
+        "verifieLe": "2026-11-03"
+      },
+      "autresOffres": [
+        {
+          "titre": "Remise en argent quotidienne",
+          "detail": "Jusqu'à 25 % de remise en argent (cashback) chaque jour."
+        },
+        {
+          "titre": "Lundi doré",
+          "detail": "Bonus de recharge de 30 % jusqu'à 100 € le lundi."
+        }
+      ],
+      "paiements": {
+        "crypto": [],
+        "autres": [],
+        "interac": "non-confirme",
+        "source": "https://betportal888.com/fr/",
+        "verifieLe": "2026-11-03"
+      },
+      "produit": {
+        "casino": true,
+        "live": true,
+        "sport": true,
+        "esport": null,
+        "nombreJeux": "Plus de 7 000 jeux, selon l'opérateur"
+      },
+      "retraits": null,
+      "quebec": {
+        "statut": "a-confirmer",
+        "note": ""
+      },
+      "notes": {
+        "transparence": {
+          "note": 3.5,
+          "raison": "Ni société exploitante ni numéro de licence trouvés : c'est le point faible principal."
+        },
+        "bonus": {
+          "note": 8,
+          "raison": "Mise de 30 fois le bonus seulement : environ deux fois moins lourde qu'une mise sur dépôt + bonus."
+        },
+        "retraits": {
+          "note": 5,
+          "raison": "Aucune règle de retrait trouvée sur les pages consultées."
+        },
+        "produit": {
+          "note": 8.5,
+          "raison": "Plus de 7 000 jeux, casino en direct, paris sportifs, remise en argent quotidienne."
+        },
+        "protection": {
+          "note": 6,
+          "raison": "Message de jeu responsable affiché, outils non vérifiés en détail."
+        }
+      },
+      "pointsForts": [
+        "Mise calculée sur le bonus seulement (30 fois)",
+        "Jusqu'à 250 tours gratuits sur les 2 premiers dépôts",
+        "Remise en argent quotidienne jusqu'à 25 %",
+        "Plus de 7 000 jeux annoncés"
+      ],
+      "pointsFaibles": [
+        "Aucune société exploitante ni numéro de licence affichés",
+        "Montants relevés en euros",
+        "Pas de règles de retrait trouvées",
+        "Délai de mise du bonus non trouvé"
+      ],
+      "aConfirmer": [
+        "Société exploitante et numéro de licence",
+        "Montants et devise pour un compte canadien",
+        "Délai pour compléter la mise et dépôt minimum",
+        "Inscription ouverte aux résidents du Québec"
+      ]
+    },
+    {
+      "id": "1win",
+      "actif": true,
+      "nom": "1win",
+      "slug": "1win-casino",
+      "initiale": "1",
+      "couleur": "#1D4ED8",
+      "lien": "https://one-vv4934.com/casino/list?open=register&p=a0rb&sub1=simon",
+      "accroche": "Le plus gros catalogue annoncé et un bonus réparti sur 4 dépôts.",
+      "sousPages": [
+        "bonus",
+        "fiable",
+        "inscription"
+      ],
+      "operateur": {
+        "nom": null,
+        "registre": null,
+        "pays": null,
+        "source": "https://one-vv7319.com/bonuses",
+        "verifieLe": "2026-11-03"
+      },
+      "licence": {
+        "statut": "non-verifiee",
+        "autorite": null,
+        "numero": null,
+        "note": "Depuis notre poste de vérification, le site a affiché « Le service dans votre région est limité par notre licence de jeu » : nous n'avons pas pu consulter ses mentions légales.",
+        "source": "https://one-vv7319.com/bonuses",
+        "verifieLe": "2026-11-03"
+      },
+      "offre": {
+        "titre": "Jusqu'à 600 % + 500 tours gratuits",
+        "sousTitre": "Bonus de bienvenue réparti sur vos 4 premiers dépôts",
+        "devise": "%",
+        "noteDevise": "Le « 600 % » est la somme des quatre paliers (130 + 140 + 160 + 170). Chaque dépôt reçoit son propre pourcentage.",
+        "paliers": [
+          {
+            "depot": 1,
+            "pourcentage": 130,
+            "plafond": null,
+            "tours": 70
+          },
+          {
+            "depot": 2,
+            "pourcentage": 140,
+            "plafond": null,
+            "tours": 100
+          },
+          {
+            "depot": 3,
+            "pourcentage": 160,
+            "plafond": null,
+            "tours": 150
+          },
+          {
+            "depot": 4,
+            "pourcentage": 170,
+            "plafond": null,
+            "tours": 180
+          }
+        ],
+        "toursTotal": 500,
+        "toursDetail": "70, 100, 150 puis 180 tours gratuits selon le dépôt.",
+        "mise": null,
+        "depotMin": "10 USDT",
+        "miseMax": null,
+        "jeuxAdmissibles": null,
+        "activation": null,
+        "autres": [],
+        "source": "https://one-vv7319.com/bonuses",
+        "verifieLe": "2026-11-03"
+      },
+      "autresOffres": [],
+      "paiements": {
+        "crypto": [
+          "USDT"
+        ],
+        "autres": [],
+        "interac": "non-confirme",
+        "source": "https://one-vv7319.com/bonuses",
+        "verifieLe": "2026-11-03"
+      },
+      "produit": {
+        "casino": true,
+        "live": true,
+        "sport": true,
+        "esport": null,
+        "nombreJeux": "Plus de 11 000 jeux, selon l'opérateur"
+      },
+      "retraits": null,
+      "quebec": {
+        "statut": "a-confirmer",
+        "note": ""
+      },
+      "notes": {
+        "transparence": {
+          "note": 3,
+          "raison": "Mentions légales, société et licence impossibles à consulter depuis notre poste de vérification."
+        },
+        "bonus": {
+          "note": 4,
+          "raison": "Pourcentages élevés, mais conditions de mise non confirmées : nous ne pouvons pas les évaluer."
+        },
+        "retraits": {
+          "note": 5,
+          "raison": "Aucune règle de retrait vérifiée."
+        },
+        "produit": {
+          "note": 9,
+          "raison": "Plus de 11 000 jeux annoncés, casino en direct, paris sportifs, service à la clientèle 24 h sur 24."
+        },
+        "protection": {
+          "note": 6,
+          "raison": "Outils de jeu responsable non vérifiés : note neutre."
+        }
+      },
+      "pointsForts": [
+        "Plus de 11 000 jeux annoncés",
+        "Bonus sur 4 dépôts avec 500 tours gratuits au total",
+        "Dépôt de départ bas : 10 USDT",
+        "Service à la clientèle 24 h sur 24 annoncé"
+      ],
+      "pointsFaibles": [
+        "Conditions de mise du bonus non confirmées",
+        "Société exploitante et licence non vérifiées",
+        "Plafonds des paliers non affichés",
+        "Pas de règles de retrait vérifiées"
+      ],
+      "aConfirmer": [
+        "Conditions de mise, délai et plafond de chaque palier",
+        "Société exploitante et licence",
+        "Inscription ouverte aux résidents du Québec"
+      ]
+    }
+  ]
+}
