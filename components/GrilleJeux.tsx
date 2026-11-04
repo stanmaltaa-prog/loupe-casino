@@ -39,9 +39,8 @@ export default function GrilleJeux({ jeux }: { jeux: Machine[] }) {
             </span>
             <span className="carte-machine-corps">
               <strong>{m.nom}</strong>
-              <span>
-                {m.fournisseur} · {m.volatilite.toLowerCase()}
-              </span>
+              <span>{m.fournisseur}</span>
+              <span>Volatilité {m.volatilite.toLowerCase()}</span>
             </span>
           </Link>
         </li>

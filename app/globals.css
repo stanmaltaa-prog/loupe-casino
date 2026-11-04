@@ -2076,3 +2076,49 @@ table.strategie tbody th {
     font-size: 0.95rem;
   }
 }
+
+/* Cartes de taille identique partout : image au même format, texte sur un nombre de lignes fixe */
+.grille-jeux,
+.grille-categories,
+.grille-liens {
+  grid-auto-rows: 1fr;
+}
+
+.carte-machine-image {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.carte-machine-image .jeu-visuel {
+  position: absolute;
+  inset: 0;
+}
+
+.carte-machine-corps strong {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.5em;
+}
+
+.carte-machine-corps span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carte-categorie span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.grille-liens li {
+  display: flex;
+}
+
+.grille-liens li > a {
+  flex: 1;
+}
