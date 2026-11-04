@@ -213,11 +213,11 @@ const autres: Machine[] = [
     ...NE,
     volume: 210,
     difficulte: 46,
-    rtp: 96.09,
-    rtpSource: 'base',
+    rtp: 96.08,
+    rtpSource: 'officiel',
     rtpAutres: [],
     volatilite: 'Faible',
-    gainMax: 500,
+    gainMax: 800,
     annee: 2013,
     grille: '5 rouleaux × 3 rangées, 10 lignes',
     gains: 'Lignes qui paient dans les deux sens',
@@ -227,16 +227,16 @@ const autres: Machine[] = [
     theme: 'Espace et pierres précieuses',
     analyse: [
       "Starburst est l'une des machines à sous les plus jouées de l'histoire du jeu en ligne. Elle n'a ni tours gratuits ni multiplicateurs : quand un wild étoilé tombe sur les rouleaux 2, 3 ou 4, il s'étend sur tout le rouleau et offre un nouveau tour, jusqu'à trois de suite selon SlotCatalog.",
-      "Les lignes paient de gauche à droite et de droite à gauche, ce qui donne des gains fréquents. Sa volatilité est faible et son gain maximal limité à 500× la mise : c'est le jeu idéal pour faire durer un petit budget, ou pour remplir les conditions d'un bonus sans trop de variations."
+      "Les lignes paient de gauche à droite et de droite à gauche, ce qui donne des gains fréquents. Sa volatilité est faible et son gain maximal limité à 800× la mise selon la fiche officielle de NetEnt : c'est le jeu idéal pour faire durer un petit budget, ou pour remplir les conditions d'un bonus sans trop de variations."
     ],
     pourQui: 'Les débutants et les joueurs qui veulent des sessions longues et régulières.',
-    attention: 'Avec un gain maximal de 500×, il ne faut pas y chercher le gros coup.',
+    attention: 'Avec un gain maximal de 800×, il ne faut pas y chercher le gros coup.',
     faq: [
       { q: 'Starburst a-t-il des tours gratuits ?', r: 'Non. Sa seule fonction est le wild en expansion des rouleaux 2, 3 et 4, qui offre jusqu’à trois nouveaux tours.' },
-      { q: 'Quel est le gain maximal de Starburst ?', r: '500 fois la mise, selon SlotCatalog.' }
+      { q: 'Quel est le gain maximal de Starburst ?', r: '800 fois la mise, selon la fiche officielle de NetEnt.' }
     ],
     similaires: ['gonzos-quest', 'fire-joker', 'sizzling-hot'],
-    sources: [sc('Starburst', 'Starburst')],
+    sources: [{ titre: 'NetEnt, fiche officielle Starburst', url: 'https://netent.com/games/starburst' }, sc('Starburst', 'Starburst')],
     verifieLe: V
   },
   {
@@ -246,10 +246,10 @@ const autres: Machine[] = [
     volume: 170,
     difficulte: 28,
     rtp: 95.97,
-    rtpSource: 'base',
+    rtpSource: 'officiel',
     rtpAutres: [],
     volatilite: 'Moyenne à élevée',
-    gainMax: null,
+    gainMax: 2200,
     annee: 2011,
     grille: '5 rouleaux × 3 rangées, 20 lignes',
     gains: 'Lignes de paiement, avec avalanches',
@@ -259,16 +259,16 @@ const autres: Machine[] = [
     theme: 'Conquistador à la recherche d’El Dorado',
     analyse: [
       "Gonzo's Quest, sorti en 2011, a popularisé les « avalanches » : au lieu de tourner, les blocs tombent, et les symboles gagnants explosent pour laisser tomber les suivants. Chaque avalanche consécutive augmente le multiplicateur, de 1× à 5× en jeu de base selon SlotCatalog.",
-      "Pendant les 10 chutes gratuites, l'échelle des multiplicateurs passe à 3×, 6×, 9× puis 15×. C'est cette mécanique, reprise depuis par de nombreux jeux, qui fait l'intérêt de Gonzo's Quest. Son gain maximal diffère selon les passages de SlotCatalog (2 500× ou 37 500×) : nous ne l'affichons pas."
+      "Pendant les 10 chutes gratuites, l'échelle des multiplicateurs passe à 3×, 6×, 9× puis 15×. C'est cette mécanique, reprise depuis par de nombreux jeux, qui fait l'intérêt de Gonzo's Quest. Selon la fiche officielle de NetEnt, son gain maximal est de 2 200× la mise."
     ],
     pourQui: 'Les joueurs qui veulent découvrir l’origine des cascades, sur un jeu à volatilité modérée.',
     attention: 'Une version Megaways (Red Tiger, 2020) et une suite existent, avec des règles différentes.',
     faq: [
       { q: 'Comment fonctionnent les avalanches de Gonzo’s Quest ?', r: 'Les symboles gagnants explosent et de nouveaux tombent. Chaque gain consécutif augmente le multiplicateur, jusqu’à 5× en jeu de base et 15× pendant les chutes gratuites.' },
-      { q: 'Quel est le RTP de Gonzo’s Quest ?', r: '95,97 %, selon SlotCatalog.' }
+      { q: 'Quel est le RTP de Gonzo’s Quest ?', r: '95,97 %, selon la fiche officielle de NetEnt.' }
     ],
     similaires: ['starburst', 'bonanza', 'reactoonz'],
-    sources: [sc("Gonzo's Quest", 'Gonzos-Quest'), { titre: "Wikipédia (anglais), Gonzo's Quest", url: 'https://en.wikipedia.org/wiki/Gonzo%27s_Quest' }],
+    sources: [{ titre: "NetEnt, fiche officielle Gonzo's Quest", url: 'https://netent.com/games/gonzos-quest' }, sc("Gonzo's Quest", 'Gonzos-Quest'), { titre: "Wikipédia (anglais), Gonzo's Quest", url: 'https://en.wikipedia.org/wiki/Gonzo%27s_Quest' }],
     verifieLe: V
   },
   {

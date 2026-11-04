@@ -68,7 +68,7 @@ for (const c of donnees.casinos) {
     if (!dateValide(b.verifieLe)) erreurs.push(`${n} : date de vérification invalide pour « ${bloc} ».`);
     else if (c.actif && age(b.verifieLe) > 31) avertissements.push(`${n} : « ${bloc} » vérifié il y a ${age(b.verifieLe)} jours. Revérifiez l'offre sur le site officiel.`);
   }
-  if (c.retraits && (!httpsValide(c.retraits.source) || !dateValide(c.retraits.verifieLe))) erreurs.push(`${n} : source ou date manquante pour les retraits.`);
+  if (c.retraits && ((!httpsValide(c.retraits.source) && c.retraits.source !== 'gestionnaire') || !dateValide(c.retraits.verifieLe))) erreurs.push(`${n} : source ou date manquante pour les retraits.`);
 
   if (!c.offre?.paliers?.length) erreurs.push(`${n} : l'offre n'a aucun palier.`);
   for (const cr of CRITERES) {

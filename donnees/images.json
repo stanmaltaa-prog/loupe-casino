@@ -1,0 +1,206 @@
+{
+  "_lisezMoi": "Images officielles des jeux, relevées sur le site de chaque fournisseur le 4 novembre 2026. Au déploiement, scripts/images.mjs les télécharge et les convertit en WebP dans public/jeux/. Un jeu absent d'ici affiche une tuile de secours.",
+  "verifieLe": "2026-11-04",
+  "jeux": {
+    "5-lions-megaways": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2021/06/5_Lions_Megaways_EN_339x180-1.png"
+    },
+    "9-masks-of-fire": {
+      "credit": "Games Global",
+      "page": "https://www.gamesglobal.com",
+      "vignette": "https://cdne-clientzone-prod-westeurope-001-asbsg9hncsd5gvfk.a03.azurefd.net/public/games/9MasksofFire/tile.webp"
+    },
+    "big-bass-amazon-xtreme": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2023/06/BBAEx_EN_339x180.png"
+    },
+    "big-bass-bonanza": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2020/11/Big-Bass-Bonanza™_EN_339x180_04.png"
+    },
+    "big-bass-splash": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2022/06/BBSPLASH_EN_339x180_04-1.png"
+    },
+    "bonanza": {
+      "credit": "Big Time Gaming",
+      "page": "https://www.bigtimegaming.com",
+      "vignette": "https://static1.squarespace.com/static/60aedd95a74c4c4033f9d064/t/60d3ec0f0ec2676bea7aedb0/1624501263384/Bonanza_Rectangular_1600x755.jpg?format=1500w"
+    },
+    "book-of-dead": {
+      "credit": "Play'n GO",
+      "page": "https://www.playngo.com",
+      "vignette": "https://wsh4cfcctixmqqzl.public.blob.vercel-storage.com/games/310/hero-desktop/0-c16bf1b9c868a502"
+    },
+    "book-of-oz": {
+      "credit": "Games Global",
+      "page": "https://www.gamesglobal.com",
+      "vignette": "https://cdne-clientzone-prod-westeurope-001-asbsg9hncsd5gvfk.a03.azurefd.net/public/games/BookofOz/tile.webp"
+    },
+    "book-of-ra": {
+      "credit": "Greentube (Novomatic)",
+      "page": "https://www.greentube.com",
+      "vignette": "https://www.greentube.com/wp-content/uploads/game_110_gameshot_780x480_en_at.jpg"
+    },
+    "buffalo-king-megaways": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2021/04/Buffalo-King-Megaways_339x180_EN.png"
+    },
+    "chaos-crew": {
+      "credit": "Hacksaw Gaming",
+      "page": "https://www.hacksawgaming.com",
+      "vignette": "https://www-live.hacksawgaming.com/casino_thumbnails/1059_logo_1059_logo_chaos_thumbnail.png"
+    },
+    "fire-joker": {
+      "credit": "Play'n GO",
+      "page": "https://www.playngo.com",
+      "vignette": "https://wsh4cfcctixmqqzl.public.blob.vercel-storage.com/games/307/hero-desktop/0-2b30d4d9fc56befc"
+    },
+    "fishin-frenzy": {
+      "credit": "Blueprint Gaming",
+      "page": "https://www.blueprintgaming.com",
+      "vignette": "https://bpgwebsite.s3.eu-west-2.amazonaws.com/public/games/263a8475-6e59-4f45-b9ba-1132400b5722/1200x0/100125114027_Hyjwly8c0aRMWg7BrPlI.jpg"
+    },
+    "gates-of-olympus": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2021/02/GOOL_EN_339x180.png"
+    },
+    "gates-of-olympus-1000": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2023/12/Gates-of-Olympus_1000_339x180.png"
+    },
+    "gates-of-olympus-super-scatter": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2025/03/Gates-Of-Olympus-Super-Scatter_339x180.png"
+    },
+    "gems-bonanza": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2020/09/Gems-Bonanza™_339x180_01-1.png"
+    },
+    "gonzos-quest": {
+      "credit": "NetEnt",
+      "page": "https://www.netent.com",
+      "vignette": "https://fan-cdn.nolimitcity.com/Gonzo_s_quest_fansitethumb_512x512_04_10_2025_fe4d4693f6.png",
+      "bandeau": "https://fan-cdn.nolimitcity.com/gonzos_quest_ne_fansite_splashpost_2560x820px_f2768e9202.jpg"
+    },
+    "great-rhino-megaways": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2020/04/Great-Rhino-Megaways™_EN_339x180_02-2.png"
+    },
+    "immortal-romance": {
+      "credit": "Games Global",
+      "page": "https://www.gamesglobal.com",
+      "vignette": "https://cdne-clientzone-prod-westeurope-001-asbsg9hncsd5gvfk.a03.azurefd.net/public/games/ImmortalRomance/tile.webp"
+    },
+    "jammin-jars": {
+      "credit": "Push Gaming",
+      "page": "https://www.pushgaming.com",
+      "vignette": "https://www.pushgaming.com/uploads/Jammin-Jars_preview2020.jpg",
+      "bandeau": "https://www.pushgaming.com/uploads/Main_page_games/JamminJars/JJ_BG_ganePage.jpg"
+    },
+    "legacy-of-dead": {
+      "credit": "Play'n GO",
+      "page": "https://www.playngo.com",
+      "vignette": "https://wsh4cfcctixmqqzl.public.blob.vercel-storage.com/games/416/hero-desktop/0-9c87392ad733bdde"
+    },
+    "madame-destiny-megaways": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2021/01/MDM_EN_339x180.png"
+    },
+    "mega-moolah": {
+      "credit": "Games Global",
+      "page": "https://www.gamesglobal.com",
+      "vignette": "https://cdne-clientzone-prod-westeurope-001-asbsg9hncsd5gvfk.a03.azurefd.net/public/games/MegaMoolah/tile.webp"
+    },
+    "razor-shark": {
+      "credit": "Push Gaming",
+      "page": "https://www.pushgaming.com",
+      "vignette": "https://www.pushgaming.com/uploads/razor-shark/razor-shark_preview1.jpg",
+      "bandeau": "https://www.pushgaming.com/uploads/razor-shark/razor-shark_page.jpg"
+    },
+    "reactoonz": {
+      "credit": "Play'n GO",
+      "page": "https://www.playngo.com",
+      "vignette": "https://wsh4cfcctixmqqzl.public.blob.vercel-storage.com/games/333/hero-desktop/0-0bee9bd5a24db9a0"
+    },
+    "rise-of-olympus": {
+      "credit": "Play'n GO",
+      "page": "https://www.playngo.com",
+      "vignette": "https://wsh4cfcctixmqqzl.public.blob.vercel-storage.com/games/352/hero-desktop/0-61a0a22aef8a1000"
+    },
+    "sizzling-hot": {
+      "credit": "Greentube (Novomatic)",
+      "page": "https://www.greentube.com",
+      "vignette": "https://www.greentube.com/wp-content/uploads/2025/04/sizzling-hot-deluxe-screenshot-1200x675.jpg",
+      "bandeau": "https://www.greentube.com/wp-content/uploads/2025/04/sizzling-hot-deluxe-atmosphere.jpg"
+    },
+    "starburst": {
+      "credit": "NetEnt",
+      "page": "https://www.netent.com",
+      "vignette": "https://fan-cdn.nolimitcity.com/Starburst_fansitethumb_512x512_04_09_2025_79a329f5be.png",
+      "bandeau": "https://fan-cdn.nolimitcity.com/starburst_ne_fansite_splashpost_2560x820_72f766d837.jpg"
+    },
+    "starlight-princess": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2021/08/Starlight-Princess_EN_339x180_01.png"
+    },
+    "starlight-princess-1000": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2023/07/Starlight-Princess-1000_339x180.png"
+    },
+    "sugar-rush": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2022/06/Sugar_Rush_EN_339x180.png"
+    },
+    "sugar-rush-1000": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2024/03/Sugar-Rush-1000_339x180.png"
+    },
+    "sweet-bonanza": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2019/03/Sweet-Bonanza™_Thumb_339x180-3.png"
+    },
+    "sweet-bonanza-1000": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2024/05/Sweet-Bonanza-1000_339x180.png"
+    },
+    "the-dog-house": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2019/02/The-Dog-House™_339x180px-1-1.png"
+    },
+    "wanted-dead-or-a-wild": {
+      "credit": "Hacksaw Gaming",
+      "page": "https://www.hacksawgaming.com",
+      "vignette": "https://www-live.hacksawgaming.com/casino_thumbnails/1067_hero_DESKTOP.png"
+    },
+    "wolf-gold": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2017/04/thumb__WOLF_GOLD__330x140px.png"
+    },
+    "zeus-vs-hades": {
+      "credit": "Pragmatic Play",
+      "page": "https://www.pragmaticplay.com",
+      "vignette": "https://www.pragmaticplay.com/wp-content/uploads/2023/05/Zeus-vs-Hades-Gods-of-war_339x180.png"
+    }
+  }
+}

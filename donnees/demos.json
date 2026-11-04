@@ -1,0 +1,44 @@
+{
+  "_lisezMoi": "Démos gratuites officielles, relevées sur le site de chaque éditeur le 4 novembre 2026. « pragmatic » et « playngo » : démos intégrées sur la page (intégration testée). « liens » : la démo s'ouvre sur le site officiel de l'éditeur.",
+  "pragmatic": {
+    "gates-of-olympus": "vs20olympgate",
+    "sweet-bonanza": "vs20fruitsw",
+    "big-bass-bonanza": "vs10bbbonanza",
+    "sugar-rush-1000": "vs20sugarrushx",
+    "sweet-bonanza-1000": "vs20fruitswx",
+    "gates-of-olympus-1000": "vs20olympx",
+    "big-bass-splash": "vs10txbigbass",
+    "gates-of-olympus-super-scatter": "vs20olympgold",
+    "wolf-gold": "vs25wolfgold",
+    "zeus-vs-hades": "vs15godsofwar",
+    "the-dog-house": "vs20doghouse",
+    "great-rhino-megaways": "vswaysrhino",
+    "madame-destiny-megaways": "vswaysmadame",
+    "starlight-princess-1000": "vs20starlightx",
+    "buffalo-king-megaways": "vswaysbufking",
+    "sugar-rush": "vs20sugarrush",
+    "big-bass-amazon-xtreme": "vs10bbextreme",
+    "5-lions-megaways": "vswayslions",
+    "starlight-princess": "vs20starlight",
+    "gems-bonanza": "vs20goldfever"
+  },
+  "playngo": {
+    "book-of-dead": "bookofdead",
+    "legacy-of-dead": "legacyofdead",
+    "reactoonz": "reactoonz",
+    "fire-joker": "firejoker",
+    "rise-of-olympus": "riseofolympus"
+  },
+  "liens": {
+    "razor-shark": "https://www.pushgaming.com/games/play/razor-shark.html",
+    "jammin-jars": "https://www.pushgaming.com/games/play/jammin-jars.html",
+    "wanted-dead-or-a-wild": "https://www.hacksawgaming.com/games/wanted-dead-or-a-wild",
+    "chaos-crew": "https://www.hacksawgaming.com/games/chaos-crew",
+    "starburst": "https://netent.com/games/starburst",
+    "gonzos-quest": "https://netent.com/games/gonzos-quest",
+    "book-of-ra": "https://www.greentube.com/game/book-of-ra-deluxe/",
+    "sizzling-hot": "https://www.greentube.com/game/sizzling-hot-deluxe/",
+    "fishin-frenzy": "https://www.blueprintgaming.com/games/fishin-frenzy/",
+    "bonanza": "https://www.bigtimegaming.com/games/bonanza"
+  }
+}

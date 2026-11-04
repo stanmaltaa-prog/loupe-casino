@@ -145,6 +145,7 @@ const jeux: PageGuide[] = [
             texte:
               "Nous avons mesuré les recherches mensuelles au Canada pour plus d'une centaine de machines à sous (Ubersuggest, novembre 2026), puis retenu 40 jeux parmi les plus recherchés disponibles en ligne, en écartant les recherches ambiguës et les machines propres aux casinos terrestres. Chaque jeu a sa fiche détaillée : meilleur RTP publié, autres versions, volatilité, gain maximal et budget à prévoir. Cliquez sur un nom pour l'ouvrir."
           },
+          { type: 'grille-jeux' },
           {
             type: 'tableau',
             legende: 'RTP : meilleure version publiée (fiche officielle ou SlotCatalog). Recherches : par mois, au Canada.',
@@ -405,7 +406,8 @@ const jeux: PageGuide[] = [
               'Vous pouvez tirer, rester, doubler (une seule carte de plus, mise doublée) ou séparer une paire.',
               'Le croupier suit des règles fixes : il tire jusqu’à 17, avec des variantes selon la table.'
             ]
-          }
+          },
+          { type: 'illustration', nom: 'bj-mains' }
         ]
       },
       {
@@ -425,7 +427,8 @@ const jeux: PageGuide[] = [
               'Doublez 11 contre toutes les cartes du croupier sauf l’as (selon les règles), et 10 contre 2 à 9.',
               'Séparez toujours les as et les 8. Ne séparez jamais les 10 ni les 5.'
             ]
-          }
+          },
+          { type: 'illustration', nom: 'bj-strategie' }
         ]
       },
       {
@@ -439,6 +442,7 @@ const jeux: PageGuide[] = [
             texte:
               "Un blackjack payé 6:5 au lieu de 3:2 augmente fortement l'avantage de la maison. Vérifiez toujours la mention sur le tapis ou dans les règles de la table."
           },
+          { type: 'illustration', nom: 'bj-paiement' },
           {
             type: 'p',
             texte:

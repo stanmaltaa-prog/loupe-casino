@@ -111,10 +111,19 @@
         "esport": true,
         "nombreJeux": null
       },
-      "retraits": null,
+      "retraits": {
+        "resume": "Crypto : instantané. Virement : sous 24 h",
+        "detail": [
+          "Retraits en cryptomonnaie : traités instantanément, selon le gestionnaire d'affiliation.",
+          "Retraits par virement : sous 24 heures, selon le gestionnaire d'affiliation.",
+          "Plafonds de retrait : non publiés à ce jour."
+        ],
+        "source": "gestionnaire",
+        "verifieLe": "2026-11-04"
+      },
       "quebec": {
-        "statut": "a-confirmer",
-        "note": ""
+        "statut": "confirme",
+        "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
       },
       "notes": {
         "transparence": {
@@ -151,9 +160,8 @@
         "Plafonds de retrait non publiés sur les pages consultées"
       ],
       "aConfirmer": [
-        "Plafonds et délais de retrait",
-        "Prise en charge d'Interac et du dollar canadien",
-        "Inscription ouverte aux résidents du Québec"
+        "Plafonds de retrait",
+        "Prise en charge d'Interac et du dollar canadien"
       ]
     },
     {
@@ -269,8 +277,8 @@
         "verifieLe": "2026-11-03"
       },
       "quebec": {
-        "statut": "a-confirmer",
-        "note": "Le Canada ne figure pas dans la liste des pays exclus consultée, mais l'opérateur précise que cette liste peut varier."
+        "statut": "confirme",
+        "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
       },
       "notes": {
         "transparence": {
@@ -308,8 +316,7 @@
       ],
       "aConfirmer": [
         "Plafond en dollars de chaque palier du bonus",
-        "Numéro de la licence d'Anjouan",
-        "Inscription ouverte aux résidents du Québec"
+        "Numéro de la licence d'Anjouan"
       ]
     },
     {
@@ -407,8 +414,8 @@
       },
       "retraits": null,
       "quebec": {
-        "statut": "a-confirmer",
-        "note": ""
+        "statut": "confirme",
+        "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
       },
       "notes": {
         "transparence": {
@@ -447,8 +454,7 @@
       "aConfirmer": [
         "Société exploitante et numéro de licence",
         "Montants et devise pour un compte canadien",
-        "Délai pour compléter la mise et dépôt minimum",
-        "Inscription ouverte aux résidents du Québec"
+        "Délai pour compléter la mise et dépôt minimum"
       ]
     },
     {
@@ -517,10 +523,10 @@
         "depotMin": "10 USDT",
         "miseMax": null,
         "jeuxAdmissibles": null,
-        "activation": null,
+        "activation": "Le bonus est versé sur un solde séparé. Il faut d'abord jouer son solde réel jusqu'à moins de 0,5 USD, puis miser le bonus dans la catégorie de jeux « Cond. de Mise de bonus ». Un seul bonus casino actif à la fois : en activer un autre annule le précédent.",
         "autres": [],
         "source": "https://one-vv7319.com/bonuses",
-        "verifieLe": "2026-11-03"
+        "verifieLe": "2026-11-04"
       },
       "autresOffres": [],
       "paiements": {
@@ -541,8 +547,8 @@
       },
       "retraits": null,
       "quebec": {
-        "statut": "a-confirmer",
-        "note": ""
+        "statut": "confirme",
+        "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
       },
       "notes": {
         "transparence": {
@@ -580,8 +586,7 @@
       ],
       "aConfirmer": [
         "Conditions de mise, délai et plafond de chaque palier",
-        "Société exploitante et licence",
-        "Inscription ouverte aux résidents du Québec"
+        "Société exploitante et licence"
       ]
     }
   ]

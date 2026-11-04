@@ -209,9 +209,9 @@ const BRUT: Fournisseur[] = [
       "Ses deux titres de notre sélection ont marqué le secteur : [Gonzo's Quest](/machines-a-sous/gonzos-quest/), sorti en 2011, a popularisé les avalanches, ces cascades qui augmentent le multiplicateur à chaque gain ; [Starburst](/machines-a-sous/starburst/), à volatilité faible, reste une référence pour faire durer un petit budget."
     ],
     aSavoir: [
-      '**Starburst est peu volatil**, mais son gain maximal est limité à 500 fois la mise.',
+      '**Starburst est peu volatil**, mais son gain maximal est limité à 800 fois la mise.',
       '**Gonzo’s Quest existe en plusieurs versions** : une version Megaways a été créée par Red Tiger, studio du même groupe.',
-      '**Les RTP sont proches de 96 %** : 96,09 % pour Starburst et 95,97 % pour Gonzo’s Quest selon SlotCatalog.'
+      '**Les RTP sont proches de 96 %** : 96,08 % pour Starburst et 95,97 % pour Gonzo’s Quest, selon les fiches officielles de NetEnt.'
     ],
     faq: [
       {

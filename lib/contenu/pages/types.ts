@@ -13,7 +13,11 @@ export type Bloc =
   | { type: 'offres'; casinos?: string[]; titre?: string }
   | { type: 'liens'; items: { href: string; titre: string; texte: string }[] }
   /** Offre précise d'un casino (ex. bonus sport), avec bouton de sortie et mention légale. */
-  | { type: 'cta'; casino: string; titre: string; detail: string; bouton: string };
+  | { type: 'cta'; casino: string; titre: string; detail: string; bouton: string }
+  /** Illustration dessinée (cartes, tableaux de stratégie…), voir components/IllustrationsGuides.tsx. */
+  | { type: 'illustration'; nom: 'bj-mains' | 'bj-strategie' | 'bj-paiement' }
+  /** Grille d'images des machines à sous (toutes, ou une liste de slugs). */
+  | { type: 'grille-jeux'; slugs?: string[] };
 
 export type SectionGuide = { id: string; titre: string; blocs: Bloc[] };
 

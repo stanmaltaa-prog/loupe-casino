@@ -4,6 +4,9 @@ import Faq from './Faq';
 import TexteRiche from './TexteRiche';
 import CarteOffre from './CarteOffre';
 import BoutonCasino, { MentionCta } from './BoutonCasino';
+import { ILLUSTRATIONS_GUIDES } from './IllustrationsGuides';
+import GrilleJeux from './GrilleJeux';
+import { MACHINES } from '@/lib/contenu/machines';
 import { CASINOS, cheminCasino, parId, rang } from '@/lib/casinos';
 import { pageParChemin } from '@/lib/contenu/pages';
 import type { Bloc, PageGuide } from '@/lib/contenu/pages/types';
@@ -99,6 +102,14 @@ function RenduBloc({ bloc, emplacement }: { bloc: Bloc; emplacement: string }) {
           ))}
         </ul>
       );
+    case 'grille-jeux': {
+      const jeux = bloc.slugs?.length ? MACHINES.filter((m) => bloc.slugs!.includes(m.slug)) : MACHINES;
+      return <GrilleJeux jeux={jeux} />;
+    }
+    case 'illustration': {
+      const Illus = ILLUSTRATIONS_GUIDES[bloc.nom];
+      return Illus ? <Illus /> : null;
+    }
     case 'cta': {
       const c = parId(bloc.casino);
       if (!c) return null;
