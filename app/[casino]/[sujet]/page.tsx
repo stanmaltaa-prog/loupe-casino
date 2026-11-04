@@ -124,13 +124,19 @@ function BlocRetrait({ c }: { c: Casino }) {
           <li key={d}>{d}</li>
         ))}
       </ul>
-      <p className="source">
-        Source :{' '}
-        <a href={c.retraits.source} rel="nofollow noopener" target="_blank">
-          conditions de {c.nom}
-        </a>
-        , consultées le {dateLongue(c.retraits.verifieLe)}.
-      </p>
+      {c.retraits.source === 'gestionnaire' ? (
+        <p className="source">
+          Source : confirmation écrite du gestionnaire d&apos;affiliation de {c.nom}, le {dateLongue(c.retraits.verifieLe)}.
+        </p>
+      ) : (
+        <p className="source">
+          Source :{' '}
+          <a href={c.retraits.source} rel="nofollow noopener" target="_blank">
+            conditions de {c.nom}
+          </a>
+          , consultées le {dateLongue(c.retraits.verifieLe)}.
+        </p>
+      )}
       {c.paiements.crypto.length || c.paiements.autres.length ? (
         <>
           <h2>Moyens de paiement affichés</h2>

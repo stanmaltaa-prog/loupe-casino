@@ -3,6 +3,13 @@ import { notFound } from 'next/navigation';
 import Guide from '@/components/Guide';
 import Faq from '@/components/Faq';
 import { Offres } from '@/components/RenduGuide';
+import GrilleJeux from '@/components/GrilleJeux';
+import DemoJeu from '@/components/DemoJeu';
+import Marque from '@/components/Marque';
+import BoutonCasino, { MentionCta } from '@/components/BoutonCasino';
+import { CASINOS } from '@/lib/casinos';
+import { bandeauJeu, vignetteJeu } from '@/lib/images';
+import { demoJeu } from '@/lib/demos';
 import { meta } from '@/lib/seo';
 import { dateLongue } from '@/lib/site';
 import { typo } from '@/lib/typo';
@@ -67,6 +74,10 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
   const f = m.fournisseurId ? fournisseur(m.fournisseurId) : undefined;
   const chemin = cheminMachine(m);
   const emplacement = `machine-${m.slug}`;
+  const visuel = vignetteJeu(m.slug);
+  const bandeau = bandeauJeu(m.slug);
+  const demo = demoJeu(m.slug);
+  const top = CASINOS[0];
   const versions = [m.rtp, ...m.rtpAutres];
   const pire = Math.min(...versions);
   const ecart = m.rtp - pire;
@@ -90,6 +101,7 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
 
   const sommaire = [
     { id: 'fiche', titre: 'La fiche en bref' },
+    ...(demo ? [{ id: 'demo', titre: 'Jouer gratuitement' }] : []),
     { id: 'analyse', titre: 'Notre analyse' },
     { id: 'rtp', titre: 'Le RTP et ses versions' },
     { id: 'budget', titre: 'Quel budget prévoir' },
@@ -112,6 +124,37 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
       sommaire={sommaire}
       emplacement={emplacement}
     >
+      <div className="jeu-tete" style={bandeau ? { backgroundImage: `linear-gradient(100deg, rgba(10,22,30,.92) 30%, rgba(10,22,30,.55)), url(${bandeau.src})` } : undefined}>
+        {visuel ? (
+          <img src={visuel.src} alt={`${m.nom}, machine à sous ${m.fournisseur}`} width={339} height={180} className="jeu-tete-image" referrerPolicy="no-referrer" />
+        ) : null}
+        <div className="jeu-tete-infos">
+          <ul className="puces-chiffres">
+            <li>
+              <span>RTP</span>
+              <strong>{pct(m.rtp)}</strong>
+            </li>
+            <li>
+              <span>Volatilité</span>
+              <strong>{m.volatilite}</strong>
+            </li>
+            <li>
+              <span>Gain max</span>
+              <strong>{m.gainMax ? fois(m.gainMax) : 'n. c.'}</strong>
+            </li>
+          </ul>
+          <div className="jeu-tete-actions">
+            {demo ? (
+              <a href="#demo" className="cta-secondaire cta-clair">
+                ▶ Démo gratuite
+              </a>
+            ) : null}
+            <BoutonCasino casino={top} emplacement={`${emplacement}-tete`} texte={`Jouer en argent réel chez ${top.nom}`} />
+          </div>
+          <p className="jeu-tete-credit">{visuel ? `Image : ${visuel.credit}` : ''} · 18+ · Lien commercial</p>
+        </div>
+      </div>
+
       <section aria-labelledby="fiche">
         <h2 id="fiche">La fiche en bref</h2>
         <div className="tableau-defilant">
@@ -155,6 +198,23 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
           {typo(`Chiffres vérifiés le ${dateLongue(m.verifieLe)} sur les sources listées en bas de page. Recherches mensuelles au Canada : environ ${m.volume.toLocaleString('fr-CA')} (Ubersuggest).`)}
         </p>
       </section>
+
+      {demo ? (
+        <section aria-labelledby="demo">
+          <h2 id="demo">{typo(`Jouer gratuitement à ${m.nom}`)}</h2>
+          <p>{typo(`Testez ${m.nom} en mode démo, avec des crédits fictifs, avant de miser de l'argent réel. Aucune inscription n'est nécessaire.`)}</p>
+          <DemoJeu url={demo.url} mode={demo.mode} editeur={m.studio || m.fournisseur} nom={m.nom} poster={visuel?.src || null} />
+          <div className="encadre-cta">
+            <Marque casino={top} />
+            <div>
+              <p className="encadre-cta-titre">{typo(`Envie de jouer à ${m.nom} pour de vrai ?`)}</p>
+              <p className="petit">{top.offre.titre}</p>
+            </div>
+            <BoutonCasino casino={top} emplacement={`${emplacement}-demo`} texte="Obtenir le bonus" />
+          </div>
+          <MentionCta />
+        </section>
+      ) : null}
 
       <section aria-labelledby="analyse">
         <h2 id="analyse">Notre analyse</h2>
@@ -289,16 +349,7 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
 
       <section aria-labelledby="similaires">
         <h2 id="similaires">Jeux similaires</h2>
-        <ul className="grille-liens">
-          {similaires.map((s) => (
-            <li key={s.slug}>
-              <Link href={cheminMachine(s)}>
-                <strong>{s.nom}</strong>
-                <span>{typo(`${s.fournisseur} · RTP ${pct(s.rtp)} · volatilité ${s.volatilite.toLowerCase()}`)}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <GrilleJeux jeux={similaires} />
         <p>
           <Link href="/machines-a-sous/#classement">Voir le classement des 40 machines à sous</Link>
           {f ? (

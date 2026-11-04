@@ -1449,3 +1449,630 @@ a[href^='tel:'] {
 .carte-cta .cta {
   margin-top: 8px;
 }
+
+/* ===================== Refonte visuelle (novembre 2026) ===================== */
+
+/* Logos des casinos */
+.logo-casino {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  flex: none;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(16, 33, 43, 0.18);
+  background: #fff;
+}
+
+.logo-casino-petit {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+/* Accueil : bandeau sombre */
+.accueil-heros {
+  background: radial-gradient(1200px 500px at 85% -10%, rgba(244, 178, 62, 0.22), transparent 60%),
+    linear-gradient(135deg, #0c1c25 0%, #133844 55%, #1f5f6b 100%);
+  color: #fff;
+  padding: 44px 0 52px;
+}
+
+.accueil-heros-grille {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.accueil-heros h1 {
+  color: #fff;
+  font-size: clamp(2rem, 4.4vw, 3.1rem);
+  line-height: 1.08;
+  margin: 8px 0 14px;
+}
+
+.accueil-heros .chapeau {
+  color: #d6e6e8;
+  font-size: 1.12rem;
+  max-width: 34em;
+}
+
+.surtitre {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f6d38a;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
+.confiance {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.confiance li {
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(46, 125, 91, 0.25);
+  border: 1px solid rgba(120, 220, 170, 0.35);
+  font-size: 14px;
+  color: #e7fff3;
+}
+
+.heros-meta-clair,
+.heros-meta-clair a {
+  color: #d6e6e8;
+}
+
+.podium {
+  background: #fff;
+  color: var(--encre);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.podium-titre {
+  margin: 0 0 10px;
+  font-family: var(--titre);
+  font-weight: 750;
+  font-size: 1.1rem;
+}
+
+.podium ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.podium li {
+  display: grid;
+  grid-template-columns: 22px 36px minmax(0, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--filet);
+}
+
+.podium li:first-child {
+  border-top: 0;
+}
+
+.podium-rang {
+  font-family: var(--titre);
+  font-weight: 800;
+  color: var(--encre-pale);
+  text-align: center;
+}
+
+.podium-texte {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.podium-texte a {
+  font-weight: 700;
+  color: var(--encre);
+  text-decoration: none;
+}
+
+.podium-texte span {
+  font-size: 13px;
+  color: var(--encre-douce);
+}
+
+.podium .cta {
+  padding: 9px 14px;
+  font-size: 14px;
+}
+
+.podium-mention {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--encre-pale);
+}
+
+@media (max-width: 900px) {
+  .accueil-heros-grille {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .podium li {
+    grid-template-columns: 18px 36px minmax(0, 1fr) auto;
+  }
+  .podium li .note-loupe {
+    display: none;
+  }
+}
+
+/* Titres de section avec lien */
+.titre-section {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.titre-section a {
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+/* Grille de jeux façon lobby */
+.grille-jeux {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+}
+
+.grille-jeux li {
+  margin: 0;
+}
+
+.carte-machine {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--papier);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--encre);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.carte-machine:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(16, 33, 43, 0.14);
+}
+
+.carte-machine-image {
+  position: relative;
+  display: block;
+  aspect-ratio: 339 / 180;
+  background: #0f2a33;
+}
+
+.jeu-visuel {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jeu-visuel-secours {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  color: #fff;
+  font-family: var(--titre);
+  font-weight: 750;
+  background: linear-gradient(135deg, #1f5f6b, #7a2bd6);
+}
+
+.carte-machine-rtp {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(12, 28, 37, 0.85);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.carte-machine-corps {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px 12px;
+}
+
+.carte-machine-corps strong {
+  font-family: var(--titre);
+  font-size: 1rem;
+  line-height: 1.25;
+}
+
+.carte-machine-corps span {
+  font-size: 13px;
+  color: var(--encre-pale);
+}
+
+/* Catégories illustrées */
+.grille-categories {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 165px), 1fr));
+  gap: 14px;
+}
+
+.grille-categories li {
+  margin: 0;
+}
+
+.carte-categorie {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 14px;
+  background: var(--papier);
+  border: 1px solid var(--filet);
+  border-radius: var(--rayon);
+  text-decoration: none;
+  color: var(--encre);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.carte-categorie:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(16, 33, 43, 0.12);
+}
+
+.carte-categorie .illus {
+  height: 86px;
+  width: auto;
+  margin: 0 auto 6px;
+}
+
+.carte-categorie strong {
+  font-family: var(--titre);
+}
+
+.carte-categorie span {
+  font-size: 13px;
+  color: var(--encre-pale);
+}
+
+/* Fiche d'un jeu : bandeau visuel */
+.jeu-tete {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  margin: 0 0 1.6em;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #0c1c25, #1f5f6b);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.jeu-tete-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.puces-chiffres {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.puces-chiffres li {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.puces-chiffres span {
+  display: block;
+  font-size: 12px;
+  color: #cfe0e2;
+}
+
+.puces-chiffres strong {
+  font-family: var(--titre);
+  font-size: 1.05rem;
+}
+
+.jeu-tete-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cta-clair {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+}
+
+.cta-clair:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.jeu-tete-credit {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #b9cdd0;
+}
+
+@media (max-width: 700px) {
+  .jeu-tete {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Démo gratuite */
+.demo-jeu {
+  margin: 1em 0;
+}
+
+.demo-jeu summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0c1c25;
+  aspect-ratio: 16 / 9;
+}
+
+.demo-jeu summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo-jeu summary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+.demo-bouton {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--jeton);
+  color: #1b1405;
+  font-weight: 800;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.demo-mention {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  text-align: center;
+  color: #e6eef0;
+  font-size: 13px;
+}
+
+.demo-jeu[open] summary {
+  display: none;
+}
+
+.demo-cadre {
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+
+.demo-cadre iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.encadre-cta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--papier);
+  border: 1px solid var(--filet);
+}
+
+.encadre-cta > div {
+  flex: 1 1 200px;
+}
+
+.encadre-cta-titre {
+  margin: 0;
+  font-family: var(--titre);
+  font-weight: 750;
+}
+
+.encadre-cta .petit {
+  margin: 2px 0 0;
+}
+
+/* Illustrations des guides */
+.figure-guide {
+  margin: 1.4em 0;
+}
+
+.figure-guide figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--encre-pale);
+}
+
+.mains-ligne {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.main-cartes {
+  flex: 1 1 200px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #1d6b46;
+  color: #fff;
+  border: 3px solid transparent;
+}
+
+.main-bon {
+  border-color: #6fdc9f;
+}
+
+.main-alerte {
+  border-color: #ff8b7a;
+}
+
+.main-titre {
+  margin: 0 0 8px;
+  font-family: var(--titre);
+  font-weight: 750;
+}
+
+.main-jeu {
+  display: flex;
+}
+
+.main-jeu .carte-jeu + .carte-jeu {
+  margin-left: -26px;
+}
+
+.carte-jeu {
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3));
+}
+
+.main-total {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: #e8fff2;
+}
+
+table.strategie th,
+table.strategie td {
+  text-align: center;
+  padding: 8px 6px;
+  font-weight: 700;
+}
+
+table.strategie tbody th {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.dec-T {
+  background: #fde3df;
+  color: #9b2c1c;
+}
+
+.dec-R {
+  background: #dff3e8;
+  color: #1e6b45;
+}
+
+.dec-D {
+  background: #fff1cf;
+  color: #8a5a00;
+}
+
+.pastille {
+  display: inline-block;
+  min-width: 22px;
+  padding: 0 6px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.demo-lien {
+  position: relative;
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0c1c25;
+  aspect-ratio: 16 / 9;
+  text-decoration: none;
+}
+
+.demo-lien img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+/* Mobile : boutons qui passent à la ligne au lieu de déborder */
+.jeu-tete-actions .cta,
+.jeu-tete-actions .cta-secondaire {
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+}
+
+.demo-bouton {
+  white-space: normal;
+  max-width: 88%;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .demo-bouton {
+    padding: 11px 16px;
+    font-size: 0.95rem;
+  }
+}

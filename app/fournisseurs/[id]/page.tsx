@@ -4,6 +4,7 @@ import Guide from '@/components/Guide';
 import Faq from '@/components/Faq';
 import TexteRiche from '@/components/TexteRiche';
 import { Offres } from '@/components/RenduGuide';
+import GrilleJeux from '@/components/GrilleJeux';
 import { meta } from '@/lib/seo';
 import { typo } from '@/lib/typo';
 import { SITE } from '@/lib/site';
@@ -62,6 +63,7 @@ export default function PageFournisseur({ params }: { params: { id: string } }) 
 
       <section aria-labelledby="jeux">
         <h2 id="jeux">{typo(`Ses ${jeux.length} jeux analysés sur ${SITE.nom}`)}</h2>
+        <GrilleJeux jeux={jeux} />
         <div className="tableau-defilant">
           <table>
             <caption>{typo('Classés par nombre de recherches mensuelles au Canada')}</caption>

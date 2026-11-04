@@ -5,7 +5,13 @@ import Tampon from '@/components/Tampon';
 import Faq, { type Question } from '@/components/Faq';
 import EncadreAide from '@/components/EncadreAide';
 import JsonLd from '@/components/JsonLd';
-import { CASINOS, CRITERES, cheminCasino, exempleMise, miseTexte, parId, type Casino } from '@/lib/casinos';
+import Marque from '@/components/Marque';
+import BoutonCasino from '@/components/BoutonCasino';
+import NoteLoupe from '@/components/NoteLoupe';
+import GrilleJeux from '@/components/GrilleJeux';
+import { ILLUSTRATIONS } from '@/components/Illustrations';
+import { MACHINES } from '@/lib/contenu/machines';
+import { CASINOS, CRITERES, cheminCasino, exempleMise, miseTexte, noteGlobale, parId, type Casino } from '@/lib/casinos';
 import { SITE, absolu, dateLongue, moisAnnee, montant } from '@/lib/site';
 import { meta, schemaPage } from '@/lib/seo';
 
@@ -65,16 +71,43 @@ export default function Accueil() {
   const exemples = CASINOS.map((c) => ({ c, ex: exempleMise(c) }));
   return (
     <>
-      <section className="heros conteneur">
-        <h1>Meilleurs casinos en ligne au Québec, passés à la loupe</h1>
-        <p className="chapeau">
-          Nous relisons les conditions officielles de chaque casino : bonus, mise à compléter, licence et retraits. Voici le
-          classement, avec les chiffres qui comptent vraiment et la date de chaque vérification.
-        </p>
-        <div className="heros-meta">
-          <Tampon date={MAJ} texte="Classement vérifié le" />
-          <span>{CASINOS.length} casinos comparés</span>
-          <Link href="/notre-methode/">Comment nous notons</Link>
+      <section className="accueil-heros">
+        <div className="conteneur accueil-heros-grille">
+          <div>
+            <p className="surtitre">Comparatif indépendant · Québec · 18+</p>
+            <h1>Meilleurs casinos en ligne au Québec, passés à la loupe</h1>
+            <p className="chapeau">
+              Bonus, mise à compléter, licence et retraits : nous relisons les conditions officielles de chaque casino et
+              datons chaque vérification. Voici le classement, avec les chiffres qui comptent vraiment.
+            </p>
+            <ul className="confiance">
+              <li>✓ Conditions relues sur les sites officiels</li>
+              <li>✓ Joueurs du Québec acceptés, confirmé par écrit</li>
+              <li>✓ Grille de notation publique</li>
+            </ul>
+            <div className="heros-meta heros-meta-clair">
+              <Tampon date={MAJ} texte="Classement vérifié le" />
+              <Link href="/notre-methode/">Comment nous notons</Link>
+            </div>
+          </div>
+          <div className="podium" aria-label="Le top 3 du moment">
+            <p className="podium-titre">Le top 3 du moment</p>
+            <ol>
+              {CASINOS.slice(0, 3).map((c, i) => (
+                <li key={c.id}>
+                  <span className="podium-rang">{i + 1}</span>
+                  <Marque casino={c} petite />
+                  <span className="podium-texte">
+                    <Link href={cheminCasino(c)}>{c.nom}</Link>
+                    <span>{c.offre.titre}</span>
+                  </span>
+                  <NoteLoupe note={noteGlobale(c)} taille={38} legende={false} />
+                  <BoutonCasino casino={c} emplacement="accueil-podium" texte="Jouer" />
+                </li>
+              ))}
+            </ol>
+            <p className="podium-mention">18+. Les conditions du casino s&apos;appliquent. Liens commerciaux.</p>
+          </div>
         </div>
       </section>
 
@@ -94,6 +127,42 @@ export default function Accueil() {
           notre <Link href="/notre-methode/">grille de notation publique</Link>.{' '}
           <Link href="/divulgation-affiliation/">En savoir plus</Link>.
         </p>
+      </section>
+
+      <section className="conteneur">
+        <div className="titre-section">
+          <h2>Les machines à sous les plus jouées au Canada</h2>
+          <Link href="/machines-a-sous/">Voir les 40 jeux →</Link>
+        </div>
+        <GrilleJeux jeux={MACHINES.slice(0, 8)} />
+        <p className="petit">Images officielles des éditeurs de jeux. RTP de la meilleure version publiée.</p>
+      </section>
+
+      <section className="conteneur">
+        <h2>Explorer par type de jeu</h2>
+        <ul className="grille-categories">
+          {(
+            [
+              ['machine', 'Machines à sous', '/machines-a-sous/', 'RTP, volatilité et 40 jeux analysés'],
+              ['roulette', 'Roulette', '/roulette-en-ligne/', 'Européenne, française ou américaine'],
+              ['blackjack', 'Blackjack', '/blackjack-en-ligne/', 'Règles et stratégie de base'],
+              ['direct', 'Casino en direct', '/casino-en-direct/', 'Tables avec croupier en vidéo'],
+              ['crash', 'Jeux de crash', '/jeux-de-crash/', 'Aviator, Chicken Road, Plinko'],
+              ['sport', 'Paris sportifs', '/paris-sportifs-quebec/', 'Hockey, soccer et bonus sport']
+            ] as const
+          ).map(([cle, nom, href, texte]) => {
+            const Illus = ILLUSTRATIONS[cle];
+            return (
+              <li key={cle}>
+                <Link href={href} className="carte-categorie">
+                  <Illus />
+                  <strong>{nom}</strong>
+                  <span>{texte}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </section>
 
       <section className="conteneur">
