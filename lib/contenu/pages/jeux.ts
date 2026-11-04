@@ -262,7 +262,7 @@ const jeux: PageGuide[] = [
           },
           {
             type: 'liens',
-            items: FOURNISSEURS.map((f) => ({
+            items: FOURNISSEURS.filter((f) => MACHINES.some((m) => m.fournisseurId === f.id)).map((f) => ({
               href: cheminFournisseur(f),
               titre: f.nom,
               texte: `${MACHINES.filter((m) => m.fournisseurId === f.id).length} jeux analysés`
@@ -670,7 +670,7 @@ const jeux: PageGuide[] = [
           {
             type: 'p',
             texte:
-              "Les roulettes et blackjacks en direct ont aussi leurs fiches : [Lightning Roulette](/roulette-en-ligne/lightning-roulette/), [Auto Roulette](/roulette-en-ligne/auto-roulette/), [Free Bet Blackjack](/blackjack-en-ligne/free-bet-blackjack/) et [Infinite Blackjack](/blackjack-en-ligne/infinite-blackjack/)."
+              "Les roulettes et blackjacks en direct ont aussi leurs fiches : [Lightning Roulette](/roulette-en-ligne/lightning-roulette/), [Auto Roulette](/roulette-en-ligne/auto-roulette/), [Free Bet Blackjack](/blackjack-en-ligne/free-bet-blackjack/) et [Infinite Blackjack](/blackjack-en-ligne/infinite-blackjack/). La plupart de ces jeux viennent d'[Evolution](/fournisseurs/evolution/), le principal studio de casino en direct."
           }
         ]
       },

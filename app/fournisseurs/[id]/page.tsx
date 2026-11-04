@@ -5,11 +5,14 @@ import Faq from '@/components/Faq';
 import TexteRiche from '@/components/TexteRiche';
 import { Offres } from '@/components/RenduGuide';
 import GrilleJeux from '@/components/GrilleJeux';
+import GrilleTables from '@/components/GrilleTables';
 import { meta } from '@/lib/seo';
 import { typo } from '@/lib/typo';
 import { SITE } from '@/lib/site';
 import { FOURNISSEURS, fournisseur, cheminFournisseur } from '@/lib/contenu/fournisseurs';
 import { parFournisseur, cheminMachine, pct, fois } from '@/lib/contenu/machines';
+import { TABLES, cheminTable, rtpTable } from '@/lib/contenu/tables';
+import { demoJeu } from '@/lib/demos';
 
 export const dynamicParams = false;
 
@@ -25,16 +28,23 @@ export function generateMetadata({ params }: { params: { id: string } }) {
 
 const PARENT = { nom: 'Machines à sous', chemin: '/machines-a-sous/' };
 
+/** Jeux en direct et de table d'un fournisseur (Free Bet Blackjack compte pour Evolution et Pragmatic Play). */
+const tablesDe = (nom: string) => TABLES.filter((t) => t.fournisseur.split(' et ').includes(nom));
+const nbJeux = (id: string, nom: string) => parFournisseur(id).length + tablesDe(nom).length;
+
 export default function PageFournisseur({ params }: { params: { id: string } }) {
   const f = fournisseur(params.id);
   if (!f) notFound();
   const jeux = parFournisseur(f.id);
+  const direct = tablesDe(f.nom);
+  const demos = jeux.filter((m) => demoJeu(m.slug)?.mode === 'integree').length;
   const autres = FOURNISSEURS.filter((x) => x.id !== f.id);
   const emplacement = `fournisseur-${f.id}`;
 
   const sommaire = [
     { id: 'presentation', titre: `${f.nom} en bref` },
-    { id: 'jeux', titre: 'Ses jeux analysés' },
+    ...(jeux.length ? [{ id: 'jeux', titre: 'Ses machines à sous' }] : []),
+    ...(direct.length ? [{ id: 'direct', titre: 'Ses jeux en direct' }] : []),
     { id: 'a-savoir', titre: 'À savoir avant de jouer' },
     { id: 'ou-jouer', titre: 'Où trouver ses jeux' },
     { id: 'faq-titre', titre: 'Questions fréquentes' }
@@ -43,7 +53,7 @@ export default function PageFournisseur({ params }: { params: { id: string } }) 
   return (
     <Guide
       nom={f.nom}
-      parent={PARENT}
+      parent={f.parent || PARENT}
       chemin={cheminFournisseur(f)}
       h1={f.h1}
       chapeau={f.chapeau}
@@ -61,8 +71,12 @@ export default function PageFournisseur({ params }: { params: { id: string } }) 
         ))}
       </section>
 
+      {jeux.length ? (
       <section aria-labelledby="jeux">
-        <h2 id="jeux">{typo(`Ses ${jeux.length} jeux analysés sur ${SITE.nom}`)}</h2>
+        <h2 id="jeux">{typo(`Ses ${jeux.length} machines à sous analysées sur ${SITE.nom}`)}</h2>
+        {demos ? (
+          <p>{typo(`${demos} de ces jeux ont une démo gratuite officielle, jouable directement sur leur fiche, sans inscription.`)}</p>
+        ) : null}
         <GrilleJeux jeux={jeux} />
         <div className="tableau-defilant">
           <table>
@@ -95,6 +109,37 @@ export default function PageFournisseur({ params }: { params: { id: string } }) 
           {typo("« Versions » : nombre de réglages de RTP recensés dans nos sources. Un « 1 » ne garantit pas qu'il n'en existe pas d'autres.")}
         </p>
       </section>
+      ) : null}
+
+      {direct.length ? (
+        <section aria-labelledby="direct">
+          <h2 id="direct">{typo(`Ses ${direct.length} jeux en direct analysés`)}</h2>
+          <GrilleTables jeux={direct} />
+          <div className="tableau-defilant">
+            <table>
+              <caption>{typo('Classés par nombre de recherches mensuelles au Canada')}</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Jeu</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">RTP</th>
+                </tr>
+              </thead>
+              <tbody>
+                {direct.map((t) => (
+                  <tr key={t.slug}>
+                    <th scope="row">
+                      <Link href={cheminTable(t)}>{t.nom}</Link>
+                    </th>
+                    <td>{t.format}</td>
+                    <td>{rtpTable(t)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
 
       <section aria-labelledby="a-savoir">
         <h2 id="a-savoir">À savoir avant de jouer</h2>
@@ -127,7 +172,7 @@ export default function PageFournisseur({ params }: { params: { id: string } }) 
             <li key={x.id}>
               <Link href={cheminFournisseur(x)}>
                 <strong>{x.nom}</strong>
-                <span>{typo(`${parFournisseur(x.id).length} jeux analysés`)}</span>
+                <span>{typo(`${nbJeux(x.id, x.nom)} jeux analysés`)}</span>
               </Link>
             </li>
           ))}

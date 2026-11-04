@@ -15,6 +15,7 @@ import { meta } from '@/lib/seo';
 import { dateLongue } from '@/lib/site';
 import { typo } from '@/lib/typo';
 import { MACHINES, dollars, type Machine } from '@/lib/contenu/machines';
+import { FOURNISSEURS, cheminFournisseur } from '@/lib/contenu/fournisseurs';
 import { RUBRIQUES, TABLES, cheminTable, parFamille, rtpTable, sourceRtpTable, tableJeu, type Famille, type TableJeu } from '@/lib/contenu/tables';
 
 const MODIFIE = '2026-11-04';
@@ -152,7 +153,18 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
           <table className="tableau-fiche">
             <caption className="sr-only">{typo(`Caractéristiques de ${t.nom}`)}</caption>
             <tbody>
-              <Ligne nom="Éditeur" valeur={t.fournisseur} />
+              <Ligne
+                nom="Éditeur"
+                valeur={t.fournisseur.split(' et ').map((n, i) => {
+                  const f = FOURNISSEURS.find((x) => x.nom === n);
+                  return (
+                    <span key={n}>
+                      {i ? ' et ' : ''}
+                      {f ? <Link href={cheminFournisseur(f)}>{n}</Link> : n}
+                    </span>
+                  );
+                })}
+              />
               <Ligne nom="Type de jeu" valeur={t.format} />
               <Ligne nom="Sortie" valeur={t.annee ?? 'Non confirmée'} />
               <Ligne nom="RTP" valeur={t.rtp === null ? 'Non publié par l’éditeur' : typo(`${rtpTable(t)} (${sourceRtpTable(t)})`)} />

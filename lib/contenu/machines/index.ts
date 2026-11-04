@@ -3,11 +3,12 @@ import { typo, typoProfond } from '@/lib/typo';
 import pragmatic from './pragmatic';
 import autres from './autres';
 import novembre from './novembre';
+import nolimit from './nolimit';
 import { demoJeu } from '@/lib/demos';
 
 export type { Machine } from './types';
 
-const BRUT: Machine[] = [...pragmatic, ...autres, ...novembre];
+const BRUT: Machine[] = [...pragmatic, ...autres, ...novembre, ...nolimit];
 
 // Garde-fous : bloquent le build si une fiche est incomplète ou incohérente.
 const slugs = new Set<string>();

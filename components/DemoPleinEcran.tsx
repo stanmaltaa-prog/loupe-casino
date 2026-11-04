@@ -11,9 +11,37 @@ type Props = {
   ctaHref: string;
   ctaTexte: string;
   casinoId: string;
+  /** Identifiant Hacksaw Gaming : l'adresse du jeu est construite au clic, avec sa version du moment. */
+  hacksaw?: string;
 };
 
 const PETIT_ECRAN = '(max-width: 900px), (pointer: coarse)';
+
+/**
+ * Le cadre du jeu ne peut ni quitter le site ni remplacer la page : pas de « allow-top-navigation ».
+ * Testé avec Pragmatic Play, Play'n GO et Hacksaw Gaming (ordinateur et version mobile).
+ */
+const BAC_A_SABLE = 'allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox allow-pointer-lock allow-orientation-lock';
+
+/** Même adresse que le lanceur officiel de Hacksaw Gaming, sans sa redirection de page sur téléphone. */
+async function adresseHacksaw(id: string, mobile: boolean): Promise<string> {
+  const r = await fetch(`https://static-live.hacksawgaming.com/${id}/version.json?${Date.now()}`);
+  if (!r.ok) throw new Error(`version ${r.status}`);
+  const { version } = (await r.json()) as { version: string };
+  const p = new URLSearchParams({
+    language: 'fr',
+    channel: mobile ? 'mobile' : 'desktop',
+    gameid: id,
+    mode: '2',
+    token: '123131',
+    lobbyurl: window.location.origin,
+    currency: 'EUR',
+    partner: 'demo',
+    env: 'https://rgs-demo.hacksawgaming.com/api',
+    realmoneyenv: 'https://rgs-demo.hacksawgaming.com/api'
+  });
+  return `https://static-live.hacksawgaming.com/${id}/${version}/index.html?${p.toString()}`;
+}
 
 /**
  * Démo intégrée, chargée seulement au clic.
@@ -22,7 +50,8 @@ const PETIT_ECRAN = '(max-width: 900px), (pointer: coarse)';
  * En plein écran, une barre fine garde « Fermer » et le lien « Jouer en argent réel ».
  * Le même cadre passe en plein écran par une simple classe CSS : le jeu ne se recharge pas.
  */
-export default function DemoPleinEcran({ url, urlMobile, nom, poster, ctaHref, ctaTexte, casinoId }: Props) {
+export default function DemoPleinEcran({ url, urlMobile, nom, poster, ctaHref, ctaTexte, casinoId, hacksaw }: Props) {
+  // null : affiche ; '' : chargement ; 'erreur' : échec ; sinon adresse du jeu.
   const [src, setSrc] = useState<string | null>(null);
   const [plein, setPlein] = useState(false);
   const cadre = useRef<HTMLDivElement>(null);
@@ -71,7 +100,15 @@ export default function DemoPleinEcran({ url, urlMobile, nom, poster, ctaHref, c
 
   const lancer = () => {
     mobile.current = window.matchMedia(PETIT_ECRAN).matches;
-    setSrc(mobile.current && urlMobile ? urlMobile : url);
+    if (hacksaw) {
+      setSrc('');
+      adresseHacksaw(hacksaw, mobile.current)
+        .then(setSrc)
+        .catch(() => setSrc('erreur'));
+    } else {
+      setSrc(mobile.current && urlMobile ? urlMobile : url);
+    }
+    // Le plein écran est demandé tout de suite, pendant le clic, sinon le navigateur le refuse.
     if (mobile.current) ouvrirPlein();
   };
 
@@ -95,7 +132,7 @@ export default function DemoPleinEcran({ url, urlMobile, nom, poster, ctaHref, c
     };
   }, [fermer]);
 
-  const classe = !src ? 'demo-hote' : plein ? 'demo-cadre demo-plein' : 'demo-cadre';
+  const classe = src === null ? 'demo-hote' : plein ? 'demo-cadre demo-plein' : 'demo-cadre';
 
   return (
     <>
@@ -107,7 +144,7 @@ export default function DemoPleinEcran({ url, urlMobile, nom, poster, ctaHref, c
         aria-modal={plein ? true : undefined}
         aria-label={plein ? `Démo gratuite de ${nom}, plein écran` : undefined}
       >
-        {!src ? (
+        {src === null ? (
           <button type="button" className="demo-lanceur" onClick={lancer}>
             {poster ? <img src={poster} alt="" width={339} height={180} loading="lazy" decoding="async" referrerPolicy="no-referrer" /> : null}
             <span className="demo-bouton">
@@ -142,11 +179,29 @@ export default function DemoPleinEcran({ url, urlMobile, nom, poster, ctaHref, c
                 </span>
               </div>
             ) : null}
-            <iframe src={src} title={`Démo gratuite de ${nom}`} allowFullScreen referrerPolicy="no-referrer" />
+            {src === '' ? (
+              <p className="demo-etat">Chargement de la démo…</p>
+            ) : src === 'erreur' ? (
+              <p className="demo-etat">
+                La démo n’a pas pu se charger.{' '}
+                <button type="button" className="demo-reessayer" onClick={lancer}>
+                  Réessayer
+                </button>
+              </p>
+            ) : (
+              <iframe
+                src={src}
+                title={`Démo gratuite de ${nom}`}
+                sandbox={BAC_A_SABLE}
+                allow="fullscreen; autoplay"
+                allowFullScreen
+                referrerPolicy="no-referrer"
+              />
+            )}
           </>
         )}
       </div>
-      {src && !plein ? (
+      {src && src !== 'erreur' && !plein ? (
         <div className="demo-actions">
           <button type="button" className="cta-secondaire demo-agrandir" onClick={ouvrirPlein}>
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">

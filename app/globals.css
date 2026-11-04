@@ -1,7 +1,7 @@
 :root {
   --encre: #10212b;
   --encre-douce: #3e525b;
-  --encre-pale: #5f7279;
+  --encre-pale: #566970;
   --verre: #1f5f6b;
   --verre-fonce: #164852;
   --verre-pale: #dcebec;
@@ -2863,4 +2863,58 @@ html.demo-ouverte body {
   .accueil-direct .grille-tables li:nth-child(n + 5) {
     display: none;
   }
+}
+.demo-etat {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-height: 200px;
+  height: 100%;
+  color: #e6eef0;
+  background: #0c1c25;
+}
+.demo-reessayer {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 14px;
+  background: var(--jeton);
+  color: #1b1405;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Après une démo ouverte chez l'éditeur : invitation à jouer en argent réel */
+.demo-apres {
+  margin: 1em 0;
+  padding: 18px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #0c1c25, #1f5f6b);
+  color: #fff;
+}
+.demo-apres p {
+  margin: 0 0 10px;
+}
+.demo-apres-titre {
+  font-family: var(--titre);
+  font-size: 1.2rem;
+  font-weight: 750;
+}
+.demo-apres-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0 10px;
+}
+.demo-rouvrir {
+  color: #fff;
+  font-weight: 650;
+}
+.demo-apres .mention-cta {
+  color: #b9cdd0;
+  margin: 0;
 }

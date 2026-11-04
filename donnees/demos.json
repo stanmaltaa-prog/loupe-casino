@@ -1,5 +1,5 @@
 {
-  "_lisezMoi": "Démos gratuites officielles, relevées sur le site de chaque éditeur le 4 novembre 2026. « pragmatic » et « playngo » : démos intégrées sur la page (intégration testée). « liens » : la démo s'ouvre sur le site officiel de l'éditeur.",
+  "_lisezMoi": "Démos gratuites officielles, relevées sur le site de chaque éditeur le 4 novembre 2026. « pragmatic », « playngo » et « hacksaw » (identifiant du jeu chez Hacksaw Gaming) : démos intégrées sur la page, testées. « liens » : l'éditeur n'autorise pas l'intégration, la démo s'ouvre sur son site.",
   "pragmatic": {
     "gates-of-olympus": "vs20olympgate",
     "sweet-bonanza": "vs20fruitsw",
@@ -44,22 +44,28 @@
     "fire-joker": "firejoker",
     "rise-of-olympus": "riseofolympus"
   },
+  "hacksaw": {
+    "le-bandit": "1309",
+    "le-zeus": "1830",
+    "le-fisherman": "2057",
+    "le-cowboy": "1924",
+    "wanted-dead-or-a-wild": "1067",
+    "chaos-crew": "1059"
+  },
   "liens": {
     "razor-shark": "https://www.pushgaming.com/games/play/razor-shark.html",
     "jammin-jars": "https://www.pushgaming.com/games/play/jammin-jars.html",
-    "wanted-dead-or-a-wild": "https://www.hacksawgaming.com/games/wanted-dead-or-a-wild",
-    "chaos-crew": "https://www.hacksawgaming.com/games/chaos-crew",
     "starburst": "https://netent.com/games/starburst",
     "gonzos-quest": "https://netent.com/games/gonzos-quest",
     "book-of-ra": "https://www.greentube.com/game/book-of-ra-deluxe/",
     "sizzling-hot": "https://www.greentube.com/game/sizzling-hot-deluxe/",
     "fishin-frenzy": "https://www.blueprintgaming.com/games/fishin-frenzy/",
     "bonanza": "https://www.bigtimegaming.com/games/bonanza",
-    "le-bandit": "https://www.hacksawgaming.com/games/le-bandit",
-    "le-fisherman": "https://www.hacksawgaming.com/games/le-fisherman",
-    "le-zeus": "https://www.hacksawgaming.com/games/le-zeus",
-    "le-cowboy": "https://www.hacksawgaming.com/games/le-cowboy",
     "duck-hunters": "https://www.nolimitcity.com/games/duck-hunters",
-    "first-person-blackjack": "https://games.evolution.com/first-person/first-person-blackjack/"
+    "first-person-blackjack": "https://games.evolution.com/first-person/first-person-blackjack/",
+    "tombstone-rip": "https://www.nolimitcity.com/games/tombstone-rip",
+    "san-quentin": "https://www.nolimitcity.com/games/san-quentin",
+    "mental": "https://www.nolimitcity.com/games/mental",
+    "fire-in-the-hole": "https://www.nolimitcity.com/games/fire-in-the-hole"
   }
 }

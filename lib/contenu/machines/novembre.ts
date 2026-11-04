@@ -540,7 +540,7 @@ const novembre: Machine[] = [
       "Le cœur du jeu, ce sont les cases dorées : chaque case qui participe à un gain devient dorée. Si un arc-en-ciel apparaît, ces cases révèlent des pièces (de 0,2× à 500× la mise), des trèfles qui multiplient les cases voisines, ou des pots d'or qui ramassent tout. Les trois bonus gardent les cases dorées plus longtemps ; le meilleur, à 5 symboles FS, garantit un arc-en-ciel à chaque tour et ne peut pas être acheté, selon la fiche officielle."
     ],
     pourQui: 'Les joueurs qui aiment les mécaniques à collecter et préfèrent une volatilité moyenne à une volatilité extrême.',
-    attention: 'La démo officielle s’ouvre sur le site de Hacksaw Gaming. Le RTP peut varier selon le casino : vérifiez l’aide du jeu.',
+    attention: 'La volatilité reste moyenne, mais les gros gains dépendent des bonus et des cases dorées. Le RTP peut varier selon le casino : vérifiez l’aide du jeu.',
     faq: [
       { q: 'Quel est le RTP de Le Bandit ?', r: '96,34 % selon SlotCatalog. La fiche officielle de Hacksaw Gaming ne l’affiche pas : vérifiez l’aide du jeu dans votre casino.' },
       { q: 'Quel est le gain maximal de Le Bandit ?', r: '10 000 fois la mise, selon la fiche officielle de Hacksaw Gaming.' }
@@ -658,6 +658,7 @@ const novembre: Machine[] = [
     slug: 'duck-hunters',
     nom: 'Duck Hunters',
     fournisseur: 'Nolimit City',
+    fournisseurId: 'nolimit-city',
     volume: 210,
     difficulte: 19,
     rtp: 96.05,
@@ -682,7 +683,7 @@ const novembre: Machine[] = [
       { q: 'Quel est le RTP de Duck Hunters ?', r: '96,05 % selon la fiche officielle de Nolimit City.' },
       { q: 'Tous les combien arrivent les tours gratuits de Duck Hunters ?', r: 'En moyenne une fois tous les 203 tours, selon Nolimit City. C’est une moyenne : l’attente peut être bien plus longue.' }
     ],
-    similaires: ['sugar-rush-1000', 'wanted-dead-or-a-wild', 'chaos-crew'],
+    similaires: ['san-quentin', 'tombstone-rip', 'wanted-dead-or-a-wild'],
     sources: [{ titre: 'Nolimit City, fiche officielle Duck Hunters', url: 'https://www.nolimitcity.com/games/duck-hunters' }, sc('Duck Hunters', 'duck-hunters')],
     verifieLe: V
   }

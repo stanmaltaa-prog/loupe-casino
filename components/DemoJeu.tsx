@@ -1,4 +1,5 @@
 import DemoPleinEcran from './DemoPleinEcran';
+import DemoLien from './DemoLien';
 import { CASINOS, lienSortie } from '@/lib/casinos';
 
 /**
@@ -9,6 +10,7 @@ import { CASINOS, lienSortie } from '@/lib/casinos';
 export default function DemoJeu({
   url,
   urlMobile,
+  hacksaw,
   nom,
   poster,
   mode = 'integree',
@@ -17,32 +19,33 @@ export default function DemoJeu({
 }: {
   url: string;
   urlMobile?: string;
+  hacksaw?: string;
   nom: string;
   poster: string | null;
   mode?: 'integree' | 'lien';
   editeur?: string;
   emplacement?: string;
 }) {
+  const top = CASINOS[0];
   if (mode === 'lien') {
     return (
-      <a className="demo-jeu demo-lien" href={url} target="_blank" rel="nofollow noopener">
-        {poster ? <img src={poster} alt="" width={339} height={180} loading="lazy" decoding="async" referrerPolicy="no-referrer" /> : null}
-        <span className="demo-bouton">
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7 4.5v15l13-7.5z" fill="currentColor" />
-          </svg>
-          Jouer gratuitement à {nom}
-        </span>
-        <span className="demo-mention">Démo officielle sur le site de {editeur || "l'éditeur"} · nouvel onglet · 18+</span>
-      </a>
+      <DemoLien
+        url={url}
+        nom={nom}
+        poster={poster}
+        editeur={editeur}
+        ctaHref={lienSortie(top, `${emplacement}-apres-demo`)}
+        ctaTexte={`Jouer en argent réel chez ${top.nom}`}
+        casinoId={top.id}
+      />
     );
   }
-  const top = CASINOS[0];
   return (
     <div className="demo-jeu">
       <DemoPleinEcran
         url={url}
         urlMobile={urlMobile}
+        hacksaw={hacksaw}
         nom={nom}
         poster={poster}
         ctaHref={lienSortie(top, `${emplacement}-plein-ecran`)}

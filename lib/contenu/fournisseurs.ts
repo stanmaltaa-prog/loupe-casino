@@ -16,6 +16,8 @@ export type Fournisseur = {
   faq: Question[];
   sources: { titre: string; url: string }[];
   modifie: string;
+  /** Rubrique parente dans le fil d'Ariane (par défaut : Machines à sous). */
+  parent?: { nom: string; chemin: string };
 };
 
 const M = '2026-11-04';
@@ -26,16 +28,18 @@ const BRUT: Fournisseur[] = [
     id: 'pragmatic-play',
     nom: 'Pragmatic Play',
     volume: 8100,
-    titre: 'Pragmatic Play : machines à sous, RTP et jeux phares',
+    titre: 'Pragmatic Play : démos gratuites, RTP et jeux en direct',
     description:
-      'Pragmatic Play : Gates of Olympus, Sweet Bonanza, Big Bass… Les vrais RTP de ses jeux, ses versions de RTP et ce qu’il faut savoir avant de jouer.',
+      'Pragmatic Play : démos gratuites de Gates of Olympus, Sweet Bonanza, Big Bass… Leurs vrais RTP, leurs versions, et ses jeux en direct comme Mega Wheel.',
     h1: 'Pragmatic Play : ses machines à sous et leurs vrais chiffres',
     chapeau:
       "C'est le fournisseur le plus recherché au Canada, et plus de la moitié des machines de notre sélection viennent de son catalogue. Voici ce qui distingue ses jeux, et le piège à connaître.",
     presentation: [
       "Avec environ **8 100 recherches par mois au Canada** sur son seul nom, Pragmatic Play domine notre étude. Selon le pied de page de son site officiel, la société se présente comme un investissement de Veridian (Gibraltar) Limited.",
       "Sa marque de fabrique : le **paiement partout** combiné à des multiplicateurs, popularisé par [Gates of Olympus](/machines-a-sous/gates-of-olympus/) et [Sweet Bonanza](/machines-a-sous/sweet-bonanza/). Le fournisseur décline ensuite ses succès en séries : versions « 1000 » aux multiplicateurs plus hauts, version Super Scatter, ou suites de [Big Bass Bonanza](/machines-a-sous/big-bass-bonanza/), un jeu du studio Reel Kingdom qu'il distribue.",
-      "Pragmatic Play propose aussi des jeux Megaways, un système créé par [Big Time Gaming](/fournisseurs/big-time-gaming/) : [Buffalo King Megaways](/machines-a-sous/buffalo-king-megaways/), [5 Lions Megaways](/machines-a-sous/5-lions-megaways/), [Great Rhino Megaways](/machines-a-sous/great-rhino-megaways/) et [Madame Destiny Megaways](/machines-a-sous/madame-destiny-megaways/)."
+      "Pragmatic Play propose aussi des jeux Megaways, un système créé par [Big Time Gaming](/fournisseurs/big-time-gaming/) : [Buffalo King Megaways](/machines-a-sous/buffalo-king-megaways/), [5 Lions Megaways](/machines-a-sous/5-lions-megaways/), [Great Rhino Megaways](/machines-a-sous/great-rhino-megaways/) et [Madame Destiny Megaways](/machines-a-sous/madame-destiny-megaways/).",
+      "La plupart de ses machines de notre sélection ont une **démo gratuite officielle**, jouable directement sur leur fiche, sans inscription, en plein écran sur téléphone.",
+      "Pragmatic Play a aussi son propre casino en direct, **Pragmatic Play Live** : [Mega Wheel](/casino-en-direct/mega-wheel/), sa roue de jeu télévisé, [Sweet Bonanza CandyLand](/casino-en-direct/sweet-bonanza-candyland/), la version en direct de Sweet Bonanza, [Mega Roulette](/roulette-en-ligne/mega-roulette/) et sa version de [Free Bet Blackjack](/blackjack-en-ligne/free-bet-blackjack/)."
     ],
     aSavoir: [
       '**Trois réglages de RTP coexistent souvent**, autour de 96,5 %, 95,5 % et 94,5 % sur les jeux de notre sélection. Le casino choisit la version installée : vérifiez le RTP dans l’écran d’aide du jeu.',
@@ -53,11 +57,106 @@ const BRUT: Fournisseur[] = [
         r: 'Non. Chaque jeu a son propre RTP, et la plupart existent en plusieurs versions. Sur les jeux de notre sélection, on trouve souvent une version autour de 96,5 %, une autour de 95,5 % et une autour de 94,5 %.'
       },
       {
+        q: 'Peut-on jouer gratuitement aux jeux Pragmatic Play ?',
+        r: 'Oui pour les machines à sous : la plupart de celles de notre sélection ont une démo officielle jouable sur leur fiche, avec des crédits fictifs et sans inscription. Les jeux en direct de Pragmatic Play Live se jouent uniquement en argent réel.'
+      },
+      {
         q: 'Où trouver beaucoup de jeux Pragmatic Play ?',
         r: 'Celsius affiche 675 jeux Pragmatic Play selon l’opérateur. Vérifiez la disponibilité du jeu voulu dans le lobby après inscription.'
       }
     ],
-    sources: [{ titre: 'Pragmatic Play, site officiel', url: 'https://www.pragmaticplay.com/en/' }, SC],
+    sources: [
+      { titre: 'Pragmatic Play, site officiel', url: 'https://www.pragmaticplay.com/en/' },
+      { titre: 'Pragmatic Play, jeux en direct', url: 'https://www.pragmaticplay.com/en/live-casino/' },
+      SC
+    ],
+    modifie: M
+  },
+  {
+    id: 'evolution',
+    nom: 'Evolution',
+    volume: 1900,
+    parent: { nom: 'Casino en direct', chemin: '/casino-en-direct/' },
+    titre: 'Evolution : Crazy Time, Lightning Roulette et jeux en direct',
+    description:
+      'Evolution, le géant du casino en direct : Crazy Time, Monopoly Live, Lightning Roulette, ses marques (NetEnt, Nolimit City), ses licences et ses RTP.',
+    h1: 'Evolution : le studio de Crazy Time, Lightning Roulette et Monopoly Live',
+    chapeau:
+      "Evolution est derrière la plupart des jeux en direct que vous croiserez dans un casino en ligne. Voici ses jeux phares, les marques qu'il possède et ce qu'il faut savoir avant de miser.",
+    presentation: [
+      "Avec environ **1 900 recherches par mois au Canada** sur son nom, Evolution est la référence du casino en direct. Dans notre sélection, il signe [Crazy Time](/casino-en-direct/crazy-time/), [MONOPOLY Live](/casino-en-direct/monopoly-live/), [Funky Time](/casino-en-direct/funky-time/), [Lightning Roulette](/roulette-en-ligne/lightning-roulette/) et [Auto Roulette](/roulette-en-ligne/auto-roulette/). Son site officiel présente Crazy Time comme son jeu télévisé le plus populaire.",
+      "Evolution est aussi un groupe : selon la page « Marques » de son site, il réunit NetEnt, Red Tiger, Big Time Gaming, Nolimit City, Ezugi, Sneaky Slots et DigiWheel. Nos pages [NetEnt](/fournisseurs/netent/), [Big Time Gaming](/fournisseurs/big-time-gaming/) et [Nolimit City](/fournisseurs/nolimit-city/) détaillent leurs machines à sous.",
+      "Sa gamme **First Person** propose des versions numériques de ses classiques, sans croupier, comme [First Person Blackjack](/blackjack-en-ligne/first-person-blackjack/), dont Evolution offre une démo gratuite sur son site selon votre pays. Le groupe indique être agréé par la Malta Gaming Authority (licence MGA/B2B/187/2010) et par la Gambling Commission de Grande-Bretagne."
+    ],
+    aSavoir: [
+      '**Les jeux télévisés rendent moins que les jeux de table** : 96,08 % pour Crazy Time selon Evolution, contre 97,30 % pour la roulette européenne et plus de 99 % pour un blackjack bien joué.',
+      '**Chaque mise a son propre RTP** : l’aide de chaque table indique le taux de la mise que vous jouez.',
+      '**Les bonus de bienvenue comptent rarement** sur les jeux en direct : lisez les conditions avant d’accepter une offre.',
+      '**Les statistiques et historiques** des sites de suivi ne prédisent rien : chaque tour est indépendant, comme Evolution le rappelle sur sa page Crazy Time.'
+    ],
+    faq: [
+      {
+        q: 'Evolution est-il un fournisseur fiable ?',
+        r: 'Evolution indique être agréé notamment par la Malta Gaming Authority (licence MGA/B2B/187/2010) et par la Gambling Commission britannique. Cela concerne le fournisseur : la fiabilité du casino qui propose ses jeux reste à vérifier séparément.'
+      },
+      {
+        q: 'Peut-on jouer gratuitement aux jeux Evolution ?',
+        r: 'Les jeux en direct se jouent en argent réel. Evolution propose des démos de certains jeux numériques sur son site, comme First Person Blackjack, selon votre pays.'
+      },
+      {
+        q: 'Quelles marques appartiennent à Evolution ?',
+        r: 'Selon son site officiel : NetEnt, Red Tiger, Big Time Gaming, Nolimit City, Ezugi, Sneaky Slots et DigiWheel, en plus de la marque Evolution elle-même.'
+      },
+      {
+        q: 'Quel est le jeu Evolution le plus recherché au Canada ?',
+        r: 'Crazy Time, avec environ 720 recherches par mois sur son nom selon Ubersuggest, et davantage encore sur « Crazy Time stats ».'
+      }
+    ],
+    sources: [
+      { titre: 'Evolution, page officielle des marques du groupe', url: 'https://www.evolution.com/brands' },
+      { titre: 'Evolution Games, site officiel des jeux (licences en pied de page)', url: 'https://games.evolution.com/live-casino/game-shows/crazy-time/' }
+    ],
+    modifie: M
+  },
+  {
+    id: 'nolimit-city',
+    nom: 'Nolimit City',
+    volume: 1900,
+    titre: 'Nolimit City : San Quentin, Mental, Tombstone, RTP et démos',
+    description:
+      'Nolimit City : San Quentin, Mental, Tombstone R.I.P., Duck Hunters… Leurs vrais RTP, leurs gains max record, les mécaniques xWays et xNudge, et les démos.',
+    h1: 'Nolimit City : les machines à sous les plus extrêmes du marché',
+    chapeau:
+      "Nolimit City s'est fait un nom avec des jeux à volatilité extrême et des gains maximaux de plusieurs centaines de milliers de fois la mise. Voici ses jeux phares, leurs vrais chiffres et ce qu'il faut savoir avant d'y jouer.",
+    presentation: [
+      "Avec environ **1 900 recherches par mois au Canada** sur son nom, Nolimit City est l'un des studios les plus suivis. Selon la page « Marques » d'[Evolution](/fournisseurs/evolution/), il fait aujourd'hui partie du groupe Evolution, aux côtés de NetEnt et de Big Time Gaming.",
+      "Ses jeux sont connus pour leurs **gains maximaux record** : 300 000 fois la mise pour [Tombstone R.I.P.](/machines-a-sous/tombstone-rip/), 150 000 fois pour [San Quentin xWays](/machines-a-sous/san-quentin/), 66 666 fois pour [Mental](/machines-a-sous/mental/), selon les fiches officielles. En contrepartie, la plupart des tours rapportent peu ou rien.",
+      "Le studio a déposé ses propres mécaniques, signalées par le préfixe « x » : **xWays** (un symbole qui en révèle plusieurs identiques), **xNudge** (un wild qui glisse et augmente son multiplicateur), **xSplit** (qui coupe les symboles en deux), **xBomb** (un wild qui explose) ou **xRIP**, qui ne paie pas un tour dont le gain est inférieur à la mise."
+    ],
+    aSavoir: [
+      '**La volatilité est extrême** sur ses jeux phares : prévoyez un budget qui tient plusieurs centaines de tours, ou jouez de très petites mises.',
+      '**Les fiches officielles affichent des chiffres rares** : fréquence des tours gratuits, probabilité du gain maximal, fréquence de gain. Nous les reprenons sur chaque fiche.',
+      '**L’achat de bonus (Nolimit Bonus)** peut coûter de 70 à 3 000 fois la mise, et Nolimit City précise qu’il est retiré dans certains marchés réglementés.',
+      '**Les démos officielles** s’ouvrent sur le site de Nolimit City (plateforme Playin), avec confirmation de l’âge : l’éditeur n’autorise pas leur intégration ailleurs.'
+    ],
+    faq: [
+      {
+        q: 'Nolimit City appartient-il à Evolution ?',
+        r: 'Oui : Nolimit City figure parmi les marques du groupe Evolution sur la page officielle des marques d’Evolution.'
+      },
+      {
+        q: 'Quel est le jeu Nolimit City qui paie le plus ?',
+        r: 'Dans notre sélection, Tombstone R.I.P., avec un gain maximal de 300 000 fois la mise selon Nolimit City, et une probabilité d’environ 1 sur 130 millions.'
+      },
+      {
+        q: 'Les jeux Nolimit City ont-ils un bon RTP ?',
+        r: 'Leurs RTP officiels tournent autour de 96 % (96,03 % à 96,08 % sur les jeux de notre sélection). C’est la volatilité, très élevée, qui les distingue.'
+      }
+    ],
+    sources: [
+      { titre: 'Nolimit City, site officiel des jeux', url: 'https://www.nolimitcity.com/games' },
+      { titre: 'Evolution, page officielle des marques du groupe', url: 'https://www.evolution.com/brands' }
+    ],
     modifie: M
   },
   {
