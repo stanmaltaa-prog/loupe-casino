@@ -5,7 +5,13 @@ const nextConfig = {
   trailingSlash: true,
   compress: true,
   async redirects() {
-    return [{ source: '/fournisseurs/', destination: '/machines-a-sous/#fournisseurs', permanent: false }];
+    return [
+      // www.loupecasino.com renvoie définitivement vers loupecasino.com (une seule adresse pour Google)
+      { source: '/', has: [{ type: 'host', value: 'www.loupecasino.com' }], destination: 'https://loupecasino.com/', permanent: true },
+      { source: '/:fichier(.+\\.\\w+)', has: [{ type: 'host', value: 'www.loupecasino.com' }], destination: 'https://loupecasino.com/:fichier', permanent: true },
+      { source: '/:path+', has: [{ type: 'host', value: 'www.loupecasino.com' }], destination: 'https://loupecasino.com/:path+/', permanent: true },
+      { source: '/fournisseurs/', destination: '/machines-a-sous/#fournisseurs', permanent: false }
+    ];
   },
   async headers() {
     return [

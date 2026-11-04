@@ -32,7 +32,14 @@ export const metadata: Metadata = {
   applicationName: SITE.nom,
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
   formatDetection: { telephone: false },
-  icons: { apple: '/apple-touch-icon.png' },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon-192.png', type: 'image/png', sizes: '192x192' }
+    ],
+    apple: '/apple-touch-icon.png'
+  },
   openGraph: { siteName: SITE.nom, locale: SITE.locale, type: 'website', images: [{ url: '/og.png', width: 1200, height: 630 }] }
 };
 
