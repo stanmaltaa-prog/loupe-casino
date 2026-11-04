@@ -138,12 +138,12 @@ const jeux: PageGuide[] = [
     sections: [
       {
         id: 'classement',
-        titre: 'Le classement des 40 machines à sous les plus recherchées',
+        titre: `Le classement des ${MACHINES.length} machines à sous les plus recherchées`,
         blocs: [
           {
             type: 'p',
             texte:
-              "Nous avons mesuré les recherches mensuelles au Canada pour plus d'une centaine de machines à sous (Ubersuggest, novembre 2026), puis retenu 40 jeux parmi les plus recherchés disponibles en ligne, en écartant les recherches ambiguës et les machines propres aux casinos terrestres. Chaque jeu a sa fiche détaillée : meilleur RTP publié, autres versions, volatilité, gain maximal et budget à prévoir. Cliquez sur un nom pour l'ouvrir."
+              `Nous avons mesuré les recherches mensuelles au Canada pour plus d'une centaine de machines à sous (Ubersuggest, novembre 2026), puis retenu ${MACHINES.length} jeux parmi les plus recherchés disponibles en ligne, en écartant les recherches ambiguës et les machines propres aux casinos terrestres. Pour les jeux dont le nom seul est ambigu, nous avons retenu la recherche de leur démo. Chaque jeu a sa fiche détaillée : meilleur RTP publié, autres versions, volatilité, gain maximal et budget à prévoir. Cliquez sur un nom pour l'ouvrir.`
           },
           { type: 'grille-jeux' },
           {
@@ -151,6 +151,10 @@ const jeux: PageGuide[] = [
             legende: 'RTP : meilleure version publiée (fiche officielle ou SlotCatalog). Recherches : par mois, au Canada.',
             entetes: ['Jeu', 'Fournisseur', 'RTP', 'Volatilité', 'Gain max', 'Recherches'],
             lignes: CLASSEMENT
+          },
+          {
+            type: 'p',
+            texte: 'Pour essayer sans miser, voir nos [machines à sous gratuites](/machines-a-sous-gratuites/). Pour les jeux qui rendent le plus, voir [le classement au meilleur RTP](/machines-a-sous-meilleur-rtp/).'
           }
         ]
       },
@@ -281,7 +285,7 @@ const jeux: PageGuide[] = [
         r: "L'achat de bonus accélère l'accès aux tours gratuits, mais concentre le risque : un seul achat peut coûter 100 fois la mise ou plus. Il ne change pas l'avantage de la maison et est souvent interdit pendant la mise d'un bonus."
       }
     ],
-    connexes: ['/jeux/', '/casino-en-ligne-le-plus-payant/', '/conditions-de-mise/', '/bonus-casino-quebec/']
+    connexes: ['/machines-a-sous-gratuites/', '/machines-a-sous-meilleur-rtp/', '/machines-a-sous-loto-quebec/', '/jeux/']
   },
 
   {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import FilAriane from './FilAriane';
 import Tampon from './Tampon';
+import Signature from './Signature';
 import JsonLd from './JsonLd';
 import NoteLoupe from './NoteLoupe';
 import BoutonCasino, { MentionCta } from './BoutonCasino';
@@ -47,6 +48,7 @@ export default function Guide({
         <p className="chapeau">{chapeau}</p>
         <div className="heros-meta">
           <Tampon date={modifie} texte="Mis à jour le" />
+          {type === 'Article' ? <Signature /> : null}
         </div>
       </section>
       <div className="conteneur mise-en-page">

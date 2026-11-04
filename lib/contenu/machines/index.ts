@@ -2,10 +2,12 @@ import type { Machine } from './types';
 import { typo, typoProfond } from '@/lib/typo';
 import pragmatic from './pragmatic';
 import autres from './autres';
+import novembre from './novembre';
+import { demoJeu } from '@/lib/demos';
 
 export type { Machine } from './types';
 
-const BRUT: Machine[] = [...pragmatic, ...autres];
+const BRUT: Machine[] = [...pragmatic, ...autres, ...novembre];
 
 // Garde-fous : bloquent le build si une fiche est incomplète ou incohérente.
 const slugs = new Set<string>();
@@ -24,7 +26,7 @@ for (const m of BRUT) {
   for (const s of m.similaires) if (!slugs.has(s) || s === m.slug) throw new Error(`Jeu similaire inconnu (${s}) : ${ou}`);
 }
 
-/** Les 40 machines, de la plus recherchée à la moins recherchée au Canada. */
+/** Toutes les machines, de la plus recherchée à la moins recherchée au Canada. */
 export const MACHINES: Machine[] = typoProfond(BRUT).sort((a, b) => b.volume - a.volume || a.nom.localeCompare(b.nom));
 
 export function machine(slug: string): Machine | undefined {
@@ -60,21 +62,28 @@ export function sourceRtp(m: Machine): string {
 
 /** Titre pour Google : le plus complet qui tient en 62 caractères. */
 export function titreMachine(m: Machine): string {
-  const candidats = [
-    `${m.nom} : avis, RTP et ${m.gainMax ? 'gain max' : 'règles'} de la machine à sous`,
-    `${m.nom} : RTP, volatilité et ${m.gainMax ? 'gain max' : 'règles'}`,
-    `${m.nom} : RTP et avis`
-  ];
+  const gain = m.gainMax ? 'gain max' : 'règles';
+  // Les recherches « nom + demo » sont très fréquentes : on le dit dans le titre quand la démo existe.
+  const candidats = demoJeu(m.slug)
+    ? [`${m.nom} : démo gratuite, RTP et ${gain}`, `${m.nom} : démo gratuite et RTP`, `${m.nom} : démo et RTP`]
+    : [`${m.nom} : avis, RTP et ${gain} de la machine à sous`, `${m.nom} : RTP, volatilité et ${gain}`, `${m.nom} : RTP et avis`];
   return candidats.find((t) => t.length <= 62) || m.nom;
 }
 
 export function descriptionMachine(m: Machine): string {
   const gain = m.gainMax ? `, gain max ${fois(m.gainMax)}` : '';
-  const candidats = [
-    `${m.nom} (${m.fournisseur}) : RTP de ${pct(m.rtp)}, volatilité ${m.volatilite.toLowerCase()}${gain}. Versions de RTP, bonus et budget à prévoir, expliqués simplement.`,
-    `${m.nom} : RTP de ${pct(m.rtp)}, volatilité ${m.volatilite.toLowerCase()}${gain}. Versions de RTP, bonus et budget à prévoir, expliqués simplement.`,
-    `${m.nom} : RTP de ${pct(m.rtp)}, volatilité ${m.volatilite.toLowerCase()}${gain}. Bonus et budget à prévoir, expliqués simplement.`
-  ];
+  const vol = `volatilité ${m.volatilite.toLowerCase()}`;
+  const candidats = demoJeu(m.slug)
+    ? [
+        `${m.nom} (${m.fournisseur}) : démo gratuite sans inscription, RTP de ${pct(m.rtp)}, ${vol}${gain}. Bonus et budget expliqués simplement.`,
+        `${m.nom} : démo gratuite sans inscription, RTP de ${pct(m.rtp)}, ${vol}${gain}. Bonus et budget expliqués simplement.`,
+        `${m.nom} : démo gratuite, RTP de ${pct(m.rtp)}, ${vol}${gain}. Bonus et budget expliqués.`
+      ]
+    : [
+        `${m.nom} (${m.fournisseur}) : RTP de ${pct(m.rtp)}, ${vol}${gain}. Versions de RTP, bonus et budget à prévoir, expliqués simplement.`,
+        `${m.nom} : RTP de ${pct(m.rtp)}, ${vol}${gain}. Versions de RTP, bonus et budget à prévoir, expliqués simplement.`,
+        `${m.nom} : RTP de ${pct(m.rtp)}, ${vol}${gain}. Bonus et budget à prévoir, expliqués simplement.`
+      ];
   return candidats.find((d) => d.length <= 158) || candidats[candidats.length - 1];
 }
 

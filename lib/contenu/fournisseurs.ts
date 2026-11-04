@@ -31,7 +31,7 @@ const BRUT: Fournisseur[] = [
       'Pragmatic Play : Gates of Olympus, Sweet Bonanza, Big Bass… Les vrais RTP de ses jeux, ses versions de RTP et ce qu’il faut savoir avant de jouer.',
     h1: 'Pragmatic Play : ses machines à sous et leurs vrais chiffres',
     chapeau:
-      "C'est le fournisseur le plus recherché au Canada, et la moitié des 40 machines de notre sélection viennent de son catalogue. Voici ce qui distingue ses jeux, et le piège à connaître.",
+      "C'est le fournisseur le plus recherché au Canada, et plus de la moitié des machines de notre sélection viennent de son catalogue. Voici ce qui distingue ses jeux, et le piège à connaître.",
     presentation: [
       "Avec environ **8 100 recherches par mois au Canada** sur son seul nom, Pragmatic Play domine notre étude. Selon le pied de page de son site officiel, la société se présente comme un investissement de Veridian (Gibraltar) Limited.",
       "Sa marque de fabrique : le **paiement partout** combiné à des multiplicateurs, popularisé par [Gates of Olympus](/machines-a-sous/gates-of-olympus/) et [Sweet Bonanza](/machines-a-sous/sweet-bonanza/). Le fournisseur décline ensuite ses succès en séries : versions « 1000 » aux multiplicateurs plus hauts, version Super Scatter, ou suites de [Big Bass Bonanza](/machines-a-sous/big-bass-bonanza/), un jeu du studio Reel Kingdom qu'il distribue.",

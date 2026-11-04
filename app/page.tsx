@@ -132,7 +132,7 @@ export default function Accueil() {
       <section className="conteneur">
         <div className="titre-section">
           <h2>Les machines à sous les plus jouées au Canada</h2>
-          <Link href="/machines-a-sous/">Voir les 40 jeux →</Link>
+          <Link href="/machines-a-sous/">Voir les {MACHINES.length} jeux →</Link>
         </div>
         <GrilleJeux jeux={MACHINES.slice(0, 8)} />
         <p className="petit">Images officielles des éditeurs de jeux. RTP de la meilleure version publiée.</p>
@@ -143,7 +143,7 @@ export default function Accueil() {
         <ul className="grille-categories">
           {(
             [
-              ['machine', 'Machines à sous', '/machines-a-sous/', 'RTP, volatilité et 40 jeux analysés'],
+              ['machine', 'Machines à sous', '/machines-a-sous/', `RTP, volatilité et ${MACHINES.length} jeux analysés`],
               ['roulette', 'Roulette', '/roulette-en-ligne/', 'Européenne, française ou américaine'],
               ['blackjack', 'Blackjack', '/blackjack-en-ligne/', 'Règles et stratégie de base'],
               ['direct', 'Casino en direct', '/casino-en-direct/', 'Tables avec croupier en vidéo'],

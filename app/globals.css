@@ -2122,3 +2122,551 @@ table.strategie tbody th {
 .grille-liens li > a {
   flex: 1;
 }
+
+/* Signature de l'auteur */
+.signature {
+  color: var(--encre-douce);
+}
+.signature a {
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .signature-accroche {
+    display: none;
+  }
+}
+
+/* =====================================================================
+   Rendu mobile (inspiré de casino.org) : compact, cartes nettes,
+   sommaire en pastilles collantes, grilles de jeux sur 2 colonnes.
+   Uniquement de la mise en forme : aucun texte ni lien ne change.
+   ===================================================================== */
+
+/* Tablette et mobile : le sommaire passe en haut, sous forme de pastilles défilantes */
+@media (max-width: 960px) {
+  .mise-en-page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .mise-en-page > article {
+    order: 1;
+    width: 100%;
+  }
+  .mise-en-page aside {
+    display: contents;
+  }
+  .mise-en-page aside > .carte {
+    order: 2;
+    margin-top: 24px !important;
+  }
+  .mise-en-page .sommaire {
+    order: 0;
+    position: sticky;
+    top: 56px;
+    z-index: 30;
+    margin: 0 -16px 18px;
+    padding: 8px 16px;
+    border: 0;
+    border-bottom: 1px solid var(--filet);
+    border-radius: 0;
+    background: rgba(238, 243, 242, 0.96);
+    backdrop-filter: saturate(1.4) blur(6px);
+    -webkit-backdrop-filter: saturate(1.4) blur(6px);
+    overflow-x: auto;
+    scrollbar-width: none;
+    min-width: 0;
+    max-width: calc(100% + 32px);
+  }
+  .mise-en-page .sommaire::-webkit-scrollbar {
+    display: none;
+  }
+  .mise-en-page .sommaire p {
+    display: none;
+  }
+  .mise-en-page .sommaire ol {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .mise-en-page .sommaire li {
+    margin: 0;
+  }
+  .mise-en-page .sommaire a {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--papier);
+    border: 1px solid var(--filet);
+    color: var(--encre);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .mise-en-page .sommaire a:hover {
+    border-color: var(--verre);
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    scroll-padding-top: 116px;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 1.72rem;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+  }
+
+  h2 {
+    font-size: 1.36rem;
+    margin-top: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-top: 1.3em;
+  }
+
+  /* Bandeau 18+ sur une ligne */
+  .bandeau-age {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+  .bandeau-age .conteneur {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .masque-mobile {
+    display: none;
+  }
+  .pastille-age {
+    min-width: 30px;
+    height: 19px;
+    font-size: 11px;
+    margin-right: 0;
+  }
+
+  /* En-tête compact, menu façon tiroir */
+  .entete .conteneur {
+    min-height: 56px;
+    position: relative;
+  }
+  .logo {
+    font-size: 1.12rem;
+    gap: 8px;
+  }
+  .logo svg {
+    width: 26px;
+    height: 26px;
+  }
+  .nav-mobile {
+    position: static;
+  }
+  .nav-mobile summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border: 0;
+    background: var(--givre);
+    font-size: 14.5px;
+  }
+  .nav-mobile summary::before {
+    content: '';
+    width: 16px;
+    height: 12px;
+    background: linear-gradient(var(--encre), var(--encre)) top / 100% 2px no-repeat,
+      linear-gradient(var(--encre), var(--encre)) center / 100% 2px no-repeat,
+      linear-gradient(var(--encre), var(--encre)) bottom / 100% 2px no-repeat;
+  }
+  .nav-mobile ul {
+    left: 8px;
+    right: 8px;
+    top: calc(100% + 6px);
+    width: auto;
+    padding: 6px;
+    box-shadow: 0 18px 40px rgba(16, 33, 43, 0.18);
+  }
+  .nav-mobile a {
+    padding: 12px 14px;
+    font-size: 15.5px;
+    border-bottom: 1px solid var(--givre);
+  }
+
+  /* Fil d'Ariane sur une ligne */
+  .fil {
+    font-size: 12.5px;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .fil::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* En-tête des pages */
+  .heros {
+    padding-top: 14px;
+    padding-bottom: 4px;
+  }
+  .heros p.chapeau,
+  .accueil-heros .chapeau {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  .heros-meta {
+    gap: 6px 12px;
+    margin: 12px 0 6px;
+    font-size: 13px;
+  }
+  .tampon {
+    font-size: 12.5px;
+    padding: 4px 10px;
+  }
+  .signature {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .signature::before {
+    content: 'KF';
+    display: inline-grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--verre);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  /* Accueil : héros plus court, pastilles de confiance défilantes */
+  .accueil-heros {
+    padding: 20px 0 26px;
+  }
+  .accueil-heros h1 {
+    font-size: 1.8rem;
+    margin: 8px 0 10px;
+  }
+  .surtitre {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+  .confiance {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 14px -16px;
+    padding: 0 16px 2px;
+    scrollbar-width: none;
+  }
+  .confiance::-webkit-scrollbar {
+    display: none;
+  }
+  .confiance li {
+    flex: none;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 5px 11px;
+  }
+  .podium {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .podium-titre {
+    font-size: 1rem;
+  }
+
+  /* Cartes casino façon classement casino.org */
+  .classement > li + li {
+    margin-top: 14px;
+  }
+  .offre {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      'rang tete'
+      'conditions conditions'
+      'action action';
+    gap: 12px 10px;
+    padding: 16px 14px 14px;
+    border-radius: 12px;
+  }
+  .offre-ruban {
+    left: 14px;
+    font-size: 12px;
+  }
+  .offre-rang {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    margin-top: 12px;
+    border-radius: 50%;
+    background: var(--givre);
+    color: var(--encre);
+    font-size: 0.95rem;
+  }
+  .offre-tete {
+    gap: 12px;
+  }
+  .offre-tete .marque,
+  .offre-tete .logo-casino {
+    width: 48px;
+    height: 48px;
+  }
+  .offre-nom {
+    font-size: 1.15rem;
+  }
+  .offre-accroche {
+    font-size: 13.5px;
+  }
+  .offre-conditions {
+    border-top: 1px solid var(--givre);
+    padding-top: 12px;
+  }
+  .offre-titre {
+    font-size: 1.22rem;
+    color: var(--verre-fonce);
+  }
+  .offre-sous-titre {
+    font-size: 13.5px;
+    margin-bottom: 10px;
+  }
+  .conditions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .conditions div {
+    padding: 7px 10px;
+  }
+  .conditions dt {
+    font-size: 11.5px;
+  }
+  .conditions dd {
+    font-size: 13.5px;
+  }
+  .puces-courtes {
+    font-size: 13.5px;
+    margin-top: 10px;
+  }
+  .offre-action {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 8px 12px;
+  }
+  .offre-action > .note-loupe {
+    margin: 0;
+  }
+  .offre-action > .note-loupe svg {
+    width: 44px;
+    height: 44px;
+  }
+  .offre-action > .cta {
+    grid-column: 2;
+  }
+  .offre-action > .cta-secondaire,
+  .offre-action > .mention-cta {
+    grid-column: 1 / -1;
+  }
+  .offre-action > .cta-secondaire {
+    min-height: 0;
+    padding: 4px 0;
+    border: 0;
+    font-size: 14px;
+    text-decoration: underline;
+  }
+  .offre-action > .mention-cta {
+    margin: 0;
+    text-align: center;
+  }
+  .cta {
+    min-height: 46px;
+    padding: 11px 18px;
+    font-size: 0.98rem;
+  }
+
+  /* Grilles de jeux sur 2 colonnes, comme un lobby mobile */
+  .grille-jeux {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .carte-machine {
+    border-radius: 10px;
+  }
+  .carte-machine-corps {
+    padding: 8px 10px 10px;
+  }
+  .carte-machine-corps strong {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+  .carte-machine-corps span {
+    font-size: 12px;
+  }
+  .carte-machine-rtp {
+    left: 6px;
+    bottom: 6px;
+    font-size: 11px;
+    padding: 2px 7px;
+  }
+  .grille-categories {
+    gap: 10px;
+  }
+
+  /* Fiche d'un jeu : bandeau compact, boutons pleine largeur */
+  .jeu-tete {
+    gap: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    margin-bottom: 1.2em;
+  }
+  .puces-chiffres {
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .puces-chiffres li {
+    padding: 6px 8px;
+  }
+  .puces-chiffres span {
+    font-size: 11px;
+  }
+  .puces-chiffres strong {
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+  .jeu-tete-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .jeu-tete-actions > * {
+    width: 100%;
+  }
+  .jeu-tete-credit {
+    font-size: 11px;
+  }
+
+  /* Tableaux et encadrés plus serrés */
+  table {
+    font-size: 14px;
+  }
+  th,
+  td {
+    padding: 9px 12px;
+  }
+  thead th {
+    font-size: 12px;
+  }
+  caption {
+    padding: 10px 12px 0;
+    font-size: 12.5px;
+  }
+  .tableau-defilant {
+    border-radius: 12px;
+    margin: 1em 0 1.3em;
+  }
+  .encadre {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  /* Fiche casino : onglets en ruban défilant, boîte d'offre compacte */
+  .fiche-tete {
+    padding-top: 14px;
+  }
+  .fiche-boite {
+    padding: 16px;
+  }
+  .fiche-boite .offre-titre {
+    font-size: 1.2rem;
+  }
+  .onglets {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 14px -16px 0;
+    padding: 0 16px 2px;
+    scrollbar-width: none;
+  }
+  .onglets::-webkit-scrollbar {
+    display: none;
+  }
+  .onglets li {
+    flex: none;
+  }
+  .onglets a {
+    padding: 6px 13px;
+    font-size: 14px;
+  }
+
+  /* Barre d'offre collante plus fine */
+  .collant {
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    gap: 10px;
+  }
+  .collant-texte {
+    font-size: 12.5px;
+  }
+  .collant-texte strong {
+    font-size: 14px;
+  }
+  .collant .cta {
+    min-height: 42px;
+    padding: 9px 16px;
+    font-size: 0.93rem;
+  }
+  .collant-espace {
+    height: 66px;
+  }
+
+  /* Pied de page sur 2 colonnes */
+  .pied {
+    margin-top: 40px;
+    padding: 32px 0 22px;
+    font-size: 14px;
+  }
+  .pied-grille {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 16px;
+  }
+  .pied-grille > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .fil ol {
+    flex-wrap: nowrap;
+  }
+  .fil li {
+    flex: none;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Bouton de démo : prend toute la largeur utile au lieu de la moitié */
+  .demo-bouton {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    transform: translateY(-50%);
+    line-height: 1.25;
+  }
+}

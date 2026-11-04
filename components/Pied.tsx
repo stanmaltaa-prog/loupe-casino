@@ -67,6 +67,9 @@ export default function Pied() {
                 <Link href="/machines-a-sous/">Machines à sous</Link>
               </li>
               <li>
+                <Link href="/machines-a-sous-gratuites/">Machines à sous gratuites</Link>
+              </li>
+              <li>
                 <Link href="/casino-en-direct/">Casino en direct</Link>
               </li>
               <li>
@@ -74,6 +77,9 @@ export default function Pied() {
               </li>
               <li>
                 <Link href="/paris-sportifs-quebec/">Paris sportifs</Link>
+              </li>
+              <li>
+                <Link href="/mise-o-jeu/">Mise-o-jeu</Link>
               </li>
             </ul>
           </div>

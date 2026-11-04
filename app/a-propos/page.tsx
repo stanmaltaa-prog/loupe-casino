@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Guide from '@/components/Guide';
 import { SITE } from '@/lib/site';
 import { meta } from '@/lib/seo';
+import { AUTEUR } from '@/lib/auteur';
 
 const CHEMIN = '/a-propos/';
 const DESCRIPTION = `${SITE.nom} compare les casinos en ligne accessibles au Québec à partir de leurs conditions officielles. Notre mission, nos engagements, nous joindre.`;
@@ -16,7 +17,7 @@ export default function PageAPropos() {
       h1={`À propos de ${SITE.nom}`}
       chapeau="Un comparatif né d'un constat simple : la plupart des sites affichent le montant des bonus en gros, et les conditions en tout petit. Nous faisons l'inverse."
       description={DESCRIPTION}
-      modifie="2026-11-03"
+      modifie="2026-11-04"
       emplacement="a-propos"
       type="AboutPage"
       sansOffre
@@ -25,6 +26,11 @@ export default function PageAPropos() {
       <p>
         Aider les joueurs adultes du Québec à comparer les casinos en ligne sur ce qui compte vraiment : qui exploite le site,
         ce qu&apos;il faut miser pour débloquer un bonus, en combien de temps, et comment se passent les retraits.
+      </p>
+
+      <h2>Qui écrit {SITE.nom}</h2>
+      <p>
+        Le site est dirigé par <Link href={AUTEUR.chemin}>{AUTEUR.nom}</Link>, {AUTEUR.role.toLowerCase()}. {AUTEUR.bio[0]}
       </p>
 
       <h2>Ce qui nous distingue</h2>

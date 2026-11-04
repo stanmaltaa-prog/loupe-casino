@@ -2,12 +2,12 @@ import type { ContenuCasino } from './types';
 
 const onewin: ContenuCasino = {
   avis: {
-    titre: 'Avis 1win Casino 2026 : bonus 600 % et points à vérifier',
+    titre: '1win Canada : avis 2026, bonus 600 % et points à vérifier',
     description:
-      "Avis 1win au Québec : bonus jusqu'à 600 % sur 4 dépôts + 500 tours gratuits, plus de 11 000 jeux. Ce qui est confirmé et ce qu'il faut vérifier avant de jouer.",
-    h1: 'Avis 1win : un catalogue géant, des conditions encore à confirmer',
+      "1win au Canada et au Québec : bonus jusqu'à 600 % sur 4 dépôts + 500 tours gratuits, plus de 11 000 jeux. Ce qui est confirmé et ce qu'il faut vérifier.",
+    h1: 'Avis 1win Canada : un catalogue géant, des conditions encore à confirmer',
     intro: [
-      "1win est le casino du comparatif qui annonce le plus de jeux (plus de 11 000) et le bonus le plus spectaculaire en apparence : « jusqu'à 600 % » sur quatre dépôts, avec 500 tours gratuits.",
+      "1win accepte les joueurs du Canada et du Québec, ce que le gestionnaire d'affiliation de la marque nous a confirmé par écrit le 4 novembre 2026. C'est le casino du comparatif qui annonce le plus de jeux (plus de 11 000) et le bonus le plus spectaculaire en apparence : « jusqu'à 600 % » sur quatre dépôts, avec 500 tours gratuits.",
       "Il arrive pourtant dernier de notre classement, pour une raison simple : nous n'avons pas pu confirmer ses conditions de mise, son exploitant ni sa licence. Nous préférons le dire clairement plutôt que d'inventer des chiffres."
     ],
     sections: [

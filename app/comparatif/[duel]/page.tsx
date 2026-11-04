@@ -3,6 +3,7 @@ import Link from 'next/link';
 import FilAriane from '@/components/FilAriane';
 import TableauComparatif from '@/components/TableauComparatif';
 import Tampon from '@/components/Tampon';
+import Signature from '@/components/Signature';
 import EncadreAide from '@/components/EncadreAide';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
@@ -68,6 +69,7 @@ export default function PageDuel({ params }: { params: { duel: string } }) {
         <p className="chapeau">{duel.resume}</p>
         <div className="heros-meta">
           <Tampon date={modifie} />
+              <Signature />
         </div>
       </section>
 

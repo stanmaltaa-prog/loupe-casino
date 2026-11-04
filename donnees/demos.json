@@ -20,7 +20,22 @@
     "big-bass-amazon-xtreme": "vs10bbextreme",
     "5-lions-megaways": "vswayslions",
     "starlight-princess": "vs20starlight",
-    "gems-bonanza": "vs20goldfever"
+    "gems-bonanza": "vs20goldfever",
+    "sweet-rush-bonanza": "vs20swrbon",
+    "sugar-rush-super-scatter": "vs20sugrushss",
+    "sweet-bonanza-super-scatter": "vs20swbonsup",
+    "fruit-party": "vs20fruitparty",
+    "fruit-party-2": "vs20fparty2",
+    "big-bass-bonanza-1000": "vs10bbbnz1000",
+    "big-bass-splash-1000": "vs10bbsplashx",
+    "release-the-kraken": "vs20kraken",
+    "sweet-bonanza-xmas": "vs20sbxmas",
+    "christmas-big-bass-bonanza": "vs10bxmasbnza",
+    "big-bass-christmas-bash": "vs10bbsplxmas",
+    "the-dog-house-megaways": "vswaysdogs",
+    "wild-west-gold": "vs40wildwest",
+    "power-of-thor-megaways": "vswayshammthor",
+    "bigger-bass-bonanza": "vs12bbb"
   },
   "playngo": {
     "book-of-dead": "bookofdead",
@@ -39,6 +54,11 @@
     "book-of-ra": "https://www.greentube.com/game/book-of-ra-deluxe/",
     "sizzling-hot": "https://www.greentube.com/game/sizzling-hot-deluxe/",
     "fishin-frenzy": "https://www.blueprintgaming.com/games/fishin-frenzy/",
-    "bonanza": "https://www.bigtimegaming.com/games/bonanza"
+    "bonanza": "https://www.bigtimegaming.com/games/bonanza",
+    "le-bandit": "https://www.hacksawgaming.com/games/le-bandit",
+    "le-fisherman": "https://www.hacksawgaming.com/games/le-fisherman",
+    "le-zeus": "https://www.hacksawgaming.com/games/le-zeus",
+    "le-cowboy": "https://www.hacksawgaming.com/games/le-cowboy",
+    "duck-hunters": "https://www.nolimitcity.com/games/duck-hunters"
   }
 }

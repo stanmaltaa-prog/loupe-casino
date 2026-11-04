@@ -4,6 +4,7 @@ import FilAriane from '@/components/FilAriane';
 import FicheBoite from '@/components/FicheBoite';
 import Onglets from '@/components/Onglets';
 import Tampon from '@/components/Tampon';
+import Signature from '@/components/Signature';
 import Paliers from '@/components/Paliers';
 import ExempleMise from '@/components/ExempleMise';
 import Sections from '@/components/Sections';
@@ -69,6 +70,7 @@ export default function PageAvis({ params }: { params: { casino: string } }) {
             ))}
             <div className="heros-meta">
               <Tampon date={modifie} />
+              <Signature />
               <span>
                 Rang {rang(c)} sur {CASINOS.length} dans notre <Link href="/#classement">classement</Link>
               </span>

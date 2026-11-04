@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SITE, absolu } from '@/lib/site';
+import { AUTEUR, ID_AUTEUR } from './auteur';
 
 export function meta({
   titre,
@@ -50,6 +51,14 @@ export function schemaOrganisation() {
         url: `${SITE.url}/`,
         logo: { '@type': 'ImageObject', url: `${SITE.url}/logo.png`, width: 512, height: 512 },
         ...(SITE.courriel ? { email: SITE.courriel } : {})
+      },
+      {
+        '@type': 'Person',
+        '@id': ID_AUTEUR,
+        name: AUTEUR.nom,
+        jobTitle: AUTEUR.role,
+        url: absolu(AUTEUR.chemin),
+        worksFor: { '@id': ID_ORGANISATION }
       },
       {
         '@type': 'WebSite',
@@ -107,7 +116,7 @@ export function schemaPage({
     dateModified: modifie
   };
   if (type === 'Article') {
-    return { ...base, author: { '@id': ID_ORGANISATION }, publisher: { '@id': ID_ORGANISATION }, mainEntityOfPage: url };
+    return { ...base, author: { '@type': 'Person', '@id': ID_AUTEUR, name: AUTEUR.nom, url: absolu(AUTEUR.chemin) }, publisher: { '@id': ID_ORGANISATION }, mainEntityOfPage: url };
   }
   return base;
 }

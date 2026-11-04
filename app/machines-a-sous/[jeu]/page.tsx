@@ -85,8 +85,21 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
   const mises = [0.2, 0.5, 1];
   const similaires = m.similaires.map((s) => machine(s)).filter(Boolean) as Machine[];
 
+  const editeur = m.studio || m.fournisseur;
   const faq = [
     ...m.faq,
+    ...(demo
+      ? [
+          {
+            q: typo(`Peut-on jouer à ${m.nom} gratuitement ?`),
+            r: typo(
+              demo.mode === 'integree'
+                ? `Oui. La démo officielle de ${editeur} est intégrée sur cette page : elle se lance avec des crédits fictifs, sans inscription ni dépôt. Les gains de la démo ne sont pas réels.`
+                : `Oui. Le bouton de démo de cette page ouvre la version gratuite officielle sur le site de ${editeur}, avec des crédits fictifs, sans inscription ni dépôt. Les gains de la démo ne sont pas réels.`
+            )
+          }
+        ]
+      : []),
     {
       q: typo(`Quelle est la volatilité de ${m.nom} ?`),
       r: typo(`${m.volatilite}. ${SENS_VOLATILITE[m.volatilite]}`)
@@ -115,9 +128,11 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
       nom={m.nom}
       parent={PARENT}
       chemin={chemin}
-      h1={typo(`${m.nom} : RTP, volatilité et fonctionnement de la machine à sous`)}
+      h1={typo(demo ? `${m.nom} : démo gratuite, RTP et fonctionnement` : `${m.nom} : RTP, volatilité et fonctionnement de la machine à sous`)}
       chapeau={typo(
-        `${m.nom} est une machine à sous ${m.fournisseur}${m.studio ? ` (studio ${m.studio})` : ''} sortie en ${m.annee}. Voici ses vrais chiffres, le fonctionnement de ses bonus et le budget à prévoir avant de jouer.`
+        `${m.nom} est une machine à sous ${m.fournisseur}${m.studio ? ` (studio ${m.studio})` : ''} sortie en ${m.annee}. ${
+          demo ? 'Essayez-la gratuitement en démo, puis découvrez ses vrais chiffres' : 'Voici ses vrais chiffres'
+        }, le fonctionnement de ses bonus et le budget à prévoir avant de jouer.`
       )}
       description={descriptionMachine(m)}
       modifie={MODIFIE}
@@ -351,7 +366,7 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
         <h2 id="similaires">Jeux similaires</h2>
         <GrilleJeux jeux={similaires} />
         <p>
-          <Link href="/machines-a-sous/#classement">Voir le classement des 40 machines à sous</Link>
+          <Link href="/machines-a-sous/#classement">Voir le classement des {MACHINES.length} machines à sous</Link>
           {f ? (
             <>
               {' · '}

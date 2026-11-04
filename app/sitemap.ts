@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/jeu-responsable/', 0.5, lancement),
     page('/notre-methode/', 0.5),
     page('/a-propos/', 0.3, lancement),
+    page('/auteur/kenzo-fitzeral/', 0.3),
     page('/divulgation-affiliation/', 0.3, lancement),
     page('/contact/', 0.3, lancement),
     page('/confidentialite/', 0.2, lancement),

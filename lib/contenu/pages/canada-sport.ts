@@ -20,7 +20,7 @@ const S = {
 };
 
 /** Offres sport vérifiées le 4 novembre 2026 sur les pages promotions des casinos. */
-const CTA_ROLLETTO = {
+export const CTA_ROLLETTO = {
   type: 'cta' as const,
   casino: 'rolletto',
   titre: '150 % jusqu’à 1 500 $ + jusqu’à 200 $ en paris gratuits',
@@ -29,7 +29,7 @@ const CTA_ROLLETTO = {
   bouton: 'Voir l’offre sport de Rolletto'
 };
 
-const CTA_BETPORTAL = {
+export const CTA_BETPORTAL = {
   type: 'cta' as const,
   casino: 'betportal',
   titre: 'Pari gratuit égal à 100 % de votre mise, jusqu’à 100 €',
@@ -312,7 +312,7 @@ const canadaSport: PageGuide[] = [
       }
     ],
     sources: [S.lq, S.espacejeux, S.miseojeu, S.poker, S.lqRevenus, S.debat],
-    connexes: ['/casino-en-ligne-canada/', '/paris-sportifs-quebec/', '/jeux/', '/machines-a-sous/']
+    connexes: ['/casino-de-montreal-en-ligne/', '/machines-a-sous-loto-quebec/', '/mise-o-jeu/', '/casino-en-ligne-canada/']
   },
 
   {
@@ -455,7 +455,7 @@ const canadaSport: PageGuide[] = [
       }
     ],
     sources: [S.c218, S.rolletto, S.betportal, S.miseojeu],
-    connexes: ['/paris-sportifs-hockey/', '/paris-sportifs-soccer/', '/conditions-de-mise/', '/loto-quebec-casino-en-ligne/']
+    connexes: ['/mise-o-jeu/', '/paris-sportifs-hockey/', '/paris-sportifs-soccer/', '/loto-quebec-casino-en-ligne/']
   },
 
   {

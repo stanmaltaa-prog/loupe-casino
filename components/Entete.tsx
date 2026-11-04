@@ -22,10 +22,12 @@ export default function Entete() {
         <div className="conteneur">
           <span>
             <span className="pastille-age">18+</span>
-            Réservé aux adultes. Jouez avec modération.
+            <span className="masque-mobile">Réservé aux adultes. Jouez avec modération.</span>
           </span>
           <span>
-            Besoin d&apos;aide ? {AIDE.nom}, 24 h sur 24 : <a href="tel:18004610140">{AIDE.telephone}</a>
+            <span className="masque-mobile">Besoin d&apos;aide ? </span>
+            {AIDE.nom}
+            <span className="masque-mobile">, 24 h sur 24</span> : <a href="tel:18004610140">{AIDE.telephone}</a>
           </span>
         </div>
       </div>
