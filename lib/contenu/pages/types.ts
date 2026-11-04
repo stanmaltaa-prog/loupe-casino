@@ -17,7 +17,9 @@ export type Bloc =
   /** Illustration dessinée (cartes, tableaux de stratégie…), voir components/IllustrationsGuides.tsx. */
   | { type: 'illustration'; nom: 'bj-mains' | 'bj-strategie' | 'bj-paiement' }
   /** Grille d'images des machines à sous (toutes, ou une liste de slugs). */
-  | { type: 'grille-jeux'; slugs?: string[] };
+  | { type: 'grille-jeux'; slugs?: string[] }
+  /** Grille des jeux de table et en direct (une famille, ou tous). */
+  | { type: 'grille-tables'; famille?: 'show' | 'roulette' | 'blackjack' };
 
 export type SectionGuide = { id: string; titre: string; blocs: Bloc[] };
 

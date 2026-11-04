@@ -9,8 +9,10 @@ import Marque from '@/components/Marque';
 import BoutonCasino from '@/components/BoutonCasino';
 import NoteLoupe from '@/components/NoteLoupe';
 import GrilleJeux from '@/components/GrilleJeux';
+import GrilleTables from '@/components/GrilleTables';
 import { ILLUSTRATIONS } from '@/components/Illustrations';
 import { MACHINES } from '@/lib/contenu/machines';
+import { TABLES } from '@/lib/contenu/tables';
 import { CASINOS, CRITERES, cheminCasino, exempleMise, miseTexte, noteGlobale, parId, type Casino } from '@/lib/casinos';
 import { SITE, absolu, dateLongue, moisAnnee, montant } from '@/lib/site';
 import { meta, schemaPage } from '@/lib/seo';
@@ -136,6 +138,15 @@ export default function Accueil() {
         </div>
         <GrilleJeux jeux={MACHINES.slice(0, 8)} />
         <p className="petit">Images officielles des éditeurs de jeux. RTP de la meilleure version publiée.</p>
+      </section>
+
+      <section className="conteneur accueil-direct">
+        <div className="titre-section">
+          <h2>Les jeux en direct les plus recherchés</h2>
+          <Link href="/jeux/#tables">Voir les {TABLES.length} jeux →</Link>
+        </div>
+        <GrilleTables jeux={TABLES.slice(0, 6)} />
+        <p className="petit">Roulettes, blackjacks et jeux télévisés : règles officielles des éditeurs et RTP publié.</p>
       </section>
 
       <section className="conteneur">

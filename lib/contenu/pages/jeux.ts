@@ -2,6 +2,7 @@ import type { PageGuide } from './types';
 import crash from './jeux-crash';
 import { MACHINES, cheminMachine, pct, fois } from '@/lib/contenu/machines';
 import { FOURNISSEURS, cheminFournisseur } from '@/lib/contenu/fournisseurs';
+import { TABLES } from '@/lib/contenu/tables';
 
 /** Lignes du classement des machines à sous, de la plus recherchée à la moins recherchée. */
 const CLASSEMENT = MACHINES.map((m, i) => [
@@ -26,7 +27,7 @@ const jeux: PageGuide[] = [
     h1: 'Jeux de casino en ligne : comment ils marchent, ce qu’ils coûtent',
     chapeau:
       "Chaque jeu de casino a ses règles, son rythme et son avantage pour la maison. Voici le tour complet, avec le chiffre que peu de sites affichent : combien le jeu garde en moyenne sur vos mises.",
-    modifie: MAJ,
+    modifie: '2026-11-04',
     resume: 'Tous les jeux de casino expliqués, avec leur avantage pour la maison.',
     sections: [
       {
@@ -80,6 +81,17 @@ const jeux: PageGuide[] = [
             texte:
               "Tous les jeux ne comptent pas de la même façon pour débloquer un bonus. Chez Rolletto, par exemple, le bonus de bienvenue casino n'est valable que sur les machines à sous : jouer au blackjack ne fait pas avancer la mise. Lisez toujours la liste des jeux admissibles, et faites le calcul avec notre [calculateur de conditions de mise](/conditions-de-mise/)."
           }
+        ]
+      },
+      {
+        id: 'tables',
+        titre: 'Les jeux de table et en direct analysés',
+        blocs: [
+          {
+            type: 'p',
+            texte: `Roulettes à multiplicateurs, blackjacks en direct et jeux télévisés : voici les ${TABLES.length} jeux de table et en direct que nous avons analysés, avec leurs règles officielles et leur RTP.`
+          },
+          { type: 'grille-tables' }
         ]
       },
       {
@@ -298,7 +310,7 @@ const jeux: PageGuide[] = [
     h1: 'Roulette en ligne : les règles, les gains et la version à choisir',
     chapeau:
       "La roulette semble simple, mais toutes les tables ne se valent pas. Le choix de la version change à lui seul l'avantage de la maison du simple au double.",
-    modifie: MAJ,
+    modifie: '2026-11-04',
     resume: 'Les versions de roulette, les gains et la table à choisir.',
     sections: [
       {
@@ -365,6 +377,23 @@ const jeux: PageGuide[] = [
           }
         ]
       },
+      {
+        id: 'jeux',
+        titre: 'Les roulettes en direct à connaître',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              "Les studios de casino en direct proposent plusieurs variantes de la roulette européenne. Les plus jouées ajoutent des multiplicateurs sur les pleins, en échange d'un plein ordinaire moins bien payé. Nos fiches détaillent les règles officielles et le RTP de chacune."
+          },
+          { type: 'grille-tables', famille: 'roulette' },
+          {
+            type: 'p',
+            texte:
+              "Vous cherchez une roulette sans croupier ? [Auto Roulette](/roulette-en-ligne/auto-roulette/) lance la bille avec une roue automatique, en direct, de 60 à 80 fois par heure."
+          }
+        ]
+      },
       { id: 'ou-jouer', titre: 'Où jouer à la roulette', blocs: [{ type: 'offres' }] }
     ],
     faq: [
@@ -394,7 +423,7 @@ const jeux: PageGuide[] = [
     h1: 'Blackjack en ligne : les règles et la stratégie qui changent tout',
     chapeau:
       "C'est le jeu de table où vos décisions comptent le plus. Bien joué, le blackjack a l'un des plus faibles avantages pour la maison du casino ; mal joué, il coûte plusieurs fois plus cher.",
-    modifie: MAJ,
+    modifie: '2026-11-04',
     resume: 'Les règles, la stratégie de base et les pièges à éviter.',
     sections: [
       {
@@ -462,6 +491,25 @@ const jeux: PageGuide[] = [
             type: 'p',
             texte:
               "Inutile au blackjack virtuel : le paquet est en général remélangé à chaque main. Au blackjack en direct, le sabot est souvent coupé tôt, ce qui réduit fortement l'intérêt du comptage."
+          }
+        ]
+      },
+      {
+        id: 'jeux',
+        titre: 'Les blackjacks en direct et automatiques',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              "Au-delà du blackjack classique, les éditeurs proposent des variantes aux règles très différentes : mises gratuites, multiplicateurs, places illimitées. Avant de choisir, regardez ce que chaque variante vous fait payer en échange."
+          },
+          { type: 'grille-tables', famille: 'blackjack' },
+          {
+            type: 'encadre',
+            ton: 'bon',
+            titre: 'Jouer au blackjack gratuitement',
+            texte:
+              "Evolution propose une démo gratuite officielle de [First Person Blackjack](/blackjack-en-ligne/first-person-blackjack/), sa version numérique sans croupier. C'est le meilleur moyen de s'entraîner à la stratégie de base sans miser."
           }
         ]
       },
@@ -558,7 +606,7 @@ const jeux: PageGuide[] = [
     h1: 'Casino en direct : jouer avec de vrais croupiers, depuis chez vous',
     chapeau:
       "Le casino en direct diffuse de vraies tables, avec de vrais croupiers, en continu. C'est le plus proche du Casino de Montréal sans quitter son salon, avec quelques différences à connaître.",
-    modifie: MAJ,
+    modifie: '2026-11-04',
     resume: 'Les tables avec croupiers filmés et les jeux télévisés.',
     sections: [
       {
@@ -606,6 +654,23 @@ const jeux: PageGuide[] = [
               'Ne comptez pas sur le casino en direct pour débloquer un bonus : la contribution est souvent faible ou nulle.',
               'Les jeux télévisés sont spectaculaires, mais leur avantage pour la maison est souvent plus élevé que celui du blackjack ou du baccarat.'
             ]
+          }
+        ]
+      },
+      {
+        id: 'jeux',
+        titre: 'Les jeux télévisés en direct',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              "Les jeux télévisés sont la partie la plus spectaculaire du casino en direct : une roue, un présentateur et des bonus animés. Ils rendent en général un peu moins que la roulette ou le blackjack : on y joue d'abord pour le spectacle."
+          },
+          { type: 'grille-tables', famille: 'show' },
+          {
+            type: 'p',
+            texte:
+              "Les roulettes et blackjacks en direct ont aussi leurs fiches : [Lightning Roulette](/roulette-en-ligne/lightning-roulette/), [Auto Roulette](/roulette-en-ligne/auto-roulette/), [Free Bet Blackjack](/blackjack-en-ligne/free-bet-blackjack/) et [Infinite Blackjack](/blackjack-en-ligne/infinite-blackjack/)."
           }
         ]
       },

@@ -6,7 +6,9 @@ import CarteOffre from './CarteOffre';
 import BoutonCasino, { MentionCta } from './BoutonCasino';
 import { ILLUSTRATIONS_GUIDES } from './IllustrationsGuides';
 import GrilleJeux from './GrilleJeux';
+import GrilleTables from './GrilleTables';
 import { MACHINES } from '@/lib/contenu/machines';
+import { TABLES, parFamille } from '@/lib/contenu/tables';
 import { CASINOS, cheminCasino, parId, rang } from '@/lib/casinos';
 import { pageParChemin } from '@/lib/contenu/pages';
 import type { Bloc, PageGuide } from '@/lib/contenu/pages/types';
@@ -106,6 +108,8 @@ function RenduBloc({ bloc, emplacement }: { bloc: Bloc; emplacement: string }) {
       const jeux = bloc.slugs?.length ? MACHINES.filter((m) => bloc.slugs!.includes(m.slug)) : MACHINES;
       return <GrilleJeux jeux={jeux} />;
     }
+    case 'grille-tables':
+      return <GrilleTables jeux={bloc.famille ? parFamille(bloc.famille) : TABLES} />;
     case 'illustration': {
       const Illus = ILLUSTRATIONS_GUIDES[bloc.nom];
       return Illus ? <Illus /> : null;

@@ -218,7 +218,7 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
         <section aria-labelledby="demo">
           <h2 id="demo">{typo(`Jouer gratuitement à ${m.nom}`)}</h2>
           <p>{typo(`Testez ${m.nom} en mode démo, avec des crédits fictifs, avant de miser de l'argent réel. Aucune inscription n'est nécessaire.`)}</p>
-          <DemoJeu url={demo.url} mode={demo.mode} editeur={m.studio || m.fournisseur} nom={m.nom} poster={visuel?.src || null} />
+          <DemoJeu url={demo.url} urlMobile={demo.urlMobile} mode={demo.mode} editeur={m.studio || m.fournisseur} nom={m.nom} poster={visuel?.src || null} emplacement={emplacement} />
           <div className="encadre-cta">
             <Marque casino={top} />
             <div>

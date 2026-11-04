@@ -3,6 +3,7 @@ import { CASINOS, cheminCasino, paires } from '@/lib/casinos';
 import { DUELS } from '@/lib/contenu/duels';
 import { PAGES } from '@/lib/contenu/pages';
 import { MACHINES, cheminMachine } from '@/lib/contenu/machines';
+import { TABLES, cheminTable } from '@/lib/contenu/tables';
 import { FOURNISSEURS, cheminFournisseur } from '@/lib/contenu/fournisseurs';
 import { SITE, absolu } from '@/lib/site';
 
@@ -32,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...duels,
     ...PAGES.map((p) => page(p.chemin, 0.8, new Date(p.modifie))),
     ...MACHINES.map((m) => page(cheminMachine(m), 0.7, new Date('2026-11-04'))),
+    ...TABLES.map((t) => page(cheminTable(t), 0.7, new Date(t.verifieLe))),
     ...FOURNISSEURS.map((f) => page(cheminFournisseur(f), 0.6, new Date(f.modifie))),
     page('/casino-en-ligne-legal-quebec/', 0.8, lancement),
     page('/bonus-casino-quebec/', 0.8),
