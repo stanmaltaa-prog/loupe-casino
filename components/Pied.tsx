@@ -44,6 +44,15 @@ export default function Pied() {
                 <Link href="/casino-crypto-quebec/">Casino crypto</Link>
               </li>
               <li>
+                <Link href="/casino-interac/">Casino Interac</Link>
+              </li>
+              <li>
+                <Link href="/casino-retrait-rapide/">Casino à retrait rapide</Link>
+              </li>
+              <li>
+                <Link href="/casino-depot-minimum/">Casino à dépôt minimum</Link>
+              </li>
+              <li>
                 <Link href="/loto-quebec-casino-en-ligne/">Loto-Québec en ligne</Link>
               </li>
               <li>

@@ -3,10 +3,11 @@ import { typo, typoProfond } from '@/lib/typo';
 import { MACHINES } from '@/lib/contenu/machines';
 import shows from './shows';
 import cartesRoulette from './cartes-roulette';
+import showsLot2 from './shows-lot2';
 
 export type { Famille, TableJeu } from './types';
 
-const BRUT: TableJeu[] = [...shows, ...cartesRoulette];
+const BRUT: TableJeu[] = [...shows, ...showsLot2, ...cartesRoulette];
 
 /** Rubrique de chaque famille : la fiche vit sous la page guide déjà indexée. */
 export const RUBRIQUES: Record<Famille, { nom: string; chemin: string; libelle: string }> = {

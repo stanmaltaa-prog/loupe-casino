@@ -210,7 +210,7 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
           </table>
         </div>
         <p className="petit">
-          {typo(`Chiffres vérifiés le ${dateLongue(m.verifieLe)} sur les sources listées en bas de page. Recherches mensuelles au Canada : environ ${m.volume.toLocaleString('fr-CA')} (Ubersuggest).`)}
+          {typo(`Chiffres vérifiés le ${dateLongue(m.verifieLe)} sur les sources listées en bas de page.${m.volume > 0 ? ` Recherches mensuelles au Canada : environ ${m.volume.toLocaleString('fr-CA')} (Ubersuggest).` : ''}`)}
         </p>
       </section>
 

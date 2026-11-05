@@ -289,8 +289,10 @@ export default function Accueil() {
           Les joueurs québécois cherchent souvent Interac. Sur les pages officielles consultées, aucun des casinos du
           comparatif ne le confirme clairement. Les cryptomonnaies sont plus répandues : huit chez Rolletto, neuf chez
           Celsius, et le Tether (USDT) chez 1win. Celsius affiche aussi les cartes Visa et Mastercard, Apple Pay, Google Pay, Skrill, PayPal et
-          Paysafecard. Pour bien choisir, lisez notre guide du{' '}
-          <Link href="/casino-crypto-quebec/">casino crypto au Québec</Link>.
+          Paysafecard. Pour bien choisir, lisez nos guides <Link href="/casino-interac/">casino Interac</Link>,{' '}
+          <Link href="/casino-crypto-quebec/">casino crypto au Québec</Link>,{' '}
+          <Link href="/casino-retrait-rapide/">casino à retrait rapide</Link> et{' '}
+          <Link href="/casino-depot-minimum/">casino à dépôt minimum</Link>.
         </p>
 
         <h2>Loto-Québec ou casino étranger : les vraies différences</h2>

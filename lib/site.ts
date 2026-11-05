@@ -9,8 +9,8 @@ export const SITE = {
   slogan: 'Les casinos en ligne au Québec, passés à la loupe',
   /** Domaine principal, sans barre finale. Peut être remplacé par la variable SITE_URL sur Railway. */
   url: (process.env.SITE_URL || 'https://loupecasino.com').replace(/\/$/, ''),
-  /** Courriel de contact affiché sur le site. À remplir avant la mise en ligne. */
-  courriel: process.env.SITE_COURRIEL || '',
+  /** Courriel de contact affiché sur le site (la variable SITE_COURRIEL sur Railway peut le remplacer). */
+  courriel: process.env.SITE_COURRIEL || 'contact@loupecasino.com',
   /** Responsable de la protection des renseignements personnels (Loi 25). À remplir. */
   responsableDonnees: process.env.SITE_RESPONSABLE || '',
   /** Date de la dernière vérification générale des offres (AAAA-MM-JJ). */

@@ -107,7 +107,6 @@ for (const d of ['app', 'components', 'lib', 'donnees']) parcourir(join(racine, 
 
 // 3. Réglages du site
 if (!process.env.SITE_URL) avertissements.push('Variable SITE_URL absente : le domaine par défaut du fichier lib/site.ts sera utilisé.');
-if (!process.env.SITE_COURRIEL) avertissements.push('Variable SITE_COURRIEL absente : la page Contact n’affichera pas d’adresse courriel.');
 if (!process.env.SITE_RESPONSABLE) avertissements.push('Variable SITE_RESPONSABLE absente : la politique de confidentialité (Loi 25) doit nommer un responsable.');
 
 // Résultat

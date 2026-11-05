@@ -4,11 +4,13 @@ import pragmatic from './pragmatic';
 import autres from './autres';
 import novembre from './novembre';
 import nolimit from './nolimit';
+import lot3 from './lot3';
+import lot4 from './lot4';
 import { demoJeu } from '@/lib/demos';
 
 export type { Machine } from './types';
 
-const BRUT: Machine[] = [...pragmatic, ...autres, ...novembre, ...nolimit];
+const BRUT: Machine[] = [...pragmatic, ...autres, ...novembre, ...nolimit, ...lot3, ...lot4];
 
 // Garde-fous : bloquent le build si une fiche est incomplète ou incohérente.
 const slugs = new Set<string>();

@@ -606,7 +606,7 @@ const jeux: PageGuide[] = [
     h1: 'Casino en direct : jouer avec de vrais croupiers, depuis chez vous',
     chapeau:
       "Le casino en direct diffuse de vraies tables, avec de vrais croupiers, en continu. C'est le plus proche du Casino de Montréal sans quitter son salon, avec quelques différences à connaître.",
-    modifie: '2026-11-04',
+    modifie: '2026-11-05',
     resume: 'Les tables avec croupiers filmés et les jeux télévisés.',
     sections: [
       {

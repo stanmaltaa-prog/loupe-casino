@@ -6,7 +6,7 @@ import { meta } from '@/lib/seo';
 const CHEMIN = '/contact/';
 const DESCRIPTION = `Contacter ${SITE.nom} : signaler une erreur, une offre qui a changé ou poser une question sur notre comparatif.`;
 
-export const metadata = meta({ titre: 'Nous contacter', description: DESCRIPTION, chemin: CHEMIN });
+export const metadata = meta({ titre: 'Contact : signaler une erreur ou une offre', description: DESCRIPTION, chemin: CHEMIN });
 
 export default function PageContact() {
   return (
@@ -16,7 +16,7 @@ export default function PageContact() {
       h1="Nous contacter"
       chapeau="Une offre a changé ? Une information vous semble fausse ? Dites-le-nous : nous vérifions chaque signalement."
       description={DESCRIPTION}
-      modifie="2026-11-03"
+      modifie="2026-11-05"
       emplacement="contact"
       type="ContactPage"
       sansOffre

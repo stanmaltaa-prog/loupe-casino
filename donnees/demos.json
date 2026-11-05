@@ -35,14 +35,27 @@
     "the-dog-house-megaways": "vswaysdogs",
     "wild-west-gold": "vs40wildwest",
     "power-of-thor-megaways": "vswayshammthor",
-    "bigger-bass-bonanza": "vs12bbb"
+    "bigger-bass-bonanza": "vs12bbb",
+    "wisdom-of-athena": "vs20procount",
+    "fire-portals": "vs20portals",
+    "juicy-fruits": "vs50juicyfr",
+    "floating-dragon": "vs10floatdrg",
+    "big-bass-hold-and-spinner": "vs10bbhas",
+    "mustang-gold": "vs25mustang",
+    "chilli-heat": "vs25chilli",
+    "jokers-jewels": "vs5joker",
+    "aztec-gems": "vs5aztecgems",
+    "hot-fiesta": "vs25hotfiesta",
+    "wild-booster": "vs20wildboost",
+    "sugar-rush-xmas": "vs20sugrux"
   },
   "playngo": {
     "book-of-dead": "bookofdead",
     "legacy-of-dead": "legacyofdead",
     "reactoonz": "reactoonz",
     "fire-joker": "firejoker",
-    "rise-of-olympus": "riseofolympus"
+    "rise-of-olympus": "riseofolympus",
+    "moon-princess": "moonprincess"
   },
   "hacksaw": {
     "le-bandit": "1309",
@@ -50,7 +63,8 @@
     "le-fisherman": "2057",
     "le-cowboy": "1924",
     "wanted-dead-or-a-wild": "1067",
-    "chaos-crew": "1059"
+    "chaos-crew": "1059",
+    "rip-city": "1233"
   },
   "liens": {
     "razor-shark": "https://www.pushgaming.com/games/play/razor-shark.html",
@@ -66,6 +80,8 @@
     "tombstone-rip": "https://www.nolimitcity.com/games/tombstone-rip",
     "san-quentin": "https://www.nolimitcity.com/games/san-quentin",
     "mental": "https://www.nolimitcity.com/games/mental",
-    "fire-in-the-hole": "https://www.nolimitcity.com/games/fire-in-the-hole"
+    "fire-in-the-hole": "https://www.nolimitcity.com/games/fire-in-the-hole",
+    "big-bamboo": "https://www.pushgaming.com/games/play/big-bamboo.html",
+    "dead-or-alive-2": "https://netent.com/games/dead-or-alive-2"
   }
 }

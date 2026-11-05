@@ -112,7 +112,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
       h1={t.h1}
       chapeau={t.chapeau}
       description={t.description}
-      modifie={MODIFIE}
+      modifie={t.verifieLe > MODIFIE ? t.verifieLe : MODIFIE}
       sommaire={sommaire}
       emplacement={emplacement}
     >

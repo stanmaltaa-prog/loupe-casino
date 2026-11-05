@@ -6,12 +6,13 @@ import jeux from './jeux';
 import canadaSport from './canada-sport';
 import rtp from './rtp';
 import opportunites from './opportunites';
+import paiements from './paiements';
 
 /**
  * Registre de toutes les pages guides. Ajouter un fichier de bloc ici
  * suffit pour que ses pages entrent dans le plan du site et le contrôle.
  */
-const BRUT: PageGuide[] = [...jeux, ...canadaSport, ...rtp, ...opportunites];
+const BRUT: PageGuide[] = [...jeux, ...canadaSport, ...rtp, ...opportunites, ...paiements];
 
 // Garde-fou : bloque le build si un titre ou une description dépasse ce que Google affiche.
 for (const p of BRUT) {
