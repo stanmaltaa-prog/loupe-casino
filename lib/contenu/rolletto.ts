@@ -30,7 +30,7 @@ const rolletto: ContenuCasino = {
         titre: 'Paiements',
         paragraphes: [
           "Rolletto accepte huit cryptomonnaies : Bitcoin, Ethereum, Litecoin, Tether (USDT), USD Coin, Tron, Dogecoin et XRP. Rolletto propose aussi un bonus crypto distinct (100 % jusqu'à 1 000 $ + 200 tours gratuits) ; comme un seul bonus peut être actif à la fois, il faut choisir entre les deux.",
-          "Nous n'avons pas pu confirmer sur les pages consultées la prise en charge d'Interac ni du dollar canadien. Vérifiez la caisse du casino avant votre premier dépôt."
+          "Notre test de novembre 2026 a été fait avec un compte en dollars canadiens. Nous n'avons pas pu confirmer la prise en charge d'Interac : vérifiez la caisse du casino avant votre premier dépôt."
         ]
       },
       {
@@ -40,7 +40,7 @@ const rolletto: ContenuCasino = {
           'Rolletto appartient au même exploitant que [Velobet](/velobet-casino/) (Santeda International B.V.) et partage sa licence de Curaçao. Avant un premier dépôt depuis le Québec :'
         ],
         liste: [
-          "**Devise** : les offres sont affichées en dollars, mais nous n'avons pas pu confirmer le dollar canadien. Vérifiez la devise proposée à l'inscription.",
+          "**Devise** : compte en dollars canadiens possible : notre test de novembre 2026 a été fait avec un compte en dollars canadiens.",
           "**Interac** : non confirmé sur les pages consultées. La cryptomonnaie est le moyen de paiement le mieux documenté chez Rolletto.",
           "**Recours** : en cas de litige, la plainte se dépose auprès de la Curacao Gaming Authority, pas d'un organisme québécois. Voir [ce que dit la loi au Québec](/casino-en-ligne-legal-quebec/)."
         ]
@@ -165,7 +165,7 @@ const rolletto: ContenuCasino = {
       {
         titre: 'Ce qui reste à vérifier',
         paragraphes: [
-          "Les conditions générales fixent les règles de retrait : minimum de 20 € ou l'équivalent, traitement sous 3 jours ouvrables bancaires, plafond de 7 500 € par semaine et de 15 000 € par mois. Le gestionnaire d'affiliation nous a annoncé par écrit des délais plus courts (instantané en crypto, sous 24 heures par virement, voir [notre page sur les retraits](/rolletto-casino/retrait/)). Testez d'abord avec un petit montant pour connaître le délai réel."
+          "Les conditions générales fixent les règles de retrait : minimum de 20 $ ou l'équivalent, traitement sous 3 jours ouvrables bancaires, plafond de 7 500 $ par semaine et de 15 000 $ par mois. Le gestionnaire d'affiliation nous a annoncé par écrit des délais plus courts (instantané en crypto, sous 24 heures par virement, voir [notre page sur les retraits](/rolletto-casino/retrait/)). Testez d'abord avec un petit montant pour connaître le délai réel."
         ]
       },
       {
@@ -194,7 +194,7 @@ const rolletto: ContenuCasino = {
   retrait: {
     titre: 'Retrait Rolletto : délais, minimum et plafonds de retrait',
     description:
-      "Retrait chez Rolletto : minimum 20 €, plafond de 7 500 € par semaine, traitement sous 3 jours ouvrables selon les conditions. Délais annoncés et conseils.",
+      "Retrait chez Rolletto : minimum 20 $, plafond de 7 500 $ par semaine, traitement sous 3 jours ouvrables selon les conditions. Délais annoncés et conseils.",
     h1: 'Retrait chez Rolletto : les délais annoncés et ce qu’il faut vérifier',
     intro: [
       "Les conditions générales de Rolletto, relues le 9 novembre 2026, fixent un minimum, un délai de traitement et des plafonds de retrait. Son gestionnaire d'affiliation nous a aussi annoncé par écrit des délais plus courts. Voici les deux, et comment retirer sans accroc."
@@ -204,9 +204,9 @@ const rolletto: ContenuCasino = {
         titre: 'Ce que disent les conditions générales',
         paragraphes: [],
         liste: [
-          'Retrait minimum : 20 € ou l’équivalent dans votre devise.',
+          'Retrait minimum : 20 $ ou l’équivalent dans votre devise.',
           'Traitement : sous trois jours ouvrables bancaires, virements compris.',
-          'Plafond : 7 500 € par semaine et 15 000 € par mois ; au-delà, le paiement peut être versé par tranches mensuelles.',
+          'Plafond : 7 500 $ par semaine et 15 000 $ par mois ; au-delà, le paiement peut être versé par tranches mensuelles.',
           'Vos dépôts doivent être misés au moins une fois avant d’être retirés.',
           'Le virement bancaire n’est pas proposé pour les retraits en dollars américains (USD).'
         ]
@@ -231,7 +231,7 @@ const rolletto: ContenuCasino = {
       {
         titre: 'Ce que nous n’avons pas pu confirmer',
         paragraphes: [
-          "Nous n'avons pas confirmé la prise en charge d'Interac ni du dollar canadien. Si ces points comptent pour vous, posez la question au service à la clientèle avant de déposer."
+          "Nous n'avons pas confirmé la prise en charge d'Interac. Si ces points comptent pour vous, posez la question au service à la clientèle avant de déposer."
         ]
       }
     ],
@@ -242,7 +242,7 @@ const rolletto: ContenuCasino = {
       },
       {
         q: 'Y a-t-il un plafond de retrait chez Rolletto ?',
-        r: "Oui : 7 500 € par semaine et 15 000 € par mois, ou l'équivalent dans votre devise, selon les conditions générales. Le retrait minimum est de 20 €."
+        r: "Oui : 7 500 $ par semaine et 15 000 $ par mois, ou l'équivalent dans votre devise, selon les conditions générales. Le retrait minimum est de 20 $."
       },
       {
         q: 'Peut-on retirer par Interac chez Rolletto ?',

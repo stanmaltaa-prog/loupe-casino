@@ -12,17 +12,17 @@ export const DUELS: Record<string, Duel> = typoProfond<Record<string, Duel>>({
   'rolletto-vs-velobet': {
     resume: 'Même exploitant et même licence ; Velobet laisse 30 jours pour miser le bonus, Rolletto 5 jours.',
     verdict: [
-      "Rolletto et Velobet sont deux sites du même exploitant, Santeda International B.V., sous la même licence de Curaçao. Leurs conditions générales fixent les mêmes plafonds de retrait : 7 500 € par semaine et 15 000 € par mois.",
-      "La différence se joue sur le bonus. Les deux demandent 30 fois (dépôt + bonus), mais Velobet laisse 30 jours pour y arriver, contre 5 jours chez Rolletto. Pour un dépôt de 100 € au premier palier, il faut miser 7 500 € dans les deux cas : environ 250 € par jour chez Velobet, 1 500 € par jour chez Rolletto. Rolletto affiche en revanche un plafond de bonus plus élevé sur trois dépôts."
+      "Rolletto et Velobet sont deux sites du même exploitant, Santeda International B.V., sous la même licence de Curaçao. Leurs conditions générales fixent les mêmes plafonds de retrait : 7 500 $ par semaine et 15 000 $ par mois.",
+      "La différence se joue sur le bonus. Les deux demandent 30 fois (dépôt + bonus), mais Velobet laisse 30 jours pour y arriver, contre 5 jours chez Rolletto. Pour un dépôt de 100 $ au premier palier, il faut miser 7 500 $ dans les deux cas : environ 250 $ par jour chez Velobet, 1 500 $ par jour chez Rolletto. Rolletto affiche en revanche un plafond de bonus plus élevé sur trois dépôts."
     ],
     choisirA: ['Vous visez le plus gros pack sur trois dépôts', 'Vous jouez beaucoup sur quelques jours', 'Vous voulez des retraits annoncés instantanés en crypto'],
-    choisirB: ['Vous voulez du temps pour compléter la mise', 'Vous préférez un retrait minimum de 10 €', 'Vous voulez un compte en dollars canadiens']
+    choisirB: ['Vous voulez du temps pour compléter la mise', 'Vous préférez un retrait minimum de 10 $', 'Vous voulez le retrait le plus rapide de nos tests']
   },
   'velobet-vs-celsius': {
     resume: 'Velobet l’emporte sur la transparence et la mise ; Celsius sur les moyens de paiement classiques.',
     verdict: [
       "Velobet affiche son exploitant et un numéro de licence de Curaçao vérifiable. Celsius nomme sa société, mais cite une licence d'Anjouan sans numéro. Sur la mise, l'écart est net : pour un dépôt de 100 au premier palier, il faut miser 7 500 en 30 jours chez Velobet, contre 10 000 en 20 jours chez Celsius.",
-      "Celsius garde un avantage pratique : il affiche les cartes Visa et Mastercard, Apple Pay, Google Pay, Skrill, PayPal et Paysafecard. Velobet mise d'abord sur la crypto, les autres moyens s'ouvrant une fois le compte vérifié. Ses plafonds de retrait sont aussi plus élevés : 7 500 € par semaine contre 2 500 €."
+      "Celsius garde un avantage pratique : il affiche les cartes Visa et Mastercard, Apple Pay, Google Pay, Skrill, PayPal et Paysafecard. Velobet mise d'abord sur la crypto, les autres moyens s'ouvrant une fois le compte vérifié. Ses plafonds de retrait sont aussi plus élevés : 7 500 $ par semaine contre 2 500 $."
     ],
     choisirA: ['Vous voulez un exploitant et une licence vérifiables', 'Vous voulez la mise la plus légère des deux', 'Vous visez des retraits importants'],
     choisirB: ['Vous voulez payer par carte ou portefeuille électronique', 'Vous voulez un bonus de 200 % au deuxième dépôt', 'Vous ne jouez pas en cryptomonnaie']
@@ -42,7 +42,7 @@ export const DUELS: Record<string, Duel> = typoProfond<Record<string, Duel>>({
       "1win affiche le plus gros pourcentage du comparatif, jusqu'à 600 % sur quatre dépôts avec 500 tours gratuits, selon sa page bonus. Nous n'avons toutefois pas pu confirmer sa condition de mise ni consulter ses mentions légales depuis notre poste de vérification.",
       "Velobet publie tout ce qu'il faut pour décider : exploitant, licence, mise de 30 fois (dépôt + bonus) en 30 jours, retrait minimum, délai et plafonds. Si vous voulez savoir exactement à quoi vous vous engagez, Velobet est le choix le plus sûr des deux."
     ],
-    choisirA: ['Vous voulez des conditions de bonus publiées en entier', 'Vous voulez un exploitant identifiable', 'Vous voulez un compte en dollars canadiens'],
+    choisirA: ['Vous voulez des conditions de bonus publiées en entier', 'Vous voulez un exploitant identifiable', 'Vous voulez le retrait le plus rapide de nos tests'],
     choisirB: ['Vous visez le plus gros pourcentage affiché', 'Vous voulez un bonus réparti sur quatre dépôts', 'Vous déposez en USDT']
   },
   'rolletto-vs-celsius': {
@@ -76,7 +76,7 @@ export const DUELS: Record<string, Duel> = typoProfond<Record<string, Duel>>({
     resume: 'BetPortal gagne nettement sur le bonus ; Celsius sur la transparence de l’exploitant et des retraits.',
     verdict: [
       "Sur le bonus, il n'y a pas de match : BetPortal demande 30 fois le bonus, Celsius 50 fois le dépôt plus le bonus. Pour un dépôt de 100 au premier palier, cela fait 4 500 à miser chez BetPortal contre 10 000 chez Celsius.",
-      "Celsius reprend l'avantage sur la transparence : il nomme son exploitant et publie ses limites de retrait (2 500 € par semaine). BetPortal n'affiche ni exploitant ni numéro de licence, et nous n'avons pas trouvé ses règles de retrait."
+      "Celsius reprend l'avantage sur la transparence : il nomme son exploitant et publie ses limites de retrait (2 500 $ par semaine). BetPortal n'affiche ni exploitant ni numéro de licence, et nous n'avons pas trouvé ses règles de retrait."
     ],
     choisirA: ['Vous voulez connaître les règles de retrait avant de jouer', 'Vous voulez un exploitant nommé', 'Vous jouez sans bonus ou avec un petit dépôt'],
     choisirB: ['Vous voulez débloquer un bonus réaliste', 'Vous aimez les promotions récurrentes', 'Vous voulez des tours gratuits dès le premier dépôt']

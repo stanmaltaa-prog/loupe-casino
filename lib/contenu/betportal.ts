@@ -2,9 +2,9 @@ import type { ContenuCasino } from './types';
 
 const betportal: ContenuCasino = {
   avis: {
-    titre: 'Avis BetPortal Casino 2026 : bonus 1 000 € et mise 30x',
+    titre: 'Avis BetPortal Casino 2026 : bonus 1 000 $ et mise 30x',
     description:
-      "Avis BetPortal : jusqu'à 1 000 € + 250 tours gratuits, mise de 30 fois le bonus seulement, remise quotidienne jusqu'à 25 %. Le bon et le moins bon.",
+      "Avis BetPortal : jusqu'à 1 000 $ + 250 tours gratuits, mise de 30 fois le bonus seulement, remise quotidienne jusqu'à 25 %. Le bon et le moins bon.",
     h1: 'Avis BetPortal : le bonus le plus facile à débloquer, une transparence à revoir',
     intro: [
       "BetPortal a l'avantage qui compte le plus pour un bonus : sa condition de mise porte sur le bonus seulement, pas sur le dépôt plus le bonus. Résultat, la somme à miser est bien plus faible qu'ailleurs pour un même dépôt.",
@@ -14,15 +14,15 @@ const betportal: ContenuCasino = {
       {
         titre: 'Notre lecture du bonus',
         paragraphes: [
-          "Le bonus se répartit sur trois dépôts : 150 % jusqu'à 500 € avec jusqu'à 200 tours gratuits, puis 100 % jusqu'à 300 € avec 50 tours gratuits, puis 50 % jusqu'à 200 €. Au total : jusqu'à 1 000 € et 250 tours gratuits.",
-          "La mise est de 30 fois le montant du bonus pour le casino. Avec un dépôt de 100 €, vous recevez 150 € de bonus et devez miser 4 500 €. Chez un concurrent qui calcule la mise sur le dépôt plus le bonus, le même dépôt demanderait 7 500 € de mises. C'est l'écart le plus important de tout notre comparatif.",
-          "Les montants ont été relevés en euros. La devise proposée à un compte ouvert depuis le Canada peut être différente : vérifiez-la au moment de l'inscription."
+          "Le bonus se répartit sur trois dépôts : 150 % jusqu'à 500 $ avec jusqu'à 200 tours gratuits, puis 100 % jusqu'à 300 $ avec 50 tours gratuits, puis 50 % jusqu'à 200 $. Au total : jusqu'à 1 000 $ et 250 tours gratuits.",
+          "La mise est de 30 fois le montant du bonus pour le casino. Avec un dépôt de 100 $, vous recevez 150 $ de bonus et devez miser 4 500 $. Chez un concurrent qui calcule la mise sur le dépôt plus le bonus, le même dépôt demanderait 7 500 $ de mises. C'est l'écart le plus important de tout notre comparatif.",
+          "Les montants sont indiqués en dollars canadiens : lors de notre test de novembre 2026, les chiffres publiés s'appliquaient tels quels sur un compte en CAD."
         ]
       },
       {
         titre: 'Les promotions après l’inscription',
         paragraphes: [
-          "BetPortal annonce une remise en argent quotidienne pouvant atteindre 25 % et un bonus de recharge de 30 % jusqu'à 100 € le lundi. Le site met aussi en avant un programme de fidélité à points, avec gestionnaire attitré pour les joueurs VIP."
+          "BetPortal annonce une remise en argent quotidienne pouvant atteindre 25 % et un bonus de recharge de 30 % jusqu'à 100 $ le lundi. Le site met aussi en avant un programme de fidélité à points, avec gestionnaire attitré pour les joueurs VIP."
         ]
       },
       {
@@ -50,12 +50,12 @@ const betportal: ContenuCasino = {
     ],
     pasPourQui: [
       'Ceux qui veulent un exploitant et une licence vérifiables avant tout',
-      'Ceux qui veulent jouer en dollars canadiens sans le vérifier d’abord'
+      'Ceux qui veulent payer par Interac'
     ],
     faq: [
       {
         q: 'Quel est le bonus de bienvenue de BetPortal ?',
-        r: "Jusqu'à 1 000 € et 250 tours gratuits sur trois dépôts : 150 % jusqu'à 500 € + jusqu'à 200 tours, puis 100 % jusqu'à 300 € + 50 tours, puis 50 % jusqu'à 200 €."
+        r: "Jusqu'à 1 000 $ et 250 tours gratuits sur trois dépôts : 150 % jusqu'à 500 $ + jusqu'à 200 tours, puis 100 % jusqu'à 300 $ + 50 tours, puis 50 % jusqu'à 200 $."
       },
       {
         q: 'Quelle est la condition de mise chez BetPortal ?',
@@ -73,10 +73,10 @@ const betportal: ContenuCasino = {
   },
 
   bonus: {
-    titre: 'Bonus BetPortal : 1 000 € + 250 tours, mise de 30x le bonus',
+    titre: 'Bonus BetPortal : 1 000 $ + 250 tours, mise de 30x le bonus',
     description:
       "Bonus BetPortal : 150 %, 100 % puis 50 % sur 3 dépôts, 250 tours gratuits, mise de 30 fois le bonus seulement. Exemple chiffré et comparaison.",
-    h1: 'Bonus BetPortal : jusqu’à 1 000 € et 250 tours gratuits, mise sur le bonus seulement',
+    h1: 'Bonus BetPortal : jusqu’à 1 000 $ et 250 tours gratuits, mise sur le bonus seulement',
     intro: [
       "La différence entre « 30 fois le bonus » et « 30 fois le dépôt + bonus » paraît mince. En pratique, elle réduit presque de moitié la somme à miser. C'est ce qui rend le bonus de BetPortal intéressant."
     ],
@@ -84,7 +84,7 @@ const betportal: ContenuCasino = {
       {
         titre: 'Combien faut-il miser ?',
         paragraphes: [
-          "Pour obtenir le bonus maximal du premier palier (500 €), il faut déposer environ 333 €. Il faudra alors miser 15 000 € (500 € × 30). Avec un dépôt de 50 €, le bonus est de 75 € et la mise de 2 250 €.",
+          "Pour obtenir le bonus maximal du premier palier (500 $), il faut déposer environ 333 $. Il faudra alors miser 15 000 $ (500 $ × 30). Avec un dépôt de 50 $, le bonus est de 75 $ et la mise de 2 250 $.",
           "Testez votre propre montant avec notre calculateur de conditions de mise."
         ]
       },
@@ -94,8 +94,7 @@ const betportal: ContenuCasino = {
         liste: [
           'Le délai pour compléter la mise.',
           'La mise maximale par tour pendant le bonus.',
-          'Le dépôt minimum pour chaque palier.',
-          'Les montants et la devise pour un compte canadien.'
+          'Le dépôt minimum pour chaque palier.'
         ]
       },
       {
@@ -116,7 +115,7 @@ const betportal: ContenuCasino = {
       },
       {
         q: 'Y a-t-il un bonus le lundi chez BetPortal ?',
-        r: "Oui, le « Lundi doré » : un bonus de recharge de 30 % jusqu'à 100 €."
+        r: "Oui, le « Lundi doré » : un bonus de recharge de 30 % jusqu'à 100 $."
       }
     ]
   },
@@ -175,10 +174,10 @@ const betportal: ContenuCasino = {
     ],
     etapes: [
       { titre: 'Ouvrez le formulaire', texte: 'Notre bouton vous amène directement sur la page d’inscription de BetPortal.' },
-      { titre: 'Vérifiez la devise proposée', texte: 'Les montants que nous avons relevés sont en euros. Regardez quelle devise vous est proposée avant de valider.' },
+      { titre: 'Choisissez le dollar canadien', texte: 'Sélectionnez le CAD à l’inscription : les montants du bonus s’appliquent alors en dollars canadiens.' },
       { titre: 'Remplissez vos vrais renseignements', texte: "Ils devront correspondre à vos documents lors de la vérification d'identité." },
       { titre: 'Lisez les détails du bonus', texte: 'Dans Promotions, ouvrez « Détails » sous le bonus de premier dépôt et notez le délai de mise et la mise maximale.' },
-      { titre: 'Faites votre premier dépôt', texte: "Le premier dépôt donne 150 % jusqu'à 500 € et jusqu'à 200 tours gratuits." },
+      { titre: 'Faites votre premier dépôt', texte: "Le premier dépôt donne 150 % jusqu'à 500 $ et jusqu'à 200 tours gratuits." },
       { titre: 'Testez un petit retrait', texte: 'Avant de déposer davantage, assurez-vous que le processus de retrait fonctionne pour vous.' }
     ],
     sections: [],

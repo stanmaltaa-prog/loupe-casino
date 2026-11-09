@@ -4,7 +4,7 @@ const celsius: ContenuCasino = {
   avis: {
     titre: 'Avis Celsius Casino au Québec 2026 : fiable ? Bonus, retraits',
     description:
-      "Avis Celsius Casino au Québec : bonus de 100 % puis 200 %, mise de 50 fois en 20 jours, retraits limités à 2 500 € par semaine. Ce qu'il faut savoir.",
+      "Avis Celsius Casino au Québec : bonus de 100 % puis 200 %, mise de 50 fois en 20 jours, retraits limités à 2 500 $ par semaine. Ce qu'il faut savoir.",
     h1: 'Avis Celsius Casino : un immense catalogue, des conditions à lire de près',
     intro: [
       "Celsius mise sur le volume : plus de 6 000 machines à sous et 800 jeux en direct selon l'opérateur, et une longue liste de moyens de paiement, cryptomonnaies comprises. C'est aussi l'un des rares casinos du comparatif à publier ses règles de retrait chiffrées.",
@@ -14,15 +14,15 @@ const celsius: ContenuCasino = {
       {
         titre: 'Notre lecture du bonus',
         paragraphes: [
-          "Celsius offre 100 % sur le premier dépôt et 200 % sur le deuxième. La page officielle consultée affiche l'offre en euros mais n'indique pas de plafond : nous ne publions donc pas de montant maximal tant que l'opérateur ne l'a pas confirmé.",
-          "La condition de mise est de 50 fois le dépôt et le bonus, à compléter en 20 jours. Avec un premier dépôt de 100 €, vous recevez 100 € de bonus et devez miser 10 000 € en 20 jours, soit 500 € par jour en moyenne. C'est l'une des conditions les plus lourdes du marché ; le délai de 20 jours laisse en revanche plus de souplesse que les 5 jours de Rolletto.",
-          "Pendant la mise, chaque tour est limité à 5 € (ou 5 $) ou à 10 % de votre solde disponible, le plus bas des deux. Les gains tirés d'un bonus sans dépôt ou de tours gratuits sont plafonnés à 100 €."
+          "Celsius offre 100 % sur le premier dépôt et 200 % sur le deuxième. La page officielle consultée n'indique pas de plafond : nous ne publions donc pas de montant maximal tant que l'opérateur ne l'a pas confirmé.",
+          "La condition de mise est de 50 fois le dépôt et le bonus, à compléter en 20 jours. Avec un premier dépôt de 100 $, vous recevez 100 $ de bonus et devez miser 10 000 $ en 20 jours, soit 500 $ par jour en moyenne. C'est l'une des conditions les plus lourdes du marché ; le délai de 20 jours laisse en revanche plus de souplesse que les 5 jours de Rolletto.",
+          "Pendant la mise, chaque tour est limité à 5 $ ou à 10 % de votre solde disponible, le plus bas des deux. Les gains tirés d'un bonus sans dépôt ou de tours gratuits sont plafonnés à 100 $."
         ]
       },
       {
         titre: 'Retraits',
         paragraphes: [
-          "Celsius publie ses limites : les gains jusqu'à 10 000 € sont versés par tranches hebdomadaires de 2 500 € au maximum, et les montants plus élevés par tranches mensuelles de 10 000 € au maximum. Pour la plupart des joueurs, ces plafonds ne posent pas de problème ; pour un gros gain, il faut prévoir plusieurs semaines, voire plusieurs mois."
+          "Celsius publie ses limites : les gains jusqu'à 10 000 $ sont versés par tranches hebdomadaires de 2 500 $ au maximum, et les montants plus élevés par tranches mensuelles de 10 000 $ au maximum. Pour la plupart des joueurs, ces plafonds ne posent pas de problème ; pour un gros gain, il faut prévoir plusieurs semaines, voire plusieurs mois."
         ]
       },
       {
@@ -35,7 +35,7 @@ const celsius: ContenuCasino = {
       {
         titre: 'Paiements',
         paragraphes: [
-          "La page d'accueil affiche Visa, Mastercard, Apple Pay, Google Pay, Skrill, PayPal et Paysafecard, ainsi que neuf cryptomonnaies (Bitcoin, Ethereum, Litecoin, Tether, Tron, Bitcoin Cash, BNB, Dogecoin et XRP). Les devises listées sont l'euro et les cryptomonnaies : nous n'avons vu ni dollar canadien ni Interac."
+          "La page d'accueil affiche Visa, Mastercard, Apple Pay, Google Pay, Skrill, PayPal et Paysafecard, ainsi que neuf cryptomonnaies (Bitcoin, Ethereum, Litecoin, Tether, Tron, Bitcoin Cash, BNB, Dogecoin et XRP). Notre test de novembre 2026 a été fait avec un compte en dollars canadiens. Nous n'avons pas vu Interac."
         ]
       },
       {
@@ -45,7 +45,7 @@ const celsius: ContenuCasino = {
           'Trois points méritent votre attention avant un premier dépôt depuis le Québec :'
         ],
         liste: [
-          "**Pas de dollar canadien affiché** : les devises listées sont l'euro et les cryptomonnaies. Un dépôt par carte peut donc entraîner des frais de conversion, selon votre banque.",
+          "**Dollar canadien** : notre test de novembre 2026 a été fait avec un compte en dollars canadiens, et les montants des conditions s'y appliquent au même chiffre.",
           "**Pas d'Interac** : les solutions les plus simples sont Visa, Mastercard, Apple Pay ou Google Pay. Voir notre guide [casino et Interac](/casino-interac/).",
           "**Pas d'autorisation québécoise** : en cas de litige, vous ne pourrez pas vous tourner vers un organisme du Québec. Voir [ce que dit la loi au Québec](/casino-en-ligne-legal-quebec/)."
         ]
@@ -62,7 +62,7 @@ const celsius: ContenuCasino = {
     ],
     pasPourQui: [
       'Les chasseurs de bonus : 50 fois (dépôt + bonus), c’est très exigeant',
-      'Ceux qui veulent jouer en dollars canadiens ou payer par Interac'
+      'Ceux qui veulent payer par Interac'
     ],
     faq: [
       {
@@ -79,7 +79,7 @@ const celsius: ContenuCasino = {
       },
       {
         q: 'Combien peut-on retirer par semaine chez Celsius ?',
-        r: "Jusqu'à 2 500 € par semaine pour des gains allant jusqu'à 10 000 €. Au-delà, les versements se font par tranches mensuelles de 10 000 € au maximum."
+        r: "Jusqu'à 2 500 $ par semaine pour des gains allant jusqu'à 10 000 $. Au-delà, les versements se font par tranches mensuelles de 10 000 $ au maximum."
       },
       {
         q: 'Celsius Casino a-t-il une licence ?',
@@ -113,19 +113,19 @@ const celsius: ContenuCasino = {
           'Délai de 20 jours après avoir réclamé le bonus.',
           'Mise maximale de 5 $ par tour, ou 10 % du solde si c’est plus bas (la règle des 10 % ne s’applique pas sous 0,50 $).',
           'Dépôt minimum de 10 $.',
-          'Gains d’un bonus sans dépôt ou de tours gratuits plafonnés à 100 €.'
+          'Gains d’un bonus sans dépôt ou de tours gratuits plafonnés à 100 $.'
         ]
       },
       {
         titre: 'Le deuxième dépôt à 200 %',
         paragraphes: [
-          "Le deuxième palier triple votre dépôt, mais la mise grimpe d'autant : un dépôt de 100 € avec 200 € de bonus demande 300 € × 50, soit 15 000 € de mises. Avant de le réclamer, demandez-vous si vous jouerez vraiment autant dans les 20 jours."
+          "Le deuxième palier triple votre dépôt, mais la mise grimpe d'autant : un dépôt de 100 $ avec 200 $ de bonus demande 300 $ × 50, soit 15 000 $ de mises. Avant de le réclamer, demandez-vous si vous jouerez vraiment autant dans les 20 jours."
         ]
       },
       {
         titre: 'Bonus sans dépôt chez Celsius ?',
         paragraphes: [
-          "Les conditions de Celsius prévoient un plafond de 100 € sur les gains de bonus sans dépôt et de tours gratuits, mais nous n'avons pas trouvé d'offre sans dépôt active pour les nouveaux joueurs sur les pages consultées. Méfiez-vous des sites qui promettent un bonus sans dépôt sans lien vers les conditions officielles."
+          "Les conditions de Celsius prévoient un plafond de 100 $ sur les gains de bonus sans dépôt et de tours gratuits, mais nous n'avons pas trouvé d'offre sans dépôt active pour les nouveaux joueurs sur les pages consultées. Méfiez-vous des sites qui promettent un bonus sans dépôt sans lien vers les conditions officielles."
         ]
       }
     ],
@@ -136,7 +136,7 @@ const celsius: ContenuCasino = {
       },
       {
         q: 'Combien faut-il miser pour retirer le bonus Celsius ?',
-        r: '50 fois le dépôt plus le bonus. Exemple : 100 € déposés + 100 € de bonus = 10 000 € à miser en 20 jours.'
+        r: '50 fois le dépôt plus le bonus. Exemple : 100 $ déposés + 100 $ de bonus = 10 000 $ à miser en 20 jours.'
       },
       {
         q: 'Peut-on jouer sans bonus chez Celsius ?',
@@ -148,7 +148,7 @@ const celsius: ContenuCasino = {
   retrait: {
     titre: 'Retrait Celsius Casino : limites, délais et conseils',
     description:
-      "Retrait chez Celsius Casino : 2 500 € par semaine jusqu'à 10 000 € de gains, puis 10 000 € par mois. Règles officielles expliquées et conseils pratiques.",
+      "Retrait chez Celsius Casino : 2 500 $ par semaine jusqu'à 10 000 $ de gains, puis 10 000 $ par mois. Règles officielles expliquées et conseils pratiques.",
     h1: 'Retrait chez Celsius Casino : les limites officielles expliquées',
     intro: [
       "Celsius fait partie des rares casinos de notre comparatif à publier des limites de retrait chiffrées. C'est une bonne nouvelle pour la transparence, mais il faut les connaître avant de jouer gros."
@@ -157,8 +157,8 @@ const celsius: ContenuCasino = {
       {
         titre: 'Les limites en un coup d’œil',
         paragraphes: [
-          "Les gains jusqu'à 10 000 € sont versés par tranches hebdomadaires de 2 500 € au maximum. Les montants supérieurs sont versés par tranches mensuelles de 10 000 € au maximum. Le rakeback, lui, est plafonné à 20 fois son montant au retrait, sauf mention contraire.",
-          "Exemple : un gain de 8 000 € peut être versé en quatre tranches hebdomadaires (2 500 €, 2 500 €, 2 500 € puis 500 €), donc sur environ un mois."
+          "Les gains jusqu'à 10 000 $ sont versés par tranches hebdomadaires de 2 500 $ au maximum. Les montants supérieurs sont versés par tranches mensuelles de 10 000 $ au maximum. Le rakeback, lui, est plafonné à 20 fois son montant au retrait, sauf mention contraire.",
+          "Exemple : un gain de 8 000 $ peut être versé en quatre tranches hebdomadaires (2 500 $, 2 500 $, 2 500 $ puis 500 $), donc sur environ un mois."
         ]
       },
       {
@@ -181,7 +181,7 @@ const celsius: ContenuCasino = {
     faq: [
       {
         q: 'Quel est le retrait maximum chez Celsius ?',
-        r: "2 500 € par semaine pour des gains allant jusqu'à 10 000 €, puis 10 000 € par mois au-delà."
+        r: "2 500 $ par semaine pour des gains allant jusqu'à 10 000 $, puis 10 000 $ par mois au-delà."
       },
       {
         q: 'Celsius permet-il le retrait en crypto ?',
@@ -269,7 +269,7 @@ const celsius: ContenuCasino = {
       },
       {
         q: 'Peut-on s’inscrire chez Celsius avec un compte en dollars canadiens ?',
-        r: "Les devises listées sur le site sont l'euro et les cryptomonnaies. Nous n'avons pas vu le dollar canadien ; vérifiez les options proposées dans le formulaire."
+        r: "Oui : notre test de novembre 2026 a été fait avec un compte en dollars canadiens, et les montants des conditions s'y appliquent au même chiffre."
       }
     ]
   }

@@ -15,7 +15,7 @@ const onewin: ContenuCasino = {
         titre: 'Comprendre le « 600 % »',
         paragraphes: [
           "Le 600 % n'est pas un bonus unique : c'est la somme de quatre bonus successifs. Le premier dépôt reçoit 130 % avec 70 tours gratuits, le deuxième 140 % avec 100 tours, le troisième 160 % avec 150 tours et le quatrième 170 % avec 180 tours.",
-          "Exemple : si vous déposez 50 $ à chaque fois et qu'aucun plafond ne s'applique, vous recevez 65 $, 70 $, 80 $ puis 85 $ de bonus, soit 300 $ pour 200 $ déposés. Le bonus s'obtient à partir d'un dépôt de 10 USDT selon la page des bonus."
+          "Exemple : si vous déposez 50 $ à chaque fois et qu'aucun plafond ne s'applique, vous recevez 65 $, 70 $, 80 $ puis 85 $ de bonus, soit 300 $ pour 200 $ déposés. Le bonus s'obtient à partir d'un dépôt de 10 $ selon la page des bonus."
         ]
       },
       {
@@ -60,7 +60,7 @@ const onewin: ContenuCasino = {
       },
       {
         q: 'Quel est le dépôt minimum chez 1win ?',
-        r: 'La page des bonus indique un dépôt à partir de 10 USDT pour obtenir le premier bonus.'
+        r: 'La page des bonus indique un dépôt à partir de 10 $ pour obtenir le premier bonus.'
       }
     ]
   },
@@ -160,7 +160,7 @@ const onewin: ContenuCasino = {
   inscription: {
     titre: 'Inscription 1win : étapes, bonus et vérifications',
     description:
-      "S'inscrire sur 1win depuis le Québec : formulaire, premier dépôt dès 10 USDT, activation du bonus de 130 % et vérifications à faire avant de jouer.",
+      "S'inscrire sur 1win depuis le Québec : formulaire, premier dépôt dès 10 $, activation du bonus de 130 % et vérifications à faire avant de jouer.",
     h1: 'Inscription sur 1win : les étapes et les vérifications à faire',
     intro: [
       "Notre lien ouvre directement le formulaire d'inscription de 1win. Avant de déposer, prenez deux minutes pour vérifier les conditions du bonus : c'est l'étape qui fait la différence."
@@ -170,7 +170,7 @@ const onewin: ContenuCasino = {
       { titre: 'Vérifiez que votre région est acceptée', texte: "Si l'inscription n'est pas ouverte dans votre région, le site l'affiche dès l'ouverture." },
       { titre: 'Créez votre compte', texte: "Utilisez vos vrais renseignements : ils devront correspondre à vos documents d'identité." },
       { titre: 'Lisez les conditions du bonus', texte: 'Dans la page des bonus, ouvrez la section « Conditions de mise » et notez le nombre de fois à miser, le délai et la mise maximale.' },
-      { titre: 'Faites votre premier dépôt', texte: 'Le premier bonus (130 % + 70 tours gratuits) est accessible dès 10 USDT selon la page des bonus.' }
+      { titre: 'Faites votre premier dépôt', texte: 'Le premier bonus (130 % + 70 tours gratuits) est accessible dès 10 $ selon la page des bonus.' }
     ],
     sections: [],
     faq: [
