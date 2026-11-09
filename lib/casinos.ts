@@ -58,6 +58,15 @@ export type Casino = {
   produit: { casino: boolean | null; live: boolean | null; sport: boolean | null; esport: boolean | null; nombreJeux: string | null };
   retraits: { resume: string; detail: string[]; source: string; verifieLe: string } | null;
   quebec: { statut: 'confirme' | 'a-confirmer'; note: string; confirmeLe?: string };
+  /** Test réel fait par l'auteur du site : délais de retrait constatés, en heures. */
+  test?: {
+    par: string;
+    mois: string;
+    retraitCryptoHeures: number | null;
+    retraitCarteHeures: number | null;
+    frequenceJours: number;
+    source: string;
+  };
   notes: Record<Critere, { note: number; raison: string }>;
   pointsForts: string[];
   pointsFaibles: string[];
