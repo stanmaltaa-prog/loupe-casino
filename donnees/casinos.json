@@ -113,14 +113,16 @@
         "nombreJeux": null
       },
       "retraits": {
-        "resume": "Crypto : instantané. Virement : sous 24 h",
+        "resume": "Sous 3 jours ouvrables (conditions) ; crypto instantanée selon le gestionnaire",
         "detail": [
-          "Retraits en cryptomonnaie : traités instantanément, selon le gestionnaire d'affiliation.",
-          "Retraits par virement : sous 24 heures, selon le gestionnaire d'affiliation.",
-          "Plafonds de retrait : non publiés à ce jour."
+          "Retrait minimum : 20 € ou l'équivalent, selon les conditions générales.",
+          "Traitement sous trois jours ouvrables bancaires, virements compris, selon les conditions générales.",
+          "Plafond : 7 500 € par semaine et 15 000 € par mois, ou l'équivalent, selon les conditions générales.",
+          "Le gestionnaire d'affiliation annonce par écrit (4 novembre 2026) des retraits instantanés en crypto et sous 24 heures par virement.",
+          "Les dépôts doivent être misés au moins une fois avant d'être retirés."
         ],
-        "source": "gestionnaire",
-        "verifieLe": "2026-11-04"
+        "source": "https://r0lletto.com/fr/static/terms/generalterms",
+        "verifieLe": "2026-11-09"
       },
       "quebec": {
         "statut": "confirme",
@@ -136,16 +138,16 @@
           "raison": "Offre très généreuse, mais 30 fois (dépôt + bonus) à boucler en 5 jours seulement, sur les machines à sous uniquement."
         },
         "retraits": {
-          "note": 6,
-          "raison": "Plafonds et délais de retrait non publiés sur les pages consultées : note neutre en attendant."
+          "note": 7,
+          "raison": "Minimum, délai et plafonds publiés dans les conditions : traitement sous 3 jours ouvrables, 7 500 € par semaine et 15 000 € par mois."
         },
         "produit": {
           "note": 8.5,
           "raison": "Casino, paris sportifs et esports dans un seul compte, huit cryptomonnaies acceptées."
         },
         "protection": {
-          "note": 6,
-          "raison": "Outils de jeu responsable non vérifiés en détail : note neutre."
+          "note": 7,
+          "raison": "Limites de compte, pauses, autoexclusion et service à la clientèle 24 h sur 24 annoncés sur la page Jeu responsable."
         }
       },
       "pointsForts": [
@@ -158,11 +160,177 @@
         "Seulement 5 jours pour compléter la mise de 30 fois (dépôt + bonus)",
         "Tours quotidiens perdus si vous manquez un seul jour de connexion",
         "Bonus valable sur les machines à sous seulement",
-        "Plafonds de retrait non publiés sur les pages consultées"
+        "Dépôts à miser au moins une fois avant tout retrait"
       ],
       "aConfirmer": [
-        "Plafonds de retrait",
         "Prise en charge d'Interac et du dollar canadien"
+      ]
+    },
+    {
+      "id": "velobet",
+      "actif": true,
+      "nom": "Velobet",
+      "slug": "velobet-casino",
+      "initiale": "V",
+      "couleur": "#4D7C0F",
+      "lien": "https://amliiink.com/g/8jpp4c5",
+      "accroche": "Le même exploitant que Rolletto, mais six fois plus de temps pour boucler la mise du bonus.",
+      "sousPages": [
+        "bonus",
+        "retrait",
+        "fiable",
+        "inscription"
+      ],
+      "operateur": {
+        "nom": "Santeda International B.V.",
+        "registre": "151296",
+        "pays": "Curaçao",
+        "source": "https://24velobet.com/fr/static/promos",
+        "verifieLe": "2026-11-09"
+      },
+      "licence": {
+        "statut": "numero-affiche",
+        "autorite": "Curacao Gaming Authority (CGA)",
+        "numero": "OGL/2024/1798/1048",
+        "note": "Licence délivrée par la Curacao Gaming Authority. Ce n'est pas une autorisation du gouvernement du Québec.",
+        "source": "https://24velobet.com/fr/static/promos",
+        "verifieLe": "2026-11-09"
+      },
+      "offre": {
+        "titre": "Jusqu'à 2 000 € + 300 tours gratuits",
+        "sousTitre": "Pack de bienvenue casino sur vos 3 premiers dépôts (330 % au total)",
+        "devise": "€",
+        "noteDevise": "Montants relevés en euros. Pour un premier dépôt entre 500 € et 1 000 €, le bonus passe à 100 % (jusqu'à 1 000 €). Un compte peut être ouvert en dollars canadiens : vérifiez les montants dans votre devise.",
+        "paliers": [
+          {
+            "depot": 1,
+            "pourcentage": 150,
+            "plafond": 750,
+            "tours": 300
+          },
+          {
+            "depot": 2,
+            "pourcentage": 100,
+            "plafond": 500,
+            "tours": 0
+          },
+          {
+            "depot": 3,
+            "pourcentage": 80,
+            "plafond": 500,
+            "tours": 0
+          }
+        ],
+        "toursTotal": 300,
+        "toursDetail": "30 tours gratuits dès le premier dépôt de 10 € minimum, puis 270 tours à raison de 30 par jour pendant 9 jours, avec une connexion quotidienne obligatoire.",
+        "mise": {
+          "multiplicateur": 30,
+          "base": "depot+bonus",
+          "delaiJours": 30
+        },
+        "depotMin": 10,
+        "depotMinDevise": "€",
+        "miseMax": "5 € par tour",
+        "jeuxAdmissibles": "Jeux de casino seulement",
+        "activation": null,
+        "autres": [
+          "Un seul bonus actif à la fois.",
+          "Dépôt minimum de 20 € pour les bonus des 2e et 3e dépôts."
+        ],
+        "source": "https://24velobet.com/fr/static/promos",
+        "verifieLe": "2026-11-09"
+      },
+      "autresOffres": [
+        {
+          "titre": "Bonus crypto",
+          "detail": "160 % jusqu'à 1 000 € sur le premier dépôt en crypto (10 € minimum), machines à sous seulement, mise de 30 fois (dépôt + bonus) en 30 jours."
+        },
+        {
+          "titre": "Bienvenue paris sportifs",
+          "detail": "150 % jusqu'à 1 000 € + 10 paris gratuits, mise de 15 fois (dépôt + bonus) sur des combinés d'au moins 3 sélections à 1,30."
+        },
+        {
+          "titre": "Cashback VIP",
+          "detail": "10 % de remise sans condition de mise sur les dépôts faits depuis le dernier retrait ou bonus."
+        }
+      ],
+      "paiements": {
+        "crypto": [
+          "BTC",
+          "BCH",
+          "ETH",
+          "LTC",
+          "XRP",
+          "DASH",
+          "XMR",
+          "XLM"
+        ],
+        "autres": [],
+        "interac": "non-confirme",
+        "devises": "AUD, BRL, CAD, EUR, GBP, USD (formulaire d'inscription)",
+        "source": "https://24velobet.com/fr/static/promos",
+        "verifieLe": "2026-11-09"
+      },
+      "produit": {
+        "casino": true,
+        "live": true,
+        "sport": true,
+        "esport": true,
+        "nombreJeux": null
+      },
+      "retraits": {
+        "resume": "Sous 3 jours ouvrables ; 7 500 € par semaine",
+        "detail": [
+          "Retrait minimum : 10 € ou l'équivalent.",
+          "Traitement sous trois jours ouvrables bancaires, virements compris.",
+          "Plafond : 7 500 € par semaine et 15 000 € par mois, ou l'équivalent.",
+          "Une retenue de 20 % peut s'appliquer si les fonds déposés n'ont pas été misés au moins une fois avant le retrait.",
+          "Le virement bancaire n'est pas proposé pour les retraits en dollars américains (USD)."
+        ],
+        "source": "https://24velobet.com/fr/static/terms/generalterms",
+        "verifieLe": "2026-11-09"
+      },
+      "quebec": {
+        "statut": "a-confirmer",
+        "note": "Le Canada ne figure pas dans la liste des pays exclus des conditions générales, et le formulaire d'inscription propose le Canada et le dollar canadien (vérifié le 9 novembre 2026). Confirmation écrite du gestionnaire d'affiliation en attente."
+      },
+      "notes": {
+        "transparence": {
+          "note": 9.5,
+          "raison": "Société exploitante (Santeda International B.V., n° 151296) et numéro de licence CGA affichés : tout se vérifie."
+        },
+        "bonus": {
+          "note": 7,
+          "raison": "30 fois (dépôt + bonus) en 30 jours avec une mise maximale de 5 € : six fois plus de temps que chez Rolletto pour la même mise."
+        },
+        "retraits": {
+          "note": 7,
+          "raison": "Minimum de 10 €, traitement sous 3 jours ouvrables et plafonds publiés : 7 500 € par semaine, 15 000 € par mois."
+        },
+        "produit": {
+          "note": 8.5,
+          "raison": "Casino, casino en direct, paris sportifs, esports et mini-jeux, huit cryptomonnaies et des comptes en dollars canadiens."
+        },
+        "protection": {
+          "note": 7,
+          "raison": "Limites de compte, pauses, autoexclusion de 6 mois à 5 ans et service à la clientèle 24 h sur 24 annoncés."
+        }
+      },
+      "pointsForts": [
+        "30 jours pour compléter la mise, contre 5 chez Rolletto",
+        "Exploitant et numéro de licence affichés",
+        "Comptes en dollars canadiens proposés à l'inscription",
+        "Retrait minimum de 10 € et plafonds publiés"
+      ],
+      "pointsFaibles": [
+        "Mise de 30 fois le dépôt plus le bonus",
+        "Tours gratuits étalés sur 10 jours de connexion",
+        "Retenue de 20 % si le dépôt n'est pas misé une fois avant un retrait",
+        "Frais d'inactivité de 20 % par mois sur un compte inactif"
+      ],
+      "aConfirmer": [
+        "Acceptation des joueurs du Québec par écrit (gestionnaire d'affiliation)",
+        "Prise en charge d'Interac"
       ]
     },
     {
