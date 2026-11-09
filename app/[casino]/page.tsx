@@ -32,6 +32,7 @@ import {
 import { contenuDe } from '@/lib/contenu';
 import { SITE, absolu, dateLongue } from '@/lib/site';
 import { meta, schemaPage } from '@/lib/seo';
+import TestReel from '@/components/TestReel';
 
 export const dynamicParams = false;
 
@@ -84,6 +85,7 @@ export default function PageAvis({ params }: { params: { casino: string } }) {
         </div>
 
         <div className="lecture prose">
+          <TestReel casino={c} />
           <h2>L&apos;essentiel sur {c.nom}</h2>
           <dl className="faits">
             <dt>Exploitant</dt>
