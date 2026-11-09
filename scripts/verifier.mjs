@@ -9,6 +9,7 @@ const avertissements = [];
 
 const LIENS_DE_REFERENCE = {
   rolletto: 'https://track.rollettoaffiliate.com/visit/?bta=42389&brand=rolletto&afp=simon',
+  velobet: 'https://amliiink.com/g/8jpp4c5',
   celsius: 'https://celsius.games/BODjXUCkAl',
   betportal: 'https://amliiink.com/g/vxcvg69',
   '1win': 'https://one-vv4934.com/casino/list?open=register&p=a0rb&sub1=simon'
@@ -78,6 +79,34 @@ for (const c of donnees.casinos) {
 
   if (c.actif && c.quebec?.statut !== 'confirme') avertissements.push(`${n} : inscription depuis le Québec pas encore confirmée par écrit par le gestionnaire d'affiliation.`);
   if (c.actif && c.aConfirmer?.length) avertissements.push(`${n} : ${c.aConfirmer.length} point(s) à confirmer : ${c.aConfirmer.join(' ; ')}.`);
+}
+
+// 1 bis. Journal des tests réels (donnees/tests.json) : cohérent avec le champ « test » de chaque casino
+try {
+  const journal = JSON.parse(readFileSync(join(racine, 'donnees/tests.json'), 'utf8'));
+  const releves = journal.tests || [];
+  for (const r of releves) {
+    if (!dateValide(r.date)) erreurs.push(`Journal des tests : date invalide « ${r.date} ».`);
+    if (!ids.has(r.casino)) erreurs.push(`Journal des tests : casino inconnu « ${r.casino} ».`);
+    if (!['crypto', 'carte'].includes(r.moyen)) erreurs.push(`Journal des tests : moyen inconnu « ${r.moyen} » (crypto ou carte).`);
+    if (typeof r.delaiHeures !== 'number' || r.delaiHeures < 0) erreurs.push(`Journal des tests : délai invalide pour ${r.casino} (${r.date}).`);
+  }
+  const champ = { crypto: 'retraitCryptoHeures', carte: 'retraitCarteHeures' };
+  for (const c of actifs) {
+    if (!c.test) continue;
+    for (const moyen of ['crypto', 'carte']) {
+      const dernier = releves.filter((r) => r.casino === c.id && r.moyen === moyen).sort((x, y) => y.date.localeCompare(x.date))[0];
+      const valeur = c.test[champ[moyen]];
+      if (dernier && dernier.delaiHeures !== valeur) {
+        erreurs.push(`${c.nom} : le dernier test ${moyen} du journal (${dernier.delaiHeures} h, ${dernier.date}) ne correspond pas au champ test de casinos.json (${valeur} h).`);
+      }
+      if (!dernier && valeur !== null && valeur !== undefined) avertissements.push(`${c.nom} : test ${moyen} présent dans casinos.json mais absent du journal des tests.`);
+    }
+    const recents = releves.filter((r) => r.casino === c.id).map((r) => r.date).sort().pop();
+    if (recents && age(recents) > 10) avertissements.push(`${c.nom} : dernier test réel il y a ${age(recents)} jours, alors que le site annonce un test environ tous les ${c.test.frequenceJours} jours.`);
+  }
+} catch (e) {
+  erreurs.push(`donnees/tests.json est illisible : ${e.message}`);
 }
 
 // 2. Mots interdits dans tout le contenu (conformité et honnêteté)
