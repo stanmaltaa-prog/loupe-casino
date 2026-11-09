@@ -19,7 +19,7 @@ function phraseLicence(c: Casino): string {
 }
 
 const CHEMIN = '/casino-en-ligne-legal-quebec/';
-const MAJ = '2026-11-03';
+const MAJ = '2026-11-09';
 const DESCRIPTION =
   "Loto-Québec, sites étrangers, loi 74 sur le blocage, projet d'encadrement : ce que dit vraiment la loi sur le casino en ligne au Québec, expliqué simplement.";
 
@@ -70,7 +70,9 @@ export default function PageLegalite() {
       <p>
         Le Québec a confié ce rôle à Loto-Québec, une société d&apos;État, que le gouvernement a autorisée à offrir le jeu en
         ligne. L&apos;Ontario a choisi une autre voie en 2022 : il délivre des autorisations à des exploitants privés, qui
-        doivent respecter ses règles. Le Québec, lui, n&apos;a pas ouvert son marché aux exploitants privés.
+        doivent respecter ses règles. L&apos;Alberta a suivi le 13 juillet 2026. Le Québec, lui, n&apos;a pas ouvert son
+        marché aux exploitants privés. Le détail par province est dans notre guide{' '}
+        <Link href="/casino-en-ligne-canada/">casino en ligne au Canada</Link>.
       </p>
 
       <h2 id="sites-etrangers">Le cas des sites étrangers</h2>
@@ -127,6 +129,10 @@ export default function PageLegalite() {
         <li>conserver des captures d&apos;écran des conditions du bonus au moment où vous l&apos;acceptez.</li>
       </ul>
       <p>
+        Ce sont les critères de notre <Link href="/#classement">classement des casinos en ligne au Québec</Link> : chaque
+        avis indique l&apos;exploitant, la licence et les règles de retrait, avec la date de vérification.
+      </p>
+      <p>
         Il faut avoir <strong>18 ans</strong> pour jouer à des jeux d&apos;argent au Québec. Ce guide est une vulgarisation,
         pas un avis juridique : pour une situation particulière, consultez un avocat.
       </p>
@@ -169,6 +175,14 @@ export default function PageLegalite() {
           {
             q: 'Quel âge faut-il avoir pour jouer en ligne au Québec ?',
             r: '18 ans.'
+          },
+          {
+            q: 'Pourquoi un casino en ligne refuse-t-il mon inscription ?',
+            r: "Plusieurs raisons sont possibles : le site n'accepte pas votre pays ou votre province (certains casinos étrangers excluent l'Ontario et l'Alberta, où seuls les sites autorisés par la province peuvent offrir leurs jeux), vous n'avez pas l'âge minimum, ou votre compte attend une vérification d'identité. Le formulaire d'inscription ou le service à la clientèle vous dira laquelle s'applique."
+          },
+          {
+            q: 'Les gains de casino en ligne sont-ils imposables au Québec ?',
+            r: "En règle générale, non : les gains d'une personne qui joue pour se divertir ne sont pas imposables au Canada, car ils ne proviennent pas d'une source de revenus. Ils peuvent l'être si le jeu constitue une activité professionnelle. En cas de doute, consultez un fiscaliste."
           }
         ]}
       />
