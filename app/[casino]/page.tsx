@@ -35,6 +35,9 @@ import { meta, schemaPage } from '@/lib/seo';
 
 export const dynamicParams = false;
 
+/** Casinos dont l'offre de paris sportifs est présentée dans le guide /paris-sportifs-quebec/. */
+const AVEC_SPORT = ['velobet', 'rolletto', 'betportal'];
+
 export function generateStaticParams() {
   return CASINOS.map((c) => ({ casino: c.slug }));
 }
@@ -174,6 +177,12 @@ export default function PageAvis({ params }: { params: { casino: string } }) {
           {c.sousPages.includes('bonus') ? (
             <p>
               Tous les détails, pièges compris : <Link href={cheminCasino(c, 'bonus')}>le bonus {c.nom} expliqué</Link>.
+            </p>
+          ) : null}
+          {AVEC_SPORT.includes(c.id) ? (
+            <p>
+              {c.nom} propose aussi des paris sportifs : comparez son offre dans notre guide des{' '}
+              <Link href="/paris-sportifs-quebec/">paris sportifs au Québec</Link>.
             </p>
           ) : null}
 
