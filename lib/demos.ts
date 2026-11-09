@@ -25,7 +25,7 @@ export function demoJeu(slug: string): Demo | null {
       jurisdiction: '99',
       lobby_url: 'https://www.pragmaticplay.com/en/',
       lang: 'fr',
-      cur: 'USD'
+      cur: 'CAD'
     });
     return { mode: 'integree', url: `https://demogamesfree.pragmaticplay.net/gs2c/openGame.do?${p.toString()}` };
   }
