@@ -17,8 +17,10 @@ export const PAIRES: Record<string, string> = {
   '/a-propos/': '/en-ca/about/',
   ...Object.fromEntries(SLUGS_CASINOS.flatMap((s) => [
     [`/${s}/`, `/en-ca/${s}/`],
-    [`/${s}/bonus/`, `/en-ca/${s}/bonus/`]
-  ]))
+    [`/${s}/bonus/`, `/en-ca/${s}/bonus/`],
+    [`/${s}/fiable/`, `/en-ca/${s}/legit/`]
+  ])),
+  ...Object.fromEntries(['velobet-casino', 'rolletto-casino', 'celsius-casino'].map((s) => [`/${s}/retrait/`, `/en-ca/${s}/withdrawal/`]))
 };
 
 const INVERSE: Record<string, string> = Object.fromEntries(Object.entries(PAIRES).map(([fr, en]) => [en, fr]));
