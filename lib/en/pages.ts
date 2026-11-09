@@ -9,6 +9,9 @@ import { SITE } from '@/lib/site';
 import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, miseEn } from './casinos';
 import { AIDE_PROVINCES, EN, MESSAGE_ZONE, SOURCE_AIDE, SOURCE_AIDE_NS, dateEn, montantEn, noteEn } from './site';
 
+/** "1 h", "12 h" or "Not tested". */
+const heuresEn = (n: number | null | undefined) => (n === null || n === undefined ? 'Not tested' : `${n} h`);
+
 const MAJ = EN.verification;
 
 const lien = (c: Casino, bonus = false) => `[${c.nom}](${cheminEn(c, bonus)})`;
@@ -243,6 +246,31 @@ export const PAGES_EN: PageGuide[] = [
           {
             type: 'p',
             texte: `${liste(AVEC_REGLES.map((c) => c.nom))} publish figures. For the others we found no withdrawal rules, which is a reason to start with a small deposit and test a withdrawal first.`
+          },
+          {
+            type: 'p',
+            texte: `**Our real tests (November 2026).** ${AUTEUR.nom} deposited and withdrew at every casino we compare, and repeats these tests about every 3 days. Here is how long each withdrawal took to arrive, with the identity check already done:`
+          },
+          {
+            type: 'tableau',
+            entetes: ['Casino', 'Crypto withdrawal', 'Card withdrawal'],
+            lignes: [...CASINOS]
+              .filter((c) => c.test)
+              .sort((a, b) => (a.test?.retraitCryptoHeures ?? 99) - (b.test?.retraitCryptoHeures ?? 99))
+              .map((c) => [lien(c), heuresEn(c.test?.retraitCryptoHeures), heuresEn(c.test?.retraitCarteHeures)])
+          },
+          {
+            type: 'p',
+            texte:
+              'Velobet was the fastest: crypto received in 1 hour, card in 12 hours. Your times may vary with identity checks and the payment method.'
+          },
+          {
+            type: 'cta',
+            casino: 'velobet',
+            titre: 'Crypto withdrawal received in 1 hour in our test',
+            detail:
+              'November 2026 test, identity already verified. Per the terms: processing within 3 business days at most and a €7,500 weekly limit; wager each deposit at least once before withdrawing.',
+            bouton: 'Visit Velobet'
           }
         ]
       },
@@ -285,7 +313,7 @@ export const PAGES_EN: PageGuide[] = [
     faq: [
       {
         q: 'Which online casino pays out fastest in Canada?',
-        r: 'Among the casinos we compare, Velobet and Rolletto publish a processing time of three business days in their terms, and Rolletto’s affiliate manager says crypto withdrawals are instant. We have not made withdrawals ourselves, so we report what the terms say.'
+        r: 'In our November 2026 tests, Velobet: crypto withdrawal received in 1 hour and card withdrawal in 12 hours. Celsius and Rolletto followed with 2 hours in crypto. These times assume your identity is already verified.'
       },
       {
         q: 'Why is my casino withdrawal pending?',
