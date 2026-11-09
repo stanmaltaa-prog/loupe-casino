@@ -37,14 +37,14 @@ export default function TestReel({ casino: c }: { casino: Casino }) {
       </p>
       <p>
         {typo(
-          `J'ai testé ${c.nom} en deux fois : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA, pour comparer avec deux soldes différents.${
-            delais ? ` Résultat : ${delais}.` : ''
+          `J'ai testé ${c.nom} en deux fois : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA, pour comparer avec deux soldes différents.${
+            delais ? ` Résultat : ${delais}.` : ''
           } Dépôts, jeux et retraits ont fonctionné comme l'annoncent les conditions.`
         )}
       </p>
       <p className="petit">
         {typo(
-          `Je rejoue sur ${c.nom} environ tous les ${t.frequenceJours} jours, et plus souvent si le service se dégrade. Dernier test : ${moisLong(t.mois)}. Vos délais peuvent varier selon la vérification d'identité et le moyen de paiement.`
+          `Je rejoue sur ${c.nom} environ tous les ${t.frequenceJours} jours, et plus souvent si le service se dégrade. Dernier test : ${moisLong(t.mois)}. Vos délais peuvent varier selon la vérification d'identité et le moyen de paiement.`
         )}
       </p>
     </aside>
