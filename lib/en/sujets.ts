@@ -42,7 +42,7 @@ export const LEGIT_EN: Record<string, PageSujetEn> = {
       {
         titre: 'What calls for caution',
         paragraphes: [
-          'Some rules work against the player: a 20% fee on a withdrawal if the deposit was not wagered at least once, a 20% monthly fee on dormant accounts, and a maximum win of €100,000 per bet or spin. They are written in plain sight, so you can avoid them. Details on [Velobet withdrawals](/en-ca/velobet-casino/withdrawal/).'
+          'Some rules work against the player: a 20% fee on a withdrawal if the deposit was not wagered at least once, a 20% monthly fee on dormant accounts, and a maximum win of $100,000 per bet or spin. They are written in plain sight, so you can avoid them. Details on [Velobet withdrawals](/en-ca/velobet-casino/withdrawal/).'
         ]
       },
       { titre: 'What the licence does not change', paragraphes: [LICENCE_PROVINCE] }
@@ -82,7 +82,7 @@ export const LEGIT_EN: Record<string, PageSujetEn> = {
       {
         titre: 'What remains to be checked',
         paragraphes: [
-          'The general terms set the withdrawal rules: a €20 minimum or the equivalent, processing within 3 banking business days, and limits of €7,500 per week and €15,000 per month. The affiliate manager told us in writing that withdrawals are faster: instant in crypto, under 24 hours by bank transfer (see [Rolletto withdrawals](/en-ca/rolletto-casino/withdrawal/)). Test with a small amount first.'
+          'The general terms set the withdrawal rules: a $20 minimum or the equivalent, processing within 3 banking business days, and limits of $7,500 per week and $15,000 per month. The affiliate manager told us in writing that withdrawals are faster: instant in crypto, under 24 hours by bank transfer (see [Rolletto withdrawals](/en-ca/rolletto-casino/withdrawal/)). Test with a small amount first.'
         ]
       },
       { titre: 'What the licence does not change', paragraphes: [LICENCE_PROVINCE] }
@@ -238,9 +238,9 @@ export const LEGIT_EN: Record<string, PageSujetEn> = {
 
 export const RETRAIT_EN: Record<string, PageSujetEn> = {
   velobet: {
-    titre: 'Velobet Withdrawal: €10 Minimum, Times and Limits',
+    titre: 'Velobet Withdrawal: $10 Minimum, Times and Limits',
     description:
-      'Velobet withdrawals: €10 minimum, processing within 3 business days, limits of €7,500 a week and €15,000 a month. The rules and our tips.',
+      'Velobet withdrawals: $10 minimum, processing within 3 business days, limits of $7,500 a week and $15,000 a month. The rules and our tips.',
     h1: 'Velobet withdrawals: times, limits and the rules to know',
     intro: [
       'Velobet publishes its withdrawal rules in its general terms, re-read on November 9, 2026. Here is what they say, and the two rules that can cost you if you do not know them.'
@@ -264,14 +264,14 @@ export const RETRAIT_EN: Record<string, PageSujetEn> = {
       }
     ],
     faq: [
-      { q: 'What is the minimum withdrawal at Velobet?', r: '€10 or the equivalent in your currency, according to the general terms.' },
+      { q: 'What is the minimum withdrawal at Velobet?', r: '$10 or the equivalent in your currency, according to the general terms.' },
       {
         q: 'How long does a Velobet withdrawal take?',
         r: 'The general terms provide for processing within three banking business days, bank transfers included.'
       },
       {
         q: 'Is there a withdrawal limit at Velobet?',
-        r: '€7,500 per week and €15,000 per month, unless a promotion sets a different rule.'
+        r: '$7,500 per week and $15,000 per month, unless a promotion sets a different rule.'
       }
     ]
   },
@@ -279,7 +279,7 @@ export const RETRAIT_EN: Record<string, PageSujetEn> = {
   rolletto: {
     titre: 'Rolletto Withdrawal: Times, Minimum and Weekly Limits',
     description:
-      'Rolletto withdrawals: €20 minimum, €7,500 weekly limit, processing within 3 business days in the terms, faster times announced by the operator. Our tips.',
+      'Rolletto withdrawals: $20 minimum, $7,500 weekly limit, processing within 3 business days in the terms, faster times announced by the operator. Our tips.',
     h1: 'Rolletto withdrawals: the times announced, and what to check',
     intro: [
       "Rolletto's general terms, re-read on November 9, 2026, set a minimum, a processing time and withdrawal limits. Its affiliate manager also told us in writing about shorter times. Here are both, and how to withdraw without a hitch."
@@ -305,7 +305,7 @@ export const RETRAIT_EN: Record<string, PageSujetEn> = {
       {
         titre: 'What we could not confirm',
         paragraphes: [
-          'We have not confirmed Interac or Canadian-dollar accounts. If they matter to you, ask customer support before your first deposit.'
+          'Our November 2026 test was done with a Canadian-dollar account. We have not confirmed Interac: if it matters to you, ask customer support before your first deposit.'
         ]
       }
     ],
@@ -314,10 +314,10 @@ export const RETRAIT_EN: Record<string, PageSujetEn> = {
         q: 'How long does a Rolletto withdrawal take?',
         r: 'The general terms allow up to three banking business days. The affiliate manager announces instant crypto withdrawals and under 24 hours by bank transfer.'
       },
-      { q: 'What is the minimum withdrawal at Rolletto?', r: '€20 or the equivalent in your currency, according to the general terms.' },
+      { q: 'What is the minimum withdrawal at Rolletto?', r: '$20 or the equivalent in your currency, according to the general terms.' },
       {
         q: 'Is there a withdrawal limit at Rolletto?',
-        r: '€7,500 per week and €15,000 per month. Above that, the payment can be split into monthly instalments.'
+        r: '$7,500 per week and $15,000 per month. Above that, the payment can be split into monthly instalments.'
       }
     ]
   },
@@ -325,7 +325,7 @@ export const RETRAIT_EN: Record<string, PageSujetEn> = {
   celsius: {
     titre: 'Celsius Casino Withdrawal: Weekly Limits Explained',
     description:
-      'Celsius Casino withdrawals: €2,500 a week for winnings up to €10,000, then €10,000 a month. The official limits explained, with an example and tips.',
+      'Celsius Casino withdrawals: $2,500 a week for winnings up to $10,000, then $10,000 a month. The official limits explained, with an example and tips.',
     h1: 'Celsius Casino withdrawals: the official limits explained',
     intro: [
       'Celsius is one of the few casinos we compare that publishes figures for its withdrawal limits. That is good for transparency, but you need to know them before playing big.'
@@ -334,7 +334,7 @@ export const RETRAIT_EN: Record<string, PageSujetEn> = {
       {
         titre: 'An example',
         paragraphes: [
-          'A win of €8,000 can be paid in four weekly instalments (€2,500, €2,500, €2,500, then €500), so over about a month.'
+          'A win of $8,000 can be paid in four weekly instalments ($2,500, $2,500, $2,500, then $500), so over about a month.'
         ]
       },
       {
@@ -357,7 +357,7 @@ export const RETRAIT_EN: Record<string, PageSujetEn> = {
     faq: [
       {
         q: 'What is the maximum withdrawal at Celsius?',
-        r: '€2,500 per week for winnings up to €10,000, then €10,000 per month above that.'
+        r: '$2,500 per week for winnings up to $10,000, then $10,000 per month above that.'
       },
       {
         q: 'Can I withdraw in crypto at Celsius?',

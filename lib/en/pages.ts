@@ -43,12 +43,12 @@ const REPONSE_INTERAC = AVEC_INTERAC.length
 
 // ——— Withdrawals ———
 const RETRAITS: Record<string, { delai: string; plafond: string }> = {
-  velobet: { delai: 'Within 3 business days', plafond: '€7,500 per week, €15,000 per month' },
+  velobet: { delai: 'Within 3 business days', plafond: '$7,500 per week, $15,000 per month' },
   rolletto: {
     delai: 'Within 3 business days according to the terms; instant crypto and bank transfers under 24 h according to the affiliate manager',
-    plafond: '€7,500 per week, €15,000 per month'
+    plafond: '$7,500 per week, $15,000 per month'
   },
-  celsius: { delai: 'Not stated on the pages we checked', plafond: '€2,500 per week for winnings up to €10,000, then €10,000 per month above that' },
+  celsius: { delai: 'Not stated on the pages we checked', plafond: '$2,500 per week for winnings up to $10,000, then $10,000 per month above that' },
   betportal: { delai: 'Not stated on the pages we checked', plafond: 'Not published' },
   '1win': { delai: 'Not verified', plafond: 'Not verified' }
 };
@@ -118,7 +118,7 @@ export const PAGES_EN: PageGuide[] = [
           {
             type: 'liste',
             items: [
-              '**30x the bonus** (BetPortal): with a €150 bonus, you wager €4,500.',
+              '**30x the bonus** (BetPortal): with a $150 bonus, you wager $4,500.',
               '**30x (deposit + bonus)** (Velobet, Rolletto): with a 100 deposit and a 150 bonus, you wager 7,500.',
               '**50x (deposit + bonus)** (Celsius): with a 100 deposit and a 100 bonus, you wager 10,000.'
             ]
@@ -137,7 +137,7 @@ export const PAGES_EN: PageGuide[] = [
           {
             type: 'liste',
             items: [
-              '**Maximum bet:** betting more than the limit while a bonus is active (for example €5 per spin at Velobet) can cancel the bonus and its winnings.',
+              '**Maximum bet:** betting more than the limit while a bonus is active (for example $5 per spin at Velobet) can cancel the bonus and its winnings.',
               '**Eligible games:** Rolletto counts slots only. Table games and live casino often count for little or nothing.',
               '**Daily free spins:** at Velobet and Rolletto, most spins arrive day by day and you must log in to get them.',
               '**Mixed balances:** at Rolletto, cancelling the bonus also removes the winnings and bets made since activation.',
@@ -174,7 +174,7 @@ export const PAGES_EN: PageGuide[] = [
           {
             type: 'p',
             texte:
-              'We found no active no-deposit bonus for new players at the casinos we compare. When such offers exist, their winnings are usually capped: the Celsius terms, for example, cap winnings from a no-deposit bonus or free spins at €/$100.'
+              'We found no active no-deposit bonus for new players at the casinos we compare. When such offers exist, their winnings are usually capped: the Celsius terms, for example, cap winnings from a no-deposit bonus or free spins at $100.'
           }
         ]
       },
@@ -269,7 +269,7 @@ export const PAGES_EN: PageGuide[] = [
             casino: 'velobet',
             titre: 'Crypto withdrawal received in 1 hour in our test',
             detail:
-              'November 2026 test, identity already verified. Per the terms: processing within 3 business days at most and a €7,500 weekly limit; wager each deposit at least once before withdrawing.',
+              'November 2026 test, identity already verified. Per the terms: processing within 3 business days at most and a $7,500 weekly limit; wager each deposit at least once before withdrawing.',
             bouton: 'Visit Velobet'
           }
         ]
@@ -284,7 +284,7 @@ export const PAGES_EN: PageGuide[] = [
               '**Identity checks:** most casinos verify your identity before the first withdrawal. Sending your documents early saves days.',
               '**An active bonus:** while the wagering is not complete, bonus money and its winnings stay locked.',
               '**Deposits not wagered once:** Velobet and Rolletto require it; Velobet may apply a 20% fee otherwise.',
-              '**Weekly limits:** a big win can be paid in instalments, for example €2,500 a week at Celsius.',
+              '**Weekly limits:** a big win can be paid in instalments, for example $2,500 a week at Celsius.',
               '**The method:** crypto is usually faster than a bank transfer once the casino has approved the request.'
             ]
           }
@@ -432,7 +432,7 @@ export const PAGES_EN: PageGuide[] = [
           {
             type: 'p',
             texte: PLUS_BAS
-              ? `The lowest published minimum is ${depotMinEn(PLUS_BAS)}, at ${liste(AU_PLUS_BAS.map((c) => c.nom))}. Watch the currency: some casinos publish their amounts in euros.`
+              ? `The lowest published minimum is ${depotMinEn(PLUS_BAS)}, at ${liste(AU_PLUS_BAS.map((c) => c.nom))}. Amounts are in Canadian dollars.`
               : 'No casino we compare publishes a minimum deposit.'
           }
         ]
@@ -462,7 +462,7 @@ export const PAGES_EN: PageGuide[] = [
             type: 'encadre',
             ton: 'info',
             titre: 'Later deposits can cost more',
-            texte: 'At Velobet, the first deposit bonus starts at €10, but the second and third deposit bonuses require €20.'
+            texte: 'At Velobet, the first deposit bonus starts at $10, but the second and third deposit bonuses require $20.'
           }
         ]
       },
@@ -488,7 +488,7 @@ export const PAGES_EN: PageGuide[] = [
     faq: [
       {
         q: 'What is the lowest minimum deposit at the casinos you compare?',
-        r: PLUS_BAS ? `${depotMinEn(PLUS_BAS)}, at ${liste(AU_PLUS_BAS.map((c) => c.nom))}. 1win shows 10 USDT as its starting deposit.` : 'None is published.'
+        r: PLUS_BAS ? `${depotMinEn(PLUS_BAS)}, at ${liste(AU_PLUS_BAS.map((c) => c.nom))}.` : 'None is published.'
       },
       {
         q: 'Do I get the full bonus with a minimum deposit?',
@@ -537,7 +537,7 @@ export const PAGES_EN: PageGuide[] = [
           {
             type: 'liste',
             items: [
-              '**Velobet:** 160% up to €1,000 on the first crypto deposit (€10 minimum), slots only, 30x (deposit + bonus) within 30 days.',
+              '**Velobet:** 160% up to $1,000 on the first crypto deposit ($10 minimum), slots only, 30x (deposit + bonus) within 30 days.',
               '**Rolletto:** 100% up to $1,000 + 200 free spins, $20 minimum deposit, instead of the casino pack.'
             ]
           },
@@ -583,7 +583,7 @@ export const PAGES_EN: PageGuide[] = [
       },
       {
         q: 'Can I get a bonus with a crypto deposit?',
-        r: 'Yes at Velobet (160% up to €1,000) and Rolletto (100% up to $1,000 + 200 free spins). Both replace the standard welcome pack.'
+        r: 'Yes at Velobet (160% up to $1,000) and Rolletto (100% up to $1,000 + 200 free spins). Both replace the standard welcome pack.'
       }
     ],
     sources: SOURCES_PAIEMENT,
@@ -882,7 +882,8 @@ export const PAGES_EN: PageGuide[] = [
               '**Sources:** the casino’s promotions page, general terms, bonus terms and legal notices. Each fact on the site has a source and a date.',
               '**Operator and licence:** we look for the company name, its registration number and the licence number, and say when one is missing.',
               '**Written confirmations:** when an affiliate manager confirms something in writing (for example that Canadian players are accepted), we say so and date it.',
-              '**What we do not claim:** we report what the terms say. When we have not made a deposit or a withdrawal ourselves, we do not write as if we had.',
+              '**Real tests:** we test each casino with real money, a minimum deposit followed by a withdrawal, then a $1,000 deposit, about every 3 days. The withdrawal times on the site come from these tests.',
+              '**All amounts in Canadian dollars:** some casinos publish their terms in euros. In our tests with a Canadian-dollar account (November 2026), the same figures applied in CAD with no conversion, so a €10 minimum deposit is a $10 minimum. We show them in dollars.',
               '**“Not published” versus “Not verified”:** the first means the casino does not publish it; the second means we could not access the page.'
             ]
           }
