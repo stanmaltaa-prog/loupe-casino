@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LogoLoupe } from './Icones';
+import LienLangue from './LienLangue';
 import { AIDE, SITE } from '@/lib/site';
 
 const LIENS = [
@@ -27,7 +28,7 @@ export default function Entete() {
           <span>
             <span className="masque-mobile">Besoin d&apos;aide ? </span>
             {AIDE.nom}
-            <span className="masque-mobile">, 24 h sur 24</span> : <a href="tel:18004610140">{AIDE.telephone}</a>
+            <span className="masque-mobile">, 24 h sur 24</span> : <a href="tel:18004610140">{AIDE.telephone}</a> · <LienLangue />
           </span>
         </div>
       </div>
