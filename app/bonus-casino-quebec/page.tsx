@@ -155,7 +155,7 @@ export default function PageBonus() {
       </p>
       <p>
         Quand ces offres existent, leurs gains sont presque toujours plafonnés. Chez Celsius, par exemple, les conditions
-        limitent à 100 € les gains tirés d&apos;un bonus sans dépôt ou de tours gratuits. Méfiez-vous des sites qui annoncent
+        limitent à 100 $ les gains tirés d&apos;un bonus sans dépôt ou de tours gratuits. Méfiez-vous des sites qui annoncent
         un bonus sans dépôt sans renvoyer aux conditions officielles du casino.
       </p>
 
