@@ -46,17 +46,17 @@ const REPONSE_INTERAC = AVEC_INTERAC.length
 const RETRAITS: Record<string, { delai: string; plafond: string; source: string }> = {
   rolletto: {
     delai: 'Sous 3 jours ouvrables selon les conditions ; crypto instantané et virement sous 24 h selon le gestionnaire',
-    plafond: '7 500 € par semaine, 15 000 € par mois',
+    plafond: '7 500 $ par semaine, 15 000 $ par mois',
     source: '[Conditions générales de Rolletto](https://r0lletto.com/fr/static/terms/generalterms) et gestionnaire d’affiliation (4 novembre 2026)'
   },
   velobet: {
     delai: 'Sous 3 jours ouvrables',
-    plafond: '7 500 € par semaine, 15 000 € par mois',
+    plafond: '7 500 $ par semaine, 15 000 $ par mois',
     source: '[Conditions générales de Velobet](https://24velobet.com/fr/static/terms/generalterms)'
   },
   celsius: {
     delai: 'Non indiqué dans les pages consultées',
-    plafond: '2 500 € par semaine pour des gains jusqu’à 10 000 €, puis 10 000 € par mois au-delà',
+    plafond: '2 500 $ par semaine pour des gains jusqu’à 10 000 $, puis 10 000 $ par mois au-delà',
     source: '[Conditions des bonus de Celsius](https://celsiuscasino.com/fr/bonuses-terms)'
   },
   betportal: { delai: 'Non indiqué dans les pages consultées', plafond: 'Non publiés', source: 'Pages publiques de BetPortal' },
@@ -185,7 +185,7 @@ const paiements: PageGuide[] = [
             type: 'liste',
             ordonnee: true,
             items: [
-              '**La devise du compte** : en euros ou en dollars américains, votre banque convertit chaque dépôt et chaque retrait, souvent avec des frais.',
+              '**La devise du compte** : choisissez le dollar canadien à l’inscription. En euros ou en dollars américains, votre banque convertit chaque dépôt et chaque retrait, souvent avec des frais.',
               '**Le moyen de retrait** : retrouvez-le dans la caisse de retrait, pas seulement dans celle de dépôt.',
               '**Les frais** : le casino, l’intermédiaire de paiement ou le réseau crypto peuvent en prendre.',
               '**Le dépôt minimum**, en particulier pour obtenir le bonus : voir notre page [casino à dépôt minimum](/casino-depot-minimum/).',
@@ -277,14 +277,14 @@ const paiements: PageGuide[] = [
           {
             type: 'p',
             texte:
-              "Velobet a été le plus rapide : retrait en crypto reçu en 1 heure, par carte en 12 heures. Vos délais peuvent varier selon la vérification d'identité et le moyen de paiement. Côté conditions, Rolletto annonce un retrait instantané en crypto et sous 24 heures par virement, selon son gestionnaire d'affiliation ; ses conditions générales, comme celles de Velobet (même exploitant), prévoient au plus trois jours ouvrables et un plafond de 7 500 € par semaine. Celsius plafonne les gains à 2 500 € par semaine jusqu'à 10 000 €."
+              "Velobet a été le plus rapide : retrait en crypto reçu en 1 heure, par carte en 12 heures. Vos délais peuvent varier selon la vérification d'identité et le moyen de paiement. Côté conditions, Rolletto annonce un retrait instantané en crypto et sous 24 heures par virement, selon son gestionnaire d'affiliation ; ses conditions générales, comme celles de Velobet (même exploitant), prévoient au plus trois jours ouvrables et un plafond de 7 500 $ par semaine. Celsius plafonne les gains à 2 500 $ par semaine jusqu'à 10 000 $."
           },
           {
             type: 'cta',
             casino: 'velobet',
             titre: 'Retrait en crypto reçu en 1 heure lors de notre test',
             detail:
-              "Test de novembre 2026, identité vérifiée. Selon les conditions : traitement sous 3 jours ouvrables au plus et plafond de 7 500 € par semaine ; misez chaque dépôt au moins une fois avant de retirer.",
+              "Test de novembre 2026, identité vérifiée. Selon les conditions : traitement sous 3 jours ouvrables au plus et plafond de 7 500 $ par semaine ; misez chaque dépôt au moins une fois avant de retirer.",
             bouton: 'Voir Velobet'
           }
         ]
@@ -298,7 +298,7 @@ const paiements: PageGuide[] = [
             items: [
               '**La vérification d’identité** : en général exigée avant le premier retrait. Tant qu’elle n’est pas terminée, le retrait reste en attente.',
               '**Une mise de bonus non terminée** : un retrait demandé avant peut faire perdre le bonus et les gains obtenus avec lui.',
-              '**Un plafond atteint** : chez Celsius, par exemple, les gains jusqu’à 10 000 € sont versés par tranches de 2 500 € par semaine au maximum.',
+              '**Un plafond atteint** : chez Celsius, par exemple, les gains jusqu’à 10 000 $ sont versés par tranches de 2 500 $ par semaine au maximum.',
               '**Un moyen de retrait différent du dépôt** : beaucoup de casinos demandent de retirer vers le moyen utilisé pour déposer.',
               '**Le délai après l’envoi** : un virement dépend aussi de votre banque ; en crypto, de la confirmation sur le réseau choisi.'
             ]
@@ -377,7 +377,7 @@ const paiements: PageGuide[] = [
       },
       {
         q: 'Y a-t-il un montant maximum de retrait ?',
-        r: "Souvent, oui. Rolletto et Velobet plafonnent les retraits à 7 500 € par semaine et 15 000 € par mois ; Celsius à 2 500 € par semaine pour des gains jusqu'à 10 000 €, puis 10 000 € par mois au-delà, selon leurs conditions."
+        r: "Souvent, oui. Rolletto et Velobet plafonnent les retraits à 7 500 $ par semaine et 15 000 $ par mois ; Celsius à 2 500 $ par semaine pour des gains jusqu'à 10 000 $, puis 10 000 $ par mois au-delà, selon leurs conditions."
       }
     ],
     sources: [
@@ -414,7 +414,7 @@ const paiements: PageGuide[] = [
             type: 'p',
             texte: `Aucun casino de notre comparatif n'annonce de dépôt à 1 $ ou à 5 $ pour son bonus de bienvenue.${
               AU_PLUS_BAS.length ? ` Le plus bas que nous ayons relevé est de ${liste(AU_PLUS_BAS.map((c) => `${depotMinTexte(c)} chez ${c.nom}`))}` : ''
-            }${AVEC_MIN.some((c) => typeof c.offre.depotMin === 'string') ? ', et de 10 USDT chez 1win (le Tether, une cryptomonnaie stable alignée sur le dollar américain)' : ''}. Le minimum de la caisse peut être différent selon le moyen de paiement : vérifiez-le avant de déposer.`
+            }. Le minimum de la caisse peut être différent selon le moyen de paiement : vérifiez-le avant de déposer.`
           }
         ]
       },
@@ -433,7 +433,7 @@ const paiements: PageGuide[] = [
               '**Le montant du retrait minimum** : il peut être bien plus élevé que le dépôt minimum.',
               '**Les frais** : en crypto, les frais du réseau peuvent représenter une grosse part d’un très petit dépôt.',
               '**La condition de mise** : un petit bonus avec une mise de 50 fois ou plus reste difficile à transformer en argent retirable.',
-              '**Le plafond de gain** des tours gratuits et des bonus sans dépôt : chez Celsius, par exemple, il est de 100 €/$.'
+              '**Le plafond de gain** des tours gratuits et des bonus sans dépôt : chez Celsius, par exemple, il est de 100 $.'
             ]
           }
         ]
@@ -482,7 +482,7 @@ const paiements: PageGuide[] = [
       {
         q: 'Quel casino a le plus petit dépôt minimum ?',
         r: PLUS_BAS
-          ? `Parmi les casinos de notre comparatif, les plus bas pour le bonus de bienvenue sont ${liste(AU_PLUS_BAS.map((c) => `${c.nom} (${depotMinTexte(c)})`))}, ainsi que 1win (10 USDT).${AU_DESSUS.length ? ` ${liste(AU_DESSUS.map((c) => `${c.nom} demande ${depotMinTexte(c)}`))}.` : ''}`
+          ? `Parmi les casinos de notre comparatif, les plus bas pour le bonus de bienvenue sont ${liste(AU_PLUS_BAS.map((c) => `${c.nom} (${depotMinTexte(c)})`))}.${AU_DESSUS.length ? ` ${liste(AU_DESSUS.map((c) => `${c.nom} demande ${depotMinTexte(c)}`))}.` : ''}`
           : 'Les minimums varient selon le casino et le bonus : consultez notre tableau.'
       },
       {
@@ -491,7 +491,7 @@ const paiements: PageGuide[] = [
       },
       {
         q: 'Peut-on obtenir le bonus de bienvenue avec 10 $ ?',
-        r: "Oui chez Celsius, dont les conditions fixent le dépôt minimum pour un bonus à 10 $ ou l'équivalent dans une autre devise, chez Velobet à partir de 10 € ou l'équivalent, et chez 1win à partir de 10 USDT. Chez Rolletto, il faut 20 $."
+        r: "Oui chez Celsius, dont les conditions fixent le dépôt minimum pour un bonus à 10 $ ou l'équivalent dans une autre devise, chez Velobet à partir de 10 $ ou l'équivalent, et chez 1win à partir de 10 $. Chez Rolletto, il faut 20 $."
       },
       {
         q: 'Le dépôt minimum est-il le même pour tous les moyens de paiement ?',

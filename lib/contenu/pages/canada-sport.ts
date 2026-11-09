@@ -35,18 +35,18 @@ export const CTA_ROLLETTO = {
 export const CTA_VELOBET = {
   type: 'cta' as const,
   casino: 'velobet',
-  titre: '150 % jusqu’à 1 000 € + 10 paris gratuits',
+  titre: '150 % jusqu’à 1 000 $ + 10 paris gratuits',
   detail:
-    'Premier dépôt de 10 € minimum. Mise de 15 fois (dépôt + bonus) sur des paris combinés de 3 sélections ou plus, à une cote de 1,30 minimum par sélection ; bonus valable 30 jours. À activer avant le premier pari ; les 10 paris gratuits arrivent après la validation du premier pari. Montants publiés en euros : vérifiez-les pour un compte canadien.',
+    'Premier dépôt de 10 $ minimum. Mise de 15 fois (dépôt + bonus) sur des paris combinés de 3 sélections ou plus, à une cote de 1,30 minimum par sélection ; bonus valable 30 jours. À activer avant le premier pari ; les 10 paris gratuits arrivent après la validation du premier pari. Montants en dollars canadiens pour un compte en CAD.',
   bouton: 'Voir l’offre sport de Velobet'
 };
 
 export const CTA_BETPORTAL = {
   type: 'cta' as const,
   casino: 'betportal',
-  titre: 'Pari gratuit égal à 100 % de votre mise, jusqu’à 100 €',
+  titre: 'Pari gratuit égal à 100 % de votre mise, jusqu’à 100 $',
   detail:
-    'Dépôt de 20 € minimum, puis un pari combiné d’avant-match de 3 à 10 sélections, à une cote totale entre 3,00 et 10,00. Pari gratuit valable 7 jours ; sa mise est déduite du gain. Montants publiés en euros : vérifiez-les pour un compte canadien.',
+    'Dépôt de 20 $ minimum, puis un pari combiné d’avant-match de 3 à 10 sélections, à une cote totale entre 3,00 et 10,00. Pari gratuit valable 7 jours ; sa mise est déduite du gain. Montants en dollars canadiens pour un compte en CAD.',
   bouton: 'Voir l’offre sport de BetPortal'
 };
 
@@ -363,8 +363,8 @@ const canadaSport: PageGuide[] = [
             type: 'tableau',
             entetes: ['', 'Velobet', 'Rolletto', 'BetPortal'],
             lignes: [
-              ['Offre', '150 % jusqu’à 1 000 € + 10 paris gratuits', '150 % jusqu’à 1 500 $ + jusqu’à 200 $ en paris gratuits', 'Pari gratuit de 100 % de votre mise, jusqu’à 100 €'],
-              ['Dépôt minimum', '10 €', '10 $', '20 €'],
+              ['Offre', '150 % jusqu’à 1 000 $ + 10 paris gratuits', '150 % jusqu’à 1 500 $ + jusqu’à 200 $ en paris gratuits', 'Pari gratuit de 100 % de votre mise, jusqu’à 100 $'],
+              ['Dépôt minimum', '10 $', '10 $', '20 $'],
               ['Condition', 'Miser 15 fois (dépôt + bonus), bonus valable 30 jours', 'Miser 15 fois (dépôt + bonus) en 15 jours', 'Placer un pari qualifiant'],
               [
                 'Paris acceptés',
@@ -397,15 +397,15 @@ const canadaSport: PageGuide[] = [
           },
           {
             type: 'encadre',
-            titre: 'Exemple chez Velobet : dépôt de 100 €',
+            titre: 'Exemple chez Velobet : dépôt de 100 $',
             texte:
-              "Bonus de 150 % : 150 €. Mise à atteindre : 15 × (100 € + 150 €) = **3 750 € de paris** pendant les 30 jours de validité du bonus, soit 125 € par jour en moyenne, en combinés de 3 sélections ou plus. C'est la même mise que chez Rolletto, avec deux fois plus de temps."
+              "Bonus de 150 % : 150 $. Mise à atteindre : 15 × (100 $ + 150 $) = **3 750 $ de paris** pendant les 30 jours de validité du bonus, soit 125 $ par jour en moyenne, en combinés de 3 sélections ou plus. C'est la même mise que chez Rolletto, avec deux fois plus de temps."
           },
           {
             type: 'encadre',
-            titre: 'Exemple chez BetPortal : pari qualifiant de 50 €',
+            titre: 'Exemple chez BetPortal : pari qualifiant de 50 $',
             texte:
-              "Vous recevez un pari gratuit de 50 €. S'il gagne à une cote de 4,00, vous touchez 150 € : 200 € moins la mise de 50 €, qui n'est pas remboursée. S'il perd, vous ne touchez rien. Les conditions générales de BetPortal prévoient par ailleurs une mise de 15 fois pour les bonus sportifs : vérifiez si elle s'applique à vos gains avant de demander un retrait."
+              "Vous recevez un pari gratuit de 50 $. S'il gagne à une cote de 4,00, vous touchez 150 $ : 200 $ moins la mise de 50 $, qui n'est pas remboursée. S'il perd, vous ne touchez rien. Les conditions générales de BetPortal prévoient par ailleurs une mise de 15 fois pour les bonus sportifs : vérifiez si elle s'applique à vos gains avant de demander un retrait."
           },
           {
             type: 'p',
@@ -476,7 +476,7 @@ const canadaSport: PageGuide[] = [
       },
       {
         q: 'Quel est le meilleur bonus de paris sportifs ?',
-        r: "Celui dont vous pouvez réellement remplir les conditions. Velobet (jusqu'à 1 000 €) et Rolletto (jusqu'à 1 500 $) demandent la même mise de 15 fois le dépôt et le bonus, en combinés, mais Velobet laisse 30 jours et Rolletto 15. Le pari gratuit de BetPortal est plus modeste mais plus simple."
+        r: "Celui dont vous pouvez réellement remplir les conditions. Velobet (jusqu'à 1 000 $) et Rolletto (jusqu'à 1 500 $) demandent la même mise de 15 fois le dépôt et le bonus, en combinés, mais Velobet laisse 30 jours et Rolletto 15. Le pari gratuit de BetPortal est plus modeste mais plus simple."
       },
       {
         q: 'Les gains de paris sportifs sont-ils imposables au Québec ?',
@@ -484,7 +484,7 @@ const canadaSport: PageGuide[] = [
       },
       {
         q: 'Qu’est-ce qu’un pari gratuit ?',
-        r: "Un pari placé avec un crédit offert par le site. S'il gagne, vous touchez le gain sans la mise : un pari gratuit de 50 € gagnant à 4,00 rapporte 150 €, pas 200 €."
+        r: "Un pari placé avec un crédit offert par le site. S'il gagne, vous touchez le gain sans la mise : un pari gratuit de 50 $ gagnant à 4,00 rapporte 150 $, pas 200 $."
       }
     ],
     sources: [S.c218, S.velobet, S.rolletto, S.betportal, S.miseojeu, S.impots],
