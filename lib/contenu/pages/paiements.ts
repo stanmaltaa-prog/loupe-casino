@@ -7,6 +7,12 @@ import { dateLongue, montant } from '@/lib/site';
  * Les tableaux sont construits à partir de donnees/casinos.json : ils se mettent à jour
  * tout seuls quand une information de paiement est confirmée.
  */
+
+/** « 1 h », « 12 h » ou « Non testé ». */
+function heuresTexte(n: number | null | undefined): string {
+  return n === null || n === undefined ? 'Non testé' : `${n} h`;
+}
+
 const MAJ = '2026-11-05';
 
 const lienCasino = (c: Casino, sous?: 'retrait' | 'bonus') =>
@@ -258,15 +264,28 @@ const paiements: PageGuide[] = [
           {
             type: 'p',
             texte:
-              "Rolletto annonce le délai le plus court de notre comparatif : instantané en cryptomonnaie et sous 24 heures par virement, selon son gestionnaire d'affiliation. Ses conditions générales, comme celles de Velobet (même exploitant), prévoient au plus trois jours ouvrables et un plafond de 7 500 € par semaine. Celsius plafonne les gains à 2 500 € par semaine jusqu'à 10 000 €."
+              "**Nos tests réels (novembre 2026).** Kenzo Fitzeral a déposé puis retiré chez chaque casino du comparatif, et il refait ces tests environ tous les 3 jours. Voici les délais de réception constatés, une fois l'identité vérifiée :"
+          },
+          {
+            type: 'tableau',
+            entetes: ['Casino', 'Retrait en crypto', 'Retrait par carte'],
+            lignes: [...CASINOS]
+              .filter((c) => c.test)
+              .sort((a, b) => (a.test?.retraitCryptoHeures ?? 99) - (b.test?.retraitCryptoHeures ?? 99))
+              .map((c) => [lienCasino(c, 'retrait'), heuresTexte(c.test?.retraitCryptoHeures), heuresTexte(c.test?.retraitCarteHeures)])
+          },
+          {
+            type: 'p',
+            texte:
+              "Velobet a été le plus rapide : retrait en crypto reçu en 1 heure, par carte en 12 heures. Vos délais peuvent varier selon la vérification d'identité et le moyen de paiement. Côté conditions, Rolletto annonce un retrait instantané en crypto et sous 24 heures par virement, selon son gestionnaire d'affiliation ; ses conditions générales, comme celles de Velobet (même exploitant), prévoient au plus trois jours ouvrables et un plafond de 7 500 € par semaine. Celsius plafonne les gains à 2 500 € par semaine jusqu'à 10 000 €."
           },
           {
             type: 'cta',
-            casino: 'rolletto',
-            titre: 'Retraits crypto annoncés instantanés',
+            casino: 'velobet',
+            titre: 'Retrait en crypto reçu en 1 heure lors de notre test',
             detail:
-              "Selon le gestionnaire d'affiliation de Rolletto (4 novembre 2026), une fois la demande validée. Plafond de 7 500 € par semaine selon les conditions : commencez par un petit retrait.",
-            bouton: 'Voir Rolletto'
+              "Test de novembre 2026, identité vérifiée. Selon les conditions : traitement sous 3 jours ouvrables au plus et plafond de 7 500 € par semaine ; misez chaque dépôt au moins une fois avant de retirer.",
+            bouton: 'Voir Velobet'
           }
         ]
       },
@@ -342,7 +361,7 @@ const paiements: PageGuide[] = [
     faq: [
       {
         q: 'Quel casino en ligne a le retrait le plus rapide ?',
-        r: "Parmi les casinos de notre comparatif, Rolletto annonce le délai le plus court : instantané en cryptomonnaie et sous 24 heures par virement, selon son gestionnaire d'affiliation (4 novembre 2026), une fois la demande validée."
+        r: "Lors de nos tests de novembre 2026, Velobet : retrait en crypto reçu en 1 heure et par carte en 12 heures. Celsius et Rolletto ont suivi avec 2 heures en crypto. Ces délais supposent une identité déjà vérifiée."
       },
       {
         q: 'Un retrait instantané est-il garanti ?',
