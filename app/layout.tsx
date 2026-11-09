@@ -3,6 +3,9 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Entete from '@/components/Entete';
 import Pied from '@/components/Pied';
+import EnteteEn from '@/components/en/EnteteEn';
+import PiedEn from '@/components/en/PiedEn';
+import SelonLangue from '@/components/SelonLangue';
 import JsonLd from '@/components/JsonLd';
 import { SITE } from '@/lib/site';
 import { schemaOrganisation } from '@/lib/seo';
@@ -53,9 +56,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={SITE.langue} className={`${titre.variable} ${texte.variable}`}>
       <body>
-        <Entete />
+        <SelonLangue fr={<Entete />} en={<EnteteEn />} />
         <main id="contenu">{children}</main>
-        <Pied />
+        <SelonLangue fr={<Pied />} en={<PiedEn />} />
         <JsonLd donnees={schemaOrganisation()} />
       </body>
     </html>
