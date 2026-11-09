@@ -385,7 +385,7 @@ const paiements: PageGuide[] = [
       { titre: 'Rolletto : conditions générales (retraits)', url: 'https://r0lletto.com/fr/static/terms/generalterms' },
       { titre: 'Velobet : conditions générales (retraits)', url: 'https://24velobet.com/fr/static/terms/generalterms' }
     ],
-    connexes: ['/casino-interac/', '/casino-depot-minimum/', '/casino-en-ligne-canada/']
+    connexes: ['/delais-de-retrait-casino/', '/casino-interac/', '/casino-depot-minimum/', '/casino-en-ligne-canada/']
   },
 
   {
