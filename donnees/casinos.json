@@ -128,6 +128,14 @@
         "statut": "confirme",
         "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
       },
+      "test": {
+        "par": "Kenzo Fitzeral",
+        "mois": "2026-11",
+        "retraitCryptoHeures": 2,
+        "retraitCarteHeures": 24,
+        "frequenceJours": 3,
+        "source": "Tests réels de l'auteur : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA ; délais communiqués le 9 novembre 2026."
+      },
       "notes": {
         "transparence": {
           "note": 9.5,
@@ -294,6 +302,14 @@
         "statut": "a-confirmer",
         "note": "Le Canada ne figure pas dans la liste des pays exclus des conditions générales, et le formulaire d'inscription propose le Canada et le dollar canadien (vérifié le 9 novembre 2026). Confirmation écrite du gestionnaire d'affiliation en attente."
       },
+      "test": {
+        "par": "Kenzo Fitzeral",
+        "mois": "2026-11",
+        "retraitCryptoHeures": 1,
+        "retraitCarteHeures": 12,
+        "frequenceJours": 3,
+        "source": "Tests réels de l'auteur : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA ; délais communiqués le 9 novembre 2026."
+      },
       "notes": {
         "transparence": {
           "note": 9.5,
@@ -449,6 +465,14 @@
         "statut": "confirme",
         "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
       },
+      "test": {
+        "par": "Kenzo Fitzeral",
+        "mois": "2026-11",
+        "retraitCryptoHeures": 2,
+        "retraitCarteHeures": 24,
+        "frequenceJours": 3,
+        "source": "Tests réels de l'auteur : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA ; délais communiqués le 9 novembre 2026."
+      },
       "notes": {
         "transparence": {
           "note": 6,
@@ -586,6 +610,14 @@
         "statut": "confirme",
         "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
       },
+      "test": {
+        "par": "Kenzo Fitzeral",
+        "mois": "2026-11",
+        "retraitCryptoHeures": 5,
+        "retraitCarteHeures": 24,
+        "frequenceJours": 3,
+        "source": "Tests réels de l'auteur : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA ; délais communiqués le 9 novembre 2026."
+      },
       "notes": {
         "transparence": {
           "note": 3.5,
@@ -718,6 +750,14 @@
       "quebec": {
         "statut": "confirme",
         "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 4 novembre 2026."
+      },
+      "test": {
+        "par": "Kenzo Fitzeral",
+        "mois": "2026-11",
+        "retraitCryptoHeures": 5,
+        "retraitCarteHeures": 24,
+        "frequenceJours": 3,
+        "source": "Tests réels de l'auteur : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA ; délais communiqués le 9 novembre 2026."
       },
       "notes": {
         "transparence": {
