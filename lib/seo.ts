@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { SITE, absolu } from '@/lib/site';
 import { AUTEUR, ID_AUTEUR } from './auteur';
+import { versionAnglaise, versionFrancaise } from './langues';
+import { EN } from './en/site';
 
 export function meta({
   titre,
@@ -16,6 +18,7 @@ export function meta({
   titreAbsolu?: boolean;
 }): Metadata {
   const url = absolu(chemin);
+  const en = versionAnglaise(chemin);
   // La marque n'est ajoutée au titre que si l'ensemble reste lisible en entier dans Google (62 caractères max).
   const avecMarque = `${titre} | ${SITE.nom}`;
   const absoluFinal = titreAbsolu || avecMarque.length > 62;
@@ -23,7 +26,7 @@ export function meta({
   return {
     title: absoluFinal ? { absolute: titre } : titre,
     description,
-    alternates: { canonical: url, languages: { 'fr-CA': url, 'x-default': url } },
+    alternates: { canonical: url, languages: { 'fr-CA': url, ...(en ? { 'en-CA': absolu(en) } : {}), 'x-default': url } },
     openGraph: {
       title: titre,
       description,
@@ -33,6 +36,37 @@ export function meta({
       type,
       images: [image]
     },
+    twitter: { card: 'summary_large_image', title: titre, description, images: [image.url] }
+  };
+}
+
+/** Métadonnées des pages anglaises (/en-ca/) : hreflang vers la version française quand elle existe. */
+export function metaEn({
+  titre,
+  description,
+  chemin,
+  type = 'website',
+  titreAbsolu = false
+}: {
+  titre: string;
+  description: string;
+  chemin: string;
+  type?: 'website' | 'article';
+  titreAbsolu?: boolean;
+}): Metadata {
+  const url = absolu(chemin);
+  const fr = versionFrancaise(chemin);
+  const avecMarque = `${titre} | ${SITE.nom}`;
+  const absoluFinal = titreAbsolu || avecMarque.length > 62;
+  const image = { url: '/og.png', width: 1200, height: 630, alt: `${SITE.nom}: ${EN.slogan}` };
+  return {
+    title: absoluFinal ? { absolute: titre } : titre,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { 'en-CA': url, ...(fr ? { 'fr-CA': absolu(fr), 'x-default': absolu(fr) } : { 'x-default': url }) }
+    },
+    openGraph: { title: titre, description, url, siteName: SITE.nom, locale: EN.locale, type, images: [image] },
     twitter: { card: 'summary_large_image', title: titre, description, images: [image.url] }
   };
 }
@@ -66,7 +100,7 @@ export function schemaOrganisation() {
         name: SITE.nom,
         alternateName: ['Loupe', 'loupecasino.com'],
         url: `${SITE.url}/`,
-        inLanguage: SITE.langue,
+        inLanguage: [SITE.langue, EN.langue],
         publisher: { '@id': ID_ORGANISATION }
       }
     ]
@@ -92,7 +126,8 @@ export function schemaPage({
   chemin,
   publie,
   modifie,
-  type = 'WebPage'
+  type = 'WebPage',
+  langue = SITE.langue
 }: {
   titre: string;
   description: string;
@@ -100,6 +135,7 @@ export function schemaPage({
   publie: string;
   modifie: string;
   type?: 'WebPage' | 'Article' | 'CollectionPage' | 'AboutPage' | 'ContactPage';
+  langue?: string;
 }) {
   const url = absolu(chemin);
   const base = {
@@ -110,7 +146,7 @@ export function schemaPage({
     name: titre,
     headline: titre,
     description,
-    inLanguage: SITE.langue,
+    inLanguage: langue,
     isPartOf: { '@id': ID_SITE },
     datePublished: publie,
     dateModified: modifie

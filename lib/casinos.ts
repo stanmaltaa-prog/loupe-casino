@@ -37,6 +37,8 @@ export type Casino = {
     toursDetail: string;
     mise: { multiplicateur: number; base: 'bonus' | 'depot+bonus'; delaiJours: number | null } | null;
     depotMin: number | string | null;
+    /** Devise du dépôt minimum quand elle diffère du dollar (par défaut : $). */
+    depotMinDevise?: string;
     miseMax: string | null;
     jeuxAdmissibles: string | null;
     activation: string | null;
@@ -130,7 +132,7 @@ export function miseTexte(c: Casino): string {
 export function depotMinTexte(c: Casino): string {
   const d = c.offre.depotMin;
   if (d === null || d === undefined) return absent(c);
-  if (typeof d === 'number') return montant(d, '$');
+  if (typeof d === 'number') return montant(d, c.offre.depotMinDevise || '$');
   return typo(d);
 }
 
