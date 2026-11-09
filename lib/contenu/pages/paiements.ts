@@ -39,9 +39,14 @@ const REPONSE_INTERAC = AVEC_INTERAC.length
 // ——— Retraits ———
 const RETRAITS: Record<string, { delai: string; plafond: string; source: string }> = {
   rolletto: {
-    delai: 'Crypto : instantané. Virement : sous 24 h',
-    plafond: 'Non publiés',
-    source: 'Gestionnaire d’affiliation de Rolletto, par écrit, le 4 novembre 2026'
+    delai: 'Sous 3 jours ouvrables selon les conditions ; crypto instantané et virement sous 24 h selon le gestionnaire',
+    plafond: '7 500 € par semaine, 15 000 € par mois',
+    source: '[Conditions générales de Rolletto](https://r0lletto.com/fr/static/terms/generalterms) et gestionnaire d’affiliation (4 novembre 2026)'
+  },
+  velobet: {
+    delai: 'Sous 3 jours ouvrables',
+    plafond: '7 500 € par semaine, 15 000 € par mois',
+    source: '[Conditions générales de Velobet](https://24velobet.com/fr/static/terms/generalterms)'
   },
   celsius: {
     delai: 'Non indiqué dans les pages consultées',
@@ -60,14 +65,16 @@ const MIN_NUMERIQUE = AVEC_MIN.filter((c) => typeof c.offre.depotMin === 'number
   (a, b) => (a.offre.depotMin as number) - (b.offre.depotMin as number)
 );
 const PLUS_BAS = MIN_NUMERIQUE[0];
+const AU_PLUS_BAS = PLUS_BAS ? MIN_NUMERIQUE.filter((c) => c.offre.depotMin === PLUS_BAS.offre.depotMin) : [];
+const AU_DESSUS = MIN_NUMERIQUE.filter((c) => !AU_PLUS_BAS.includes(c));
 
 /** Exemple : le plus petit dépôt qui donne droit au bonus, et ce qu'il faut miser ensuite. */
 const EXEMPLES = MIN_NUMERIQUE.map((c) => ({ c, e: exempleMise(c, c.offre.depotMin as number) })).filter((x) => x.e);
 const ligneExemple = ({ c, e }: { c: Casino; e: NonNullable<ReturnType<typeof exempleMise>> }) => [
   lienCasino(c, 'bonus'),
-  montant(e.depot, '$'),
-  montant(e.bonus, '$'),
-  `**${montant(e.aMiser, '$')}**`,
+  montant(e.depot, c.offre.depotMinDevise || '$'),
+  montant(e.bonus, c.offre.depotMinDevise || '$'),
+  `**${montant(e.aMiser, c.offre.depotMinDevise || '$')}**`,
   c.offre.mise?.delaiJours ? `${c.offre.mise.delaiJours} jours` : 'Non publié'
 ];
 
@@ -251,14 +258,14 @@ const paiements: PageGuide[] = [
           {
             type: 'p',
             texte:
-              "Rolletto annonce le délai le plus court de notre comparatif : instantané en cryptomonnaie et sous 24 heures par virement, selon son gestionnaire d'affiliation. Nous ne l'avons pas encore lu dans ses conditions générales, et ses plafonds ne sont pas publiés : testez d'abord avec un petit montant. Celsius, lui, publie des plafonds chiffrés, ce qui permet de savoir d'avance combien on peut retirer chaque semaine."
+              "Rolletto annonce le délai le plus court de notre comparatif : instantané en cryptomonnaie et sous 24 heures par virement, selon son gestionnaire d'affiliation. Ses conditions générales, comme celles de Velobet (même exploitant), prévoient au plus trois jours ouvrables et un plafond de 7 500 € par semaine. Celsius plafonne les gains à 2 500 € par semaine jusqu'à 10 000 €."
           },
           {
             type: 'cta',
             casino: 'rolletto',
             titre: 'Retraits crypto annoncés instantanés',
             detail:
-              "Selon le gestionnaire d'affiliation de Rolletto (4 novembre 2026), une fois la demande validée. Plafonds de retrait non publiés : commencez par un petit retrait.",
+              "Selon le gestionnaire d'affiliation de Rolletto (4 novembre 2026), une fois la demande validée. Plafond de 7 500 € par semaine selon les conditions : commencez par un petit retrait.",
             bouton: 'Voir Rolletto'
           }
         ]
@@ -351,10 +358,14 @@ const paiements: PageGuide[] = [
       },
       {
         q: 'Y a-t-il un montant maximum de retrait ?',
-        r: "Souvent, oui. Celsius publie le sien : 2 500 € par semaine pour des gains jusqu'à 10 000 €, puis 10 000 € par mois au-delà. Les autres casinos de notre comparatif ne publient pas de plafond à ce jour."
+        r: "Souvent, oui. Rolletto et Velobet plafonnent les retraits à 7 500 € par semaine et 15 000 € par mois ; Celsius à 2 500 € par semaine pour des gains jusqu'à 10 000 €, puis 10 000 € par mois au-delà, selon leurs conditions."
       }
     ],
-    sources: [{ titre: 'Celsius Casino : conditions générales des bonus (retraits)', url: 'https://celsiuscasino.com/fr/bonuses-terms' }],
+    sources: [
+      { titre: 'Celsius Casino : conditions générales des bonus (retraits)', url: 'https://celsiuscasino.com/fr/bonuses-terms' },
+      { titre: 'Rolletto : conditions générales (retraits)', url: 'https://r0lletto.com/fr/static/terms/generalterms' },
+      { titre: 'Velobet : conditions générales (retraits)', url: 'https://24velobet.com/fr/static/terms/generalterms' }
+    ],
     connexes: ['/casino-interac/', '/casino-depot-minimum/', '/casino-en-ligne-canada/']
   },
 
@@ -383,7 +394,7 @@ const paiements: PageGuide[] = [
           {
             type: 'p',
             texte: `Aucun casino de notre comparatif n'annonce de dépôt à 1 $ ou à 5 $ pour son bonus de bienvenue.${
-              PLUS_BAS ? ` Le plus bas que nous ayons relevé est de ${depotMinTexte(PLUS_BAS)} chez ${PLUS_BAS.nom}` : ''
+              AU_PLUS_BAS.length ? ` Le plus bas que nous ayons relevé est de ${liste(AU_PLUS_BAS.map((c) => `${depotMinTexte(c)} chez ${c.nom}`))}` : ''
             }${AVEC_MIN.some((c) => typeof c.offre.depotMin === 'string') ? ', et de 10 USDT chez 1win (le Tether, une cryptomonnaie stable alignée sur le dollar américain)' : ''}. Le minimum de la caisse peut être différent selon le moyen de paiement : vérifiez-le avant de déposer.`
           }
         ]
@@ -452,7 +463,7 @@ const paiements: PageGuide[] = [
       {
         q: 'Quel casino a le plus petit dépôt minimum ?',
         r: PLUS_BAS
-          ? `Parmi les casinos de notre comparatif, ${PLUS_BAS.nom} demande ${depotMinTexte(PLUS_BAS)} pour son bonus de bienvenue, et 1win 10 USDT. Rolletto demande 20 $.`
+          ? `Parmi les casinos de notre comparatif, les plus bas pour le bonus de bienvenue sont ${liste(AU_PLUS_BAS.map((c) => `${c.nom} (${depotMinTexte(c)})`))}, ainsi que 1win (10 USDT).${AU_DESSUS.length ? ` ${liste(AU_DESSUS.map((c) => `${c.nom} demande ${depotMinTexte(c)}`))}.` : ''}`
           : 'Les minimums varient selon le casino et le bonus : consultez notre tableau.'
       },
       {
@@ -461,7 +472,7 @@ const paiements: PageGuide[] = [
       },
       {
         q: 'Peut-on obtenir le bonus de bienvenue avec 10 $ ?',
-        r: "Oui chez Celsius, dont les conditions fixent le dépôt minimum pour un bonus à 10 $ ou l'équivalent dans une autre devise, et chez 1win à partir de 10 USDT. Chez Rolletto, il faut 20 $."
+        r: "Oui chez Celsius, dont les conditions fixent le dépôt minimum pour un bonus à 10 $ ou l'équivalent dans une autre devise, chez Velobet à partir de 10 € ou l'équivalent, et chez 1win à partir de 10 USDT. Chez Rolletto, il faut 20 $."
       },
       {
         q: 'Le dépôt minimum est-il le même pour tous les moyens de paiement ?',
