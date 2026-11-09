@@ -33,6 +33,16 @@ export default function PageMethode() {
         pas sur la page officielle, nous ne l&apos;affichons pas. C&apos;est le cas, par exemple, du plafond du bonus de Celsius.
       </p>
 
+      <p>
+        <strong>Tous les montants sont en dollars canadiens.</strong> Certains casinos publient leurs conditions en euros.
+        Lors de nos tests avec un compte en dollars canadiens (novembre 2026), les mêmes chiffres s&apos;appliquaient tels
+        quels en CAD, sans conversion : un dépôt minimum de 10 € correspond à un dépôt minimum de 10 $. Nous les affichons
+        donc directement en dollars.
+      </p>
+      <p>
+        Nous testons aussi chaque casino en conditions réelles : un dépôt minimum suivi d&apos;un retrait, puis un dépôt de
+        1 000 $, environ tous les 3 jours. Les délais de retrait indiqués sur le site viennent de ces tests.
+      </p>
       <h2>La grille de notation</h2>
       <p>Chaque casino reçoit une note de 0 à 10 pour cinq critères. La note finale est la moyenne pondérée :</p>
       <div className="tableau-defilant">
