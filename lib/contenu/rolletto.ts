@@ -2,12 +2,12 @@ import type { ContenuCasino } from './types';
 
 const rolletto: ContenuCasino = {
   avis: {
-    titre: 'Avis Rolletto Casino 2026 : bonus 5 500 $ et conditions',
+    titre: 'Avis Rolletto Casino au Québec 2026 : bonus 5 500 $ et retraits',
     description:
       "Avis Rolletto au Québec : pack jusqu'à 5 500 $ + 200 tours gratuits, mise de 30 fois en 5 jours, licence CGA vérifiée. Les vrais chiffres, sans détour.",
     h1: 'Avis Rolletto Casino : le pack de 5 500 $ passé à la loupe',
     intro: [
-      "Rolletto est le casino le mieux noté de notre comparatif, d'abord parce qu'il joue cartes sur table : la société qui l'exploite (Santeda International B.V., à Curaçao) et son numéro de licence auprès de la Curacao Gaming Authority sont affichés. C'est loin d'être le cas partout.",
+      "Rolletto fait partie des casinos les mieux notés de notre comparatif, d'abord parce qu'il joue cartes sur table : la société qui l'exploite (Santeda International B.V., à Curaçao) et son numéro de licence auprès de la Curacao Gaming Authority sont affichés. C'est loin d'être le cas partout.",
       "Son offre de bienvenue est aussi la plus grosse du comparatif : jusqu'à 5 500 $ répartis sur trois dépôts, plus 200 tours gratuits. Mais ce montant cache une condition qu'il faut connaître avant de déposer : la mise doit être complétée en 5 jours seulement. Voici ce que cela veut dire concrètement."
     ],
     sections: [
@@ -32,10 +32,22 @@ const rolletto: ContenuCasino = {
           "Rolletto accepte huit cryptomonnaies : Bitcoin, Ethereum, Litecoin, Tether (USDT), USD Coin, Tron, Dogecoin et XRP. Rolletto propose aussi un bonus crypto distinct (100 % jusqu'à 1 000 $ + 200 tours gratuits) ; comme un seul bonus peut être actif à la fois, il faut choisir entre les deux.",
           "Nous n'avons pas pu confirmer sur les pages consultées la prise en charge d'Interac ni du dollar canadien. Vérifiez la caisse du casino avant votre premier dépôt."
         ]
+      },
+      {
+        titre: 'Rolletto pour les joueurs du Québec',
+        paragraphes: [
+          "Rolletto accepte les joueurs du Canada et du Québec, ce que le gestionnaire d'affiliation de la marque nous a confirmé par écrit le 4 novembre 2026. Il faut avoir 18 ans ou plus pour jouer au Québec.",
+          'Rolletto appartient au même exploitant que [Velobet](/velobet-casino/) (Santeda International B.V.) et partage sa licence de Curaçao. Avant un premier dépôt depuis le Québec :'
+        ],
+        liste: [
+          "**Devise** : les offres sont affichées en dollars, mais nous n'avons pas pu confirmer le dollar canadien. Vérifiez la devise proposée à l'inscription.",
+          "**Interac** : non confirmé sur les pages consultées. La cryptomonnaie est le moyen de paiement le mieux documenté chez Rolletto.",
+          "**Recours** : en cas de litige, la plainte se dépose auprès de la Curacao Gaming Authority, pas d'un organisme québécois. Voir [ce que dit la loi au Québec](/casino-en-ligne-legal-quebec/)."
+        ]
       }
     ],
     verdict: [
-      "Rolletto est le choix le plus solide du comparatif pour un joueur de machines à sous qui joue souvent : l'offre est la plus élevée et l'opérateur est identifiable.",
+      "Rolletto est l'un des choix les plus solides du comparatif pour un joueur de machines à sous qui joue souvent : l'offre est la plus élevée et l'opérateur est identifiable.",
       "Si vous jouez quelques soirs par mois, le délai de 5 jours rend le bonus difficile à débloquer. Dans ce cas, mieux vaut déposer un petit montant ou jouer sans bonus."
     ],
     pourQui: [
@@ -49,6 +61,14 @@ const rolletto: ContenuCasino = {
       'Les amateurs de jeux de table : le bonus ne s’applique qu’aux machines à sous'
     ],
     faq: [
+      {
+        q: 'Rolletto est-il fiable ?',
+        r: "C'est l'un des casinos les plus transparents de notre comparatif : l'exploitant (Santeda International B.V., n° 151296) et le numéro de licence de la Curacao Gaming Authority (OGL/2024/1798/1048) sont affichés. Le point à surveiller est le bonus, dont la mise doit être complétée en 5 jours."
+      },
+      {
+        q: 'Peut-on jouer chez Rolletto depuis le Québec ?',
+        r: "Oui. Rolletto accepte les joueurs du Canada et du Québec, ce que le gestionnaire d'affiliation de la marque nous a confirmé par écrit le 4 novembre 2026. Rolletto n'est toutefois pas autorisé par le gouvernement du Québec, où seul Loto-Québec l'est, et il faut avoir 18 ans pour jouer."
+      },
       {
         q: 'Quel est le bonus de bienvenue de Rolletto ?',
         r: "Un pack casino sur les trois premiers dépôts : 150 % jusqu'à 500 $, puis 100 % jusqu'à 2 000 $, puis 50 % jusqu'à 3 000 $, soit jusqu'à 5 500 $ au total, plus 200 tours gratuits. Le dépôt minimum est de 20 $."

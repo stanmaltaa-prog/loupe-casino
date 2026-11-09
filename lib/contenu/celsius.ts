@@ -2,7 +2,7 @@ import type { ContenuCasino } from './types';
 
 const celsius: ContenuCasino = {
   avis: {
-    titre: 'Avis Celsius Casino 2026 : bonus, retraits et licence',
+    titre: 'Avis Celsius Casino au Québec 2026 : fiable ? Bonus, retraits',
     description:
       "Avis Celsius Casino au Québec : bonus de 100 % puis 200 %, mise de 50 fois en 20 jours, retraits limités à 2 500 € par semaine. Ce qu'il faut savoir.",
     h1: 'Avis Celsius Casino : un immense catalogue, des conditions à lire de près',
@@ -37,6 +37,18 @@ const celsius: ContenuCasino = {
         paragraphes: [
           "La page d'accueil affiche Visa, Mastercard, Apple Pay, Google Pay, Skrill, PayPal et Paysafecard, ainsi que neuf cryptomonnaies (Bitcoin, Ethereum, Litecoin, Tether, Tron, Bitcoin Cash, BNB, Dogecoin et XRP). Les devises listées sont l'euro et les cryptomonnaies : nous n'avons vu ni dollar canadien ni Interac."
         ]
+      },
+      {
+        titre: 'Celsius pour les joueurs du Québec',
+        paragraphes: [
+          "Celsius accepte les joueurs du Canada et du Québec, ce que le gestionnaire d'affiliation de la marque nous a confirmé par écrit le 4 novembre 2026. Il faut avoir 18 ans ou plus pour jouer au Québec.",
+          'Trois points méritent votre attention avant un premier dépôt depuis le Québec :'
+        ],
+        liste: [
+          "**Pas de dollar canadien affiché** : les devises listées sont l'euro et les cryptomonnaies. Un dépôt par carte peut donc entraîner des frais de conversion, selon votre banque.",
+          "**Pas d'Interac** : les solutions les plus simples sont Visa, Mastercard, Apple Pay ou Google Pay. Voir notre guide [casino et Interac](/casino-interac/).",
+          "**Pas d'autorisation québécoise** : en cas de litige, vous ne pourrez pas vous tourner vers un organisme du Québec. Voir [ce que dit la loi au Québec](/casino-en-ligne-legal-quebec/)."
+        ]
       }
     ],
     verdict: [
@@ -53,6 +65,14 @@ const celsius: ContenuCasino = {
       'Ceux qui veulent jouer en dollars canadiens ou payer par Interac'
     ],
     faq: [
+      {
+        q: 'Celsius Casino est-il fiable ?',
+        r: "L'exploitant est identifié (Celsius Holdings N.V., n° 157856, à Curaçao) et les règles de retrait sont publiées en détail, ce qui rassure. En revanche, la licence d'Anjouan est affichée sans numéro vérifiable : c'est son principal point faible. Notre conseil : un petit dépôt et un premier retrait modeste avant d'aller plus loin."
+      },
+      {
+        q: 'Peut-on jouer chez Celsius depuis le Québec ?',
+        r: "Oui. Celsius accepte les joueurs du Canada et du Québec, ce que le gestionnaire d'affiliation de la marque nous a confirmé par écrit le 4 novembre 2026. Celsius n'est toutefois pas autorisé par le gouvernement du Québec, où seul Loto-Québec l'est, et il faut avoir 18 ans pour jouer."
+      },
       {
         q: 'Quel est le bonus de bienvenue de Celsius Casino ?',
         r: "100 % sur le premier dépôt et 200 % sur le deuxième. La page officielle consultée n'indique pas de plafond ; le dépôt minimum est de 10 $ et la mise de 50 fois le dépôt et le bonus, en 20 jours."
