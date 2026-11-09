@@ -46,6 +46,8 @@ export default function TestReel({ casino: c }: { casino: Casino }) {
         {typo(
           `Je rejoue sur ${c.nom} environ tous les ${t.frequenceJours} jours, et plus souvent si le service se dégrade. Dernier test : ${moisLong(t.mois)}. Vos délais peuvent varier selon la vérification d'identité et le moyen de paiement.`
         )}
+      {' '}
+        <Link href="/delais-de-retrait-casino/">Tous nos relevés datés</Link>.
       </p>
     </aside>
   );

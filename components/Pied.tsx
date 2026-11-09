@@ -50,6 +50,9 @@ export default function Pied() {
                 <Link href="/casino-retrait-rapide/">Casino à retrait rapide</Link>
               </li>
               <li>
+                <Link href="/delais-de-retrait-casino/">Délais de retrait testés</Link>
+              </li>
+              <li>
                 <Link href="/casino-depot-minimum/">Casino à dépôt minimum</Link>
               </li>
               <li>
