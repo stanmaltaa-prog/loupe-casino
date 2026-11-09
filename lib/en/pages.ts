@@ -6,7 +6,8 @@ import type { PageGuide } from '@/lib/contenu/pages/types';
 import { CASINOS, CRITERES, noteGlobale, type Casino } from '@/lib/casinos';
 import { AUTEUR } from '@/lib/auteur';
 import { SITE } from '@/lib/site';
-import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, miseEn } from './casinos';
+import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, miseEn, retraitsEn } from './casinos';
+import { DERNIER_RELEVE, RELEVES, classementRetraits, dernier, nombreDeReleves } from '@/lib/tests';
 import { AIDE_PROVINCES, EN, MESSAGE_ZONE, SOURCE_AIDE, SOURCE_AIDE_NS, dateEn, montantEn, noteEn } from './site';
 
 /** "1 h", "12 h" or "Not tested". */
@@ -325,7 +326,7 @@ export const PAGES_EN: PageGuide[] = [
       }
     ],
     sources: CASINOS.filter((c) => c.retraits).map((c) => ({ titre: `${c.nom}: withdrawal rules`, url: c.retraits!.source })),
-    connexes: ['/en-ca/crypto-casinos/', '/en-ca/interac-casinos/', '/en-ca/casino-bonuses/']
+    connexes: ['/en-ca/casino-withdrawal-times/', '/en-ca/crypto-casinos/', '/en-ca/interac-casinos/']
   },
 
   // ——————————————————————————— Interac
@@ -985,8 +986,152 @@ export const PAGES_EN: PageGuide[] = [
     ],
     faq: [],
     connexes: ['/en-ca/how-we-rate/', '/en-ca/responsible-gambling/']
-  }
+  },
+  // ——————————————————————————— Withdrawal times (real tests journal, donnees/tests.json)
+  (() => {
+    const h = (n: number | undefined | null) => (n === null || n === undefined ? 'Not tested' : `${n} h`);
+    const l = (c: Casino) => `[${c.nom}](${['velobet', 'rolletto', 'celsius'].includes(c.id) ? `/en-ca/${c.slug}/withdrawal/` : cheminEn(c)})`;
+    const rank = classementRetraits();
+    const first = rank[0];
+    const second = rank[1];
+    const cryptoFaster = rank.every((c) => {
+      const k = dernier(c, 'crypto')?.delaiHeures;
+      const t = dernier(c, 'carte')?.delaiHeures;
+      return k === undefined || t === undefined || k < t;
+    });
+    const page: PageGuide = {
+      chemin: '/en-ca/casino-withdrawal-times/',
+      nomFil: 'Withdrawal times tested',
+      titre: 'Casino Withdrawal Times in Canada: Our Real Tests',
+      description:
+        'Withdrawal times measured in our real-money tests with a Canadian-dollar account: crypto and card, casino by casino, every result dated.',
+      h1: 'Casino withdrawal times: our real tests, casino by casino',
+      chapeau: `Withdrawal times announced by casinos are promises. The ones on this page are measured: ${AUTEUR.nom} deposits, plays and withdraws at every casino we compare with a Canadian-dollar account, then plays again about every 3 days. Last result: ${dateEn(DERNIER_RELEVE)}.`,
+      modifie: DERNIER_RELEVE,
+      resume: 'Withdrawal times measured in our real tests, casino by casino, every result dated.',
+      sections: [
+        {
+          id: 'results',
+          titre: 'Latest withdrawal times measured',
+          blocs: [
+            {
+              type: 'tableau',
+              legende: `Time between the withdrawal request and the funds arriving, in the latest test. Results as of ${dateEn(DERNIER_RELEVE)}.`,
+              entetes: ['Rank', 'Casino', 'Crypto withdrawal', 'Card withdrawal', 'Results published'],
+              lignes: rank.map((c, i) => [String(i + 1), l(c), `**${h(dernier(c, 'crypto')?.delaiHeures)}**`, h(dernier(c, 'carte')?.delaiHeures), String(nombreDeReleves(c))])
+            },
+            {
+              type: 'p',
+              texte: first
+                ? `In our latest results, ${first.nom} was the fastest: ${h(dernier(first, 'crypto')?.delaiHeures)} in crypto and ${h(dernier(first, 'carte')?.delaiHeures)} by card.${second ? ` ${second.nom} follows with ${h(dernier(second, 'crypto')?.delaiHeures)} in crypto.` : ''}`
+                : 'No test has been published yet.'
+            },
+            {
+              type: 'encadre',
+              ton: 'info',
+              titre: 'Your times may differ',
+              texte:
+                'A first withdrawal often takes longer while your identity is checked. The payment method, the amount, an active bonus or a weekend request also change the time. These figures describe our tests, not a guarantee.'
+            },
+            ZONE
+          ]
+        },
+        {
+          id: 'method',
+          titre: 'How we test',
+          blocs: [
+            {
+              type: 'liste',
+              ordonnee: true,
+              items: [
+                '**Two tests per casino.** A minimum deposit followed by a withdrawal, then a CA$1,000 deposit, to compare two different balances.',
+                '**A Canadian-dollar account**, opened and used like any player’s, with real money.',
+                '**The time measured** runs from the withdrawal request to the funds arriving, in crypto and by card when the casino allows it.',
+                '**A new result about every 3 days**, and more often if the service gets worse. Every result is dated and added to the log below; old ones are never deleted.',
+                '**Bad results are published too.** If a withdrawal drags or fails, it shows here and the casino’s score reflects it.'
+              ]
+            },
+            { type: 'p', texte: `The tests are run by ${AUTEUR.nom}, the site’s founder: [about the author](/en-ca/about/#author). [How we rate](/en-ca/how-we-rate/) explains how these results feed the withdrawals score.` }
+          ]
+        },
+        {
+          id: 'announced',
+          titre: 'Announced versus measured',
+          blocs: [
+            {
+              type: 'tableau',
+              entetes: ['Casino', 'What the terms announce', 'Measured in crypto', 'Measured by card'],
+              lignes: CASINOS.map((c) => [l(c), retraitsEn(c), h(dernier(c, 'crypto')?.delaiHeures), h(dernier(c, 'carte')?.delaiHeures)])
+            },
+            {
+              type: 'p',
+              texte:
+                'Terms usually give a maximum time (for example “within 3 business days”). Our tests show the real time of an ordinary withdrawal. Both are useful: the first is what the casino commits to, the second is what you will see in practice.'
+            }
+          ]
+        },
+        {
+          id: 'log',
+          titre: 'The full results log',
+          blocs: [
+            {
+              type: 'tableau',
+              legende: 'Newest first.',
+              entetes: ['Date', 'Casino', 'Method', 'Time measured'],
+              lignes: RELEVES.map((r) => {
+                const c = CASINOS.find((x) => x.id === r.casino) as Casino;
+                return [dateEn(r.date), l(c), r.moyen === 'crypto' ? 'Crypto' : 'Card', `${r.delaiHeures} h`];
+              })
+            }
+          ]
+        },
+        {
+          id: 'slower',
+          titre: 'What can slow your withdrawal down',
+          blocs: [
+            {
+              type: 'liste',
+              items: [
+                '**Identity checks.** Send your documents right after sign-up rather than at your first withdrawal.',
+                '**An active bonus.** Until the wagering is complete, the bonus and its winnings stay locked.',
+                '**A deposit not yet wagered.** Several casinos require a deposit to be wagered once before it can be withdrawn.',
+                '**Weekly limits.** A big win can be paid in instalments.',
+                cryptoFaster
+                  ? '**The payment method.** In our tests, crypto always arrived faster than card.'
+                  : '**The payment method.** Depending on the casino, crypto or card can be faster: compare in the table.'
+              ]
+            },
+            { type: 'offres', casinos: rank.slice(0, 3).map((c) => c.id), titre: 'The fastest in our tests' }
+          ]
+        }
+      ],
+      faq: [
+        {
+          q: 'Which online casino pays out fastest in Canada?',
+          r: first
+            ? `In our latest tests (${dateEn(DERNIER_RELEVE)}), ${first.nom}: ${h(dernier(first, 'crypto')?.delaiHeures)} for a crypto withdrawal and ${h(dernier(first, 'carte')?.delaiHeures)} by card. The full ranking is at the top of this page and changes with every new result.`
+            : 'We have not published a test yet.'
+        },
+        {
+          q: 'Why is my withdrawal slower than in your tests?',
+          r: 'A first withdrawal often requires an identity check. An active bonus, a deposit not yet wagered, a weekly limit or another payment method can also slow it down. Ask customer support what is holding it, and keep a record of the answer.'
+        },
+        {
+          q: 'How often do you update these times?',
+          r: 'About every 3 days for each casino, and more often if the service gets worse. The date of each result is in the log.'
+        },
+        {
+          q: 'Do casinos pay to appear in these tests?',
+          r: 'No. The tests are run with real money by the author. We earn a commission when you sign up through our links, but it changes neither the times published nor the order of the ranking.'
+        }
+      ],
+      sources: CASINOS.filter((c) => c.retraits).map((c) => ({ titre: `${c.nom}: published withdrawal rules`, url: c.retraits!.source })),
+      connexes: ['/en-ca/fast-withdrawal-casinos/', '/en-ca/crypto-casinos/', '/en-ca/how-we-rate/']
+    };
+    return page;
+  })()
 ];
+
 
 export function pageEn(chemin: string): PageGuide | undefined {
   return PAGES_EN.find((p) => p.chemin === chemin);
