@@ -146,7 +146,7 @@ export default function Accueil() {
           <Link href="/jeux/#tables">Voir les {TABLES.length} jeux →</Link>
         </div>
         <GrilleTables jeux={TABLES.slice(0, 6)} />
-        <p className="petit">Roulettes, blackjacks et jeux télévisés : règles officielles des éditeurs et RTP publié.</p>
+        <p className="petit">Roulettes, blackjacks et jeux télévisés : règles officielles des éditeurs et RTP publié.</p>
       </section>
 
       <section className="conteneur">
@@ -293,6 +293,10 @@ export default function Accueil() {
           <Link href="/casino-crypto-quebec/">casino crypto au Québec</Link>,{' '}
           <Link href="/casino-retrait-rapide/">casino à retrait rapide</Link> et{' '}
           <Link href="/casino-depot-minimum/">casino à dépôt minimum</Link>.
+        </p>
+        <p>
+          Vous pariez aussi sur le sport ? Notre guide des <Link href="/paris-sportifs-quebec/">paris sportifs au Québec</Link>{' '}
+          compare les bonus sport de Velobet, Rolletto et BetPortal, conditions comprises.
         </p>
 
         <h2>Loto-Québec ou casino étranger : les vraies différences</h2>
