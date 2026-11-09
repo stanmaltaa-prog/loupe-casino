@@ -297,6 +297,12 @@ export default function PageSujet({ params }: { params: Params }) {
                   </Link>
                 </li>
               ))}
+            <li>
+              <Link href="/casino-en-ligne-legal-quebec/">
+                <strong>Casino en ligne légal au Québec ?</strong>
+                <span>Ce que dit la loi sur les casinos étrangers, et vos recours.</span>
+              </Link>
+            </li>
           </ul>
           <EncadreAide />
         </div>
