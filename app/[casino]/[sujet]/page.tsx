@@ -32,6 +32,7 @@ import { contenuDe } from '@/lib/contenu';
 import type { PageCasino } from '@/lib/contenu/types';
 import { dateLongue } from '@/lib/site';
 import { meta, schemaPage } from '@/lib/seo';
+import TestReel from '@/components/TestReel';
 
 export const dynamicParams = false;
 
@@ -246,6 +247,7 @@ export default function PageSujet({ params }: { params: Params }) {
         </div>
 
         <div className="lecture prose">
+          {sujet === 'retrait' || sujet === 'fiable' ? <TestReel casino={c} /> : null}
           {sujet === 'bonus' ? <BlocBonus c={c} /> : null}
           {sujet === 'retrait' ? <BlocRetrait c={c} /> : null}
           {sujet === 'fiable' ? <BlocFiable c={c} /> : null}
