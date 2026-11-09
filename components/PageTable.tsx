@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Guide from '@/components/Guide';
 import Faq from '@/components/Faq';
 import { Offres } from '@/components/RenduGuide';
+import LiensClassement from '@/components/LiensClassement';
 import GrilleTables from '@/components/GrilleTables';
 import GrilleJeux from '@/components/GrilleJeux';
 import DemoJeu from '@/components/DemoJeu';
@@ -70,20 +71,20 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
       ? []
       : [
           {
-            q: typo(`Peut-on jouer à ${t.nom} gratuitement ?`),
+            q: typo(`Peut-on jouer à ${t.nom} gratuitement ?`),
             r: typo(
               demo
                 ? `Oui. Le bouton de démo de cette page ouvre la version gratuite officielle sur le site de ${t.fournisseur}, avec des crédits fictifs. Les gains de la démo ne sont pas réels.`
-                : `Non. ${t.nom} est un jeu en direct : chaque partie se joue en argent réel et il n'existe pas de démo officielle. Une fois inscrit, il est souvent possible d'ouvrir la table pour regarder quelques tours sans miser.`
+                : `Non. ${t.nom} est un jeu en direct : chaque partie se joue en argent réel et il n'existe pas de démo officielle. Une fois inscrit, il est souvent possible d'ouvrir la table pour regarder quelques tours sans miser.`
             )
           }
         ]),
     {
-      q: typo(`Peut-on prévoir les résultats de ${t.nom} ?`),
+      q: typo(`Peut-on prévoir les résultats de ${t.nom} ?`),
       r: typo(
         direct
-          ? 'Non. Chaque tour est indépendant des précédents : ni l’historique, ni les statistiques, ni une méthode de mise ne changent la probabilité du prochain résultat.'
-          : 'Non. Les cartes sont tirées par un générateur de nombres aléatoires certifié : chaque main est indépendante des précédentes.'
+          ? 'Non. Chaque tour est indépendant des précédents : ni l’historique, ni les statistiques, ni une méthode de mise ne changent la probabilité du prochain résultat.'
+          : 'Non. Les cartes sont tirées par un générateur de nombres aléatoires certifié : chaque main est indépendante des précédentes.'
       )
     }
   ];
@@ -143,7 +144,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
             ) : null}
             <BoutonCasino casino={top} emplacement={`${emplacement}-tete`} texte={`Jouer en argent réel chez ${top.nom}`} />
           </div>
-          <p className="jeu-tete-credit">{visuel ? `Image : ${visuel.credit}` : ''} · 18+ · Lien commercial</p>
+          <p className="jeu-tete-credit">{visuel ? `Image : ${visuel.credit}` : ''} · 18+ · Lien commercial</p>
         </div>
       </div>
 
@@ -177,7 +178,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
         <p className="petit">
           {typo(
             `Informations vérifiées le ${dateLongue(t.verifieLe)} sur les sources listées en bas de page.${
-              t.volume ? ` Recherches mensuelles au Canada : environ ${t.volume.toLocaleString('fr-CA')} (Ubersuggest).` : ''
+              t.volume ? ` Recherches mensuelles au Canada : environ ${t.volume.toLocaleString('fr-CA')} (Ubersuggest).` : ''
             }`
           )}
         </p>
@@ -191,7 +192,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
           <div className="encadre-cta">
             <Marque casino={top} />
             <div>
-              <p className="encadre-cta-titre">{typo(`Envie de jouer à ${t.nom} pour de vrai ?`)}</p>
+              <p className="encadre-cta-titre">{typo(`Envie de jouer à ${t.nom} pour de vrai ?`)}</p>
               <p className="petit">{top.offre.titre}</p>
             </div>
             <BoutonCasino casino={top} emplacement={`${emplacement}-demo`} texte="Voir l’offre" />
@@ -263,7 +264,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
         <h2 id="rtp">{typo(`Le RTP de ${t.nom} et le budget à prévoir`)}</h2>
         <p>
           {typo(
-            "Le RTP (taux de retour au joueur) est la part des mises qu'un jeu rend en moyenne, sur un très grand nombre de parties. Il ne dit rien du résultat d'une session : c'est une moyenne, pas une promesse."
+            "Le RTP (taux de retour au joueur) est la part des mises qu'un jeu rend en moyenne, sur un très grand nombre de parties. Il ne dit rien du résultat d'une session : c'est une moyenne, pas une promesse."
           )}
         </p>
         <p>{t.rtpNote}</p>
@@ -293,7 +294,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
             <p className="petit">
               {typo(
                 t.famille === 'blackjack'
-                  ? 'Au blackjack, ce taux suppose une stratégie de base parfaite : chaque erreur le fait baisser. Les mises secondaires ont leur propre RTP, plus faible.'
+                  ? 'Au blackjack, ce taux suppose une stratégie de base parfaite : chaque erreur le fait baisser. Les mises secondaires ont leur propre RTP, plus faible.'
                   : 'Sur une vraie session, le résultat peut s’écarter fortement de cette moyenne, dans un sens comme dans l’autre.'
               )}
             </p>
@@ -303,7 +304,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
           <p className="encadre-titre">Où vérifier le RTP réel</p>
           <p>
             {typo(
-              "Ouvrez la table, puis l'aide ou les règles du jeu (souvent un « i » ou un « ? ») : l'éditeur y indique le taux de retour de chaque mise. C'est le chiffre qui fait foi."
+              "Ouvrez la table, puis l'aide ou les règles du jeu (souvent un « i » ou un « ? ») : l'éditeur y indique le taux de retour de chaque mise. C'est le chiffre qui fait foi."
             )}
           </p>
         </div>
@@ -316,7 +317,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
         ))}
         <div className="deux-colonnes" style={{ margin: '1.4em 0' }}>
           <div className="encadre encadre-bon">
-            <p className="encadre-titre">Pour qui ?</p>
+            <p className="encadre-titre">Pour qui ?</p>
             <p>{t.pourQui}</p>
           </div>
           <div className="encadre encadre-alerte">
@@ -327,14 +328,14 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
       </section>
 
       <section aria-labelledby="bonus-casino">
-        <h2 id="bonus-casino">{typo(`Bonus de casino et ${t.nom} : attention`)}</h2>
+        <h2 id="bonus-casino">{typo(`Bonus de casino et ${t.nom} : attention`)}</h2>
         <p>
           {typo(
             `Les bonus de bienvenue sont presque toujours pensés pour les machines à sous. Les jeux de table et les jeux en direct comptent souvent peu, ou pas du tout, pour la mise à compléter. Chez Rolletto, par exemple, la mise du bonus ne se complète que sur les machines à sous.`
           )}
         </p>
         <p>
-          {typo(`Pour jouer à ${t.nom}, jouer sans bonus est souvent le plus simple : vos gains restent retirables sans condition de mise. Lisez notre `)}
+          {typo(`Pour jouer à ${t.nom}, jouer sans bonus est souvent le plus simple : vos gains restent retirables sans condition de mise. Lisez notre `)}
           <Link href="/bonus-casino-quebec/">comparatif des bonus</Link>
           {typo(' et notre ')}
           <Link href="/conditions-de-mise/">guide des conditions de mise</Link>
@@ -349,6 +350,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
             `Nous n'avons pas pu vérifier la présence de ${t.nom} dans le lobby de chaque casino. Une fois inscrit, cherchez le jeu par son nom dans la section ${direct ? 'casino en direct' : 'jeux de table'}, et lisez ses règles avant de miser.`
           )}
         </p>
+        <LiensClassement cle={t.slug} />
         <Offres emplacement={emplacement} />
       </section>
 
@@ -359,7 +361,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
         <GrilleTables jeux={similaires} />
         {machinesLiees.length ? (
           <>
-            <p>{typo('La machine à sous d’origine :')}</p>
+            <p>{typo('La machine à sous d’origine :')}</p>
             <GrilleJeux jeux={machinesLiees} />
           </>
         ) : null}
@@ -380,7 +382,7 @@ export default function PageTable({ famille, slug }: { famille: Famille; slug: s
               </a>
             </li>
           ))}
-          {t.volume ? <li>{typo('Volumes de recherche : Ubersuggest, Canada, novembre 2026.')}</li> : null}
+          {t.volume ? <li>{typo('Volumes de recherche : Ubersuggest, Canada, novembre 2026.')}</li> : null}
         </ul>
       </section>
     </Guide>

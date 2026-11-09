@@ -24,7 +24,7 @@ export default function DemoLien({ url, nom, poster, editeur, ctaHref, ctaTexte,
     return (
       <div className="demo-apres" role="status">
         <p className="demo-apres-titre">Bonne partie sur {nom} !</p>
-        <p>La démo officielle s’est ouverte dans un nouvel onglet. Envie de jouer à {nom} en argent réel ?</p>
+        <p>La démo officielle s’est ouverte dans un nouvel onglet. Envie de jouer à {nom} en argent réel ?</p>
         <div className="demo-apres-actions">
           <a href={ctaHref} className="cta" rel="sponsored nofollow noopener" target="_blank" data-casino={casinoId} data-emplacement="apres-demo">
             {ctaTexte}

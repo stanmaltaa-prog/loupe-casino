@@ -26,9 +26,9 @@ export default function Entete() {
             <span className="masque-mobile">Réservé aux adultes. Jouez avec modération.</span>
           </span>
           <span>
-            <span className="masque-mobile">Besoin d&apos;aide ? </span>
+            <span className="masque-mobile">Besoin d&apos;aide ? </span>
             {AIDE.nom}
-            <span className="masque-mobile">, 24 h sur 24</span> : <a href="tel:18004610140">{AIDE.telephone}</a> · <LienLangue />
+            <span className="masque-mobile">, 24 h sur 24</span> : <a href="tel:18004610140">{AIDE.telephone}</a> · <LienLangue />
           </span>
         </div>
       </div>
