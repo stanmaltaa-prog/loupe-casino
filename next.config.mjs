@@ -32,6 +32,11 @@ const nextConfig = {
         headers: [{ key: 'Cache-Control', value: 'public, max-age=2592000, stale-while-revalidate=86400' }]
       },
       {
+        // Section anglaise : langue déclarée aussi dans l'en-tête HTTP (lue par Bing).
+        source: '/en-ca/:path*',
+        headers: [{ key: 'Content-Language', value: 'en-CA' }]
+      },
+      {
         source: '/go/:path*',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }]
       }
