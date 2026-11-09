@@ -122,7 +122,7 @@ const cartesRoulette: TableJeu[] = [
     rtp: 97.3,
     rtpSource: 'base',
     rtpNote: 'Pragmatic Play ne publie pas le RTP sur sa page. SlotCatalog indique 97,30 %, comme la roulette européenne.',
-    gainMax: '500× la mise, jusqu’à 500 000 €',
+    gainMax: '500× la mise, jusqu’à 500 000 $',
     titre: 'Mega Roulette : règles, multiplicateurs et RTP (Pragmatic)',
     description:
       'Mega Roulette de Pragmatic Play : 1 à 5 Mega Multipliers de 50× à 500× sur les pleins, les mises Mega, les annonces et le RTP, expliqués simplement.',
@@ -131,7 +131,7 @@ const cartesRoulette: TableJeu[] = [
       'Mega Roulette est la roulette à multiplicateurs de Pragmatic Play. Le principe ressemble à Lightning Roulette d’Evolution ; voici les règles officielles et les différences à connaître.',
     principe: [
       'Mega Roulette est une roulette à un seul zéro avec toutes les mises classiques : plein, cheval, transversale, carré, sixain, douzaine, colonne, pair ou impair, rouge ou noir. Le tapis de course permet aussi les annonces Zéro, Tiers, Voisins et Orphelins.',
-      'À chaque tour, de 1 à 5 Mega Multipliers de 50× à 500× sont attribués au hasard à des pleins. Vous avez 20 secondes pour miser, et Pragmatic Play annonce des gains possibles jusqu’à 500 000 €.'
+      'À chaque tour, de 1 à 5 Mega Multipliers de 50× à 500× sont attribués au hasard à des pleins. Vous avez 20 secondes pour miser, et Pragmatic Play annonce des gains possibles jusqu’à 500 000 $.'
     ],
     etapes: [
       'Placez vos mises en 20 secondes, sur le tapis ou sur le tapis de course.',

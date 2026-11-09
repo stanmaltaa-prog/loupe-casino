@@ -116,7 +116,7 @@ const showsLot2: TableJeu[] = [
     chapeau:
       'Mega Ball reprend le principe du bingo dans un studio en direct, avec un tirage très rapide et une boule bonus qui multiplie les gains. Voici les règles officielles d’Evolution et ce qu’il faut savoir avant d’acheter vos cartes.',
     principe: [
-      'Vous achetez des cartes de bingo et choisissez leur valeur, de 0,10 € à 100 € selon Evolution. Une fois les achats fermés, la machine tire 20 boules sur 51 à grande vitesse. Chaque numéro tiré qui figure sur une de vos cartes y est coché automatiquement, et une ligne complète rapporte un gain.',
+      'Vous achetez des cartes de bingo et choisissez leur valeur, de 0,10 $ à 100 $ selon Evolution. Une fois les achats fermés, la machine tire 20 boules sur 51 à grande vitesse. Chaque numéro tiré qui figure sur une de vos cartes y est coché automatiquement, et une ligne complète rapporte un gain.',
       'Après le tirage principal viennent une ou deux manches Mega Ball. Un multiplicateur de 5× à 100× est d’abord généré à l’écran, puis une dernière boule est tirée : si elle complète une ligne sur une de vos cartes, le gain de cette carte est multiplié.'
     ],
     etapes: [
@@ -132,20 +132,20 @@ const showsLot2: TableJeu[] = [
       },
       {
         nom: 'Beaucoup de cartes, beaucoup de mise',
-        texte: 'Acheter 100 cartes à 1 € revient à miser 100 € sur une seule partie. Le nombre de cartes augmente vos chances d’avoir une ligne, mais aussi la somme engagée.'
+        texte: 'Acheter 100 cartes à 1 $ revient à miser 100 $ sur une seule partie. Le nombre de cartes augmente vos chances d’avoir une ligne, mais aussi la somme engagée.'
       }
     ],
     tableau: {
       legende: 'Le déroulement d’une partie de Mega Ball, d’après les règles d’Evolution',
       entetes: ['Étape', 'Ce qui se passe'],
       lignes: [
-        ['Achat', 'Cartes de 0,10 € à 100 € chacune, jusqu’à 400 cartes'],
+        ['Achat', 'Cartes de 0,10 $ à 100 $ chacune, jusqu’à 400 cartes'],
         ['Tirage principal', '20 boules tirées sur 51'],
         ['Multiplicateur', 'De 5× à 100×, généré avant chaque Mega Ball'],
         ['Mega Ball', 'Une ou deux boules bonus ; multiplient la carte si elles complètent une ligne'],
         ['Résultat', 'Les cartes gagnantes sont triées, de la plus forte à la plus faible']
       ],
-      note: 'Montants indiqués en euros par Evolution ; votre casino peut afficher d’autres limites et une autre devise.'
+      note: 'Montants indiqués par Evolution ; votre casino peut afficher d’autres limites.'
     },
     analyse: [
       'Mega Ball est présenté par Evolution comme un jeu « super rapide » : les boules sont tirées à vive allure et le résultat est calculé automatiquement. Le bingo se comprend tout de suite, ce qui le rend accessible même sans connaître les jeux de casino.',

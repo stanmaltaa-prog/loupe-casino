@@ -96,7 +96,7 @@ const shows: TableJeu[] = [
       },
       {
         q: 'Quel est le plus gros gain jamais réalisé à Crazy Time ?',
-        r: 'Selon Evolution, un multiplicateur de 25 000× la mise obtenu en Cash Hunt le 11 décembre 2022, pour un gain de 2 815 169 €. Ces gains records restent exceptionnels.'
+        r: 'Selon Evolution, un multiplicateur de 25 000× la mise obtenu en Cash Hunt le 11 décembre 2022. Ces gains records restent exceptionnels.'
       }
     ],
     similaires: ['funky-time', 'monopoly-live', 'sweet-bonanza-candyland', 'mega-wheel'],
@@ -336,7 +336,7 @@ const shows: TableJeu[] = [
     rtp: 96.48,
     rtpSource: 'base',
     rtpNote: 'Pragmatic Play ne publie pas le RTP sur sa page. SlotCatalog indique 96,48 %.',
-    gainMax: '500 000 €',
+    gainMax: '500 000 $',
     titre: 'Sweet Bonanza CandyLand : règles, bonus et RTP en direct',
     description:
       'Sweet Bonanza CandyLand : la roue en direct de Pragmatic Play, les Sugar Bombs, les bonus Sweet Spins, Candy Drop et Bubble Surprise, et le RTP, expliqués.',
@@ -359,13 +359,13 @@ const shows: TableJeu[] = [
     ],
     analyse: [
       'CandyLand est le pont le plus direct entre les machines à sous et le casino en direct : les Sweet Spins reprennent vraiment le jeu de base de Sweet Bonanza. Si vous connaissez la machine, vous comprendrez le bonus tout de suite.',
-      'Pragmatic Play annonce un gain maximal de 500 000 €. Le RTP indiqué par SlotCatalog (96,48 %) est proche de celui de la machine à sous d’origine.'
+      'Pragmatic Play annonce un gain maximal de 500 000 $. Le RTP indiqué par SlotCatalog (96,48 %) est proche de celui de la machine à sous d’origine.'
     ],
     pourQui: 'Pour les fans de Sweet Bonanza qui veulent essayer un jeu en direct, avec un présentateur et des bonus connus.',
     attention: 'L’option Sugar Bomb Booster a un coût : vérifiez le montant ajouté à votre mise dans l’interface avant de l’activer.',
     faq: [
       { q: 'Sweet Bonanza CandyLand est-il une machine à sous ?', r: 'Non : c’est un jeu télévisé en direct, inspiré de la machine à sous Sweet Bonanza. Le bonus Sweet Spins reprend toutefois 10 tours de la machine.' },
-      { q: 'Quel est le gain maximal à Sweet Bonanza CandyLand ?', r: '500 000 €, selon Pragmatic Play. Le bonus Candy Drop plafonne à 1 000× la mise.' },
+      { q: 'Quel est le gain maximal à Sweet Bonanza CandyLand ?', r: '500 000 $, selon Pragmatic Play. Le bonus Candy Drop plafonne à 1 000× la mise.' },
       { q: 'Quel est le RTP de Sweet Bonanza CandyLand ?', r: 'Pragmatic Play ne le publie pas sur sa page. SlotCatalog indique 96,48 %.' }
     ],
     similaires: ['mega-wheel', 'crazy-time', 'funky-time', 'monopoly-live'],

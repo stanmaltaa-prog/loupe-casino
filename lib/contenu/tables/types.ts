@@ -24,7 +24,7 @@ export type TableJeu = {
   rtpSource: 'officiel' | 'base' | 'calcul' | null;
   /** Précision sur le RTP (mise par mise, stratégie, versions). */
   rtpNote: string;
-  /** Gain maximal tel que publié (« 20 000× la mise », « 500 000 € »), ou null. */
+  /** Gain maximal tel que publié (« 20 000× la mise », « 500 000 $ »), ou null. */
   gainMax: string | null;
   /** Balise <title> et méta-description, écrites à la main pour la recherche visée. */
   titre: string;
