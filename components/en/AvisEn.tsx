@@ -27,6 +27,8 @@ import {
 import { EN, MESSAGE_ZONE, dateEn, noteEn } from '@/lib/en/site';
 import { SITE, absolu } from '@/lib/site';
 import { schemaPage } from '@/lib/seo';
+import { RETRAIT_EN } from '@/lib/en/sujets';
+import TestReelEn from './TestReelEn';
 
 export function textesAvis(c: Casino) {
   const t = en(c);
@@ -95,6 +97,7 @@ export default function AvisEn({ c }: { c: Casino }) {
 
         <div className="lecture prose">
           <p className="petit">{MESSAGE_ZONE}</p>
+          <TestReelEn casino={c} />
 
           <h2>{c.nom} at a glance</h2>
           <dl className="faits">
@@ -203,6 +206,9 @@ export default function AvisEn({ c }: { c: Casino }) {
           <p>
             <strong>Canadian players:</strong> {t.canada}
           </p>
+          <p>
+            Everything we could and could not verify: <Link href={cheminEn(c, 'legit')}>is {c.nom} legit?</Link>
+          </p>
 
           <h2>Withdrawals</h2>
           {t.retraits ? (
@@ -222,6 +228,11 @@ export default function AvisEn({ c }: { c: Casino }) {
               minimum, the processing time and the weekly limit, and keep a copy of the answer.
             </p>
           )}
+          {RETRAIT_EN[c.id] ? (
+            <p>
+              The rules, an example and our tips: <Link href={cheminEn(c, 'withdrawal')}>{c.nom} withdrawals explained</Link>.
+            </p>
+          ) : null}
           <p>
             Compare all the published limits on our page about <Link href="/en-ca/fast-withdrawal-casinos/">fast withdrawal casinos</Link>.
           </p>
