@@ -16,6 +16,8 @@ const S = {
   debat: { titre: 'Gambling.com : le débat sur l’encadrement du jeu en ligne au Québec (mars 2026)', url: 'https://www.gambling.com/ca/fr/news/quebec-igaming-debat-regulation-2026' },
   poker: { titre: 'Pokerfuse : Loto-Québec et le Canada Poker Network (septembre 2026)', url: 'https://pokerfuse.com/latest-news/2026/9/qubecs-two-leading-parties-back-regulated-online/' },
   rolletto: { titre: 'Rolletto : page des promotions (bonus de bienvenue sport)', url: 'https://r0lletto.com/fr/static/promos' },
+  velobet: { titre: 'Velobet : page des promotions, bonus de bienvenue sportif (9 novembre 2026)', url: 'https://24velobet.com/fr/static/promos' },
+  impots: { titre: 'BLG : l’imposition des gains de jeu au Canada', url: 'https://www.blg.com/fr/insights/2023/07/texas-hold-em-or-taxes-hold-em-taxes-and-gambling-in-canada' },
   betportal: { titre: 'BetPortal : page des promotions (100 % Kickoff Pari Gratuit)', url: 'https://betportal888.com/fr/promotions' }
 };
 
@@ -27,6 +29,16 @@ export const CTA_ROLLETTO = {
   detail:
     'Premier dépôt de 10 $ minimum. Mise de 15 fois (dépôt + bonus) en 15 jours, sur des paris combinés de 3 sélections ou plus, à une cote de 1,30 minimum par sélection. Bonus à activer avant le premier pari.',
   bouton: 'Voir l’offre sport de Rolletto'
+};
+
+/** Offre sport de Velobet vérifiée le 9 novembre 2026 sur sa page promotions. */
+export const CTA_VELOBET = {
+  type: 'cta' as const,
+  casino: 'velobet',
+  titre: '150 % jusqu’à 1 000 € + 10 paris gratuits',
+  detail:
+    'Premier dépôt de 10 € minimum. Mise de 15 fois (dépôt + bonus) sur des paris combinés de 3 sélections ou plus, à une cote de 1,30 minimum par sélection ; bonus valable 30 jours. À activer avant le premier pari ; les 10 paris gratuits arrivent après la validation du premier pari. Montants publiés en euros : vérifiez-les pour un compte canadien.',
+  bouton: 'Voir l’offre sport de Velobet'
 };
 
 export const CTA_BETPORTAL = {
@@ -320,7 +332,7 @@ const canadaSport: PageGuide[] = [
     nomFil: 'Paris sportifs',
     titre: 'Paris sportifs au Québec : sites, bonus et règles (2026)',
     description:
-      'Paris sportifs en ligne au Québec : ce que dit la loi, les bonus sport de Rolletto et BetPortal décortiqués, et comment lire une cote avant de parier.',
+      'Paris sportifs en ligne au Québec : la loi, les bonus sport de Velobet, Rolletto et BetPortal décortiqués, et comment lire une cote avant de parier.',
     h1: 'Paris sportifs en ligne au Québec : la loi, les bonus et les cotes',
     chapeau:
       "Les bonus sport paraissent généreux, mais leurs conditions sont souvent plus dures que celles des bonus casino. Voici ce qu'elles exigent vraiment, et ce qu'il faut savoir avant de parier.",
@@ -344,19 +356,26 @@ const canadaSport: PageGuide[] = [
         blocs: [
           {
             type: 'p',
-            texte: 'Offres relevées le 4 novembre 2026 sur les pages promotions des casinos. Les montants et conditions peuvent changer.'
+            texte:
+              'Offres relevées sur les pages promotions des casinos le 4 novembre 2026 (le 9 novembre 2026 pour Velobet). Les montants et conditions peuvent changer.'
           },
           {
             type: 'tableau',
-            entetes: ['', 'Rolletto', 'BetPortal'],
+            entetes: ['', 'Velobet', 'Rolletto', 'BetPortal'],
             lignes: [
-              ['Offre', '150 % jusqu’à 1 500 $ + jusqu’à 200 $ en paris gratuits', 'Pari gratuit de 100 % de votre mise, jusqu’à 100 €'],
-              ['Dépôt minimum', '10 $', '20 €'],
-              ['Condition', 'Miser 15 fois (dépôt + bonus) en 15 jours', 'Placer un pari qualifiant'],
-              ['Paris acceptés', 'Combinés de 3 sélections ou plus, cote de 1,30 minimum par sélection', 'Combiné d’avant-match de 3 à 10 sélections, cote totale de 3,00 à 10,00'],
-              ['À savoir', 'Bonus à activer avant le premier pari', 'Mise du pari gratuit déduite du gain ; valable 7 jours']
+              ['Offre', '150 % jusqu’à 1 000 € + 10 paris gratuits', '150 % jusqu’à 1 500 $ + jusqu’à 200 $ en paris gratuits', 'Pari gratuit de 100 % de votre mise, jusqu’à 100 €'],
+              ['Dépôt minimum', '10 €', '10 $', '20 €'],
+              ['Condition', 'Miser 15 fois (dépôt + bonus), bonus valable 30 jours', 'Miser 15 fois (dépôt + bonus) en 15 jours', 'Placer un pari qualifiant'],
+              [
+                'Paris acceptés',
+                'Combinés de 3 sélections ou plus, cote de 1,30 minimum par sélection',
+                'Combinés de 3 sélections ou plus, cote de 1,30 minimum par sélection',
+                'Combiné d’avant-match de 3 à 10 sélections, cote totale de 3,00 à 10,00'
+              ],
+              ['À savoir', 'Bonus à activer avant le premier pari ; paris gratuits après la validation du premier pari', 'Bonus à activer avant le premier pari', 'Mise du pari gratuit déduite du gain ; valable 7 jours']
             ]
           },
+          CTA_VELOBET,
           CTA_ROLLETTO,
           CTA_BETPORTAL,
           {
@@ -378,6 +397,12 @@ const canadaSport: PageGuide[] = [
           },
           {
             type: 'encadre',
+            titre: 'Exemple chez Velobet : dépôt de 100 €',
+            texte:
+              "Bonus de 150 % : 150 €. Mise à atteindre : 15 × (100 € + 150 €) = **3 750 € de paris** pendant les 30 jours de validité du bonus, soit 125 € par jour en moyenne, en combinés de 3 sélections ou plus. C'est la même mise que chez Rolletto, avec deux fois plus de temps."
+          },
+          {
+            type: 'encadre',
             titre: 'Exemple chez BetPortal : pari qualifiant de 50 €',
             texte:
               "Vous recevez un pari gratuit de 50 €. S'il gagne à une cote de 4,00, vous touchez 150 € : 200 € moins la mise de 50 €, qui n'est pas remboursée. S'il perd, vous ne touchez rien. Les conditions générales de BetPortal prévoient par ailleurs une mise de 15 fois pour les bonus sportifs : vérifiez si elle s'applique à vos gains avant de demander un retrait."
@@ -385,7 +410,7 @@ const canadaSport: PageGuide[] = [
           {
             type: 'p',
             texte:
-              "Les deux offres imposent des **paris combinés**. C'est là que le risque grimpe : un combiné ne gagne que si toutes ses sélections gagnent. Trois sélections à 1,30 donnent une cote de 2,20 environ, mais, même sans marge, ce combiné ne passerait qu'environ une fois sur deux (0,77 × 0,77 × 0,77 ≈ 0,46)."
+              "Les trois offres imposent des **paris combinés**. C'est là que le risque grimpe : un combiné ne gagne que si toutes ses sélections gagnent. Trois sélections à 1,30 donnent une cote de 2,20 environ, mais, même sans marge, ce combiné ne passerait qu'environ une fois sur deux (0,77 × 0,77 × 0,77 ≈ 0,46)."
           }
         ]
       },
@@ -446,16 +471,24 @@ const canadaSport: PageGuide[] = [
         r: 'Oui, depuis le 27 août 2021. Avant cette date, seuls les paris combinés sur plusieurs matchs étaient permis.'
       },
       {
+        q: 'Quel est le meilleur site de paris sportifs au Québec ?',
+        r: "Le seul site autorisé par le gouvernement du Québec est Mise-o-jeu, de Loto-Québec. Parmi les sites privés que nous comparons, aucun n'est autorisé par le Québec : Velobet laisse le plus de temps pour remplir la mise de son bonus sport (30 jours), Rolletto affiche le montant le plus élevé en dollars (jusqu'à 1 500 $) et BetPortal l'offre la plus simple (un pari gratuit)."
+      },
+      {
         q: 'Quel est le meilleur bonus de paris sportifs ?',
-        r: "Celui dont vous pouvez réellement remplir les conditions. Le bonus sport de Rolletto est le plus élevé de notre comparaison (jusqu'à 1 500 $), mais il impose de miser 15 fois le dépôt et le bonus en 15 jours, en combinés. Le pari gratuit de BetPortal est plus modeste mais plus simple."
+        r: "Celui dont vous pouvez réellement remplir les conditions. Velobet (jusqu'à 1 000 €) et Rolletto (jusqu'à 1 500 $) demandent la même mise de 15 fois le dépôt et le bonus, en combinés, mais Velobet laisse 30 jours et Rolletto 15. Le pari gratuit de BetPortal est plus modeste mais plus simple."
+      },
+      {
+        q: 'Les gains de paris sportifs sont-ils imposables au Québec ?',
+        r: "En règle générale, non : les gains d'une personne qui parie pour se divertir ne sont pas imposables au Canada, car ils ne proviennent pas d'une source de revenus. Ils peuvent l'être si le pari constitue une activité professionnelle. En cas de doute, consultez un fiscaliste."
       },
       {
         q: 'Qu’est-ce qu’un pari gratuit ?',
         r: "Un pari placé avec un crédit offert par le site. S'il gagne, vous touchez le gain sans la mise : un pari gratuit de 50 € gagnant à 4,00 rapporte 150 €, pas 200 €."
       }
     ],
-    sources: [S.c218, S.rolletto, S.betportal, S.miseojeu],
-    connexes: ['/mise-o-jeu/', '/paris-sportifs-hockey/', '/paris-sportifs-soccer/', '/loto-quebec-casino-en-ligne/']
+    sources: [S.c218, S.velobet, S.rolletto, S.betportal, S.miseojeu, S.impots],
+    connexes: ['/mise-o-jeu/', '/paris-sportifs-hockey/', '/paris-sportifs-soccer/', '/casino-en-ligne-legal-quebec/', '/loto-quebec-casino-en-ligne/']
   },
 
   {
