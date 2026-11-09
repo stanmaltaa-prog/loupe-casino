@@ -15,6 +15,8 @@ export const PAIRES: Record<string, string> = {
   '/notre-methode/': '/en-ca/how-we-rate/',
   '/jeu-responsable/': '/en-ca/responsible-gambling/',
   '/a-propos/': '/en-ca/about/',
+  '/delais-de-retrait-casino/': '/en-ca/casino-withdrawal-times/',
+  '/comparatif/': '/en-ca/compare/',
   ...Object.fromEntries(SLUGS_CASINOS.flatMap((s) => [
     [`/${s}/`, `/en-ca/${s}/`],
     [`/${s}/bonus/`, `/en-ca/${s}/bonus/`],
@@ -22,6 +24,13 @@ export const PAIRES: Record<string, string> = {
   ])),
   ...Object.fromEntries(['velobet-casino', 'rolletto-casino', 'celsius-casino'].map((s) => [`/${s}/retrait/`, `/en-ca/${s}/withdrawal/`]))
 };
+
+// Comparatifs : mêmes paires de casinos dans les deux langues (ordre du fichier de données).
+const DUELS_COMMUNS = [
+  'rolletto-vs-velobet', 'rolletto-vs-celsius', 'rolletto-vs-betportal', 'rolletto-vs-1win', 'velobet-vs-celsius',
+  'velobet-vs-betportal', 'velobet-vs-1win', 'celsius-vs-betportal', 'celsius-vs-1win', 'betportal-vs-1win'
+];
+for (const d of DUELS_COMMUNS) PAIRES[`/comparatif/${d}/`] = `/en-ca/compare/${d}/`;
 
 const INVERSE: Record<string, string> = Object.fromEntries(Object.entries(PAIRES).map(([fr, en]) => [en, fr]));
 
