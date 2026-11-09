@@ -496,8 +496,12 @@ export const CRITERES_EN: Record<Critere, { nom: string; question: string }> = {
 
 export const POIDS = Object.fromEntries(CRITERES.map((c) => [c.id, c.poids])) as Record<Critere, number>;
 
-export function cheminEn(c: Casino, bonus = false): string {
-  return bonus ? `/en-ca/${c.slug}/bonus/` : `/en-ca/${c.slug}/`;
+export type SujetEn = 'bonus' | 'legit' | 'withdrawal';
+
+/** Address of a casino page in the English section: the review, or one of its sub-pages (`true` = bonus). */
+export function cheminEn(c: Casino, sujet: boolean | SujetEn = false): string {
+  const s = sujet === true ? 'bonus' : sujet;
+  return s ? `/en-ca/${c.slug}/${s}/` : `/en-ca/${c.slug}/`;
 }
 
 /** Same rules as the French site: "Not published" when the casino does not publish it, "Not verified" when we could not access it. */
