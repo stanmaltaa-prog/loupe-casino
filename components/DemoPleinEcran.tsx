@@ -35,7 +35,7 @@ async function adresseHacksaw(id: string, mobile: boolean): Promise<string> {
     mode: '2',
     token: '123131',
     lobbyurl: window.location.origin,
-    currency: 'EUR',
+    currency: 'CAD',
     partner: 'demo',
     env: 'https://rgs-demo.hacksawgaming.com/api',
     realmoneyenv: 'https://rgs-demo.hacksawgaming.com/api'
