@@ -28,6 +28,9 @@ export default function PiedEn() {
                   <Link href={cheminEn(c)}>{c.nom} review</Link>
                 </li>
               ))}
+              <li>
+                <Link href="/en-ca/compare/">All comparisons</Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -41,6 +44,9 @@ export default function PiedEn() {
               </li>
               <li>
                 <Link href="/en-ca/fast-withdrawal-casinos/">Fast withdrawal casinos</Link>
+              </li>
+              <li>
+                <Link href="/en-ca/casino-withdrawal-times/">Withdrawal times tested</Link>
               </li>
               <li>
                 <Link href="/en-ca/interac-casinos/">Interac casinos</Link>

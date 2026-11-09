@@ -40,7 +40,8 @@ export default function TestReelEn({ casino: c }: { casino: Casino }) {
       </p>
       <p className="petit">
         I play at {c.nom} about every {t.frequenceJours} days, and more often if the service slips. Last test: {month(t.mois)}.
-        Your times may vary with identity checks and the payment method.
+        Your times may vary with identity checks and the payment method.{' '}
+        <Link href="/en-ca/casino-withdrawal-times/">Every result, dated</Link>.
       </p>
     </aside>
   );
