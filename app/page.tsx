@@ -61,7 +61,7 @@ const FAQ: Question[] = [
   },
   {
     q: 'Existe-t-il un bonus sans dépôt au Québec ?',
-    r: "Nous n'avons trouvé aucun bonus sans dépôt actif pour les nouveaux joueurs chez les casinos de ce comparatif. Quand une telle offre existe, ses gains sont souvent plafonnés : chez Celsius, par exemple, les gains de bonus sans dépôt sont limités à 100 €."
+    r: "Nous n'avons trouvé aucun bonus sans dépôt actif pour les nouveaux joueurs chez les casinos de ce comparatif. Quand une telle offre existe, ses gains sont souvent plafonnés : chez Celsius, par exemple, les gains de bonus sans dépôt sont limités à 100 $."
   },
   {
     q: `Comment ${SITE.nom} gagne-t-il de l’argent ?`,
