@@ -1,0 +1,75 @@
+{
+  "_lisezMoi": "Journal des tests réels de l'auteur (Kenzo Fitzeral, nom de plume de Stan). Une ligne par retrait testé : date du relevé (AAAA-MM-JJ), casino (identifiant de casinos.json), moyen (crypto ou carte), délai constaté en heures entre la demande de retrait et la réception des fonds. Ajouter une ligne à chaque nouveau test, sans effacer les anciennes. Le dernier relevé de chaque casino doit aussi être reporté dans le champ « test » de casinos.json : scripts/verifier.mjs bloque le build sinon.",
+  "tests": [
+    {
+      "date": "2026-11-09",
+      "casino": "rolletto",
+      "moyen": "crypto",
+      "delaiHeures": 2,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "rolletto",
+      "moyen": "carte",
+      "delaiHeures": 24,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "velobet",
+      "moyen": "crypto",
+      "delaiHeures": 1,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "velobet",
+      "moyen": "carte",
+      "delaiHeures": 12,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "celsius",
+      "moyen": "crypto",
+      "delaiHeures": 2,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "celsius",
+      "moyen": "carte",
+      "delaiHeures": 24,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "betportal",
+      "moyen": "crypto",
+      "delaiHeures": 5,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "betportal",
+      "moyen": "carte",
+      "delaiHeures": 24,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "1win",
+      "moyen": "crypto",
+      "delaiHeures": 5,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    },
+    {
+      "date": "2026-11-09",
+      "casino": "1win",
+      "moyen": "carte",
+      "delaiHeures": 24,
+      "note": "Tests de novembre 2026 : un dépôt minimum suivi d'un retrait, puis un dépôt de 1 000 $ CA. Délai communiqué le 9 novembre 2026."
+    }
+  ]
+}
