@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Guide from '@/components/Guide';
 import Faq from '@/components/Faq';
 import { Offres } from '@/components/RenduGuide';
+import LiensClassement from '@/components/LiensClassement';
 import GrilleJeux from '@/components/GrilleJeux';
 import DemoJeu from '@/components/DemoJeu';
 import Marque from '@/components/Marque';
@@ -355,8 +356,12 @@ export default function PageMachine({ params }: { params: { jeu: string } }) {
           )}
         </p>
         {m.fournisseurId === 'pragmatic-play' ? (
-          <p>{typo("Celsius affiche 675 jeux Pragmatic Play selon l'opérateur.")}</p>
+          <p>
+            <Link href="/celsius-casino/">Celsius</Link>
+            {typo(" affiche 675 jeux Pragmatic Play selon l'opérateur.")}
+          </p>
         ) : null}
+        <LiensClassement cle={m.slug} />
         <Offres emplacement={emplacement} />
       </section>
 
