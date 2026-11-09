@@ -35,7 +35,7 @@
         "titre": "Jusqu'à 5 500 $ + 200 tours gratuits",
         "sousTitre": "Pack de bienvenue casino sur vos 3 premiers dépôts",
         "devise": "$",
-        "noteDevise": "L'opérateur affiche ses montants en £/€/$ : la devise appliquée est celle de votre compte.",
+        "noteDevise": "Les montants s'appliquent dans la devise de votre compte : notre test de novembre 2026 a été fait avec un compte en dollars canadiens.",
         "paliers": [
           {
             "depot": 1,
@@ -115,9 +115,9 @@
       "retraits": {
         "resume": "Sous 3 jours ouvrables (conditions) ; crypto instantanée selon le gestionnaire",
         "detail": [
-          "Retrait minimum : 20 € ou l'équivalent, selon les conditions générales.",
+          "Retrait minimum : 20 $ ou l'équivalent, selon les conditions générales.",
           "Traitement sous trois jours ouvrables bancaires, virements compris, selon les conditions générales.",
-          "Plafond : 7 500 € par semaine et 15 000 € par mois, ou l'équivalent, selon les conditions générales.",
+          "Plafond : 7 500 $ par semaine et 15 000 $ par mois, ou l'équivalent, selon les conditions générales.",
           "Le gestionnaire d'affiliation annonce par écrit (4 novembre 2026) des retraits instantanés en crypto et sous 24 heures par virement.",
           "Les dépôts doivent être misés au moins une fois avant d'être retirés."
         ],
@@ -147,7 +147,7 @@
         },
         "retraits": {
           "note": 7,
-          "raison": "Minimum, délai et plafonds publiés dans les conditions : traitement sous 3 jours ouvrables, 7 500 € par semaine et 15 000 € par mois."
+          "raison": "Minimum, délai et plafonds publiés dans les conditions : traitement sous 3 jours ouvrables, 7 500 $ par semaine et 15 000 $ par mois."
         },
         "produit": {
           "note": 8.5,
@@ -171,7 +171,7 @@
         "Dépôts à miser au moins une fois avant tout retrait"
       ],
       "aConfirmer": [
-        "Prise en charge d'Interac et du dollar canadien"
+        "Prise en charge d'Interac"
       ]
     },
     {
@@ -205,10 +205,10 @@
         "verifieLe": "2026-11-09"
       },
       "offre": {
-        "titre": "Jusqu'à 2 000 € + 300 tours gratuits",
+        "titre": "Jusqu'à 2 000 $ + 300 tours gratuits",
         "sousTitre": "Pack de bienvenue casino sur vos 3 premiers dépôts (330 % au total)",
-        "devise": "€",
-        "noteDevise": "Montants relevés en euros. Pour un premier dépôt entre 500 € et 1 000 €, le bonus passe à 100 % (jusqu'à 1 000 €). Un compte peut être ouvert en dollars canadiens : vérifiez les montants dans votre devise.",
+        "devise": "$",
+        "noteDevise": "Montants en dollars canadiens : sur un compte en CAD, les chiffres des conditions s'appliquent tels quels (vérifié lors de notre test de novembre 2026). Pour un premier dépôt entre 500 $ et 1 000 $, le bonus passe à 100 % (jusqu'à 1 000 $).",
         "paliers": [
           {
             "depot": 1,
@@ -230,20 +230,19 @@
           }
         ],
         "toursTotal": 300,
-        "toursDetail": "30 tours gratuits dès le premier dépôt de 10 € minimum, puis 270 tours à raison de 30 par jour pendant 9 jours, avec une connexion quotidienne obligatoire.",
+        "toursDetail": "30 tours gratuits dès le premier dépôt de 10 $ minimum, puis 270 tours à raison de 30 par jour pendant 9 jours, avec une connexion quotidienne obligatoire.",
         "mise": {
           "multiplicateur": 30,
           "base": "depot+bonus",
           "delaiJours": 30
         },
         "depotMin": 10,
-        "depotMinDevise": "€",
-        "miseMax": "5 € par tour",
+        "miseMax": "5 $ par tour",
         "jeuxAdmissibles": "Jeux de casino seulement",
         "activation": null,
         "autres": [
           "Un seul bonus actif à la fois.",
-          "Dépôt minimum de 20 € pour les bonus des 2e et 3e dépôts."
+          "Dépôt minimum de 20 $ pour les bonus des 2e et 3e dépôts."
         ],
         "source": "https://24velobet.com/fr/static/promos",
         "verifieLe": "2026-11-09"
@@ -251,11 +250,11 @@
       "autresOffres": [
         {
           "titre": "Bonus crypto",
-          "detail": "160 % jusqu'à 1 000 € sur le premier dépôt en crypto (10 € minimum), machines à sous seulement, mise de 30 fois (dépôt + bonus) en 30 jours."
+          "detail": "160 % jusqu'à 1 000 $ sur le premier dépôt en crypto (10 $ minimum), machines à sous seulement, mise de 30 fois (dépôt + bonus) en 30 jours."
         },
         {
           "titre": "Bienvenue paris sportifs",
-          "detail": "150 % jusqu'à 1 000 € + 10 paris gratuits, mise de 15 fois (dépôt + bonus) sur des combinés d'au moins 3 sélections à 1,30."
+          "detail": "150 % jusqu'à 1 000 $ + 10 paris gratuits, mise de 15 fois (dépôt + bonus) sur des combinés d'au moins 3 sélections à 1,30."
         },
         {
           "titre": "Cashback VIP",
@@ -287,11 +286,11 @@
         "nombreJeux": null
       },
       "retraits": {
-        "resume": "Sous 3 jours ouvrables ; 7 500 € par semaine",
+        "resume": "Sous 3 jours ouvrables ; 7 500 $ par semaine",
         "detail": [
-          "Retrait minimum : 10 € ou l'équivalent.",
+          "Retrait minimum : 10 $ ou l'équivalent.",
           "Traitement sous trois jours ouvrables bancaires, virements compris.",
-          "Plafond : 7 500 € par semaine et 15 000 € par mois, ou l'équivalent.",
+          "Plafond : 7 500 $ par semaine et 15 000 $ par mois, ou l'équivalent.",
           "Une retenue de 20 % peut s'appliquer si les fonds déposés n'ont pas été misés au moins une fois avant le retrait.",
           "Le virement bancaire n'est pas proposé pour les retraits en dollars américains (USD)."
         ],
@@ -317,11 +316,11 @@
         },
         "bonus": {
           "note": 7,
-          "raison": "30 fois (dépôt + bonus) en 30 jours avec une mise maximale de 5 € : six fois plus de temps que chez Rolletto pour la même mise."
+          "raison": "30 fois (dépôt + bonus) en 30 jours avec une mise maximale de 5 $ : six fois plus de temps que chez Rolletto pour la même mise."
         },
         "retraits": {
           "note": 7,
-          "raison": "Minimum de 10 €, traitement sous 3 jours ouvrables et plafonds publiés : 7 500 € par semaine, 15 000 € par mois."
+          "raison": "Minimum de 10 $, traitement sous 3 jours ouvrables et plafonds publiés : 7 500 $ par semaine, 15 000 $ par mois."
         },
         "produit": {
           "note": 8.5,
@@ -336,7 +335,7 @@
         "30 jours pour compléter la mise, contre 5 chez Rolletto",
         "Exploitant et numéro de licence affichés",
         "Comptes en dollars canadiens proposés à l'inscription",
-        "Retrait minimum de 10 € et plafonds publiés"
+        "Retrait minimum de 10 $ et plafonds publiés"
       ],
       "pointsFaibles": [
         "Mise de 30 fois le dépôt plus le bonus",
@@ -382,8 +381,8 @@
       "offre": {
         "titre": "100 % puis 200 % sur vos 2 premiers dépôts",
         "sousTitre": "Bonus de bienvenue casino",
-        "devise": "€",
-        "noteDevise": "La page officielle affiche l'offre en euros sans indiquer de plafond. Nous n'affichons pas de montant maximal tant qu'il n'est pas confirmé par l'opérateur.",
+        "devise": "$",
+        "noteDevise": "La page officielle n'indique pas de plafond. Nous n'affichons pas de montant maximal tant qu'il n'est pas confirmé par l'opérateur.",
         "paliers": [
           {
             "depot": 1,
@@ -411,8 +410,8 @@
         "activation": null,
         "autres": [
           "Le bonus expire 20 jours après avoir été réclamé si la mise n'est pas complétée.",
-          "Les gains issus d'un bonus sans dépôt ou de tours gratuits sont plafonnés à 100 €/$.",
-          "La règle des 10 % du solde ne s'applique pas aux mises de moins de 0,50 €/$."
+          "Les gains issus d'un bonus sans dépôt ou de tours gratuits sont plafonnés à 100 $.",
+          "La règle des 10 % du solde ne s'applique pas aux mises de moins de 0,50 $."
         ],
         "source": "https://celsiuscasino.com/bonuses-terms",
         "verifieLe": "2026-11-03"
@@ -440,7 +439,7 @@
           "Paysafecard"
         ],
         "interac": "non-affiche",
-        "devises": "EUR et cryptomonnaies (pas de dollar canadien affiché)",
+        "devises": "Dollar canadien (compte testé en novembre 2026), euro et cryptomonnaies",
         "source": "https://celsiuscasino.com",
         "verifieLe": "2026-11-03"
       },
@@ -452,10 +451,10 @@
         "nombreJeux": "Plus de 6 000 machines à sous et 800 jeux en direct, selon l'opérateur"
       },
       "retraits": {
-        "resume": "Jusqu'à 2 500 € par semaine",
+        "resume": "Jusqu'à 2 500 $ par semaine",
         "detail": [
-          "Gains jusqu'à 10 000 € : versés par tranches hebdomadaires de 2 500 € maximum.",
-          "Gains au-delà de 10 000 € : versés par tranches mensuelles de 10 000 € maximum.",
+          "Gains jusqu'à 10 000 $ : versés par tranches hebdomadaires de 2 500 $ maximum.",
+          "Gains au-delà de 10 000 $ : versés par tranches mensuelles de 10 000 $ maximum.",
           "Rakeback : retrait plafonné à 20 fois le montant, sauf mention contraire."
         ],
         "source": "https://celsiuscasino.com/bonuses-terms",
@@ -484,7 +483,7 @@
         },
         "retraits": {
           "note": 6.5,
-          "raison": "Règles publiées clairement, mais limite de 2 500 € par semaine pour les gros gains."
+          "raison": "Règles publiées clairement, mais limite de 2 500 $ par semaine pour les gros gains."
         },
         "produit": {
           "note": 8.5,
@@ -504,8 +503,8 @@
       "pointsFaibles": [
         "Mise de 50 fois (dépôt + bonus) : très exigeante",
         "Licence d'Anjouan sans numéro affiché",
-        "Retraits limités à 2 500 € par semaine",
-        "Pas de dollar canadien ni d'Interac affichés"
+        "Retraits limités à 2 500 $ par semaine",
+        "Pas d'Interac affiché"
       ],
       "aConfirmer": [
         "Plafond en dollars de chaque palier du bonus",
@@ -542,10 +541,10 @@
         "verifieLe": "2026-11-03"
       },
       "offre": {
-        "titre": "Jusqu'à 1 000 € + 250 tours gratuits",
+        "titre": "Jusqu'à 1 000 $ + 250 tours gratuits",
         "sousTitre": "Bonus de bienvenue sur vos 3 premiers dépôts",
-        "devise": "€",
-        "noteDevise": "Montants relevés en euros. La devise proposée à un compte canadien peut être différente.",
+        "devise": "$",
+        "noteDevise": "Montants en dollars canadiens : sur un compte en CAD, les chiffres publiés s'appliquent tels quels (vérifié lors de notre test de novembre 2026).",
         "paliers": [
           {
             "depot": 1,
@@ -588,7 +587,7 @@
         },
         {
           "titre": "Lundi doré",
-          "detail": "Bonus de recharge de 30 % jusqu'à 100 € le lundi."
+          "detail": "Bonus de recharge de 30 % jusqu'à 100 $ le lundi."
         }
       ],
       "paiements": {
@@ -648,13 +647,11 @@
       ],
       "pointsFaibles": [
         "Aucune société exploitante ni numéro de licence affichés",
-        "Montants relevés en euros",
         "Pas de règles de retrait trouvées",
         "Délai de mise du bonus non trouvé"
       ],
       "aConfirmer": [
         "Société exploitante et numéro de licence",
-        "Montants et devise pour un compte canadien",
         "Délai pour compléter la mise et dépôt minimum"
       ]
     },
@@ -721,10 +718,10 @@
         "toursTotal": 500,
         "toursDetail": "70, 100, 150 puis 180 tours gratuits selon le dépôt.",
         "mise": null,
-        "depotMin": "10 USDT",
+        "depotMin": 10,
         "miseMax": null,
         "jeuxAdmissibles": null,
-        "activation": "Le bonus est versé sur un solde séparé. Il faut d'abord jouer son solde réel jusqu'à moins de 0,5 USD, puis miser le bonus dans la catégorie de jeux « Cond. de Mise de bonus ». Un seul bonus casino actif à la fois : en activer un autre annule le précédent.",
+        "activation": "Le bonus est versé sur un solde séparé. Il faut d'abord jouer son solde réel jusqu'à moins de 0,50 $, puis miser le bonus dans la catégorie de jeux « Cond. de Mise de bonus ». Un seul bonus casino actif à la fois : en activer un autre annule le précédent.",
         "autres": [],
         "source": "https://one-vv7319.com/bonuses",
         "verifieLe": "2026-11-04"
@@ -784,7 +781,7 @@
       "pointsForts": [
         "Plus de 11 000 jeux annoncés",
         "Bonus sur 4 dépôts avec 500 tours gratuits au total",
-        "Dépôt de départ bas : 10 USDT",
+        "Dépôt de départ bas : 10 $",
         "Service à la clientèle 24 h sur 24 annoncé"
       ],
       "pointsFaibles": [
