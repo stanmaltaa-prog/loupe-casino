@@ -2,6 +2,7 @@ import rolletto from './rolletto';
 import celsius from './celsius';
 import betportal from './betportal';
 import onewin from './onewin';
+import velobet from './velobet';
 import type { ContenuCasino } from './types';
 import { typoProfond } from '@/lib/typo';
 
@@ -9,7 +10,8 @@ export const CONTENU: Record<string, ContenuCasino> = typoProfond({
   rolletto,
   celsius,
   betportal,
-  '1win': onewin
+  '1win': onewin,
+  velobet
 });
 
 export function contenuDe(id: string): ContenuCasino {

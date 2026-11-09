@@ -145,7 +145,7 @@ const rolletto: ContenuCasino = {
       {
         titre: 'Ce qui reste à vérifier',
         paragraphes: [
-          "Les délais de retrait nous ont été communiqués par écrit par le gestionnaire d'affiliation (instantané en crypto, sous 24 heures par virement, voir [notre page sur les retraits](/rolletto-casino/retrait/)), mais ils ne figurent pas dans les conditions publiées, et aucun plafond n'est affiché. Avant de déposer une somme importante, demandez au service à la clientèle les limites de retrait par jour, par semaine et par mois, et gardez la réponse par écrit."
+          "Les conditions générales fixent les règles de retrait : minimum de 20 € ou l'équivalent, traitement sous 3 jours ouvrables bancaires, plafond de 7 500 € par semaine et de 15 000 € par mois. Le gestionnaire d'affiliation nous a annoncé par écrit des délais plus courts (instantané en crypto, sous 24 heures par virement, voir [notre page sur les retraits](/rolletto-casino/retrait/)). Testez d'abord avec un petit montant pour connaître le délai réel."
         ]
       },
       {
@@ -172,18 +172,29 @@ const rolletto: ContenuCasino = {
   },
 
   retrait: {
-    titre: 'Retrait Rolletto : délais crypto et virement, à vérifier',
+    titre: 'Retrait Rolletto : délais, minimum et plafonds de retrait',
     description:
-      "Retrait chez Rolletto : crypto instantanée et virement sous 24 h, selon le gestionnaire d'affiliation. Ce qui reste à confirmer et nos conseils pour retirer.",
+      "Retrait chez Rolletto : minimum 20 €, plafond de 7 500 € par semaine, traitement sous 3 jours ouvrables selon les conditions. Délais annoncés et conseils.",
     h1: 'Retrait chez Rolletto : les délais annoncés et ce qu’il faut vérifier',
     intro: [
-      "Rolletto annonce des retraits rapides. Nous avons obtenu ses délais par écrit auprès du gestionnaire d'affiliation de la marque, le 4 novembre 2026. Ce n'est pas encore une règle que nous avons lue dans les conditions générales : gardez-le en tête, et testez d'abord avec un petit montant."
+      "Les conditions générales de Rolletto, relues le 9 novembre 2026, fixent un minimum, un délai de traitement et des plafonds de retrait. Son gestionnaire d'affiliation nous a aussi annoncé par écrit des délais plus courts. Voici les deux, et comment retirer sans accroc."
     ],
     sections: [
       {
-        titre: 'Les délais annoncés',
+        titre: 'Ce que disent les conditions générales',
+        paragraphes: [],
+        liste: [
+          'Retrait minimum : 20 € ou l’équivalent dans votre devise.',
+          'Traitement : sous trois jours ouvrables bancaires, virements compris.',
+          'Plafond : 7 500 € par semaine et 15 000 € par mois ; au-delà, le paiement peut être versé par tranches mensuelles.',
+          'Vos dépôts doivent être misés au moins une fois avant d’être retirés.',
+          'Le virement bancaire n’est pas proposé pour les retraits en dollars américains (USD).'
+        ]
+      },
+      {
+        titre: 'Les délais annoncés par le gestionnaire',
         paragraphes: [
-          "En cryptomonnaie, le retrait est annoncé comme instantané. Par virement bancaire, il est annoncé sous 24 heures. Rolletto accepte notamment le Bitcoin, l'Ethereum, le Litecoin, le Tether (USDT) et l'USDC, selon sa page de promotions.",
+          "Selon le gestionnaire d'affiliation de Rolletto (confirmation écrite du 4 novembre 2026), le retrait est instantané en cryptomonnaie et prend moins de 24 heures par virement bancaire. C'est plus rapide que le délai maximal des conditions : retenez les trois jours ouvrables comme référence. Rolletto accepte notamment le Bitcoin, l'Ethereum, le Litecoin, le Tether (USDT) et l'USDC, selon sa page de promotions.",
           "Ces délais s'entendent une fois la demande validée. La vérification d'identité, en général exigée avant le premier retrait, peut ajouter du temps : faites-la dès l'inscription."
         ]
       },
@@ -200,18 +211,18 @@ const rolletto: ContenuCasino = {
       {
         titre: 'Ce que nous n’avons pas pu confirmer',
         paragraphes: [
-          "Les plafonds de retrait (par jour, par semaine ou par mois) ne sont pas publiés à ce jour. Nous n'avons pas non plus confirmé la prise en charge d'Interac ni du dollar canadien. Si ces points comptent pour vous, posez la question au service à la clientèle avant de déposer."
+          "Nous n'avons pas confirmé la prise en charge d'Interac ni du dollar canadien. Si ces points comptent pour vous, posez la question au service à la clientèle avant de déposer."
         ]
       }
     ],
     faq: [
       {
         q: 'Combien de temps prend un retrait chez Rolletto ?',
-        r: "Selon le gestionnaire d'affiliation de Rolletto (confirmation écrite du 4 novembre 2026) : instantané en crypto, sous 24 heures par virement, une fois la demande validée."
+        r: "Les conditions générales prévoient un traitement sous trois jours ouvrables bancaires. Le gestionnaire d'affiliation annonce plus rapide : instantané en crypto et sous 24 heures par virement (confirmation écrite du 4 novembre 2026)."
       },
       {
         q: 'Y a-t-il un plafond de retrait chez Rolletto ?',
-        r: "Rolletto ne publie pas de plafond à ce jour. Demandez-le au service à la clientèle si vous visez de gros montants."
+        r: "Oui : 7 500 € par semaine et 15 000 € par mois, ou l'équivalent dans votre devise, selon les conditions générales. Le retrait minimum est de 20 €."
       },
       {
         q: 'Peut-on retirer par Interac chez Rolletto ?',
