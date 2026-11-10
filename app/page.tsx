@@ -17,12 +17,15 @@ import { TABLES } from '@/lib/contenu/tables';
 import { CASINOS, CRITERES, cheminCasino, exempleMise, miseTexte, noteGlobale, parId, type Casino } from '@/lib/casinos';
 import { SITE, absolu, dateLongue, moisAnnee, montant } from '@/lib/site';
 import { meta, schemaPage } from '@/lib/seo';
+import { DERNIER_RELEVE, dernier } from '@/lib/tests';
 
 const MAJ = SITE.derniereVerification;
+/** Délais de retrait crypto constatés lors des tests réels (donnees/tests.json). */
+const HEURES = CASINOS.map((c) => dernier(c, 'crypto')?.delaiHeures).filter((h): h is number => typeof h === 'number');
 
 export const metadata = meta({
   titre: `Meilleur casino en ligne au Québec : comparatif ${moisAnnee(MAJ)}`,
-  description: `Casinos en ligne au Québec comparés : bonus, conditions de mise, licences et retraits vérifiés sur les sites officiels. Mis à jour le ${dateLongue(MAJ)}.`,
+  description: `${CASINOS.length} casinos testés en argent réel au Québec : retraits crypto reçus en ${Math.min(...HEURES)} à ${Math.max(...HEURES)} h, bonus et mises comparés. Derniers tests : ${dateLongue(DERNIER_RELEVE)}.`,
   chemin: '/',
   titreAbsolu: true
 });
