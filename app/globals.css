@@ -387,6 +387,10 @@ strong {
 
 .cta-large {
   width: 100%;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .cta-secondaire {
@@ -2917,4 +2921,20 @@ html.demo-ouverte body {
 .demo-apres .mention-cta {
   color: #b9cdd0;
   margin: 0;
+}
+
+/* ---------- Top 3 sous l'introduction des guides ---------- */
+.podium-guide {
+  box-shadow: var(--ombre);
+  border: 1px solid var(--filet);
+  margin: 0 0 1.6em;
+}
+.prose .podium-guide ol {
+  padding-left: 0;
+}
+.prose .podium-guide li {
+  margin: 0;
+}
+.podium-guide .podium-mention a {
+  color: var(--verre);
 }

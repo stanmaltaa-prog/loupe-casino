@@ -4,6 +4,7 @@ import TableauComparatif from '@/components/TableauComparatif';
 import Tampon from '@/components/Tampon';
 import Faq, { type Question } from '@/components/Faq';
 import EncadreAide from '@/components/EncadreAide';
+import CtaCollant from '@/components/CtaCollant';
 import JsonLd from '@/components/JsonLd';
 import Marque from '@/components/Marque';
 import BoutonCasino from '@/components/BoutonCasino';
@@ -104,7 +105,7 @@ export default function Accueil() {
                     <span>{c.offre.titre}</span>
                   </span>
                   <NoteLoupe note={noteGlobale(c)} taille={38} legende={false} />
-                  <BoutonCasino casino={c} emplacement="accueil-podium" texte="Jouer" />
+                  <BoutonCasino casino={c} emplacement="accueil-podium" texte="Obtenir" />
                 </li>
               ))}
             </ol>
@@ -372,6 +373,7 @@ export default function Accueil() {
         <EncadreAide />
       </div>
 
+      <CtaCollant casino={CASINOS[0]} emplacement="accueil-collant" />
       <JsonLd
         donnees={[
           schemaPage({
