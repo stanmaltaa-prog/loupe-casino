@@ -24,12 +24,12 @@ export default function Pied() {
             <ul>
               {CASINOS.map((c) => (
                 <li key={c.id}>
-                  <Link href={cheminCasino(c)}>Avis {c.nom}</Link>
+                  <Link href={cheminCasino(c)}>Avis {c.nom} Casino</Link>
                 </li>
               ))}
               {LIENS_MARQUES.map((m) => (
                 <li key={m.fr}>
-                  <Link href={m.fr}>Avis {m.nom}</Link>
+                  <Link href={m.fr}>Avis {m.nom} Casino</Link>
                 </li>
               ))}
               <li>
@@ -41,7 +41,7 @@ export default function Pied() {
             <h2>Guides</h2>
             <ul>
               <li>
-                <Link href="/casino-en-ligne-legal-quebec/">Est-ce légal au Québec ?</Link>
+                <Link href="/casino-en-ligne-legal-quebec/">Casino en ligne légal au Québec ?</Link>
               </li>
               <li>
                 <Link href="/bonus-casino-quebec/">Bonus de casino</Link>
@@ -106,7 +106,7 @@ export default function Pied() {
                 <Link href="/jeux-de-crash/">Jeux de crash</Link>
               </li>
               <li>
-                <Link href="/paris-sportifs-quebec/">Paris sportifs</Link>
+                <Link href="/paris-sportifs-quebec/">Paris sportifs au Québec</Link>
               </li>
               <li>
                 <Link href="/sites-paris-sportifs-canada/">Sites de paris au Canada</Link>
