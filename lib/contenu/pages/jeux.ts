@@ -304,10 +304,10 @@ const jeux: PageGuide[] = [
     chemin: '/roulette-en-ligne/',
     nomFil: 'Roulette',
     parent: JEUX,
-    titre: 'Roulette en ligne : règles, gains et meilleure version',
+    titre: 'Roulette en ligne au Québec : règles, gains et versions',
     description:
       'Roulette en ligne : européenne, française ou américaine, tableau des gains, avantage de la maison (2,70 % ou 5,26 %) et pourquoi la martingale échoue.',
-    h1: 'Roulette en ligne : les règles, les gains et la version à choisir',
+    h1: 'Roulette en ligne au Québec : les règles, les gains et la version à choisir',
     chapeau:
       "La roulette semble simple, mais toutes les tables ne se valent pas. Le choix de la version change à lui seul l'avantage de la maison du simple au double.",
     modifie: '2026-11-04',
@@ -417,10 +417,10 @@ const jeux: PageGuide[] = [
     chemin: '/blackjack-en-ligne/',
     nomFil: 'Blackjack',
     parent: JEUX,
-    titre: 'Blackjack en ligne : règles, stratégie de base, conseils',
+    titre: 'Blackjack en ligne au Québec : règles, stratégie, argent réel',
     description:
       "Blackjack en ligne : règles, stratégie de base qui ramène l'avantage de la maison vers 0,5 %, et les pièges du 6:5 et de l'assurance.",
-    h1: 'Blackjack en ligne : les règles et la stratégie qui changent tout',
+    h1: 'Blackjack en ligne au Québec : les règles et la stratégie qui changent tout',
     chapeau:
       "C'est le jeu de table où vos décisions comptent le plus. Bien joué, le blackjack a l'un des plus faibles avantages pour la maison du casino ; mal joué, il coûte plusieurs fois plus cher.",
     modifie: '2026-11-04',

@@ -385,7 +385,7 @@ const paiements: PageGuide[] = [
       { titre: 'Rolletto : conditions générales (retraits)', url: 'https://r0lletto.com/fr/static/terms/generalterms' },
       { titre: 'Velobet : conditions générales (retraits)', url: 'https://24velobet.com/fr/static/terms/generalterms' }
     ],
-    connexes: ['/delais-de-retrait-casino/', '/casino-interac/', '/casino-depot-minimum/', '/casino-en-ligne-canada/']
+    connexes: ['/delais-de-retrait-casino/', '/casino-en-ligne-le-plus-payant/', '/casino-interac/', '/casino-depot-minimum/']
   },
 
   {
@@ -499,7 +499,7 @@ const paiements: PageGuide[] = [
       }
     ],
     sources: SOURCES_BONUS,
-    connexes: ['/casino-interac/', '/casino-retrait-rapide/', '/conditions-de-mise/', '/casino-en-ligne-canada/']
+    connexes: ['/casino-bonus-sans-depot/', '/casino-interac/', '/casino-retrait-rapide/', '/conditions-de-mise/']
   }
 ];
 

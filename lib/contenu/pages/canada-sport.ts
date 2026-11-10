@@ -54,12 +54,12 @@ const canadaSport: PageGuide[] = [
   {
     chemin: '/casino-en-ligne-canada/',
     nomFil: 'Casino en ligne au Canada',
-    titre: 'Casino en ligne au Canada : les règles par province (2026)',
+    titre: 'Meilleur casino en ligne au Canada : top 3 et lois (2026)',
     description:
-      'Casino en ligne au Canada : ce qui est permis dans chaque province, l’Ontario et l’Alberta ouverts aux sites privés, l’âge minimum et les sites comparés.',
-    h1: 'Casino en ligne au Canada : ce qui est permis, province par province',
+      'Meilleur casino en ligne au Canada en 2026 : notre top 3 noté sur une grille publique, puis les règles de chaque province et l’âge minimum.',
+    h1: 'Meilleur casino en ligne au Canada : notre top 3 et les règles par province',
     chapeau:
-      "Au Canada, chaque province fixe ses propres règles. L'Ontario et l'Alberta autorisent désormais des casinos privés ; ailleurs, seul le site de la société d'État de la province est autorisé.",
+      "Voici notre top 3 pour les joueurs canadiens, hors Ontario et Alberta, noté sur notre grille publique. Plus bas : les règles de chaque province, car au Canada, chacune fixe les siennes.",
     modifie: MAJ,
     resume: 'Les règles du jeu en ligne dans chaque province, et l’âge minimum.',
     sections: [
@@ -197,7 +197,7 @@ const canadaSport: PageGuide[] = [
       }
     ],
     sources: [S.code, S.ontario, S.alberta, S.provinces, S.c218],
-    connexes: ['/loto-quebec-casino-en-ligne/', '/paris-sportifs-quebec/', '/jeux/', '/machines-a-sous/']
+    connexes: ['/casino-en-ligne-fiable/', '/casino-en-ligne-le-plus-payant/', '/loto-quebec-casino-en-ligne/', '/paris-sportifs-quebec/']
   },
 
   {
@@ -330,10 +330,10 @@ const canadaSport: PageGuide[] = [
   {
     chemin: '/paris-sportifs-quebec/',
     nomFil: 'Paris sportifs',
-    titre: 'Paris sportifs au Québec : sites, bonus et règles (2026)',
+    titre: 'Paris sportif au Québec : meilleurs sites et bonus (2026)',
     description:
       'Paris sportifs en ligne au Québec : la loi, les bonus sport de Velobet, Rolletto et BetPortal décortiqués, et comment lire une cote avant de parier.',
-    h1: 'Paris sportifs en ligne au Québec : la loi, les bonus et les cotes',
+    h1: 'Paris sportifs au Québec : les meilleurs sites, la loi et les bonus',
     chapeau:
       "Les bonus sport paraissent généreux, mais leurs conditions sont souvent plus dures que celles des bonus casino. Voici ce qu'elles exigent vraiment, et ce qu'il faut savoir avant de parier.",
     modifie: MAJ,
@@ -488,7 +488,7 @@ const canadaSport: PageGuide[] = [
       }
     ],
     sources: [S.c218, S.velobet, S.rolletto, S.betportal, S.miseojeu, S.impots],
-    connexes: ['/mise-o-jeu/', '/paris-sportifs-hockey/', '/paris-sportifs-soccer/', '/casino-en-ligne-legal-quebec/', '/loto-quebec-casino-en-ligne/']
+    connexes: ['/sites-paris-sportifs-canada/', '/bonus-paris-sportifs/', '/mise-o-jeu/', '/paris-sportifs-hockey/', '/paris-sportifs-soccer/', '/casino-en-ligne-legal-quebec/']
   },
 
   {
@@ -584,7 +584,7 @@ const canadaSport: PageGuide[] = [
       }
     ],
     sources: [S.betportal, S.rolletto, S.c218],
-    connexes: ['/paris-sportifs-quebec/', '/paris-sportifs-soccer/', '/conditions-de-mise/']
+    connexes: ['/paris-sportifs-quebec/', '/bonus-paris-sportifs/', '/paris-sportifs-soccer/', '/conditions-de-mise/']
   },
 
   {
@@ -678,7 +678,7 @@ const canadaSport: PageGuide[] = [
       }
     ],
     sources: [S.betportal, S.rolletto, S.c218],
-    connexes: ['/paris-sportifs-quebec/', '/paris-sportifs-hockey/', '/conditions-de-mise/']
+    connexes: ['/paris-sportifs-quebec/', '/bonus-paris-sportifs/', '/paris-sportifs-hockey/', '/conditions-de-mise/']
   }
 ];
 
