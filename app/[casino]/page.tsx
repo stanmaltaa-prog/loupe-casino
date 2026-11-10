@@ -13,6 +13,7 @@ import Alternatives from '@/components/Alternatives';
 import EncadreAide from '@/components/EncadreAide';
 import CtaCollant from '@/components/CtaCollant';
 import BoutonCasino, { MentionCta } from '@/components/BoutonCasino';
+import { AUTEUR, ID_AUTEUR } from '@/lib/auteur';
 import JsonLd from '@/components/JsonLd';
 import {
   CASINOS,
@@ -250,8 +251,8 @@ export default function PageAvis({ params }: { params: { casino: string } }) {
             url: absolu(chemin),
             inLanguage: SITE.langue,
             itemReviewed: { '@type': 'Organization', name: c.nom },
-            reviewRating: { '@type': 'Rating', ratingValue: note, bestRating: 10, worstRating: 0 },
-            author: { '@type': 'Organization', name: SITE.nom, url: `${SITE.url}/` },
+            reviewRating: { '@type': 'Rating', ratingValue: Math.round(Number(note) * 10) / 10, bestRating: 10, worstRating: 0 },
+            author: { '@type': 'Person', '@id': ID_AUTEUR, name: AUTEUR.nom, url: absolu(AUTEUR.chemin) },
             publisher: { '@type': 'Organization', name: SITE.nom, url: `${SITE.url}/` },
             datePublished: '2026-11-03',
             dateModified: modifie,
