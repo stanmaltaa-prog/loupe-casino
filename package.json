@@ -6,7 +6,7 @@
     "dev": "next dev",
     "verifier": "node scripts/verifier.mjs",
     "build": "node scripts/verifier.mjs && node scripts/images.mjs && next build",
-    "start": "next start -p ${PORT:-3000}"
+    "start": "node scripts/indexnow.mjs & next start -p ${PORT:-3000}"
   },
   "engines": {
     "node": "20.x"
