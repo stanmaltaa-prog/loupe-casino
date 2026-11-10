@@ -25,6 +25,15 @@ export const PAIRES: Record<string, string> = {
   ...Object.fromEntries(['velobet-casino', 'rolletto-casino', 'celsius-casino'].map((s) => [`/${s}/retrait/`, `/en-ca/${s}/withdrawal/`]))
 };
 
+// Avis des marques sans deal (lib/contenu/marques.ts)
+for (const m of ['yukon-gold-casino']) {
+  PAIRES[`/${m}/`] = `/en-ca/${m}/`;
+  PAIRES[`/${m}/bonus/`] = `/en-ca/${m}/bonus/`;
+  PAIRES[`/${m}/bonus-sans-depot/`] = `/en-ca/${m}/no-deposit-bonus/`;
+  PAIRES[`/${m}/retrait/`] = `/en-ca/${m}/withdrawal/`;
+  PAIRES[`/${m}/fiable/`] = `/en-ca/${m}/legit/`;
+}
+
 // Comparatifs : mêmes paires de casinos dans les deux langues (ordre du fichier de données).
 const DUELS_COMMUNS = [
   'rolletto-vs-velobet', 'rolletto-vs-celsius', 'rolletto-vs-betportal', 'rolletto-vs-1win', 'velobet-vs-celsius',
