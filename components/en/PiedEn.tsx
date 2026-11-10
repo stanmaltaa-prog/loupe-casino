@@ -4,6 +4,7 @@ import { CASINOS } from '@/lib/casinos';
 import { cheminEn } from '@/lib/en/casinos';
 import { EN, dateEn } from '@/lib/en/site';
 import { SITE } from '@/lib/site';
+import { LIENS_MARQUES } from '@/lib/contenu/marques';
 
 export default function PiedEn() {
   return (
@@ -26,6 +27,11 @@ export default function PiedEn() {
               {CASINOS.map((c) => (
                 <li key={c.id}>
                   <Link href={cheminEn(c)}>{c.nom} review</Link>
+                </li>
+              ))}
+              {LIENS_MARQUES.map((m) => (
+                <li key={m.en}>
+                  <Link href={m.en}>{m.nom} review</Link>
                 </li>
               ))}
               <li>

@@ -246,7 +246,7 @@ export default function GuideEn({
         <strong>{HORS_ZONE}.</strong> 19+ (18+ in Manitoba and Quebec).
       </p>
       {page.offresHaut === undefined ? (
-        sansOffre ? null : <TopTroisEn emplacement={`${emplacement}-top3`} />
+        sansOffre ? null : <TopTroisEn emplacement={`${emplacement}-top3`} titre={page.titreTop} />
       ) : page.offresHaut.length ? (
         <OffresEn ids={page.offresHaut} emplacement={`${emplacement}-top`} />
       ) : null}
