@@ -37,10 +37,15 @@ type MarqueRewards = {
   nom: string;
   slug: string;
   verifie: string;
-  depot1: number;
-  chances: number;
-  /** Bonus des dépôts suivants (2e, 3e…), tels qu'affichés sur la page bonus officielle. */
+  /** Dépôt minimum de l'offre de bienvenue, et nombre de chances sur la Mega Money Wheel (absents si l'offre n'a pas de chances). */
+  depot1?: number;
+  chances?: number;
+  /** Bonus en argent des dépôts (1er ou 2e, puis suivants), tels qu'affichés sur la page bonus officielle. */
   paliers: { rang: number; pourcentage: number; plafond: number }[];
+  /** Faux si le casino ne publie pas de FAQ (délais par moyen, minimums et Interac non publiés). */
+  faq?: boolean;
+  /** Article des conditions qui fixe le délai de 7 jours pour réclamer l'offre. */
+  articleReclamer?: string;
   /** Total annoncé par le site officiel, s'il en annonce un. */
   totalAnnonce?: number;
   noteOffreFr?: string;
@@ -279,7 +284,351 @@ const ZODIAC: MarqueRewards = {
   }
 };
 
-const MARQUES: MarqueRewards[] = [YUKON, ZODIAC];
+/* ---------- Luxury Casino : relevé du 10 novembre 2026 ---------- */
+
+const LUXURY: MarqueRewards = {
+  nom: 'Luxury Casino',
+  slug: 'luxury-casino',
+  verifie: '2026-11-10',
+  paliers: [
+    { rang: 1, pourcentage: 100, plafond: 150 },
+    { rang: 2, pourcentage: 50, plafond: 200 },
+    { rang: 3, pourcentage: 25, plafond: 300 },
+    { rang: 4, pourcentage: 50, plafond: 200 },
+    { rang: 5, pourcentage: 100, plafond: 150 }
+  ],
+  totalAnnonce: 1000,
+  articleReclamer: '11.5',
+  noteOffreFr:
+    'La page bonus est incohérente : son titre annonce « 150 $ gratuits », alors que les 5 paliers qu’elle détaille totalisent 1 000 $, le montant repris dans sa description. Le dépôt minimum n’y est pas indiqué.',
+  noteOffreEn:
+    'The bonus page is inconsistent: its headline says “$150 free”, while the 5 tiers it lists add up to $1,000, the amount used in its description. It does not state the minimum deposit.',
+  fideliteFr: 'Groupe Casino Rewards : le site renvoie vers le programme Casino Rewards',
+  fideliteEn: 'Casino Rewards group: the site links to the Casino Rewards program',
+  sourcesFr: [
+    { titre: 'Luxury Casino : page d’accueil officielle (offre, licence, certification eCOGRA, exploitant)', url: 'https://luxury.casino/en/' },
+    { titre: 'Luxury Casino : page bonus officielle (5 bonus de dépôt)', url: 'https://luxury.casino/fr/bonus/' },
+    { titre: 'Luxury Casino : conditions générales (mise, contribution des jeux, retraits, licence)', url: 'https://luxury.casino/en/terms/' },
+    { titre: 'Luxury Casino : FAQ (moyens de paiement, délais et frais de retrait, âge minimum)', url: 'https://luxury.casino/en/faq/' }
+  ],
+  sourcesEn: [
+    { titre: 'Luxury Casino: official home page (offer, licence, eCOGRA certification, operator)', url: 'https://luxury.casino/en/' },
+    { titre: 'Luxury Casino: official bonus page (5 deposit bonuses)', url: 'https://luxury.casino/fr/bonus/' },
+    { titre: 'Luxury Casino: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://luxury.casino/en/terms/' },
+    { titre: 'Luxury Casino: FAQ (payment methods, withdrawal times and fees, minimum age)', url: 'https://luxury.casino/en/faq/' }
+  ],
+  fr: {
+    avis: {
+      titre: 'Avis Luxury Casino 2026 : jusqu’à 1 000 $, mise de 200 fois',
+      description:
+        'Avis Luxury Casino au Canada : 5 bonus de dépôt jusqu’à 1 000 $, mise de 200 fois sur les deux premiers, retraits après 48 h d’attente. Conditions lues.',
+      h1: 'Avis Luxury Casino (2026) : 1 000 $ de bonus, et ce qu’il faut miser',
+      chapeau:
+        'Luxury Casino est l’un des casinos en ligne les plus cherchés au Canada. Son offre s’étale sur 5 dépôts, jusqu’à 1 000 $. Nous avons lu ses conditions officielles : les bonus des deux premiers dépôts doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Bonus Luxury Casino : 1 000 $ sur 5 dépôts, la mise à prévoir',
+      description:
+        'Bonus Luxury Casino : 100 % jusqu’à 150 $, puis 4 autres bonus, jusqu’à 1 000 $. Mise de 200 fois puis 30 fois, jeux à 2 % : exemple chiffré et comparaison.',
+      h1: 'Bonus Luxury Casino : jusqu’à 1 000 $ sur 5 dépôts, et le calcul à faire',
+      chapeau:
+        'Luxury Casino répartit son bonus de bienvenue sur vos 5 premiers dépôts. Les deux premiers doivent être misés 200 fois, les suivants 30 fois. Voici les paliers, les règles et le calcul, d’après les conditions officielles.'
+    },
+    sansDepot: {
+      titre: 'Luxury Casino bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Luxury Casino a-t-il un bonus sans dépôt ? Non : son offre commence par 100 % jusqu’à 150 $ au 1er dépôt, à miser 200 fois. Explications et alternatives.',
+      h1: 'Luxury Casino bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Beaucoup de joueurs cherchent un bonus sans dépôt chez Luxury Casino. Sur ses pages officielles relues le 10 novembre 2026, il n’y en a pas. Voici ce qui s’en approche, et ce qu’il faut savoir avant de déposer.'
+    },
+    retrait: {
+      titre: 'Retrait Luxury Casino : délais, frais et minimum de 50 $',
+      description:
+        'Retrait chez Luxury : 48 h d’attente, puis 1 à 10 jours ouvrables selon le moyen, minimum de 50 $, frais du virement direct. Comparé aux retraits testés.',
+      h1: 'Retrait chez Luxury Casino : délais, frais et minimums',
+      chapeau:
+        'Chez Luxury Casino, un retrait passe d’abord 48 h en attente. Voici les délais annoncés par moyen de paiement, les minimums, les frais et les vérifications, d’après la FAQ et les conditions officielles.'
+    },
+    fiable: {
+      titre: 'Luxury Casino est-il fiable ? Licence et exploitant',
+      description:
+        'Luxury Casino est-il fiable ? Licence de Kahnawake n° 00972, certification eCOGRA, exploitant à Malte et clauses à connaître, selon ses conditions.',
+      h1: 'Luxury Casino est-il fiable ? Licence, exploitant et clauses',
+      chapeau:
+        'Fiable ne veut pas dire avantageux. Luxury Casino publie sa licence et sa certification, mais certaines clauses méritent d’être connues avant de déposer. Voici ce que nous avons relevé dans ses pages officielles.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Luxury Casino Canada Review 2026: Up to $1,000, 200x Wagering',
+      description:
+        'Luxury Casino review for Canada: 5 deposit bonuses up to $1,000, 200x wagering on the first two, 48-hour pending withdrawals. Official terms checked.',
+      h1: 'Luxury Casino Review (2026): $1,000 in Bonuses, and What You Must Wager',
+      chapeau:
+        'Luxury Casino is one of the most searched online casinos in Canada. Its offer is spread over 5 deposits, up to $1,000. We read its official terms: the first two deposit bonuses must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Luxury Casino Bonus: $1,000 Over 5 Deposits and the 200x Catch',
+      description:
+        'Luxury Casino bonus: 100% up to $150, then 4 more bonuses, up to $1,000. 200x then 30x wagering, 2% game weighting: a worked example and a comparison.',
+      h1: 'Luxury Casino Bonus: Up to $1,000 Over 5 Deposits, and the Math to Do',
+      chapeau:
+        'Luxury Casino spreads its welcome bonus over your first 5 deposits. The first two must be wagered 200 times, the next ones 30 times. Here are the tiers, the rules and the math, from the official terms.'
+    },
+    sansDepot: {
+      titre: 'Luxury Casino No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Luxury Casino offer a no deposit bonus? Not according to its official pages: its offer starts with 100% up to $150 on the first deposit. Alternatives.',
+      h1: 'Luxury Casino No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'Many players look for a Luxury Casino no deposit bonus. On its official pages, read on November 10, 2026, there is none. Here is the closest offer, and what to know before depositing.'
+    },
+    retrait: {
+      titre: 'Luxury Casino Withdrawal: Times, Fees and $50 Minimum',
+      description:
+        'Luxury Casino withdrawals: 48 hours pending, then 1 to 10 business days by method, $50 minimum, direct bank transfer fees. Compared with our tested payouts.',
+      h1: 'Luxury Casino Withdrawals: Times, Fees and Minimums',
+      chapeau:
+        'At Luxury Casino, a withdrawal first stays pending for 48 hours. Here are the announced times by payment method, the minimums, the fees and the checks, from the official FAQ and terms.'
+    },
+    fiable: {
+      titre: 'Is Luxury Casino Legit? Licence and Operator Checked',
+      description:
+        'Is Luxury Casino legit? Kahnawake licence no. 00972, eCOGRA certification, Malta operator and the clauses to know: our reading of the official terms.',
+      h1: 'Is Luxury Casino Legit? Licence, Operator and Clauses',
+      chapeau:
+        'Legit does not mean good value. Luxury Casino publishes its licence and certification, but some clauses are worth knowing before you deposit. Here is what we found on its official pages.'
+    }
+  }
+};
+
+/* ---------- Captain Cooks : relevé du 10 novembre 2026 (pas de FAQ publique) ---------- */
+
+const CAPTAIN: MarqueRewards = {
+  nom: 'Captain Cooks',
+  slug: 'captain-cooks-casino',
+  verifie: '2026-11-10',
+  depot1: 5,
+  chances: 100,
+  paliers: [
+    { rang: 2, pourcentage: 100, plafond: 100 },
+    { rang: 3, pourcentage: 50, plafond: 150 },
+    { rang: 4, pourcentage: 25, plafond: 125 },
+    { rang: 5, pourcentage: 100, plafond: 100 }
+  ],
+  faq: false,
+  fideliteFr: 'Groupe Casino Rewards : ses conditions parlent des « casinos partenaires Casino Rewards »',
+  fideliteEn: 'Casino Rewards group: its terms refer to “Casino Rewards partner casinos”',
+  sourcesFr: [
+    { titre: 'Captain Cooks : page d’accueil officielle (offre, certifications, exploitant)', url: 'https://captaincooks.casino/en/' },
+    { titre: 'Captain Cooks : page bonus officielle (100 chances pour 5 $, bonus des dépôts 2 à 5)', url: 'https://captaincooks.casino/fr/bonus/' },
+    { titre: 'Captain Cooks : conditions générales (mise, contribution des jeux, retraits, licence)', url: 'https://captaincooks.casino/en/terms/' }
+  ],
+  sourcesEn: [
+    { titre: 'Captain Cooks: official home page (offer, certificates, operator)', url: 'https://captaincooks.casino/en/' },
+    { titre: 'Captain Cooks: official bonus page (100 chances for $5, deposit bonuses 2 to 5)', url: 'https://captaincooks.casino/fr/bonus/' },
+    { titre: 'Captain Cooks: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://captaincooks.casino/en/terms/' }
+  ],
+  fr: {
+    avis: {
+      titre: 'Avis Captain Cooks Casino 2026 : 100 chances pour 5 $',
+      description:
+        'Avis Captain Cooks au Canada : 100 chances pour 5 $, jusqu’à 475 $ de bonus, mise de 200 fois, retraits après 48 h d’attente. Conditions officielles lues.',
+      h1: 'Avis Captain Cooks Casino (2026) : 100 chances pour 5 $, et le reste des conditions',
+      chapeau:
+        'Captain Cooks est l’un des casinos en ligne les plus cherchés au Canada. Son offre : 100 chances de gagner un million pour 5 $. Nous avons lu ses conditions officielles. Le point à connaître : les bonus des deux premiers dépôts doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Bonus Captain Cooks : 100 chances pour 5 $ et mise de 200 fois',
+      description:
+        'Bonus Captain Cooks : 100 chances pour 5 $, puis jusqu’à 475 $ sur 4 dépôts. Mise de 200 fois puis 30 fois, jeux à 2 % : exemple chiffré et comparaison.',
+      h1: 'Bonus Captain Cooks : 100 chances pour 5 $, puis 475 $, et le calcul à faire',
+      chapeau:
+        'Pour 5 $, Captain Cooks donne 100 tours sur une roue à un million, puis des bonus sur les 4 dépôts suivants. Mais les gains des deux premiers dépôts doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
+    },
+    sansDepot: {
+      titre: 'Captain Cooks bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Captain Cooks a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre la plus proche : 100 chances pour 5 $. Ce qu’elle coûte vraiment.',
+      h1: 'Captain Cooks bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Avec 100 chances pour 5 $, l’offre de Captain Cooks ressemble à un bonus sans dépôt. Ce n’en est pas un : il faut déposer, et les gains doivent être misés 200 fois. Voici ce qu’il faut savoir.'
+    },
+    retrait: {
+      titre: 'Retrait Captain Cooks : délais, frais et attente de 48 h',
+      description:
+        'Retrait chez Captain Cooks : 48 h d’attente, frais du virement direct, délais par moyen non publiés. Ses conditions, comparées à nos retraits testés.',
+      h1: 'Retrait chez Captain Cooks : ce que disent les conditions',
+      chapeau:
+        'Captain Cooks ne publie pas de FAQ : ses délais de retrait par moyen de paiement et ses minimums ne sont pas affichés. Voici ce que disent ses conditions générales, et ce qu’il faut vérifier avant de déposer.'
+    },
+    fiable: {
+      titre: 'Captain Cooks Casino est-il fiable ? Licence et exploitant',
+      description:
+        'Captain Cooks est-il fiable ? Licence de Kahnawake n° 00972, certification eCOGRA, exploitant à Malte, pas de FAQ publique : notre lecture de ses conditions.',
+      h1: 'Captain Cooks Casino est-il fiable ? Licence, exploitant et clauses',
+      chapeau:
+        'Fiable ne veut pas dire avantageux. Captain Cooks publie sa licence et sa certification, mais pas de FAQ, et certaines clauses méritent d’être connues avant de déposer. Voici ce que nous avons relevé.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Captain Cooks Casino Canada Review 2026: 100 Chances for $5',
+      description:
+        'Captain Cooks Casino review for Canada: 100 chances for $5, up to $475 in bonuses, 200x wagering, 48-hour pending withdrawals. Official terms checked.',
+      h1: 'Captain Cooks Casino Review (2026): 100 Chances for $5, and the Rest of the Terms',
+      chapeau:
+        'Captain Cooks is one of the most searched online casinos in Canada. Its offer: 100 chances to win a million for $5. We read its official terms. The key detail: the first two deposit bonuses must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Captain Cooks Bonus: 100 Chances for $5 and the 200x Catch',
+      description:
+        'Captain Cooks bonus: 100 chances for $5, then up to $475 over 4 deposits. 200x then 30x wagering, 2% game weighting: a worked example and a comparison.',
+      h1: 'Captain Cooks Bonus: 100 Chances for $5, Then $475, and the Math to Do',
+      chapeau:
+        'For $5, Captain Cooks gives 100 spins on a million-dollar wheel, then bonuses on the next 4 deposits. But winnings from the first two deposits must be wagered 200 times. Here are the tiers, the rules and the math.'
+    },
+    sansDepot: {
+      titre: 'Captain Cooks No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Captain Cooks offer a no deposit bonus? Not according to its official pages. The closest offer is 100 chances for $5: what it really costs.',
+      h1: 'Captain Cooks No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'At 100 chances for $5, the Captain Cooks offer looks like a no deposit bonus. It is not one: you must deposit, and winnings must be wagered 200 times. Here is what to know.'
+    },
+    retrait: {
+      titre: 'Captain Cooks Withdrawal: 48-Hour Pending, Fees and Limits',
+      description:
+        'Captain Cooks withdrawals: 48 hours pending, direct bank transfer fees, times by method not published. What its terms say, compared with our tested payouts.',
+      h1: 'Captain Cooks Withdrawals: What the Terms Say',
+      chapeau:
+        'Captain Cooks does not publish an FAQ: its withdrawal times by payment method and its minimums are not displayed. Here is what its terms say, and what to check before depositing.'
+    },
+    fiable: {
+      titre: 'Is Captain Cooks Casino Legit? Licence and Operator Checked',
+      description:
+        'Is Captain Cooks legit? Kahnawake licence no. 00972, eCOGRA certification, Malta operator, no public FAQ: our reading of its official terms.',
+      h1: 'Is Captain Cooks Casino Legit? Licence, Operator and Clauses',
+      chapeau:
+        'Legit does not mean good value. Captain Cooks publishes its licence and certification, but no FAQ, and some clauses are worth knowing before you deposit. Here is what we found.'
+    }
+  }
+};
+
+/* ---------- Grand Mondial : relevé du 10 novembre 2026 ---------- */
+
+const GRAND: MarqueRewards = {
+  nom: 'Grand Mondial',
+  slug: 'grand-mondial-casino',
+  verifie: '2026-11-10',
+  depot1: 10,
+  chances: 150,
+  paliers: [{ rang: 2, pourcentage: 100, plafond: 250 }],
+  noteOffreFr: 'La page bonus présente le bonus du 2e dépôt comme valable « pour une durée limitée » : vérifiez-le avant de déposer.',
+  noteOffreEn: 'The bonus page presents the 2nd deposit bonus as available “for a limited time”: check it before depositing.',
+  fideliteFr: 'Groupe Casino Rewards : le site renvoie vers le programme Casino Rewards',
+  fideliteEn: 'Casino Rewards group: the site links to the Casino Rewards program',
+  sourcesFr: [
+    { titre: 'Grand Mondial : page d’accueil officielle (offre, licence, certification eCOGRA, exploitant)', url: 'https://grandmondial.casino/en/' },
+    { titre: 'Grand Mondial : page bonus officielle (150 chances pour 10 $, 100 % jusqu’à 250 $)', url: 'https://grandmondial.casino/fr/bonus/' },
+    { titre: 'Grand Mondial : conditions générales (mise, contribution des jeux, retraits, licence)', url: 'https://grandmondial.casino/en/terms/' },
+    { titre: 'Grand Mondial : FAQ (moyens de paiement, délais et frais de retrait, âge minimum)', url: 'https://grandmondial.casino/en/faq/' }
+  ],
+  sourcesEn: [
+    { titre: 'Grand Mondial: official home page (offer, licence, eCOGRA certification, operator)', url: 'https://grandmondial.casino/en/' },
+    { titre: 'Grand Mondial: official bonus page (150 chances for $10, 100% up to $250)', url: 'https://grandmondial.casino/fr/bonus/' },
+    { titre: 'Grand Mondial: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://grandmondial.casino/en/terms/' },
+    { titre: 'Grand Mondial: FAQ (payment methods, withdrawal times and fees, minimum age)', url: 'https://grandmondial.casino/en/faq/' }
+  ],
+  fr: {
+    avis: {
+      titre: 'Avis Grand Mondial Casino 2026 : 150 chances, mise de 200 fois',
+      description:
+        'Avis Grand Mondial au Canada : 150 chances pour 10 $, 100 % jusqu’à 250 $, mise de 200 fois, retraits après 48 h d’attente. Conditions officielles lues.',
+      h1: 'Avis Grand Mondial Casino (2026) : ce que disent vraiment les conditions',
+      chapeau:
+        'Grand Mondial est l’un des casinos en ligne les plus cherchés au Canada. Son offre : 150 chances de gagner un million pour 10 $, puis jusqu’à 250 $ au 2e dépôt. Nous avons lu ses conditions officielles : ces deux bonus doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Bonus Grand Mondial : 150 chances pour 10 $ et jusqu’à 250 $',
+      description:
+        'Bonus Grand Mondial : 150 chances pour 10 $, puis 100 % jusqu’à 250 $. Mise de 200 fois, jeux à 2 %, délais : exemple chiffré et comparaison avec nos casinos.',
+      h1: 'Bonus Grand Mondial : 150 chances pour 10 $, et le calcul à faire avant',
+      chapeau:
+        'Le bonus de Grand Mondial coûte peu à activer et rapporte des tours sur une roue à un million, puis un bonus au 2e dépôt. Mais les gains doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
+    },
+    sansDepot: {
+      titre: 'Grand Mondial bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Grand Mondial a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre la plus proche : 150 chances pour 10 $. Explications et alternatives.',
+      h1: 'Grand Mondial bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Beaucoup de joueurs cherchent un bonus sans dépôt chez Grand Mondial. Sur ses pages officielles relues le 10 novembre 2026, il n’y en a pas. Voici ce qui s’en approche, et ce qu’il faut savoir avant de déposer 10 $.'
+    },
+    retrait: {
+      titre: 'Retrait Grand Mondial : délais, frais et minimum de 50 $',
+      description:
+        'Retrait chez Grand Mondial : 48 h d’attente, puis 1 à 10 jours ouvrables selon le moyen, minimum de 50 $, frais du virement direct. Comparé à nos tests.',
+      h1: 'Retrait chez Grand Mondial : délais, frais et minimums',
+      chapeau:
+        'Chez Grand Mondial, un retrait passe d’abord 48 h en attente. Voici les délais annoncés par moyen de paiement, les minimums, les frais et les vérifications, d’après la FAQ et les conditions officielles.'
+    },
+    fiable: {
+      titre: 'Grand Mondial Casino est-il fiable ? Licence et exploitant',
+      description:
+        'Grand Mondial est-il fiable ? Licence de Kahnawake n° 00972, certification eCOGRA, exploitant à Malte et clauses à connaître, selon ses conditions.',
+      h1: 'Grand Mondial Casino est-il fiable ? Licence, exploitant et clauses',
+      chapeau:
+        'Fiable ne veut pas dire avantageux. Grand Mondial publie sa licence et sa certification, mais certaines clauses méritent d’être connues avant de déposer. Voici ce que nous avons relevé dans ses pages officielles.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Grand Mondial Casino Canada Review 2026: 150 Chances, 200x',
+      description:
+        'Grand Mondial Casino review for Canada: 150 chances for $10, 100% up to $250, 200x wagering, 48-hour pending withdrawals. Official terms read line by line.',
+      h1: 'Grand Mondial Casino Review (2026): What the Terms Really Say',
+      chapeau:
+        'Grand Mondial is one of the most searched online casinos in Canada. Its offer: 150 chances to win a million for $10, then up to $250 on the 2nd deposit. We read its official terms: both bonuses must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Grand Mondial Bonus: 150 Chances for $10, Up to $250',
+      description:
+        'Grand Mondial bonus: 150 chances for $10, then 100% up to $250. 200x wagering, 2% game weighting, deadlines: a worked example and a comparison.',
+      h1: 'Grand Mondial Bonus: 150 Chances for $10, and the Math to Do First',
+      chapeau:
+        'The Grand Mondial bonus is cheap to activate and pays out spins on a million-dollar wheel, then a 2nd deposit bonus. But winnings must be wagered 200 times. Here are the tiers, the rules and the math.'
+    },
+    sansDepot: {
+      titre: 'Grand Mondial No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Grand Mondial offer a no deposit bonus? Not according to its official pages. The closest offer is 150 chances for $10: what it costs, and alternatives.',
+      h1: 'Grand Mondial No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'Many players look for a Grand Mondial no deposit bonus. On its official pages, read on November 10, 2026, there is none. Here is the closest offer, and what to know before depositing $10.'
+    },
+    retrait: {
+      titre: 'Grand Mondial Withdrawal: Times, Fees and $50 Minimum',
+      description:
+        'Grand Mondial withdrawals: 48 hours pending, then 1 to 10 business days by method, $50 minimum, direct bank transfer fees. Compared with our tested payouts.',
+      h1: 'Grand Mondial Withdrawals: Times, Fees and Minimums',
+      chapeau:
+        'At Grand Mondial, a withdrawal first stays pending for 48 hours. Here are the announced times by payment method, the minimums, the fees and the checks, from the official FAQ and terms.'
+    },
+    fiable: {
+      titre: 'Is Grand Mondial Casino Legit? Licence and Operator Checked',
+      description:
+        'Is Grand Mondial legit? Kahnawake licence no. 00972, eCOGRA certification, Malta operator and the clauses to know: our reading of the official terms.',
+      h1: 'Is Grand Mondial Casino Legit? Licence, Operator and Clauses',
+      chapeau:
+        'Legit does not mean good value. Grand Mondial publishes its licence and certification, but some clauses are worth knowing before you deposit. Here is what we found on its official pages.'
+    }
+  }
+};
+
+/** Ordre : marques les plus cherchées au Canada d'abord (Ubersuggest, 10 novembre 2026). */
+const MARQUES: MarqueRewards[] = [YUKON, ZODIAC, LUXURY, CAPTAIN, GRAND];
 
 /* ---------- Calculs et formats communs ---------- */
 
@@ -296,8 +645,9 @@ const enM = (n: number) => `$${Math.round(n).toLocaleString('en-CA')}`;
 const heuresFr = (n?: number | null) => (n === null || n === undefined ? 'Pas encore testé' : `${n} h`);
 const heuresEn = (n?: number | null) => (n === null || n === undefined ? 'Not tested yet' : `${n} h`);
 const miseDe = (rang: number) => (rang <= 2 ? REWARDS.mise12 : REWARDS.mise3);
-const rangFr = (n: number) => `${n}e dépôt`;
-const rangEn = (n: number) => `${n}${n === 2 ? 'nd' : n === 3 ? 'rd' : 'th'} deposit`;
+const rangFr = (n: number) => (n === 1 ? '1er dépôt' : `${n}e dépôt`);
+const rangEn = (n: number) => `${n}${n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th'} deposit`;
+const avecFaq = (m: MarqueRewards) => m.faq !== false;
 
 const chemins = (m: MarqueRewards) => ({
   fr: { avis: `/${m.slug}/`, bonus: `/${m.slug}/bonus/`, sansDepot: `/${m.slug}/bonus-sans-depot/`, retrait: `/${m.slug}/retrait/`, fiable: `/${m.slug}/fiable/` },
@@ -311,17 +661,20 @@ const chemins = (m: MarqueRewards) => ({
 });
 
 function chiffres(m: MarqueRewards) {
-  const p2 = m.paliers.find((p) => p.rang === 2)!;
-  const bonus100 = Math.min(100 * (p2.pourcentage / 100), p2.plafond);
-  const total = m.totalAnnonce ?? m.paliers.reduce((s, p) => s + p.plafond, 0);
+  /** Premier bonus en argent : 1er dépôt (Luxury) ou 2e dépôt (offres avec chances). */
+  const p = m.paliers[0];
+  const bonus100 = Math.min(100 * (p.pourcentage / 100), p.plafond);
+  const total = m.totalAnnonce ?? m.paliers.reduce((s, x) => s + x.plafond, 0);
+  const suivants = m.paliers.filter((x) => x !== p);
   return {
-    p2,
+    p,
+    suivants,
     bonus100,
     miseBonus100: bonus100 * REWARDS.mise12,
     miseTotal100: (100 + bonus100) * REWARDS.mise12,
-    misePlafond2: p2.plafond * REWARDS.mise12,
-    misePlafond2Total: p2.plafond * 2 * REWARDS.mise12,
-    pertePlafond2: p2.plafond * REWARDS.mise12 * 0.04,
+    misePlafond: p.plafond * REWARDS.mise12,
+    misePlafondTotal: p.plafond * 2 * REWARDS.mise12,
+    pertePlafond: p.plafond * REWARDS.mise12 * 0.04,
     total,
     misesGain: GAIN_EXEMPLE * REWARDS.mise12
   };
@@ -329,19 +682,23 @@ function chiffres(m: MarqueRewards) {
 
 /** Résumé de l'offre en une ligne. */
 function offreFr(m: MarqueRewards): string {
-  if (m.paliers.length === 1) {
-    const p = m.paliers[0];
-    return `${m.chances} chances pour un 1er dépôt de ${fr(m.depot1)}, puis ${p.pourcentage} % jusqu’à ${fr(p.plafond)} au 2e dépôt`;
-  }
-  return `${m.chances} chances pour un 1er dépôt de ${fr(m.depot1)}, puis jusqu’à ${fr(chiffres(m).total)} de bonus sur les ${m.paliers.length} dépôts suivants`;
+  const k = chiffres(m);
+  if (!m.chances) return `${m.paliers.length} bonus de dépôt, jusqu’à ${fr(k.total)} au total, dont ${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)} au 1er dépôt`;
+  if (m.paliers.length === 1) return `${m.chances} chances pour un 1er dépôt de ${fr(m.depot1!)}, puis ${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)} au 2e dépôt`;
+  return `${m.chances} chances pour un 1er dépôt de ${fr(m.depot1!)}, puis jusqu’à ${fr(k.total)} de bonus sur les ${m.paliers.length} dépôts suivants`;
 }
 function offreEn(m: MarqueRewards): string {
-  if (m.paliers.length === 1) {
-    const p = m.paliers[0];
-    return `${m.chances} chances for a first deposit of ${enM(m.depot1)}, then ${p.pourcentage}% up to ${enM(p.plafond)} on the 2nd deposit`;
-  }
-  return `${m.chances} chances for a first deposit of ${enM(m.depot1)}, then up to ${enM(chiffres(m).total)} in bonuses over the next ${m.paliers.length} deposits`;
+  const k = chiffres(m);
+  if (!m.chances) return `${m.paliers.length} deposit bonuses, up to ${enM(k.total)} in total, starting with ${k.p.pourcentage}% up to ${enM(k.p.plafond)} on the 1st deposit`;
+  if (m.paliers.length === 1) return `${m.chances} chances for a first deposit of ${enM(m.depot1!)}, then ${k.p.pourcentage}% up to ${enM(k.p.plafond)} on the 2nd deposit`;
+  return `${m.chances} chances for a first deposit of ${enM(m.depot1!)}, then up to ${enM(k.total)} in bonuses over the next ${m.paliers.length} deposits`;
 }
+
+/** Offre courte, pour les tableaux. */
+const offreCourteFr = (m: MarqueRewards) =>
+  m.chances ? `${m.chances} chances, mise de ${REWARDS.mise12} fois` : `${chiffres(m).p.pourcentage} % jusqu’à ${fr(chiffres(m).p.plafond)}, mise de ${REWARDS.mise12} fois`;
+const offreCourteEn = (m: MarqueRewards) =>
+  m.chances ? `${m.chances} chances, ${REWARDS.mise12}x wagering` : `${chiffres(m).p.pourcentage}% up to ${enM(chiffres(m).p.plafond)}, ${REWARDS.mise12}x wagering`;
 
 /** Autres marques du groupe, pour les liens internes. */
 const autresFr = (m: MarqueRewards) => MARQUES.filter((x) => x !== m).map((x) => `[${x.nom}](${chemins(x).fr.avis})`).join(', ');
@@ -351,7 +708,7 @@ function tableauMiseFr(m: MarqueRewards) {
   const k = chiffres(m);
   return {
     type: 'tableau' as const,
-    legende: `Pour un dépôt de 100 $. ${m.nom} : 2e dépôt, bonus de ${k.p2.pourcentage} %. Nos casinos : premier palier de leur offre de bienvenue, conditions officielles.`,
+    legende: `Pour un dépôt de 100 $. ${m.nom} : ${rangFr(k.p.rang)}, bonus de ${k.p.pourcentage} %. Nos casinos : premier palier de leur offre de bienvenue, conditions officielles.`,
     entetes: ['Casino', 'Bonus reçu', 'Mise exigée', 'Montant à miser'],
     lignes: [
       [`**${m.nom}**`, fr(k.bonus100), `${REWARDS.mise12} fois`, `**${fr(k.miseBonus100)}** (bonus seul) à ${fr(k.miseTotal100)} (dépôt + bonus)`],
@@ -363,7 +720,7 @@ function tableauMiseEn(m: MarqueRewards) {
   const k = chiffres(m);
   return {
     type: 'tableau' as const,
-    legende: `For a $100 deposit. ${m.nom}: 2nd deposit, ${k.p2.pourcentage}% bonus. Our casinos: first tier of their welcome offer, official terms.`,
+    legende: `For a $100 deposit. ${m.nom}: ${rangEn(k.p.rang)}, ${k.p.pourcentage}% bonus. Our casinos: first tier of their welcome offer, official terms.`,
     entetes: ['Casino', 'Bonus received', 'Wagering', 'Amount to wager'],
     lignes: [
       [`**${m.nom}**`, enM(k.bonus100), `${REWARDS.mise12}x`, `**${enM(k.miseBonus100)}** (bonus only) to ${enM(k.miseTotal100)} (deposit + bonus)`],
@@ -380,31 +737,43 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
   const c = chemins(m).fr;
   const k = chiffres(m);
   const t = m.fr;
+  const faq = avecFaq(m);
   const parent = { nom: `Avis ${m.nom}`, chemin: c.avis };
   const titreTop = `Avant ${m.nom} : nos 3 casinos les mieux notés`;
   const base = { modifie: m.verifie, titreTop, sources: m.sourcesFr };
+  const art = m.articleReclamer ?? '11.8';
 
-  const sectionOffre: SectionGuide = {
-    id: 'offre',
-    titre: `L’offre de bienvenue : ${m.chances} chances pour ${fr(m.depot1)}`,
-    blocs: [
-      {
-        type: 'p',
-        texte: `Au 1er dépôt de ${fr(m.depot1)}, ${m.nom} donne ${m.chances} tours sur la roue Mega Money Wheel, à 0,10 $ le tour selon ses conditions générales (article 11.4). Le gros lot de la roue est d’un million de dollars, mais les conditions que nous avons lues ne donnent pas la probabilité de le décrocher.`
-      },
-      {
-        type: 'p',
-        texte: `Ce que gagnent ces tours est versé en bonus, et ce bonus doit être misé **${REWARDS.mise12} fois** avant de pouvoir être retiré (article 12.4). Par exemple, si vos ${m.chances} chances rapportent ${fr(GAIN_EXEMPLE)}, il faut miser ${fr(k.misesGain)} avant de toucher ces ${fr(GAIN_EXEMPLE)}.`
-      },
-      {
-        type: 'p',
-        texte:
-          m.paliers.length === 1
-            ? `Au 2e dépôt, le bonus est de ${k.p2.pourcentage} % jusqu’à ${fr(k.p2.plafond)}, avec la même mise de ${REWARDS.mise12} fois. Les bonus des dépôts suivants demandent ${REWARDS.mise3} fois. Détails et exemple chiffré : [le bonus ${m.nom}](${c.bonus}).`
-            : `Les ${m.paliers.length} dépôts suivants rapportent jusqu’à ${fr(k.total)} de bonus. Le 2e dépôt (${k.p2.pourcentage} % jusqu’à ${fr(k.p2.plafond)}) garde la mise de ${REWARDS.mise12} fois ; à partir du 3e, elle passe à ${REWARDS.mise3} fois. Détails et exemple chiffré : [le bonus ${m.nom}](${c.bonus}).`
-      }
-    ]
-  };
+  const blocsOffre: SectionGuide['blocs'] = m.chances
+    ? [
+        {
+          type: 'p',
+          texte: `Au 1er dépôt de ${fr(m.depot1!)}, ${m.nom} donne ${m.chances} tours sur la roue Mega Money Wheel, à 0,10 $ le tour selon ses conditions générales (article 11.4). Le gros lot de la roue est d’un million de dollars, mais les conditions que nous avons lues ne donnent pas la probabilité de le décrocher.`
+        },
+        {
+          type: 'p',
+          texte: `Ce que gagnent ces tours est versé en bonus, et ce bonus doit être misé **${REWARDS.mise12} fois** avant de pouvoir être retiré (article 12.4). Par exemple, si vos ${m.chances} chances rapportent ${fr(GAIN_EXEMPLE)}, il faut miser ${fr(k.misesGain)} avant de toucher ces ${fr(GAIN_EXEMPLE)}.`
+        },
+        {
+          type: 'p',
+          texte:
+            m.paliers.length === 1
+              ? `Au 2e dépôt, le bonus est de ${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)}, avec la même mise de ${REWARDS.mise12} fois. Les bonus des dépôts suivants demandent ${REWARDS.mise3} fois. Détails et exemple chiffré : [le bonus ${m.nom}](${c.bonus}).`
+              : `Les ${m.paliers.length} dépôts suivants rapportent jusqu’à ${fr(k.total)} de bonus. Le 2e dépôt (${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)}) garde la mise de ${REWARDS.mise12} fois ; à partir du 3e, elle passe à ${REWARDS.mise3} fois. Détails et exemple chiffré : [le bonus ${m.nom}](${c.bonus}).`
+        }
+      ]
+    : [
+        {
+          type: 'p',
+          texte: `${m.nom} n’offre pas de tours : son offre de bienvenue est un bonus sur chacun de vos ${m.paliers.length} premiers dépôts, jusqu’à ${fr(k.total)} au total.`
+        },
+        {
+          type: 'p',
+          texte: `Les bonus des 2 premiers dépôts (${m.paliers
+            .slice(0, 2)
+            .map((x) => `${x.pourcentage} % jusqu’à ${fr(x.plafond)}`)
+            .join(', puis ')}) doivent être misés **${REWARDS.mise12} fois** (article 12.4) ; ceux des dépôts suivants, ${REWARDS.mise3} fois (article 12.5). Détails et exemple chiffré : [le bonus ${m.nom}](${c.bonus}).`
+        }
+      ];
 
   const avis: PageGuide = {
     ...base,
@@ -425,8 +794,13 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
               ['Offre de bienvenue', offreFr(m)],
               ['Mise exigée', `**${REWARDS.mise12} fois** pour les bonus des 2 premiers dépôts, ${REWARDS.mise3} fois à partir du 3e`],
               ['Jeux qui comptent pour la mise', 'Machines à sous : 100 %. Jeux de table et jeux en direct : 2 %'],
-              ['Dépôt par Interac', 'Mentionné dans la FAQ (traité par PayDirect Billing Solutions)'],
-              ['Retrait', `48 h d’attente, puis 1 à 10 jours ouvrables selon le moyen. Minimum ${fr(REWARDS.retraitMin)}`],
+              ['Dépôt par Interac', faq ? 'Mentionné dans la FAQ (traité par PayDirect Billing Solutions)' : 'Non mentionné : pas de FAQ publique'],
+              [
+                'Retrait',
+                faq
+                  ? `48 h d’attente, puis 1 à 10 jours ouvrables selon le moyen. Minimum ${fr(REWARDS.retraitMin)}`
+                  : '48 h d’attente ; délais par moyen et minimum non publiés'
+              ],
               ['Licence', `Kahnawake Gaming Commission, licence n° ${REWARDS.licence}`],
               ['Âge minimum', '19 ans, même au Québec où l’âge légal est de 18 ans'],
               ['Fidélité', m.fideliteFr],
@@ -440,7 +814,11 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           }
         ]
       },
-      sectionOffre,
+      {
+        id: 'offre',
+        titre: m.chances ? `L’offre de bienvenue : ${m.chances} chances pour ${fr(m.depot1!)}` : `L’offre de bienvenue : jusqu’à ${fr(k.total)} sur ${m.paliers.length} dépôts`,
+        blocs: blocsOffre
+      },
       {
         id: 'mise',
         titre: 'La mise de 200 fois, comparée à nos casinos',
@@ -458,7 +836,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `Un retrait reste en attente 48 h, puis il est traité le jour ouvrable suivant. Il faut ensuite compter 1 à 3 jours ouvrables pour un portefeuille électronique, 2 à 3 pour un virement EFT en dollars canadiens, 3 pour une carte et 6 à 10 pour un virement bancaire direct. Le minimum est de ${fr(REWARDS.retraitMin)}. Le détail des délais et des frais : [retrait chez ${m.nom}](${c.retrait}).`
+            texte: faq
+              ? `Un retrait reste en attente 48 h, puis il est traité le jour ouvrable suivant. Il faut ensuite compter 1 à 3 jours ouvrables pour un portefeuille électronique, 2 à 3 pour un virement EFT en dollars canadiens, 3 pour une carte et 6 à 10 pour un virement bancaire direct. Le minimum est de ${fr(REWARDS.retraitMin)}. Le détail des délais et des frais : [retrait chez ${m.nom}](${c.retrait}).`
+              : `Un retrait reste en attente 48 h, et vous pouvez l’annuler tant qu’il n’est pas traité. ${m.nom} ne publie ni délais par moyen de paiement ni minimum de retrait. Le virement bancaire direct coûte 50 $ (100 $ au-delà de 3 000 $). Le détail : [retrait chez ${m.nom}](${c.retrait}).`
           }
         ]
       },
@@ -483,7 +863,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              `**Pour vous si** vous voulez tenter la roue à un million avec ${fr(m.depot1)}, sans compter retirer le bonus.`,
+              m.chances
+                ? `**Pour vous si** vous voulez tenter la roue à un million avec ${fr(m.depot1!)}, sans compter retirer le bonus.`
+                : `**Pour vous si** vous voulez plus de crédit sur vos ${m.paliers.length} premiers dépôts, sans compter retirer le bonus.`,
               '**Pour vous si** vous jouez déjà sur un autre casino du groupe Casino Rewards : les points de fidélité sont communs.',
               '**Pas pour vous si** vous voulez un bonus que vous pourrez vraiment débloquer : 200 fois, c’est l’une des mises les plus lourdes que nous ayons relevées.',
               '**Pas pour vous si** vous jouez surtout aux jeux de table ou en direct : ils ne comptent qu’à 2 % pour la mise.'
@@ -500,15 +882,19 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
       },
       {
         q: `Le bonus de ${m.nom} vaut-il le coup ?`,
-        r: `Il faut miser ${REWARDS.mise12} fois les bonus des deux premiers dépôts. Avec un bonus de ${fr(k.p2.plafond)} au 2e dépôt, cela fait au moins ${fr(k.misePlafond2)} de mises. Voyez-le comme un divertissement, pas comme de l’argent à retirer.`
+        r: `Il faut miser ${REWARDS.mise12} fois les bonus des deux premiers dépôts. Avec un bonus de ${fr(k.p.plafond)} au ${rangFr(k.p.rang)}, cela fait au moins ${fr(k.misePlafond)} de mises. Voyez-le comme un divertissement, pas comme de l’argent à retirer.`
       },
       {
         q: `Combien de temps prend un retrait chez ${m.nom} ?`,
-        r: '48 h d’attente, traitement le jour ouvrable suivant, puis 1 à 10 jours ouvrables selon le moyen choisi. Un premier retrait par un nouveau moyen peut demander jusqu’à 5 à 7 jours ouvrables de vérification.'
+        r: faq
+          ? '48 h d’attente, traitement le jour ouvrable suivant, puis 1 à 10 jours ouvrables selon le moyen choisi. Un premier retrait par un nouveau moyen peut demander jusqu’à 5 à 7 jours ouvrables de vérification.'
+          : `Au moins 48 h d’attente. ${m.nom} ne publie pas les délais suivants : ses conditions disent seulement qu’ils varient selon les moyens de paiement et les banques.`
       },
       {
         q: `${m.nom} accepte-t-il Interac ?`,
-        r: 'Sa FAQ mentionne les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas dans la liste des moyens de retrait : on retire notamment par virement EFT en dollars canadiens.'
+        r: faq
+          ? 'Sa FAQ mentionne les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas dans la liste des moyens de retrait : on retire notamment par virement EFT en dollars canadiens.'
+          : `${m.nom} ne publie pas de FAQ et ses conditions ne mentionnent pas Interac. Vérifiez la page de dépôt avant de vous inscrire.`
       }
     ],
     connexes: [c.bonus, c.retrait, c.fiable, '/casino-bonus-sans-depot/']
@@ -531,7 +917,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             legende: 'Page bonus et conditions générales officielles, relues le 10 novembre 2026.',
             entetes: ['Dépôt', 'Ce que vous recevez', 'Mise exigée'],
             lignes: [
-              [`1er dépôt de ${fr(m.depot1)}`, `${m.chances} tours sur la Mega Money Wheel, à 0,10 $ le tour`, `${REWARDS.mise12} fois les gains`],
+              ...(m.chances ? [[`1er dépôt de ${fr(m.depot1!)}`, `${m.chances} tours sur la Mega Money Wheel, à 0,10 $ le tour`, `${REWARDS.mise12} fois les gains`]] : []),
               ...m.paliers.map((p) => [rangFr(p.rang), `${p.pourcentage} % jusqu’à ${fr(p.plafond)}`, `${miseDe(p.rang)} fois`]),
               [m.paliers.length === 1 ? '3e dépôt et suivants' : 'Dépôts suivants', 'Selon les promotions du moment', `${REWARDS.mise3} fois`]
             ]
@@ -546,9 +932,11 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              `**Les ${m.chances} chances** : si elles rapportent ${fr(GAIN_EXEMPLE)}, il faut miser ${fr(k.misesGain)} avant de pouvoir retirer.`,
-              `**Le 2e dépôt** : avec le bonus maximum de ${fr(k.p2.plafond)}, il faut miser **${fr(k.misePlafond2)}** si la mise porte sur le bonus seul, ${fr(k.misePlafond2Total)} si elle porte sur le dépôt et le bonus. Les conditions ne le précisent pas.`,
-              `**La perte moyenne** : avec un taux de retour de 96 %, miser ${fr(k.misePlafond2)} coûte en moyenne ${fr(k.pertePlafond2)}, soit bien plus que les ${fr(k.p2.plafond)} de bonus.`
+              ...(m.chances
+                ? [`**Les ${m.chances} chances** : si elles rapportent ${fr(GAIN_EXEMPLE)}, il faut miser ${fr(k.misesGain)} avant de pouvoir retirer.`]
+                : []),
+              `**Le ${rangFr(k.p.rang)}** : avec le bonus maximum de ${fr(k.p.plafond)}, il faut miser **${fr(k.misePlafond)}** si la mise porte sur le bonus seul, ${fr(k.misePlafondTotal)} si elle porte sur le dépôt et le bonus. Les conditions ne le précisent pas.`,
+              `**La perte moyenne** : avec un taux de retour de 96 %, miser ${fr(k.misePlafond)} coûte en moyenne ${fr(k.pertePlafond)}, soit bien plus que les ${fr(k.p.plafond)} de bonus.`
             ]
           },
           {
@@ -569,7 +957,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             items: [
               '**Jeux** : les machines à sous comptent à 100 % ; les jeux de table, de salon et en direct à 2 % (articles 12.13 et 12.15).',
               '**Grosse mise** : une mise égale à 25 % du bonus ou plus, avant la fin de la mise exigée, est traitée comme du jeu irrégulier et peut faire perdre les gains (article 13.16.1).',
-              '**Délai pour réclamer** : l’offre de bienvenue doit être activée par un 1er dépôt dans les 7 jours suivant l’inscription (article 11.8).',
+              `**Délai pour réclamer** : l’offre de bienvenue doit être activée par un 1er dépôt dans les 7 jours suivant l’inscription (article ${art}).`,
               '**Expiration** : un bonus inutilisé pendant plus de 60 jours depuis l’inscription est perdu (article 13.7).',
               '**Argent réel et bonus** : les mises faites avec votre argent et avec le bonus comptent toutes pour la mise exigée (article 12.6).'
             ]
@@ -582,20 +970,35 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [tableauMiseFr(m), { type: 'offres', casinos: TOP3, titre: 'Des bonus plus faciles à débloquer' }]
       }
     ],
-    faq: [
-      {
-        q: `Les ${m.chances} chances de ${m.nom} sont-elles gratuites ?`,
-        r: `Non : elles demandent un 1er dépôt de ${fr(m.depot1)}, et leurs gains doivent être misés ${REWARDS.mise12} fois.`
-      },
-      {
-        q: `Peut-on retirer les gains des ${m.chances} chances ?`,
-        r: `Oui, mais seulement après avoir misé ${REWARDS.mise12} fois ces gains, sur des jeux qui comptent pour la mise. Avec ${fr(GAIN_EXEMPLE)} de gains, cela fait ${fr(k.misesGain)} de mises.`
-      },
-      {
-        q: `Y a-t-il un code promo ${m.nom} ?`,
-        r: 'La page bonus officielle n’en demande aucun : l’offre s’active avec le dépôt. Méfiez-vous des codes annoncés ailleurs et vérifiez toujours sur la page officielle.'
-      }
-    ],
+    faq: m.chances
+      ? [
+          {
+            q: `Les ${m.chances} chances de ${m.nom} sont-elles gratuites ?`,
+            r: `Non : elles demandent un 1er dépôt de ${fr(m.depot1!)}, et leurs gains doivent être misés ${REWARDS.mise12} fois.`
+          },
+          {
+            q: `Peut-on retirer les gains des ${m.chances} chances ?`,
+            r: `Oui, mais seulement après avoir misé ${REWARDS.mise12} fois ces gains, sur des jeux qui comptent pour la mise. Avec ${fr(GAIN_EXEMPLE)} de gains, cela fait ${fr(k.misesGain)} de mises.`
+          },
+          {
+            q: `Y a-t-il un code promo ${m.nom} ?`,
+            r: 'La page bonus officielle n’en demande aucun : l’offre s’active avec le dépôt. Méfiez-vous des codes annoncés ailleurs et vérifiez toujours sur la page officielle.'
+          }
+        ]
+      : [
+          {
+            q: `Le bonus de bienvenue de ${m.nom} est-il de ${fr(k.p.plafond)} ou de ${fr(k.total)} ?`,
+            r: `Le premier bonus va jusqu’à ${fr(k.p.plafond)} ; l’ensemble des ${m.paliers.length} bonus de dépôt va jusqu’à ${fr(k.total)} : ${m.paliers.map((x) => `${x.pourcentage} % jusqu’à ${fr(x.plafond)}`).join(', ')}.`
+          },
+          {
+            q: `Peut-on retirer le bonus de ${m.nom} ?`,
+            r: `Oui, après l’avoir misé ${REWARDS.mise12} fois pour les 2 premiers dépôts, ou ${REWARDS.mise3} fois pour les suivants, sur des jeux qui comptent pour la mise.`
+          },
+          {
+            q: `Y a-t-il un code promo ${m.nom} ?`,
+            r: 'La page bonus officielle n’en demande aucun : l’offre s’active avec le dépôt. Méfiez-vous des codes annoncés ailleurs et vérifiez toujours sur la page officielle.'
+          }
+        ],
     connexes: [c.avis, c.sansDepot, '/casino-bonus-sans-depot/', '/casino-depot-minimum/']
   };
 
@@ -613,7 +1016,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `**Non.** ${m.nom} n’affiche aucun bonus sans dépôt sur ses pages officielles. Son offre la plus proche demande un dépôt de ${fr(m.depot1)} : ${m.chances} tours sur la roue Mega Money Wheel, dont les gains doivent être misés ${REWARDS.mise12} fois.`
+            texte: m.chances
+              ? `**Non.** ${m.nom} n’affiche aucun bonus sans dépôt sur ses pages officielles. Son offre la plus proche demande un dépôt de ${fr(m.depot1!)} : ${m.chances} tours sur la roue Mega Money Wheel, dont les gains doivent être misés ${REWARDS.mise12} fois.`
+              : `**Non.** ${m.nom} n’affiche aucun bonus sans dépôt sur ses pages officielles. Son offre la plus proche demande un dépôt : ${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)} au 1er dépôt, à miser ${REWARDS.mise12} fois.`
           },
           {
             type: 'encadre',
@@ -624,15 +1029,21 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
       },
       {
         id: 'chances',
-        titre: `Pourquoi les ${m.chances} chances ne sont pas un bonus sans dépôt`,
+        titre: m.chances ? `Pourquoi les ${m.chances} chances ne sont pas un bonus sans dépôt` : 'Pourquoi le bonus du 1er dépôt n’en est pas un',
         blocs: [
           {
             type: 'liste',
-            items: [
-              `Elles demandent un 1er dépôt de ${fr(m.depot1)}, à faire dans les 7 jours suivant l’inscription.`,
-              `Leurs gains sont versés en bonus, à miser ${REWARDS.mise12} fois : ${fr(GAIN_EXEMPLE)} de gains demandent ${fr(k.misesGain)} de mises.`,
-              'Un bonus inutilisé pendant plus de 60 jours depuis l’inscription est perdu.'
-            ]
+            items: m.chances
+              ? [
+                  `Elles demandent un 1er dépôt de ${fr(m.depot1!)}, à faire dans les 7 jours suivant l’inscription.`,
+                  `Leurs gains sont versés en bonus, à miser ${REWARDS.mise12} fois : ${fr(GAIN_EXEMPLE)} de gains demandent ${fr(k.misesGain)} de mises.`,
+                  'Un bonus inutilisé pendant plus de 60 jours depuis l’inscription est perdu.'
+                ]
+              : [
+                  'Il faut déposer, dans les 7 jours suivant l’inscription.',
+                  `Le bonus doit être misé ${REWARDS.mise12} fois : un bonus de ${fr(k.bonus100)} demande ${fr(k.miseBonus100)} de mises.`,
+                  'Un bonus inutilisé pendant plus de 60 jours depuis l’inscription est perdu.'
+                ]
           }
         ]
       },
@@ -645,7 +1056,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             legende: 'Conditions officielles de chaque casino. Aucun de nos casinos n’offre de bonus sans dépôt non plus.',
             entetes: ['Casino', 'Dépôt minimum', 'Offre de bienvenue'],
             lignes: [
-              [`**${m.nom}**`, fr(m.depot1), `${m.chances} chances, mise de ${REWARDS.mise12} fois`],
+              [`**${m.nom}**`, m.depot1 ? fr(m.depot1) : 'Non publié', offreCourteFr(m)],
               ...CASINOS.map((x) => [`[${x.nom}](${cheminCasino(x)})`, depotMinTexte(x), x.offre.titre])
             ]
           },
@@ -657,11 +1068,15 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
     faq: [
       {
         q: `${m.nom} offre-t-il des tours gratuits sans dépôt ?`,
-        r: `Pas d’après ses pages officielles. Les ${m.chances} chances demandent un dépôt de ${fr(m.depot1)}.`
+        r: m.chances
+          ? `Pas d’après ses pages officielles. Les ${m.chances} chances demandent un dépôt de ${fr(m.depot1!)}.`
+          : `Non. L’offre de bienvenue de ${m.nom} ne comprend pas de tours, seulement des bonus de dépôt.`
       },
       {
         q: `Quel est le plus petit dépôt chez ${m.nom} ?`,
-        r: `L’offre de bienvenue démarre avec un dépôt de ${fr(m.depot1)}. Pour retirer, le minimum est de ${fr(REWARDS.retraitMin)}.`
+        r: m.depot1
+          ? `L’offre de bienvenue démarre avec un dépôt de ${fr(m.depot1)}.${faq ? ` Pour retirer, le minimum est de ${fr(REWARDS.retraitMin)}.` : ''}`
+          : `La page bonus ne l’indique pas.${faq ? ` Pour retirer, le minimum est de ${fr(REWARDS.retraitMin)}.` : ''}`
       }
     ],
     connexes: [c.avis, c.bonus, '/casino-bonus-sans-depot/', '/casino-depot-minimum/']
@@ -677,20 +1092,27 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
     sections: [
       {
         id: 'delais',
-        titre: 'Les délais de retrait annoncés',
-        blocs: [
-          {
-            type: 'tableau',
-            legende: 'FAQ officielle, relue le 10 novembre 2026. Délais après les 48 h d’attente et le traitement.',
-            entetes: ['Moyen de retrait', 'Délai annoncé'],
-            lignes: [
-              ['Portefeuilles électroniques', '1 à 3 jours ouvrables'],
-              ['Virement EFT ou eCheck en dollars canadiens (Canada seulement)', '2 à 3 jours ouvrables'],
-              ['Visa, Mastercard', '3 jours ouvrables'],
-              ['Virement bancaire direct', '6 à 10 jours ouvrables']
+        titre: faq ? 'Les délais de retrait annoncés' : 'Les délais de retrait : non publiés',
+        blocs: faq
+          ? [
+              {
+                type: 'tableau',
+                legende: 'FAQ officielle, relue le 10 novembre 2026. Délais après les 48 h d’attente et le traitement.',
+                entetes: ['Moyen de retrait', 'Délai annoncé'],
+                lignes: [
+                  ['Portefeuilles électroniques', '1 à 3 jours ouvrables'],
+                  ['Virement EFT ou eCheck en dollars canadiens (Canada seulement)', '2 à 3 jours ouvrables'],
+                  ['Visa, Mastercard', '3 jours ouvrables'],
+                  ['Virement bancaire direct', '6 à 10 jours ouvrables']
+                ]
+              }
             ]
-          }
-        ]
+          : [
+              {
+                type: 'p',
+                texte: `${m.nom} ne publie pas de FAQ, et ses conditions générales ne donnent pas de délai par moyen de paiement : elles disent seulement que ces délais varient selon les moyens, les processeurs et les banques. Avant un premier dépôt, demandez au service client le délai du moyen que vous comptez utiliser.`
+              }
+            ]
       },
       {
         id: 'etapes',
@@ -699,12 +1121,18 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             ordonnee: true,
-            items: [
-              '**48 h d’attente.** Pendant ce temps, vous pouvez annuler le retrait. C’est souvent là que l’on rejoue ses gains : si vous voulez retirer, n’y touchez plus.',
-              '**Traitement le jour ouvrable suivant.**',
-              '**Délai du moyen choisi**, de 1 à 10 jours ouvrables (tableau ci-dessus).',
-              '**Premier retrait par un nouveau moyen** : vérifications supplémentaires, jusqu’à 5 à 7 jours ouvrables.'
-            ]
+            items: faq
+              ? [
+                  '**48 h d’attente.** Pendant ce temps, vous pouvez annuler le retrait. C’est souvent là que l’on rejoue ses gains : si vous voulez retirer, n’y touchez plus.',
+                  '**Traitement le jour ouvrable suivant.**',
+                  '**Délai du moyen choisi**, de 1 à 10 jours ouvrables (tableau ci-dessus).',
+                  '**Premier retrait par un nouveau moyen** : vérifications supplémentaires, jusqu’à 5 à 7 jours ouvrables.'
+                ]
+              : [
+                  '**48 h d’attente.** Pendant ce temps, vous pouvez annuler le retrait. C’est souvent là que l’on rejoue ses gains : si vous voulez retirer, n’y touchez plus.',
+                  '**Traitement**, puis délai du moyen choisi, non publié.',
+                  '**Vérifications** : le casino peut demander la preuve que le compte de paiement vous appartient.'
+                ]
           }
         ]
       },
@@ -715,8 +1143,12 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              `**Minimum** : ${fr(REWARDS.retraitMin)}, et ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct.`,
-              '**Frais** : 50 $ par virement bancaire direct (100 $ au-delà de 3 000 $). Les autres moyens sont sans frais.',
+              faq
+                ? `**Minimum** : ${fr(REWARDS.retraitMin)}, et ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct.`
+                : '**Minimum** : non publié.',
+              faq
+                ? '**Frais** : 50 $ par virement bancaire direct (100 $ au-delà de 3 000 $). Les autres moyens sont sans frais.'
+                : '**Frais** : 50 $ par virement bancaire direct (100 $ au-delà de 3 000 $), selon les conditions générales.',
               '**Plafonds** : les conditions prévoient des limites par jour, par semaine et par mois selon le pays et le moyen, sans les chiffrer (article 14.2.2).',
               '**Cas particulier** : si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe, les retraits peuvent être limités à 4 000 $ par semaine (article 14.2.10).'
             ]
@@ -732,7 +1164,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             legende: `Nos casinos : délais constatés lors de nos retraits en argent réel. ${m.nom} : pas encore testé.`,
             entetes: ['Casino', 'Retrait crypto constaté', 'Retrait carte constaté'],
             lignes: [
-              [`**${m.nom}**`, 'Crypto non listée', 'Pas encore testé (3 jours ouvrables annoncés après l’attente)'],
+              faq
+                ? [`**${m.nom}**`, 'Crypto non listée', 'Pas encore testé (3 jours ouvrables annoncés après l’attente)']
+                : [`**${m.nom}**`, 'Non publié', 'Pas encore testé (délai non publié)'],
               ...RAPIDES.map((x) => [`[${x.nom}](${cheminCasino(x)})`, heuresFr(dernier(x, 'crypto')?.delaiHeures), heuresFr(dernier(x, 'carte')?.delaiHeures)])
             ]
           },
@@ -744,15 +1178,21 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
     faq: [
       {
         q: `Pourquoi mon retrait ${m.nom} est-il en attente ?`,
-        r: 'Tous les retraits restent 48 h en attente avant d’être traités le jour ouvrable suivant. Un premier retrait par un nouveau moyen peut demander jusqu’à 5 à 7 jours ouvrables de vérification.'
+        r: faq
+          ? 'Tous les retraits restent 48 h en attente avant d’être traités le jour ouvrable suivant. Un premier retrait par un nouveau moyen peut demander jusqu’à 5 à 7 jours ouvrables de vérification.'
+          : 'Tous les retraits restent 48 h en attente, et peuvent être annulés tant qu’ils ne sont pas traités. Les délais suivants ne sont pas publiés.'
       },
       {
         q: `Peut-on retirer par Interac chez ${m.nom} ?`,
-        r: 'Interac ne figure pas dans la liste des moyens de retrait de la FAQ. Au Canada, le virement EFT ou eCheck en dollars canadiens prend 2 à 3 jours ouvrables.'
+        r: faq
+          ? 'Interac ne figure pas dans la liste des moyens de retrait de la FAQ. Au Canada, le virement EFT ou eCheck en dollars canadiens prend 2 à 3 jours ouvrables.'
+          : `${m.nom} ne mentionne pas Interac dans ses conditions et ne publie pas de FAQ. Demandez au service client avant de déposer.`
       },
       {
         q: `Quel est le retrait minimum chez ${m.nom} ?`,
-        r: `${fr(REWARDS.retraitMin)} pour la plupart des moyens, ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct.`
+        r: faq
+          ? `${fr(REWARDS.retraitMin)} pour la plupart des moyens, ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct.`
+          : `${m.nom} ne publie pas de minimum de retrait.`
       }
     ],
     connexes: [c.avis, c.fiable, '/casino-retrait-rapide/', '/delais-de-retrait-casino/']
@@ -775,7 +1215,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             items: [
               `**Licence** : Kahnawake Gaming Commission, licence n° ${REWARDS.licence} (article 2.1 des conditions). Le site renvoie vers le certificat sur le site de la commission.`,
               '**Certification** : le site renvoie vers un certificat eCOGRA, un organisme qui contrôle l’équité des jeux.',
-              '**Âge** : il faut avoir 19 ans ou l’âge de la majorité de votre province s’il est plus élevé.'
+              faq
+                ? '**Âge** : il faut avoir 19 ans ou l’âge de la majorité de votre province s’il est plus élevé.'
+                : '**Âge** : le site affiche un badge 19+ ; ses conditions renvoient à l’âge légal de votre province.'
             ]
           }
         ]
@@ -800,7 +1242,8 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
               `**Mise de ${REWARDS.mise12} fois** sur les bonus des deux premiers dépôts (article 12.4).`,
               '**Grosse mise interdite** : une mise de 25 % du bonus ou plus, avant la fin de la mise exigée, peut faire perdre les gains (article 13.16.1).',
               '**Retraits annulables** pendant les 48 h d’attente.',
-              '**Plafond possible** de 4 000 $ par semaine si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe (article 14.2.10).'
+              '**Plafond possible** de 4 000 $ par semaine si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe (article 14.2.10).',
+              ...(faq ? [] : ['**Pas de FAQ publique** : délais de retrait par moyen, minimums et moyens de dépôt ne sont pas publiés.'])
             ]
           }
         ]
@@ -814,7 +1257,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             items: [
               'Le numéro de licence et l’exploitant sont affichés.',
               'Une page de jeu responsable et un certificat eCOGRA sont accessibles depuis chaque page.',
-              'Les délais, minimums et frais de retrait sont publiés dans la FAQ.'
+              faq
+                ? 'Les délais, minimums et frais de retrait sont publiés dans la FAQ.'
+                : 'Les frais du virement bancaire direct et l’attente de 48 h sont publiés dans les conditions générales.'
             ]
           },
           {
@@ -854,9 +1299,43 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
   const c = chemins(m).en;
   const k = chiffres(m);
   const t = m.en;
+  const faq = avecFaq(m);
   const parent = { nom: `${m.nom} review`, chemin: c.avis };
   const titreTop = `Before ${m.nom}: our 3 top-rated casinos`;
   const base = { modifie: m.verifie, titreTop, sources: m.sourcesEn };
+  const art = m.articleReclamer ?? '11.8';
+
+  const blocsOffre: SectionGuide['blocs'] = m.chances
+    ? [
+        {
+          type: 'p',
+          texte: `A first deposit of ${enM(m.depot1!)} gives ${m.chances} spins on the Mega Money Wheel, at $0.10 per spin according to the terms (section 11.4). The top prize is one million dollars, but the terms we read do not give the odds of winning it.`
+        },
+        {
+          type: 'p',
+          texte: `Winnings from these spins are paid as bonus funds, which must be wagered **${REWARDS.mise12} times** before they can be withdrawn (section 12.4). For example, if your ${m.chances} chances pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(k.misesGain)} before you can cash out those ${enM(GAIN_EXEMPLE)}.`
+        },
+        {
+          type: 'p',
+          texte:
+            m.paliers.length === 1
+              ? `The 2nd deposit bonus is ${k.p.pourcentage}% up to ${enM(k.p.plafond)}, with the same ${REWARDS.mise12}x wagering. Later deposit bonuses require ${REWARDS.mise3}x. Details and a worked example: [the ${m.nom} bonus](${c.bonus}).`
+              : `The next ${m.paliers.length} deposits pay up to ${enM(k.total)} in bonuses. The 2nd deposit (${k.p.pourcentage}% up to ${enM(k.p.plafond)}) keeps the ${REWARDS.mise12}x wagering; from the 3rd deposit it drops to ${REWARDS.mise3}x. Details and a worked example: [the ${m.nom} bonus](${c.bonus}).`
+        }
+      ]
+    : [
+        {
+          type: 'p',
+          texte: `${m.nom} gives no spins: its welcome offer is a bonus on each of your first ${m.paliers.length} deposits, up to ${enM(k.total)} in total.`
+        },
+        {
+          type: 'p',
+          texte: `The first two deposit bonuses (${m.paliers
+            .slice(0, 2)
+            .map((x) => `${x.pourcentage}% up to ${enM(x.plafond)}`)
+            .join(', then ')}) must be wagered **${REWARDS.mise12} times** (section 12.4); later ones ${REWARDS.mise3} times (section 12.5). Details and a worked example: [the ${m.nom} bonus](${c.bonus}).`
+        }
+      ];
 
   const avis: PageGuide = {
     ...base,
@@ -877,8 +1356,11 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
               ['Welcome offer', offreEn(m)],
               ['Wagering', `**${REWARDS.mise12}x** on the first two deposit bonuses, ${REWARDS.mise3}x from the 3rd deposit`],
               ['Game weighting', 'Slots: 100%. Table and live games: 2%'],
-              ['Interac deposits', 'Mentioned in the FAQ (processed by PayDirect Billing Solutions)'],
-              ['Withdrawals', `48-hour pending period, then 1 to 10 business days by method. Minimum ${enM(REWARDS.retraitMin)}`],
+              ['Interac deposits', faq ? 'Mentioned in the FAQ (processed by PayDirect Billing Solutions)' : 'Not mentioned: no public FAQ'],
+              [
+                'Withdrawals',
+                faq ? `48-hour pending period, then 1 to 10 business days by method. Minimum ${enM(REWARDS.retraitMin)}` : '48-hour pending period; times by method and minimum not published'
+              ],
               ['Licence', `Kahnawake Gaming Commission, licence no. ${REWARDS.licence}`],
               ['Minimum age', '19, including in Quebec and Manitoba where the legal age is 18'],
               ['Loyalty', m.fideliteEn],
@@ -894,24 +1376,8 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       },
       {
         id: 'offer',
-        titre: `The welcome offer: ${m.chances} chances for ${enM(m.depot1)}`,
-        blocs: [
-          {
-            type: 'p',
-            texte: `A first deposit of ${enM(m.depot1)} gives ${m.chances} spins on the Mega Money Wheel, at $0.10 per spin according to the terms (section 11.4). The top prize is one million dollars, but the terms we read do not give the odds of winning it.`
-          },
-          {
-            type: 'p',
-            texte: `Winnings from these spins are paid as bonus funds, which must be wagered **${REWARDS.mise12} times** before they can be withdrawn (section 12.4). For example, if your ${m.chances} chances pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(k.misesGain)} before you can cash out those ${enM(GAIN_EXEMPLE)}.`
-          },
-          {
-            type: 'p',
-            texte:
-              m.paliers.length === 1
-                ? `The 2nd deposit bonus is ${k.p2.pourcentage}% up to ${enM(k.p2.plafond)}, with the same ${REWARDS.mise12}x wagering. Later deposit bonuses require ${REWARDS.mise3}x. Details and a worked example: [the ${m.nom} bonus](${c.bonus}).`
-                : `The next ${m.paliers.length} deposits pay up to ${enM(k.total)} in bonuses. The 2nd deposit (${k.p2.pourcentage}% up to ${enM(k.p2.plafond)}) keeps the ${REWARDS.mise12}x wagering; from the 3rd deposit it drops to ${REWARDS.mise3}x. Details and a worked example: [the ${m.nom} bonus](${c.bonus}).`
-          }
-        ]
+        titre: m.chances ? `The welcome offer: ${m.chances} chances for ${enM(m.depot1!)}` : `The welcome offer: up to ${enM(k.total)} over ${m.paliers.length} deposits`,
+        blocs: blocsOffre
       },
       {
         id: 'wagering',
@@ -930,7 +1396,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `A withdrawal stays pending for 48 hours, then it is processed on the next business day. After that, allow 1 to 3 business days for e-wallets, 2 to 3 for a CAD EFT transfer, 3 for a card and 6 to 10 for a direct bank transfer. The minimum is ${enM(REWARDS.retraitMin)}. Times and fees in detail: [${m.nom} withdrawals](${c.retrait}).`
+            texte: faq
+              ? `A withdrawal stays pending for 48 hours, then it is processed on the next business day. After that, allow 1 to 3 business days for e-wallets, 2 to 3 for a CAD EFT transfer, 3 for a card and 6 to 10 for a direct bank transfer. The minimum is ${enM(REWARDS.retraitMin)}. Times and fees in detail: [${m.nom} withdrawals](${c.retrait}).`
+              : `A withdrawal stays pending for 48 hours, and you can reverse it until it is processed. ${m.nom} publishes no times by payment method and no minimum withdrawal. A direct bank transfer costs $50 ($100 above $3,000). Details: [${m.nom} withdrawals](${c.retrait}).`
           }
         ]
       },
@@ -952,7 +1420,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              `**Good for you if** you want to try the million-dollar wheel for ${enM(m.depot1)}, without expecting to cash out the bonus.`,
+              m.chances
+                ? `**Good for you if** you want to try the million-dollar wheel for ${enM(m.depot1!)}, without expecting to cash out the bonus.`
+                : `**Good for you if** you want more credit on your first ${m.paliers.length} deposits, without expecting to cash out the bonus.`,
               '**Good for you if** you already play at another Casino Rewards casino: loyalty points are shared.',
               '**Not for you if** you want a bonus you can realistically clear: 200x is one of the heaviest wagering requirements we have seen.',
               '**Not for you if** you mostly play table or live games: they count only 2% towards wagering.'
@@ -969,15 +1439,19 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       },
       {
         q: `Is the ${m.nom} bonus worth it?`,
-        r: `The first two deposit bonuses must be wagered ${REWARDS.mise12} times. With a ${enM(k.p2.plafond)} bonus on the 2nd deposit, that is at least ${enM(k.misePlafond2)} in wagers. Treat it as entertainment, not as money to withdraw.`
+        r: `The first two deposit bonuses must be wagered ${REWARDS.mise12} times. With a ${enM(k.p.plafond)} bonus on the ${rangEn(k.p.rang)}, that is at least ${enM(k.misePlafond)} in wagers. Treat it as entertainment, not as money to withdraw.`
       },
       {
         q: `How long does a ${m.nom} withdrawal take?`,
-        r: '48 hours pending, processing on the next business day, then 1 to 10 business days depending on the method. A first withdrawal with a new method can take up to 5 to 7 business days of checks.'
+        r: faq
+          ? '48 hours pending, processing on the next business day, then 1 to 10 business days depending on the method. A first withdrawal with a new method can take up to 5 to 7 business days of checks.'
+          : `At least 48 hours pending. ${m.nom} does not publish the next delays: its terms only say they vary by payment method and bank.`
       },
       {
         q: `Does ${m.nom} accept Interac?`,
-        r: 'Its FAQ mentions Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.'
+        r: faq
+          ? 'Its FAQ mentions Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.'
+          : `${m.nom} publishes no FAQ and its terms do not mention Interac. Check the deposit page before signing up.`
       }
     ],
     connexes: [c.bonus, c.retrait, c.fiable, '/en-ca/casino-bonuses/']
@@ -1000,7 +1474,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             legende: 'Official bonus page and terms, read on November 10, 2026.',
             entetes: ['Deposit', 'What you get', 'Wagering'],
             lignes: [
-              [`1st deposit of ${enM(m.depot1)}`, `${m.chances} spins on the Mega Money Wheel at $0.10 per spin`, `${REWARDS.mise12}x the winnings`],
+              ...(m.chances ? [[`1st deposit of ${enM(m.depot1!)}`, `${m.chances} spins on the Mega Money Wheel at $0.10 per spin`, `${REWARDS.mise12}x the winnings`]] : []),
               ...m.paliers.map((p) => [rangEn(p.rang), `${p.pourcentage}% up to ${enM(p.plafond)}`, `${miseDe(p.rang)}x`]),
               [m.paliers.length === 1 ? '3rd deposit and later' : 'Later deposits', 'Depends on current promotions', `${REWARDS.mise3}x`]
             ]
@@ -1015,9 +1489,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              `**The ${m.chances} chances**: if they pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(k.misesGain)} before you can withdraw.`,
-              `**The 2nd deposit**: with the maximum ${enM(k.p2.plafond)} bonus, you must wager **${enM(k.misePlafond2)}** if wagering applies to the bonus only, ${enM(k.misePlafond2Total)} if it applies to deposit and bonus. The terms do not say which.`,
-              `**The average cost**: at a 96% return to player, wagering ${enM(k.misePlafond2)} costs ${enM(k.pertePlafond2)} on average, far more than the ${enM(k.p2.plafond)} bonus.`
+              ...(m.chances ? [`**The ${m.chances} chances**: if they pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(k.misesGain)} before you can withdraw.`] : []),
+              `**The ${rangEn(k.p.rang)}**: with the maximum ${enM(k.p.plafond)} bonus, you must wager **${enM(k.misePlafond)}** if wagering applies to the bonus only, ${enM(k.misePlafondTotal)} if it applies to deposit and bonus. The terms do not say which.`,
+              `**The average cost**: at a 96% return to player, wagering ${enM(k.misePlafond)} costs ${enM(k.pertePlafond)} on average, far more than the ${enM(k.p.plafond)} bonus.`
             ]
           },
           {
@@ -1038,7 +1512,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             items: [
               '**Games**: slots count 100%; table, parlour and live games count 2% (sections 12.13 and 12.15).',
               '**Large bets**: a single bet of 25% of the bonus or more before wagering is complete is treated as irregular play and can void winnings (section 13.16.1).',
-              '**Claim window**: the welcome offer must be activated with a first deposit within 7 days of registration (section 11.8).',
+              `**Claim window**: the welcome offer must be activated with a first deposit within 7 days of registration (section ${art}).`,
               '**Expiry**: a bonus left unused for more than 60 days from registration is forfeited (section 13.7).',
               '**Cash and bonus**: wagers from both your cash and bonus balances count towards wagering (section 12.6).'
             ]
@@ -1051,20 +1525,35 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [tableauMiseEn(m), { type: 'offres', casinos: TOP3, titre: 'Bonuses that are easier to clear' }]
       }
     ],
-    faq: [
-      {
-        q: `Are the ${m.chances} ${m.nom} chances free?`,
-        r: `No: they require a first deposit of ${enM(m.depot1)}, and their winnings must be wagered ${REWARDS.mise12} times.`
-      },
-      {
-        q: `Can you withdraw winnings from the ${m.chances} chances?`,
-        r: `Yes, but only after wagering those winnings ${REWARDS.mise12} times on eligible games. ${enM(GAIN_EXEMPLE)} of winnings means ${enM(k.misesGain)} in wagers.`
-      },
-      {
-        q: `Is there a ${m.nom} promo code?`,
-        r: 'The official bonus page asks for none: the offer is triggered by the deposit. Be careful with codes advertised elsewhere and always check the official page.'
-      }
-    ],
+    faq: m.chances
+      ? [
+          {
+            q: `Are the ${m.chances} ${m.nom} chances free?`,
+            r: `No: they require a first deposit of ${enM(m.depot1!)}, and their winnings must be wagered ${REWARDS.mise12} times.`
+          },
+          {
+            q: `Can you withdraw winnings from the ${m.chances} chances?`,
+            r: `Yes, but only after wagering those winnings ${REWARDS.mise12} times on eligible games. ${enM(GAIN_EXEMPLE)} of winnings means ${enM(k.misesGain)} in wagers.`
+          },
+          {
+            q: `Is there a ${m.nom} promo code?`,
+            r: 'The official bonus page asks for none: the offer is triggered by the deposit. Be careful with codes advertised elsewhere and always check the official page.'
+          }
+        ]
+      : [
+          {
+            q: `Is the ${m.nom} welcome bonus ${enM(k.p.plafond)} or ${enM(k.total)}?`,
+            r: `The first bonus goes up to ${enM(k.p.plafond)}; all ${m.paliers.length} deposit bonuses together go up to ${enM(k.total)}: ${m.paliers.map((x) => `${x.pourcentage}% up to ${enM(x.plafond)}`).join(', ')}.`
+          },
+          {
+            q: `Can you withdraw the ${m.nom} bonus?`,
+            r: `Yes, after wagering it ${REWARDS.mise12} times for the first two deposits, or ${REWARDS.mise3} times for later ones, on eligible games.`
+          },
+          {
+            q: `Is there a ${m.nom} promo code?`,
+            r: 'The official bonus page asks for none: the offer is triggered by the deposit. Be careful with codes advertised elsewhere and always check the official page.'
+          }
+        ],
     connexes: [c.avis, c.sansDepot, '/en-ca/casino-bonuses/', '/en-ca/minimum-deposit-casinos/']
   };
 
@@ -1082,7 +1571,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `**No.** ${m.nom} shows no no-deposit bonus on its official pages. The closest offer requires a ${enM(m.depot1)} deposit: ${m.chances} spins on the Mega Money Wheel, with winnings to be wagered ${REWARDS.mise12} times.`
+            texte: m.chances
+              ? `**No.** ${m.nom} shows no no-deposit bonus on its official pages. The closest offer requires a ${enM(m.depot1!)} deposit: ${m.chances} spins on the Mega Money Wheel, with winnings to be wagered ${REWARDS.mise12} times.`
+              : `**No.** ${m.nom} shows no no-deposit bonus on its official pages. The closest offer requires a deposit: ${k.p.pourcentage}% up to ${enM(k.p.plafond)} on the first deposit, with ${REWARDS.mise12}x wagering.`
           },
           {
             type: 'encadre',
@@ -1093,15 +1584,21 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       },
       {
         id: 'chances',
-        titre: `Why the ${m.chances} chances are not a no deposit bonus`,
+        titre: m.chances ? `Why the ${m.chances} chances are not a no deposit bonus` : 'Why the first deposit bonus is not one',
         blocs: [
           {
             type: 'liste',
-            items: [
-              `They require a first deposit of ${enM(m.depot1)}, made within 7 days of registration.`,
-              `Their winnings are paid as bonus funds with ${REWARDS.mise12}x wagering: ${enM(GAIN_EXEMPLE)} of winnings means ${enM(k.misesGain)} in wagers.`,
-              'A bonus left unused for more than 60 days from registration is forfeited.'
-            ]
+            items: m.chances
+              ? [
+                  `They require a first deposit of ${enM(m.depot1!)}, made within 7 days of registration.`,
+                  `Their winnings are paid as bonus funds with ${REWARDS.mise12}x wagering: ${enM(GAIN_EXEMPLE)} of winnings means ${enM(k.misesGain)} in wagers.`,
+                  'A bonus left unused for more than 60 days from registration is forfeited.'
+                ]
+              : [
+                  'You must deposit, within 7 days of registration.',
+                  `The bonus must be wagered ${REWARDS.mise12} times: a ${enM(k.bonus100)} bonus means ${enM(k.miseBonus100)} in wagers.`,
+                  'A bonus left unused for more than 60 days from registration is forfeited.'
+                ]
           }
         ]
       },
@@ -1114,7 +1611,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             legende: 'Official terms of each casino. None of our casinos offers a no deposit bonus either.',
             entetes: ['Casino', 'Minimum deposit', 'Welcome offer'],
             lignes: [
-              [`**${m.nom}**`, enM(m.depot1), `${m.chances} chances, ${REWARDS.mise12}x wagering`],
+              [`**${m.nom}**`, m.depot1 ? enM(m.depot1) : 'Not published', offreCourteEn(m)],
               ...CASINOS.map((x) => [`[${x.nom}](${cheminEn(x)})`, depotMinEn(x), en(x).offre.titre])
             ]
           },
@@ -1125,11 +1622,15 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
     faq: [
       {
         q: `Does ${m.nom} give free spins without a deposit?`,
-        r: `Not according to its official pages. The ${m.chances} chances require a ${enM(m.depot1)} deposit.`
+        r: m.chances
+          ? `Not according to its official pages. The ${m.chances} chances require a ${enM(m.depot1!)} deposit.`
+          : `No. The ${m.nom} welcome offer includes no spins, only deposit bonuses.`
       },
       {
         q: `What is the smallest deposit at ${m.nom}?`,
-        r: `The welcome offer starts with a ${enM(m.depot1)} deposit. The minimum withdrawal is ${enM(REWARDS.retraitMin)}.`
+        r: m.depot1
+          ? `The welcome offer starts with a ${enM(m.depot1)} deposit.${faq ? ` The minimum withdrawal is ${enM(REWARDS.retraitMin)}.` : ''}`
+          : `The bonus page does not say.${faq ? ` The minimum withdrawal is ${enM(REWARDS.retraitMin)}.` : ''}`
       }
     ],
     connexes: [c.avis, c.bonus, '/en-ca/casino-bonuses/', '/en-ca/minimum-deposit-casinos/']
@@ -1145,20 +1646,27 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
     sections: [
       {
         id: 'times',
-        titre: 'Announced withdrawal times',
-        blocs: [
-          {
-            type: 'tableau',
-            legende: 'Official FAQ, read on November 10, 2026. Times after the 48-hour pending period and processing.',
-            entetes: ['Withdrawal method', 'Announced time'],
-            lignes: [
-              ['E-wallets', '1 to 3 business days'],
-              ['CAD EFT or eCheck (Canada only)', '2 to 3 business days'],
-              ['Visa, Mastercard', '3 business days'],
-              ['Direct bank transfer', '6 to 10 business days']
+        titre: faq ? 'Announced withdrawal times' : 'Withdrawal times: not published',
+        blocs: faq
+          ? [
+              {
+                type: 'tableau',
+                legende: 'Official FAQ, read on November 10, 2026. Times after the 48-hour pending period and processing.',
+                entetes: ['Withdrawal method', 'Announced time'],
+                lignes: [
+                  ['E-wallets', '1 to 3 business days'],
+                  ['CAD EFT or eCheck (Canada only)', '2 to 3 business days'],
+                  ['Visa, Mastercard', '3 business days'],
+                  ['Direct bank transfer', '6 to 10 business days']
+                ]
+              }
             ]
-          }
-        ]
+          : [
+              {
+                type: 'p',
+                texte: `${m.nom} publishes no FAQ, and its terms give no time by payment method: they only say these times vary by method, processor and bank. Before a first deposit, ask customer support how long the method you plan to use takes.`
+              }
+            ]
       },
       {
         id: 'steps',
@@ -1167,12 +1675,18 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             ordonnee: true,
-            items: [
-              '**48 hours pending.** During this time you can reverse the withdrawal. This is often when players gamble their winnings again: if you want to cash out, leave it alone.',
-              '**Processing on the next business day.**',
-              '**The method’s own delay**, from 1 to 10 business days (table above).',
-              '**First withdrawal with a new method**: extra checks, up to 5 to 7 business days.'
-            ]
+            items: faq
+              ? [
+                  '**48 hours pending.** During this time you can reverse the withdrawal. This is often when players gamble their winnings again: if you want to cash out, leave it alone.',
+                  '**Processing on the next business day.**',
+                  '**The method’s own delay**, from 1 to 10 business days (table above).',
+                  '**First withdrawal with a new method**: extra checks, up to 5 to 7 business days.'
+                ]
+              : [
+                  '**48 hours pending.** During this time you can reverse the withdrawal. This is often when players gamble their winnings again: if you want to cash out, leave it alone.',
+                  '**Processing**, then the method’s own delay, not published.',
+                  '**Checks**: the casino can ask for proof that the payment account is yours.'
+                ]
           }
         ]
       },
@@ -1183,8 +1697,10 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              `**Minimum**: ${enM(REWARDS.retraitMin)}, or ${enM(REWARDS.retraitMinVirement)} by direct bank transfer.`,
-              '**Fees**: $50 by direct bank transfer ($100 above $3,000). Other methods are free.',
+              faq ? `**Minimum**: ${enM(REWARDS.retraitMin)}, or ${enM(REWARDS.retraitMinVirement)} by direct bank transfer.` : '**Minimum**: not published.',
+              faq
+                ? '**Fees**: $50 by direct bank transfer ($100 above $3,000). Other methods are free.'
+                : '**Fees**: $50 by direct bank transfer ($100 above $3,000), according to the terms.',
               '**Limits**: the terms allow daily, weekly and monthly limits by country and method, without giving figures (section 14.2.2).',
               '**Special case**: if your winnings are much higher than your deposits across the group’s casinos, withdrawals can be capped at $4,000 per week (section 14.2.10).'
             ]
@@ -1200,7 +1716,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             legende: `Our casinos: times measured during our real-money withdrawals. ${m.nom}: not tested yet.`,
             entetes: ['Casino', 'Crypto withdrawal measured', 'Card withdrawal measured'],
             lignes: [
-              [`**${m.nom}**`, 'Crypto not listed', 'Not tested yet (3 business days announced after pending)'],
+              faq
+                ? [`**${m.nom}**`, 'Crypto not listed', 'Not tested yet (3 business days announced after pending)']
+                : [`**${m.nom}**`, 'Not published', 'Not tested yet (time not published)'],
               ...RAPIDES.map((x) => [`[${x.nom}](${cheminEn(x)})`, heuresEn(dernier(x, 'crypto')?.delaiHeures), heuresEn(dernier(x, 'carte')?.delaiHeures)])
             ]
           },
@@ -1212,15 +1730,19 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
     faq: [
       {
         q: `Why is my ${m.nom} withdrawal pending?`,
-        r: 'All withdrawals stay pending for 48 hours before being processed on the next business day. A first withdrawal with a new method can take up to 5 to 7 business days of checks.'
+        r: faq
+          ? 'All withdrawals stay pending for 48 hours before being processed on the next business day. A first withdrawal with a new method can take up to 5 to 7 business days of checks.'
+          : 'All withdrawals stay pending for 48 hours and can be reversed until processed. The next delays are not published.'
       },
       {
         q: `Can you withdraw by Interac at ${m.nom}?`,
-        r: 'Interac is not on the FAQ’s list of withdrawal methods. In Canada, a CAD EFT or eCheck transfer takes 2 to 3 business days.'
+        r: faq
+          ? 'Interac is not on the FAQ’s list of withdrawal methods. In Canada, a CAD EFT or eCheck transfer takes 2 to 3 business days.'
+          : `${m.nom} does not mention Interac in its terms and publishes no FAQ. Ask customer support before depositing.`
       },
       {
         q: `What is the minimum withdrawal at ${m.nom}?`,
-        r: `${enM(REWARDS.retraitMin)} for most methods, ${enM(REWARDS.retraitMinVirement)} by direct bank transfer.`
+        r: faq ? `${enM(REWARDS.retraitMin)} for most methods, ${enM(REWARDS.retraitMinVirement)} by direct bank transfer.` : `${m.nom} does not publish a minimum withdrawal.`
       }
     ],
     connexes: [c.avis, c.fiable, '/en-ca/fast-withdrawal-casinos/', '/en-ca/casino-withdrawal-times/']
@@ -1243,7 +1765,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             items: [
               `**Licence**: Kahnawake Gaming Commission, licence no. ${REWARDS.licence} (section 2.1 of the terms). The site links to the certificate on the commission’s website.`,
               '**Certification**: the site links to an eCOGRA certificate; eCOGRA audits game fairness.',
-              '**Age**: you must be 19, or the age of majority in your province if higher.'
+              faq
+                ? '**Age**: you must be 19, or the age of majority in your province if higher.'
+                : '**Age**: the site shows a 19+ badge; its terms refer to the legal age in your province.'
             ]
           }
         ]
@@ -1268,7 +1792,8 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
               `**${REWARDS.mise12}x wagering** on the first two deposit bonuses (section 12.4).`,
               '**No large bets**: a single bet of 25% of the bonus or more before wagering is complete can void winnings (section 13.16.1).',
               '**Reversible withdrawals** during the 48-hour pending period.',
-              '**Possible cap** of $4,000 per week if your winnings are much higher than your deposits across the group’s casinos (section 14.2.10).'
+              '**Possible cap** of $4,000 per week if your winnings are much higher than your deposits across the group’s casinos (section 14.2.10).',
+              ...(faq ? [] : ['**No public FAQ**: withdrawal times by method, minimums and deposit methods are not published.'])
             ]
           }
         ]
@@ -1282,7 +1807,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             items: [
               'The licence number and operator are displayed.',
               'A responsible gambling page and an eCOGRA certificate are linked from every page.',
-              'Withdrawal times, minimums and fees are published in the FAQ.'
+              faq ? 'Withdrawal times, minimums and fees are published in the FAQ.' : 'Direct bank transfer fees and the 48-hour pending period are published in the terms.'
             ]
           },
           { type: 'p', texte: 'For the legal picture in Quebec, see our page on [online casinos in Quebec](/en-ca/online-casino-quebec/).' },
@@ -1342,6 +1867,15 @@ export function sousPagesMarque(base: string): string[] {
 
 /** Liens de pied de page vers les avis de marque. */
 export const LIENS_MARQUES = MARQUES.map((m) => ({ nom: m.nom, fr: chemins(m).fr.avis, en: chemins(m).en.avis }));
+
+/** Données courtes des marques, pour les liens internes depuis les guides (dépôt minimum, bonus sans dépôt…). */
+export const RESUMES_MARQUES = MARQUES.map((m) => ({
+  nom: m.nom,
+  depot: m.depot1 ?? null,
+  offreFr: offreCourteFr(m),
+  fr: chemins(m).fr,
+  en: chemins(m).en
+}));
 
 /** Adresses de base des marques (pour les paires français-anglais). */
 export const SLUGS_MARQUES = MARQUES.map((m) => m.slug);
