@@ -1,11 +1,14 @@
 import type { ContenuCasino } from './types';
-import { titreAvisTeste } from './titre-test';
+import { avecTest, titreAvisTeste } from './titre-test';
 
 const celsius: ContenuCasino = {
   avis: {
     titre: titreAvisTeste('celsius', 'Avis Celsius Casino 2026', 'Avis Celsius Casino au Québec 2026 : fiable ? Bonus, retraits'),
-    description:
-      "Avis Celsius Casino au Québec : bonus de 100 % puis 200 %, mise de 50 fois en 20 jours, retraits limités à 2 500 $ par semaine. Ce qu'il faut savoir.",
+    description: avecTest(
+      'celsius',
+      (h) => `Testé en argent réel : retrait crypto reçu en ${h} h chez Celsius. Bonus de 100 % puis 200 %, mise de 50 fois en 20 jours, licence et limites de retrait.`,
+      "Avis Celsius Casino au Québec : bonus de 100 % puis 200 %, mise de 50 fois en 20 jours, retraits limités à 2 500 $ par semaine. Ce qu'il faut savoir."
+    ),
     h1: 'Avis Celsius Casino : un immense catalogue, des conditions à lire de près',
     intro: [
       "Celsius mise sur le volume : plus de 6 000 machines à sous et 800 jeux en direct selon l'opérateur, et une longue liste de moyens de paiement, cryptomonnaies comprises. C'est aussi l'un des rares casinos du comparatif à publier ses règles de retrait chiffrées.",
@@ -66,6 +69,14 @@ const celsius: ContenuCasino = {
       'Ceux qui veulent payer par Interac'
     ],
     faq: [
+      {
+        q: 'Quel est votre avis sur Celsius Casino ?',
+        r: avecTest(
+          'celsius',
+          (h) => `Un bon choix pour son immense catalogue et ses règles de retrait publiées : lors de notre test en argent réel, le retrait crypto est arrivé en ${h} h. Ses deux points faibles : un bonus à miser 50 fois en 20 jours et une licence d'Anjouan affichée sans numéro.`,
+          "Un bon choix pour son immense catalogue et ses règles de retrait publiées. Ses deux points faibles : un bonus à miser 50 fois en 20 jours et une licence d'Anjouan affichée sans numéro."
+        )
+      },
       {
         q: 'Celsius Casino est-il fiable ?',
         r: "L'exploitant est identifié (Celsius Holdings N.V., n° 157856, à Curaçao) et les règles de retrait sont publiées en détail, ce qui rassure. En revanche, la licence d'Anjouan est affichée sans numéro vérifiable : c'est son principal point faible. Notre conseil : un petit dépôt et un premier retrait modeste avant d'aller plus loin."
@@ -148,8 +159,11 @@ const celsius: ContenuCasino = {
 
   retrait: {
     titre: 'Retrait Celsius Casino : limites, délais et conseils',
-    description:
-      "Retrait chez Celsius Casino : 2 500 $ par semaine jusqu'à 10 000 $ de gains, puis 10 000 $ par mois. Règles officielles expliquées et conseils pratiques.",
+    description: avecTest(
+      'celsius',
+      (h) => `Retrait chez Celsius : reçu en ${h} h en crypto lors de notre test. Limites officielles : 2 500 $ par semaine jusqu'à 10 000 $ de gains, puis 10 000 $ par mois.`,
+      "Retrait chez Celsius Casino : 2 500 $ par semaine jusqu'à 10 000 $ de gains, puis 10 000 $ par mois. Règles officielles expliquées et conseils pratiques."
+    ),
     h1: 'Retrait chez Celsius Casino : les limites officielles expliquées',
     intro: [
       "Celsius fait partie des rares casinos de notre comparatif à publier des limites de retrait chiffrées. C'est une bonne nouvelle pour la transparence, mais il faut les connaître avant de jouer gros."

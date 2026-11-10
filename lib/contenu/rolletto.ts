@@ -1,11 +1,14 @@
 import type { ContenuCasino } from './types';
-import { titreAvisTeste } from './titre-test';
+import { avecTest, titreAvisTeste } from './titre-test';
 
 const rolletto: ContenuCasino = {
   avis: {
-    titre: titreAvisTeste('rolletto', 'Avis Rolletto Québec 2026', 'Avis Rolletto Casino au Québec 2026 : bonus 5 500 $ et retraits'),
-    description:
-      "Avis Rolletto au Québec : pack jusqu'à 5 500 $ + 200 tours gratuits, mise de 30 fois en 5 jours, licence CGA vérifiée. Les vrais chiffres, sans détour.",
+    titre: titreAvisTeste('rolletto', 'Avis Rolletto Casino 2026', 'Avis Rolletto Casino au Québec 2026 : bonus 5 500 $ et retraits'),
+    description: avecTest(
+      'rolletto',
+      (h) => `Testé en argent réel : retrait crypto reçu en ${h} h chez Rolletto. Pack jusqu'à 5 500 $ + 200 tours, mise de 30 fois en 5 jours, licence CGA vérifiée.`,
+      "Avis Rolletto au Québec : pack jusqu'à 5 500 $ + 200 tours gratuits, mise de 30 fois en 5 jours, licence CGA vérifiée. Les vrais chiffres, sans détour."
+    ),
     h1: 'Avis Rolletto Casino : le pack de 5 500 $ passé à la loupe',
     intro: [
       "Rolletto fait partie des casinos les mieux notés de notre comparatif, d'abord parce qu'il joue cartes sur table : la société qui l'exploite (Santeda International B.V., à Curaçao) et son numéro de licence auprès de la Curacao Gaming Authority sont affichés. C'est loin d'être le cas partout.",
@@ -62,6 +65,14 @@ const rolletto: ContenuCasino = {
       'Les amateurs de jeux de table : le bonus ne s’applique qu’aux machines à sous'
     ],
     faq: [
+      {
+        q: 'Quel est votre avis sur Rolletto Casino ?',
+        r: avecTest(
+          'rolletto',
+          (h) => `L'un des casinos les plus transparents de notre comparatif : exploitant et licence de la Curacao Gaming Authority affichés, et un retrait crypto reçu en ${h} h lors de notre test en argent réel. Son point faible : le bonus, à miser 30 fois en 5 jours seulement.`,
+          "L'un des casinos les plus transparents de notre comparatif : exploitant et licence de la Curacao Gaming Authority affichés. Son point faible : le bonus, à miser 30 fois en 5 jours seulement."
+        )
+      },
       {
         q: 'Rolletto est-il fiable ?',
         r: "C'est l'un des casinos les plus transparents de notre comparatif : l'exploitant (Santeda International B.V., n° 151296) et le numéro de licence de la Curacao Gaming Authority (OGL/2024/1798/1048) sont affichés. Le point à surveiller est le bonus, dont la mise doit être complétée en 5 jours."
@@ -149,8 +160,11 @@ const rolletto: ContenuCasino = {
 
   fiable: {
     titre: 'Rolletto est-il fiable ? Licence CGA et exploitant vérifiés',
-    description:
-      'Rolletto est-il fiable ? Licence OGL/2024/1798/1048 de la Curacao Gaming Authority et exploitant Santeda International B.V. : ce qui est vérifié.',
+    description: avecTest(
+      'rolletto',
+      (h) => `Rolletto est-il fiable ? Retrait crypto reçu en ${h} h lors de notre test, licence OGL/2024/1798/1048 de la Curacao Gaming Authority, exploitant vérifié.`,
+      'Rolletto est-il fiable ? Licence OGL/2024/1798/1048 de la Curacao Gaming Authority et exploitant Santeda International B.V. : ce qui est vérifié.'
+    ),
     h1: 'Rolletto est-il fiable ? Ce que nous avons pu vérifier',
     intro: [
       "« Fiable » ne veut rien dire sans preuves. Voici ce que Rolletto affiche publiquement, ce que nous avons pu vérifier, et les points qui restent à confirmer."
