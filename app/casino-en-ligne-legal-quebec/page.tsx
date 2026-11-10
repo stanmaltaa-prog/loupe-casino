@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Guide from '@/components/Guide';
 import Faq from '@/components/Faq';
+import TopTrois from '@/components/TopTrois';
 import { meta } from '@/lib/seo';
 import { CASINOS, cheminCasino, type Casino } from '@/lib/casinos';
 
@@ -23,7 +24,7 @@ const MAJ = '2026-11-09';
 const DESCRIPTION =
   "Loto-Québec, sites étrangers, loi 74 sur le blocage, projet d'encadrement : ce que dit vraiment la loi sur le casino en ligne au Québec, expliqué simplement.";
 
-export const metadata = meta({ titre: 'Casino en ligne légal au Québec : ce que dit la loi', description: DESCRIPTION, chemin: CHEMIN, type: 'article' });
+export const metadata = meta({ titre: 'Casino en ligne légal au Québec ? La loi expliquée (2026)', description: DESCRIPTION, chemin: CHEMIN, type: 'article' });
 
 const SOMMAIRE = [
   { id: 'reponse', titre: 'La réponse courte' },
@@ -60,6 +61,7 @@ export default function PageLegalite() {
         n&apos;a pas réussi à les bloquer. Pour vous, la conséquence principale est pratique : en cas de problème, vos recours
         passent par le régulateur étranger, pas par un organisme québécois.
       </p>
+      <TopTrois emplacement="guide-legalite-top3" titre="Les casinos étrangers les mieux notés de notre comparatif" />
 
       <h2 id="code-criminel">Ce que dit le Code criminel</h2>
       <p>
