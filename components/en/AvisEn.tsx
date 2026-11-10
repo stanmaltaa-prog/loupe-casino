@@ -2,6 +2,7 @@ import Link from 'next/link';
 import FilAriane from '../FilAriane';
 import Tampon from '../Tampon';
 import Faq from '../Faq';
+import { AUTEUR, ID_AUTEUR } from '@/lib/auteur';
 import JsonLd from '../JsonLd';
 import BoutonCasino from '../BoutonCasino';
 import FicheBoiteEn from './FicheBoiteEn';
@@ -34,7 +35,10 @@ export function textesAvis(c: Casino) {
   const t = en(c);
   const note = noteEn(noteGlobale(c));
   return {
-    titre: `${c.nom} Casino Review ${EN.verification.slice(0, 4)}: Bonus, Terms, Withdrawals`,
+    titre:
+      typeof c.test?.retraitCryptoHeures === 'number'
+        ? `${c.nom} Casino Review ${EN.verification.slice(0, 4)}: Crypto Payout in ${c.test.retraitCryptoHeures}h (Tested)`
+        : `${c.nom} Casino Review ${EN.verification.slice(0, 4)}: Bonus, Terms, Withdrawals`,
     description: [
       `${c.nom} review for Canadian players: ${t.offre.titre}. Wagering ${miseEn(c)}. Licence and withdrawals checked. Score ${note}/10.`,
       `${c.nom} review for Canada: ${t.offre.titre}. Wagering ${miseEn(c)}. Licence and withdrawals checked. Score ${note}/10.`,
@@ -331,8 +335,8 @@ export default function AvisEn({ c }: { c: Casino }) {
             url: absolu(chemin),
             inLanguage: EN.langue,
             itemReviewed: { '@type': 'Organization', name: c.nom },
-            reviewRating: { '@type': 'Rating', ratingValue: note, bestRating: 10, worstRating: 0 },
-            author: { '@type': 'Organization', name: SITE.nom, url: `${SITE.url}/` },
+            reviewRating: { '@type': 'Rating', ratingValue: Math.round(Number(note) * 10) / 10, bestRating: 10, worstRating: 0 },
+            author: { '@type': 'Person', '@id': ID_AUTEUR, name: AUTEUR.nom, url: absolu(AUTEUR.chemin) },
             publisher: { '@type': 'Organization', name: SITE.nom, url: `${SITE.url}/` },
             datePublished: EN.publication,
             dateModified: modifie,

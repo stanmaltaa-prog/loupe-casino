@@ -10,8 +10,10 @@ import CarteOffreEn from './CarteOffreEn';
 import MentionEn from './MentionEn';
 import AideEn from './AideEn';
 import SignatureEn from './SignatureEn';
+import CollantEn from './CollantEn';
+import TopTroisEn from './TopTroisEn';
 import { CASINOS, noteGlobale, parId, rang } from '@/lib/casinos';
-import { cheminEn, en } from '@/lib/en/casinos';
+import { cheminEn, en, texteBoutonEn } from '@/lib/en/casinos';
 import { EN, HORS_ZONE } from '@/lib/en/site';
 import { schemaPage } from '@/lib/seo';
 import type { Bloc, PageGuide } from '@/lib/contenu/pages/types';
@@ -201,12 +203,13 @@ export function GabaritEn({
               <p className="offre-titre" style={{ fontSize: '1.15rem' }}>
                 {en(top).offre.titre}
               </p>
-              <BoutonCasino casino={top} emplacement={emplacement} texte="Get the bonus" large />
+              <BoutonCasino casino={top} emplacement={emplacement} texte={texteBoutonEn(top)} large />
               <MentionEn />
             </div>
           )}
         </aside>
       </div>
+      {sansOffre ? null : <CollantEn casino={top} emplacement={`${emplacement}-sticky`} />}
       <JsonLd donnees={schemaPage({ titre: h1, description, chemin, publie: EN.publication, modifie, type, langue: EN.langue })} />
     </>
   );
@@ -242,7 +245,11 @@ export default function GuideEn({
       <p className="petit">
         <strong>{HORS_ZONE}.</strong> 19+ (18+ in Manitoba and Quebec).
       </p>
-      {page.offresHaut?.length ? <OffresEn ids={page.offresHaut} emplacement={`${emplacement}-top`} /> : null}
+      {page.offresHaut === undefined ? (
+        sansOffre ? null : <TopTroisEn emplacement={`${emplacement}-top3`} />
+      ) : page.offresHaut.length ? (
+        <OffresEn ids={page.offresHaut} emplacement={`${emplacement}-top`} />
+      ) : null}
       {page.sections.map((s) => (
         <section key={s.id} aria-labelledby={s.id}>
           <h2 id={s.id}>{s.titre}</h2>
