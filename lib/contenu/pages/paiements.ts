@@ -1,6 +1,7 @@
 import type { PageGuide } from './types';
 import { CASINOS, cheminCasino, depotMinTexte, exempleMise, miseTexte, type Casino } from '@/lib/casinos';
 import { dateLongue, montant } from '@/lib/site';
+import { RESUMES_MARQUES } from '../marques';
 
 /**
  * Pages paiements (novembre 2026) : Interac, retrait rapide, dépôt minimum.
@@ -435,6 +436,19 @@ const paiements: PageGuide[] = [
               '**La condition de mise** : un petit bonus avec une mise de 50 fois ou plus reste difficile à transformer en argent retirable.',
               '**Le plafond de gain** des tours gratuits et des bonus sans dépôt : chez Celsius, par exemple, il est de 100 $.'
             ]
+          },
+          {
+            type: 'tableau',
+            legende: 'Casinos très cherchés au Canada, hors de notre comparatif. Conditions officielles relues le 10 novembre 2026.',
+            entetes: ['Casino (notre avis)', 'Premier dépôt', 'Ce qu’il donne'],
+            lignes: RESUMES_MARQUES.filter((m) => m.depot !== null)
+              .sort((a, b) => (a.depot ?? 0) - (b.depot ?? 0))
+              .map((m) => [`[${m.nom}](${m.fr.avis})`, montant(m.depot!, '$'), m.offreFr])
+          },
+          {
+            type: 'p',
+            texte:
+              'Ces offres à 1 $, 5 $ ou 10 $ sont réelles, mais leurs gains doivent être misés 200 fois : elles servent à jouer, pas à retirer. Le détail, marque par marque, est dans chaque avis.'
           }
         ]
       },
