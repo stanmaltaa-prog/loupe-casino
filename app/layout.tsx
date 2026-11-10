@@ -35,6 +35,8 @@ export const metadata: Metadata = {
   applicationName: SITE.nom,
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
   formatDetection: { telephone: false },
+  /** Validation de Bing Webmaster Tools : ne pas retirer, sinon le site perd sa validation. */
+  verification: { other: { 'msvalidate.01': '58BEB5A133504FE220F538A1B943C766' } },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '16x16 32x32 48x48' },
