@@ -26,12 +26,12 @@ export default function PiedEn() {
             <ul>
               {CASINOS.map((c) => (
                 <li key={c.id}>
-                  <Link href={cheminEn(c)}>{c.nom} review</Link>
+                  <Link href={cheminEn(c)}>{c.nom} Casino review</Link>
                 </li>
               ))}
               {LIENS_MARQUES.map((m) => (
                 <li key={m.en}>
-                  <Link href={m.en}>{m.nom} review</Link>
+                  <Link href={m.en}>{m.nom} Casino review</Link>
                 </li>
               ))}
               <li>
