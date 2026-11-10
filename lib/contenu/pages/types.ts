@@ -40,6 +40,8 @@ export type PageGuide = {
   modifie: string;
   /** Casinos à mettre en avant en haut de page (identifiants), ou aucun. */
   offresHaut?: string[];
+  /** Titre du bloc « top 3 » en haut de page (par défaut : « Notre top 3 du moment »). */
+  titreTop?: string;
   sections: SectionGuide[];
   faq: Question[];
   sources?: { titre: string; url: string }[];
