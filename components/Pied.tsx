@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { LogoLoupe } from './Icones';
 import { CASINOS, cheminCasino } from '@/lib/casinos';
 import { AIDE, SITE, dateLongue } from '@/lib/site';
+import { LIENS_MARQUES } from '@/lib/contenu/marques';
 
 export default function Pied() {
   return (
@@ -24,6 +25,11 @@ export default function Pied() {
               {CASINOS.map((c) => (
                 <li key={c.id}>
                   <Link href={cheminCasino(c)}>Avis {c.nom}</Link>
+                </li>
+              ))}
+              {LIENS_MARQUES.map((m) => (
+                <li key={m.fr}>
+                  <Link href={m.fr}>Avis {m.nom}</Link>
                 </li>
               ))}
               <li>

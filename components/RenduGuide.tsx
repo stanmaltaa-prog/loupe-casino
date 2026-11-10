@@ -156,7 +156,7 @@ export default function RenduGuide({ page }: { page: PageGuide }) {
       {page.offresHaut === undefined ? (
         <TopTrois
           casinos={page.chemin.includes('paris-sportif') ? avecSport() : undefined}
-          titre={page.chemin.includes('paris-sportif') ? 'Notre top 3 pour parier' : undefined}
+          titre={page.titreTop ?? (page.chemin.includes('paris-sportif') ? 'Notre top 3 pour parier' : undefined)}
           emplacement={`${emplacement}-top3`}
         />
       ) : page.offresHaut.length ? (
