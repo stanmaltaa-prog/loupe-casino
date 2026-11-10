@@ -118,6 +118,22 @@ export function lienSortie(c: Casino, emplacement: string): string {
   return `/go/${c.id}/?src=${encodeURIComponent(emplacement)}`;
 }
 
+/**
+ * Texte d'un grand bouton de sortie, construit à partir de l'offre affichée
+ * (« Obtenir jusqu'à 2 000 $ + 300 tours »). Si l'offre ne commence pas par « Jusqu'à »,
+ * le bouton reste générique pour ne rien inventer.
+ */
+export function texteBouton(c: Casino): string {
+  const t = c.offre.titre.replace(/\s+tours gratuits/, ' tours');
+  if (/^jusqu/i.test(t)) return `Obtenir j${t.slice(1)}`;
+  return `Obtenir le bonus ${c.nom}`;
+}
+
+/** Casinos qui proposent des paris sportifs, dans l'ordre du classement. */
+export function avecSport(): Casino[] {
+  return CASINOS.filter((c) => c.produit.sport);
+}
+
 export const SOUS_PAGES: Record<SousPage, { titreCourt: string; segment: SousPage; resume: string }> = {
   bonus: { titreCourt: 'Bonus', segment: 'bonus', resume: 'Paliers, conditions officielles et exemple chiffré.' },
   retrait: { titreCourt: 'Retraits', segment: 'retrait', resume: 'Limites, délais et conseils pour retirer sans accroc.' },
