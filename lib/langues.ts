@@ -26,7 +26,7 @@ export const PAIRES: Record<string, string> = {
 };
 
 // Avis des marques sans deal (lib/contenu/marques.ts)
-for (const m of ['yukon-gold-casino']) {
+for (const m of ['yukon-gold-casino', 'zodiac-casino']) {
   PAIRES[`/${m}/`] = `/en-ca/${m}/`;
   PAIRES[`/${m}/bonus/`] = `/en-ca/${m}/bonus/`;
   PAIRES[`/${m}/bonus-sans-depot/`] = `/en-ca/${m}/no-deposit-bonus/`;
