@@ -306,7 +306,7 @@ const jeux: PageGuide[] = [
     parent: JEUX,
     titre: 'Roulette en ligne au Québec : règles, gains et versions',
     description:
-      'Roulette en ligne : européenne, française ou américaine, tableau des gains, avantage de la maison (2,70 % ou 5,26 %) et pourquoi la martingale échoue.',
+      'Roulette en ligne au Québec : la version européenne coûte deux fois moins (2,70 % contre 5,26 %). Règles, tableau des gains et casinos testés en argent réel.',
     h1: 'Roulette en ligne au Québec : les règles, les gains et la version à choisir',
     chapeau:
       "La roulette semble simple, mais toutes les tables ne se valent pas. Le choix de la version change à lui seul l'avantage de la maison du simple au double.",
@@ -419,7 +419,7 @@ const jeux: PageGuide[] = [
     parent: JEUX,
     titre: 'Blackjack en ligne au Québec : règles, stratégie, argent réel',
     description:
-      "Blackjack en ligne : règles, stratégie de base qui ramène l'avantage de la maison vers 0,5 %, et les pièges du 6:5 et de l'assurance.",
+      "Blackjack en ligne au Québec : bien joué, l'avantage de la maison tombe vers 0,5 %. Règles, stratégie de base, pièges du 6:5 et casinos testés en argent réel.",
     h1: 'Blackjack en ligne au Québec : les règles et la stratégie qui changent tout',
     chapeau:
       "C'est le jeu de table où vos décisions comptent le plus. Bien joué, le blackjack a l'un des plus faibles avantages pour la maison du casino ; mal joué, il coûte plusieurs fois plus cher.",

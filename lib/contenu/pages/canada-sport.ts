@@ -332,7 +332,7 @@ const canadaSport: PageGuide[] = [
     nomFil: 'Paris sportifs',
     titre: 'Paris sportif au Québec : meilleurs sites et bonus (2026)',
     description:
-      'Paris sportifs en ligne au Québec : la loi, les bonus sport de Velobet, Rolletto et BetPortal décortiqués, et comment lire une cote avant de parier.',
+      'Paris sportifs au Québec : bonus sport de Velobet, Rolletto et BetPortal comparés, retrait reçu en 1 h chez Velobet lors de notre test, et ce que dit la loi.',
     h1: 'Paris sportifs au Québec : les meilleurs sites, la loi et les bonus',
     chapeau:
       "Les bonus sport paraissent généreux, mais leurs conditions sont souvent plus dures que celles des bonus casino. Voici ce qu'elles exigent vraiment, et ce qu'il faut savoir avant de parier.",

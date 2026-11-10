@@ -15,7 +15,7 @@ const crash: PageGuide[] = [
     parent: JEUX,
     titre: 'Jeux de crash : Aviator, Chicken Road, Plinko expliqués',
     description:
-      'Jeux de crash : comment marchent Aviator, Chicken Road et Plinko, leur RTP officiel (97 à 98 %), les vrais risques et les arnaques aux « prédicteurs ».',
+      'Aviator, Chicken Road, Plinko : RTP officiel de 97 à 98 %, comment marche le multiplicateur, et pourquoi les « prédicteurs » sont des arnaques.',
     h1: 'Jeux de crash : le principe, les vrais chiffres et les pièges',
     chapeau:
       "Un multiplicateur grimpe, et vous devez encaisser avant qu'il s'arrête. Ces jeux très rapides sont devenus les plus recherchés du casino en ligne. Voici ce qu'ils rendent vraiment.",
