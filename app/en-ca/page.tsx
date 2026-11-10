@@ -8,6 +8,7 @@ import NoteLoupe from '@/components/NoteLoupe';
 import CarteOffreEn from '@/components/en/CarteOffreEn';
 import TableauEn from '@/components/en/TableauEn';
 import AideEn from '@/components/en/AideEn';
+import CollantEn from '@/components/en/CollantEn';
 import { CASINOS, CRITERES, noteGlobale, parId, type Casino } from '@/lib/casinos';
 import { CRITERES_EN, cheminEn, en, exempleEn, miseEn } from '@/lib/en/casinos';
 import { EN, MESSAGE_ZONE, dateEn, moisEn } from '@/lib/en/site';
@@ -100,7 +101,7 @@ export default function AccueilEn() {
                     <span>{en(c).offre.titre}</span>
                   </span>
                   <NoteLoupe note={noteGlobale(c)} taille={38} legende={false} lang="en" />
-                  <BoutonCasino casino={c} emplacement="en-accueil-podium" texte="Play" />
+                  <BoutonCasino casino={c} emplacement="en-accueil-podium" texte="Get it" />
                 </li>
               ))}
             </ol>
@@ -300,6 +301,7 @@ export default function AccueilEn() {
         <AideEn />
       </div>
 
+      <CollantEn casino={CASINOS[0]} emplacement="en-home-sticky" />
       <JsonLd
         donnees={[
           schemaPage({
