@@ -1,8 +1,9 @@
 import type { ContenuCasino } from './types';
+import { titreAvisTeste } from './titre-test';
 
 const onewin: ContenuCasino = {
   avis: {
-    titre: '1win Canada : avis 2026, bonus 600 % et points à vérifier',
+    titre: titreAvisTeste('1win', '1win Canada, avis 2026', '1win Canada : avis 2026, bonus 600 % et points à vérifier'),
     description:
       "1win au Canada et au Québec : bonus jusqu'à 600 % sur 4 dépôts + 500 tours gratuits, plus de 11 000 jeux. Ce qui est confirmé et ce qu'il faut vérifier.",
     h1: 'Avis 1win Canada : un catalogue géant, des conditions encore à confirmer',
@@ -28,7 +29,8 @@ const onewin: ContenuCasino = {
       {
         titre: 'Jeux et service',
         paragraphes: [
-          "1win annonce plus de 11 000 jeux, du casino en direct, des jeux rapides et des paris sportifs, ainsi qu'un service à la clientèle 24 h sur 24. Le site propose aussi un programme de fidélité et ses propres jeux maison."
+          "1win annonce plus de 11 000 jeux, du casino en direct, des jeux rapides et des paris sportifs, ainsi qu'un service à la clientèle 24 h sur 24. Le site propose aussi un programme de fidélité et ses propres jeux maison.",
+          'Pour vous connecter ou jouer sur téléphone, voir notre guide [connexion et application 1win](/1win-connexion/).'
         ]
       }
     ],
@@ -94,7 +96,8 @@ const onewin: ContenuCasino = {
       {
         titre: 'Où trouver les réponses',
         paragraphes: [
-          "La page des bonus de 1win contient une foire aux questions (solde bonus, activation, où miser, annulation) et une section « Conditions de mise ». Lisez-les avant votre premier dépôt et gardez une capture d'écran des conditions au moment où vous réclamez le bonus."
+          "La page des bonus de 1win contient une foire aux questions (solde bonus, activation, où miser, annulation) et une section « Conditions de mise ». Lisez-les avant votre premier dépôt et gardez une capture d'écran des conditions au moment où vous réclamez le bonus.",
+          'Faut-il un code ? Le point est dans notre page [code promo 1win](/1win-code-promo/).'
         ]
       }
     ],

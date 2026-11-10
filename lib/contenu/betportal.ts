@@ -1,8 +1,9 @@
 import type { ContenuCasino } from './types';
+import { titreAvisTeste } from './titre-test';
 
 const betportal: ContenuCasino = {
   avis: {
-    titre: 'Avis BetPortal Casino 2026 : bonus 1 000 $ et mise 30x',
+    titre: titreAvisTeste('betportal', 'Avis BetPortal Casino 2026', 'Avis BetPortal Casino 2026 : bonus 1 000 $ et mise 30x'),
     description:
       "Avis BetPortal : jusqu'à 1 000 $ + 250 tours gratuits, mise de 30 fois le bonus seulement, remise quotidienne jusqu'à 25 %. Le bon et le moins bon.",
     h1: 'Avis BetPortal : le bonus le plus facile à débloquer, une transparence à revoir',

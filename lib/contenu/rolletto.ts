@@ -1,8 +1,9 @@
 import type { ContenuCasino } from './types';
+import { titreAvisTeste } from './titre-test';
 
 const rolletto: ContenuCasino = {
   avis: {
-    titre: 'Avis Rolletto Casino au Québec 2026 : bonus 5 500 $ et retraits',
+    titre: titreAvisTeste('rolletto', 'Avis Rolletto Québec 2026', 'Avis Rolletto Casino au Québec 2026 : bonus 5 500 $ et retraits'),
     description:
       "Avis Rolletto au Québec : pack jusqu'à 5 500 $ + 200 tours gratuits, mise de 30 fois en 5 jours, licence CGA vérifiée. Les vrais chiffres, sans détour.",
     h1: 'Avis Rolletto Casino : le pack de 5 500 $ passé à la loupe',

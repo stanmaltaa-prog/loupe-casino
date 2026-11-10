@@ -1,4 +1,5 @@
 import type { ContenuCasino } from './types';
+import { titreAvisTeste } from './titre-test';
 
 /**
  * Velobet (novembre 2026) : page des promotions et conditions générales officielles (24velobet.com),
@@ -6,7 +7,7 @@ import type { ContenuCasino } from './types';
  */
 const velobet: ContenuCasino = {
   avis: {
-    titre: 'Avis Velobet Casino 2026 : bonus 330 %, mise en 30 jours',
+    titre: titreAvisTeste('velobet', 'Avis Velobet Casino 2026', 'Avis Velobet Casino 2026 : bonus 330 %, mise en 30 jours'),
     description:
       "Avis Velobet : jusqu'à 2 000 $ + 300 tours gratuits sur 3 dépôts, mise de 30 fois en 30 jours, exploitant et licence affichés. Le bon et le moins bon.",
     h1: 'Avis Velobet : le pack de Rolletto, avec le temps de le jouer',

@@ -1,8 +1,9 @@
 import type { ContenuCasino } from './types';
+import { titreAvisTeste } from './titre-test';
 
 const celsius: ContenuCasino = {
   avis: {
-    titre: 'Avis Celsius Casino au Québec 2026 : fiable ? Bonus, retraits',
+    titre: titreAvisTeste('celsius', 'Avis Celsius Casino 2026', 'Avis Celsius Casino au Québec 2026 : fiable ? Bonus, retraits'),
     description:
       "Avis Celsius Casino au Québec : bonus de 100 % puis 200 %, mise de 50 fois en 20 jours, retraits limités à 2 500 $ par semaine. Ce qu'il faut savoir.",
     h1: 'Avis Celsius Casino : un immense catalogue, des conditions à lire de près',
