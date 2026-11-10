@@ -22,7 +22,7 @@ function phraseLicence(c: Casino): string {
 const CHEMIN = '/casino-en-ligne-legal-quebec/';
 const MAJ = '2026-11-09';
 const DESCRIPTION =
-  "Loto-Québec, sites étrangers, loi 74 sur le blocage, projet d'encadrement : ce que dit vraiment la loi sur le casino en ligne au Québec, expliqué simplement.";
+  "Loto-Québec est le seul casino en ligne autorisé au Québec ; les sites étrangers sont dans une zone grise. La loi 74 et vos recours, expliqués simplement.";
 
 export const metadata = meta({ titre: 'Casino en ligne légal au Québec ? La loi expliquée (2026)', description: DESCRIPTION, chemin: CHEMIN, type: 'article' });
 
@@ -162,6 +162,10 @@ export default function PageLegalite() {
 
       <Faq
         questions={[
+          {
+            q: 'Le casino en ligne est-il légal au Québec ?',
+            r: "Oui, sur le site de Loto-Québec, seul exploitant autorisé par le gouvernement. Les casinos étrangers n'ont pas d'autorisation québécoise et restent dans une zone grise : le Québec n'a pas réussi à les bloquer, et vos recours en cas de litige passent par le régulateur étranger. Ce n'est pas un avis juridique."
+          },
           {
             q: 'Est-ce illégal de jouer sur un casino en ligne étranger au Québec ?',
             r: "Les sites étrangers ne sont pas autorisés par le Québec, qui n'a toutefois pas pu les bloquer. Les dispositions du Code criminel visent d'abord l'exploitation de jeux non autorisés. Le principal risque pour vous est l'absence de recours québécois en cas de litige. Ce n'est pas un avis juridique."
