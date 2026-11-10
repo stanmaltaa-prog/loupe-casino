@@ -746,6 +746,7 @@ export const PAGES_EN: PageGuide[] = [
       'Gambling should stay entertainment. Here are Canada’s lower-risk gambling guidelines, the tools casinos offer to keep control, and the help line for your province.',
     modifie: MAJ,
     resume: 'Help lines by province, lower-risk guidelines and casino tools.',
+    offresHaut: [],
     sections: [
       {
         id: 'help',
@@ -1129,6 +1130,97 @@ export const PAGES_EN: PageGuide[] = [
       connexes: ['/en-ca/fast-withdrawal-casinos/', '/en-ca/crypto-casinos/', '/en-ca/how-we-rate/']
     };
     return page;
+  })(),
+  // ——————————————————————————— Online casino Quebec
+  (() => {
+    const top = CASINOS[0];
+    return {
+      chemin: '/en-ca/online-casino-quebec/',
+      nomFil: 'Online casino Quebec',
+      titre: 'Online Casino Quebec: Best Sites Compared (2026)',
+      description:
+        'Online casinos for Quebec players compared: our ranking, real-money withdrawal tests in Canadian dollars, bonus wagering and what Quebec law says.',
+      h1: 'Online casinos in Quebec: our ranking and what the law says',
+      chapeau:
+        'Quebec players can join online casinos run from abroad, alongside Loto-Québec’s own site. Here is our ranking, built on a public rating grid and real-money withdrawal tests, and what Quebec law means for you.',
+      modifie: MAJ,
+      resume: 'Our ranking for Quebec players, with real withdrawal tests and the legal context.',
+      sections: [
+        {
+          id: 'ranking',
+          titre: 'Our ranking for Quebec players',
+          blocs: [
+            {
+              type: 'tableau' as const,
+              legende: `Scores from our public rating grid. Withdrawal times observed in our real-money tests (latest: ${dateEn(DERNIER_RELEVE)}).`,
+              entetes: ['Rank', 'Casino', 'Score', 'Welcome offer', 'Crypto withdrawal (tested)'],
+              lignes: CASINOS.map((c, i) => [
+                String(i + 1),
+                lien(c),
+                `${noteEn(noteGlobale(c))}/10`,
+                en(c).offre.titre,
+                `**${heuresEn(dernier(c, 'crypto')?.delaiHeures)}**`
+              ])
+            },
+            {
+              type: 'p' as const,
+              texte: `${lien(top)} tops our grid for now. Every score is explained in [how we rate](/en-ca/how-we-rate/), and every withdrawal result is dated in our [withdrawal times log](/en-ca/casino-withdrawal-times/).`
+            },
+            ZONE
+          ]
+        },
+        {
+          id: 'law',
+          titre: 'Is online gambling legal in Quebec?',
+          blocs: [
+            {
+              type: 'p' as const,
+              texte:
+                'In Quebec, **Loto-Québec is the only operator the government authorizes** to offer online gambling. The private casinos in our comparison are run from abroad, under licences issued elsewhere (Curaçao or Anjouan, for example). They accept Quebec players, but they have no Quebec authorization.'
+            },
+            {
+              type: 'liste' as const,
+              items: [
+                '**2016:** Quebec passed rules (Bill 74) requiring internet providers to block unauthorized gambling sites.',
+                '**2018:** the Quebec Superior Court declared them unconstitutional, as they encroached on federal powers.',
+                '**2021:** the Quebec Court of Appeal upheld that ruling.'
+              ]
+            },
+            {
+              type: 'p' as const,
+              texte:
+                'In practice, if something goes wrong at an offshore casino, your recourse goes through its foreign regulator, not a Quebec body. The minimum age in Quebec is 18. More in our guide [is online gambling legal in Canada?](/en-ca/is-online-gambling-legal-in-canada/)'
+            }
+          ]
+        },
+        {
+          id: 'payments',
+          titre: 'Paying from Quebec',
+          blocs: [
+            {
+              type: 'p' as const,
+              texte:
+                'When we last checked, none of the casinos we compare showed Interac on its official pages, and most of them accept crypto. Account currency matters too: our tests were made with accounts in Canadian dollars. Details in [Interac casinos](/en-ca/interac-casinos/) and [crypto casinos](/en-ca/crypto-casinos/).'
+            }
+          ]
+        }
+      ],
+      faq: [
+        {
+          q: 'What is the best online casino in Quebec?',
+          r: `On our public rating grid, ${top.nom} currently scores highest (${noteEn(noteGlobale(top))}/10). The full ranking, with real withdrawal tests, is at the top of this page.`
+        },
+        {
+          q: 'Is it legal to play at online casinos in Quebec?',
+          r: 'Loto-Québec is the only authorized operator in Quebec. Offshore casinos accept Quebec players under foreign licences, without Quebec authorization; Quebec’s attempt to have them blocked was struck down by the courts.'
+        },
+        {
+          q: 'What is the gambling age in Quebec?',
+          r: '18. In most other provinces it is 19, except Manitoba (18).'
+        }
+      ],
+      connexes: ['/en-ca/is-online-gambling-legal-in-canada/', '/en-ca/casino-withdrawal-times/', '/en-ca/interac-casinos/']
+    } satisfies PageGuide;
   })()
 ];
 

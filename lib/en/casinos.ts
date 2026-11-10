@@ -485,6 +485,13 @@ export function en(c: Casino): CasinoEn {
   return CASINOS_EN[c.id];
 }
 
+/** Text of a large exit button, built from the offer shown ("Get up to $2,000 + 300 spins"). */
+export function texteBoutonEn(c: Casino): string {
+  const t = en(c).offre.titre.replace(/\s+free spins/, ' spins');
+  if (/^up to/i.test(t)) return `Get u${t.slice(1)}`;
+  return `Get the ${c.nom} bonus`;
+}
+
 export const CRITERES_EN: Record<Critere, { nom: string; question: string }> = {
   transparence: { nom: 'Transparency and licence', question: 'Do we know who runs the site and under which licence? Can it be checked?' },
   bonus: { nom: 'Bonus terms', question: 'How much must you wager, how fast, on which games, with what maximum bet?' },
