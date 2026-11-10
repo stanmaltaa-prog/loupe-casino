@@ -56,6 +56,18 @@ export default function Pied() {
                 <Link href="/casino-depot-minimum/">Casino à dépôt minimum</Link>
               </li>
               <li>
+                <Link href="/casino-en-ligne-le-plus-payant/">Casino le plus payant</Link>
+              </li>
+              <li>
+                <Link href="/casino-en-ligne-fiable/">Casino en ligne fiable</Link>
+              </li>
+              <li>
+                <Link href="/casino-bonus-sans-depot/">Bonus sans dépôt</Link>
+              </li>
+              <li>
+                <Link href="/nouveau-casino-en-ligne/">Nouveau casino en ligne</Link>
+              </li>
+              <li>
                 <Link href="/loto-quebec-casino-en-ligne/">Loto-Québec en ligne</Link>
               </li>
               <li>
@@ -89,6 +101,12 @@ export default function Pied() {
               </li>
               <li>
                 <Link href="/paris-sportifs-quebec/">Paris sportifs</Link>
+              </li>
+              <li>
+                <Link href="/sites-paris-sportifs-canada/">Sites de paris au Canada</Link>
+              </li>
+              <li>
+                <Link href="/bonus-paris-sportifs/">Bonus paris sportifs</Link>
               </li>
               <li>
                 <Link href="/mise-o-jeu/">Mise-o-jeu</Link>

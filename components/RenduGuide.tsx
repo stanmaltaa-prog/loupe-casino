@@ -9,7 +9,8 @@ import GrilleJeux from './GrilleJeux';
 import GrilleTables from './GrilleTables';
 import { MACHINES } from '@/lib/contenu/machines';
 import { TABLES, parFamille } from '@/lib/contenu/tables';
-import { CASINOS, cheminCasino, parId, rang } from '@/lib/casinos';
+import TopTrois from './TopTrois';
+import { CASINOS, avecSport, cheminCasino, parId, rang } from '@/lib/casinos';
 import { pageParChemin } from '@/lib/contenu/pages';
 import type { Bloc, PageGuide } from '@/lib/contenu/pages/types';
 
@@ -152,7 +153,15 @@ export default function RenduGuide({ page }: { page: PageGuide }) {
       sommaire={page.sections.map((s) => ({ id: s.id, titre: s.titre }))}
       emplacement={emplacement}
     >
-      {page.offresHaut?.length ? <Offres ids={page.offresHaut} emplacement={`${emplacement}-haut`} /> : null}
+      {page.offresHaut === undefined ? (
+        <TopTrois
+          casinos={page.chemin.includes('paris-sportif') ? avecSport() : undefined}
+          titre={page.chemin.includes('paris-sportif') ? 'Notre top 3 pour parier' : undefined}
+          emplacement={`${emplacement}-top3`}
+        />
+      ) : page.offresHaut.length ? (
+        <Offres ids={page.offresHaut} emplacement={`${emplacement}-haut`} />
+      ) : null}
       {page.sections.map((s) => (
         <section key={s.id} aria-labelledby={s.id}>
           <h2 id={s.id}>{s.titre}</h2>

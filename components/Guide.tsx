@@ -6,7 +6,8 @@ import JsonLd from './JsonLd';
 import NoteLoupe from './NoteLoupe';
 import BoutonCasino, { MentionCta } from './BoutonCasino';
 import EncadreAide from './EncadreAide';
-import { CASINOS, cheminCasino, noteGlobale } from '@/lib/casinos';
+import CtaCollant from './CtaCollant';
+import { CASINOS, cheminCasino, noteGlobale, texteBouton } from '@/lib/casinos';
 import { schemaPage } from '@/lib/seo';
 
 export type EntreeSommaire = { id: string; titre: string };
@@ -83,12 +84,13 @@ export default function Guide({
             <p className="offre-titre" style={{ fontSize: '1.15rem' }}>
               {top.offre.titre}
             </p>
-            <BoutonCasino casino={top} emplacement={emplacement} texte="Obtenir le bonus" large />
+            <BoutonCasino casino={top} emplacement={emplacement} texte={texteBouton(top)} large />
             <MentionCta />
           </div>
           )}
         </aside>
       </div>
+      {sansOffre ? null : <CtaCollant casino={top} emplacement={`${emplacement}-collant`} />}
       <JsonLd donnees={schemaPage({ titre: h1, description, chemin, publie: '2026-11-03', modifie, type })} />
     </>
   );

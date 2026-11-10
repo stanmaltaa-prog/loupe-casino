@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { cheminCasino, noteGlobale, type Casino } from '@/lib/casinos';
+import { cheminCasino, noteGlobale, texteBouton, type Casino } from '@/lib/casinos';
 import NoteLoupe from './NoteLoupe';
 import Marque from './Marque';
 import Conditions from './Conditions';
@@ -35,7 +35,7 @@ export default function CarteOffre({ casino, rang, emplacement }: { casino: Casi
       </div>
       <div className="offre-action">
         <NoteLoupe note={noteGlobale(casino)} />
-        <BoutonCasino casino={casino} emplacement={emplacement} texte="Obtenir le bonus" large />
+        <BoutonCasino casino={casino} emplacement={emplacement} texte={texteBouton(casino)} large />
         <Link href={cheminCasino(casino)} className="cta-secondaire">
           Lire l&apos;avis complet
         </Link>
