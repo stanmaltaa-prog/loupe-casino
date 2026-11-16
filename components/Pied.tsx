@@ -47,6 +47,9 @@ export default function Pied() {
                 <Link href="/casino-en-ligne-legal-quebec/">Casino en ligne légal au Québec ?</Link>
               </li>
               <li>
+                <Link href="/statistiques-jeu-en-ligne-quebec/">Le jeu en ligne au Québec en chiffres</Link>
+              </li>
+              <li>
                 <Link href="/bonus-casino-quebec/">Bonus de casino</Link>
               </li>
               <li>
