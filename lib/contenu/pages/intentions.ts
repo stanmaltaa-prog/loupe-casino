@@ -12,6 +12,7 @@ import {
   type Casino
 } from '@/lib/casinos';
 import { MACHINES } from '@/lib/contenu/machines';
+import { TABLES, cheminTable, rtpTable } from '@/lib/contenu/tables';
 import { DERNIER_RELEVE, classementRetraits, dernier } from '@/lib/tests';
 import { dateLongue, montant } from '@/lib/site';
 import { CTA_BETPORTAL, CTA_ROLLETTO, CTA_VELOBET } from './canada-sport';
@@ -43,18 +44,26 @@ const EXEMPLES = CASINOS.map((c) => ({ c, ex: exempleMise(c, 100) })).filter((x)
 }[];
 const MOINS_A_MISER = [...EXEMPLES].sort((a, b) => a.ex.aMiser - b.ex.aMiser)[0];
 
+/** Mise à jour de la page « le plus payant » (sections jeux de table, retrait rapide, impôt). */
+const MAJ_PAYANT = '2026-11-16';
+const TOP_TABLES = TABLES.filter((t) => t.rtp !== null).sort((a, b) => (b.rtp as number) - (a.rtp as number)).slice(0, 5);
+const FAMILLE_FR: Record<string, string> = { blackjack: 'Blackjack', roulette: 'Roulette', show: 'Jeu télévisé' };
+const delais = (moyen: 'crypto' | 'carte') =>
+  RAPIDES.map((c) => dernier(c, moyen)?.delaiHeures).filter((n): n is number => typeof n === 'number');
+const fourchette = (l: number[]) => (l.length ? (Math.min(...l) === Math.max(...l) ? `${Math.min(...l)} h` : `${Math.min(...l)} à ${Math.max(...l)} h`) : 'non testé');
+
 const TOP_RTP = [...MACHINES].sort((a, b) => b.rtp - a.rtp).slice(0, 5);
 
 const plusPayant: PageGuide = {
   chemin: '/casino-en-ligne-le-plus-payant/',
   nomFil: 'Casino le plus payant',
-  titre: 'Casino en ligne le plus payant au Québec (2026)',
+  titre: `Casino en ligne le plus payant au Québec : top ${RAPIDES.length} (2026)`,
   description:
-    'Quel casino en ligne paie le mieux au Québec ? Délais de retrait testés en argent réel, plafonds, mise du bonus et taux de retour des jeux, casino par casino.',
-  h1: 'Casino en ligne le plus payant au Québec : ce qui compte vraiment',
+    'Quel casino en ligne paie le mieux au Québec ? Classement par retraits testés en argent réel, plafonds, mise du bonus et jeux au meilleur taux de retour.',
+  h1: `Casino en ligne le plus payant au Québec : notre top ${RAPIDES.length}`,
   chapeau:
     "Aucun casino ne fait gagner plus que les autres à long terme : l'avantage reste toujours du côté de la maison. Ce qui change d'un site à l'autre, c'est la vitesse et le plafond des retraits, la mise exigée par le bonus et le taux de retour des jeux. Voici ces quatre critères, mesurés.",
-  modifie: MAJ,
+  modifie: MAJ_PAYANT,
   resume: 'Retraits testés, plafonds, mise du bonus et RTP : ce qui fait vraiment un casino « payant ».',
   sections: [
     {
@@ -117,6 +126,60 @@ const plusPayant: PageGuide = {
       ]
     },
     {
+      id: 'tables',
+      titre: 'Les jeux de table qui rendent le plus',
+      blocs: [
+        {
+          type: 'p',
+          texte:
+            'Les jeux de table rendent souvent plus que les machines à sous, à condition de bien jouer : au blackjack, le taux de retour dépasse 99 % avec une stratégie de base parfaite. Voici les cinq jeux de table de notre catalogue au RTP le plus élevé.'
+        },
+        {
+          type: 'tableau',
+          legende: 'RTP principal publié pour chaque jeu ; le détail et la source sont sur chaque fiche.',
+          entetes: ['Jeu', 'Type', 'RTP', 'À savoir'],
+          lignes: TOP_TABLES.map((t) => [`[${t.nom}](${cheminTable(t)})`, FAMILLE_FR[t.famille] || t.famille, rtpTable(t), t.rtpNote])
+        },
+        {
+          type: 'p',
+          texte:
+            'Ces taux sont des moyennes sur des millions de parties : ils ne garantissent rien sur une soirée. Si vous jouez avec un bonus, vérifiez dans ses conditions combien les jeux de table comptent pour la mise : souvent beaucoup moins que les machines à sous.'
+        }
+      ]
+    },
+    {
+      id: 'payer-vite',
+      titre: 'Comment être payé plus vite',
+      blocs: [
+        {
+          type: 'liste',
+          ordonnee: true,
+          items: [
+            '**Faites vérifier votre identité dès l’inscription.** Un casino peut demander une pièce d’identité et un justificatif de domicile avant de payer : les fournir tôt évite de bloquer votre premier retrait.',
+            `**Retirez en crypto si vous le pouvez.** Lors de nos tests, les retraits en crypto sont arrivés en ${fourchette(delais('crypto'))}, contre ${fourchette(delais('carte'))} par carte.`,
+            '**Jouez sans bonus si vous voulez retirer vite.** Sans mise à remplir, vos gains sont retirables selon les seules règles de retrait du casino.',
+            '**Faites d’abord un petit retrait.** Il vous montre le délai réel avant que vous ne laissiez une grosse somme sur le compte.',
+            '**Gardez des traces.** Captures d’écran des conditions acceptées et de vos demandes de retrait : elles vous servent en cas de litige.'
+          ]
+        },
+        {
+          type: 'p',
+          texte: 'Délais et plafonds annoncés par chaque casino : [casino à retrait rapide](/casino-retrait-rapide/).'
+        }
+      ]
+    },
+    {
+      id: 'impot',
+      titre: 'Vos gains sont-ils imposables ?',
+      blocs: [
+        {
+          type: 'p',
+          texte:
+            'Selon l’Agence du revenu du Canada, les gains d’un joueur qui joue pour se divertir ne sont en règle générale pas imposables ; ils peuvent l’être si le jeu devient une activité professionnelle. Les chiffres du jeu en ligne au Québec : [le jeu en ligne au Québec en chiffres](/statistiques-jeu-en-ligne-quebec/).'
+        }
+      ]
+    },
+    {
       id: 'bonus',
       titre: 'Un gros bonus ne paie pas forcément plus',
       blocs: [
@@ -154,9 +217,25 @@ const plusPayant: PageGuide = {
     {
       q: 'Quel bonus fait gagner le plus ?',
       r: "Aucun bonus ne fait gagner à coup sûr. Le plus avantageux est souvent celui qui demande de miser le moins, dans le délai le plus long. Comparez le montant à miser plutôt que le pourcentage affiché."
+    },
+    {
+      q: 'Quel jeu de casino rapporte le plus ?',
+      r: TOP_TABLES[0]
+        ? `Parmi les jeux de notre catalogue, ${TOP_TABLES[0].nom} affiche le taux de retour le plus élevé : ${rtpTable(TOP_TABLES[0])}${TOP_TABLES[0].famille === 'blackjack' ? ', avec une stratégie de base parfaite' : ''}. C’est une moyenne à très long terme : aucun jeu ne fait gagner à coup sûr.`
+        : 'Les jeux de table, comme le blackjack joué avec une stratégie de base, ont en général le taux de retour le plus élevé.'
+    },
+    {
+      q: 'Les gains de casino en ligne sont-ils imposables au Québec ?',
+      r: 'Selon l’Agence du revenu du Canada, les gains d’un joueur qui joue pour se divertir ne sont en règle générale pas imposables. Ils peuvent l’être si le jeu devient une activité professionnelle.'
     }
   ],
-  sources: CASINOS.filter((c) => c.retraits).map((c) => ({ titre: `${c.nom} : règles de retrait publiées`, url: c.retraits!.source })),
+  sources: [
+    ...CASINOS.filter((c) => c.retraits).map((c) => ({ titre: `${c.nom} : règles de retrait publiées`, url: c.retraits!.source })),
+    {
+      titre: 'Agence du revenu du Canada, sources de revenus',
+      url: 'https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/revenu-petites-entreprises-travailleurs-independants/impot-revenu-entreprises/revenus-entreprise/sources-revenu.html'
+    }
+  ],
   connexes: ['/delais-de-retrait-casino/', '/casino-retrait-rapide/', '/machines-a-sous-meilleur-rtp/']
 };
 
