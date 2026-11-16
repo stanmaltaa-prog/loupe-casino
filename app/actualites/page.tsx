@@ -11,7 +11,7 @@ const DESCRIPTION =
 const base = meta({ titre: 'Actualités du jeu en ligne au Québec', description: DESCRIPTION, chemin: '/actualites/' });
 export const metadata = {
   ...base,
-  alternates: { ...base.alternates, types: { 'application/rss+xml': '/actualites/rss.xml' } }
+  alternates: { ...base.alternates, types: { 'application/rss+xml': '/actualites/flux-rss/' } }
 };
 
 /** Index de la rubrique Actualités, du plus récent au plus ancien. */
@@ -39,7 +39,7 @@ export default function PageActualites() {
         </article>
       ))}
       <p>
-        Pour suivre la rubrique : <a href="/actualites/rss.xml">fil RSS</a>. Tous les chiffres du secteur sont réunis sur{' '}
+        Pour suivre la rubrique : <a href="/actualites/flux-rss/">fil RSS</a>. Tous les chiffres du secteur sont réunis sur{' '}
         <Link href="/statistiques-jeu-en-ligne-quebec/">le jeu en ligne au Québec en chiffres</Link>.
       </p>
     </Guide>
