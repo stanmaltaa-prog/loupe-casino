@@ -4,6 +4,7 @@ import Tampon from '@/components/Tampon';
 import JsonLd from '@/components/JsonLd';
 import TableauEn from '@/components/en/TableauEn';
 import AideEn from '@/components/en/AideEn';
+import CollantEn from '@/components/en/CollantEn';
 import { CASINOS, paires } from '@/lib/casinos';
 import { DUELS_EN } from '@/lib/en/duels';
 import { EN, MESSAGE_ZONE, dateEn } from '@/lib/en/site';
@@ -51,6 +52,7 @@ export default function ComparePage() {
           <AideEn />
         </div>
       </div>
+      <CollantEn casino={CASINOS[0]} emplacement="en-compare-sticky" />
       <JsonLd
         donnees={schemaPage({ titre: TITRE, description: DESCRIPTION, chemin: '/en-ca/compare/', publie: EN.publication, modifie: EN.verification, type: 'CollectionPage', langue: EN.langue })}
       />
