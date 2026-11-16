@@ -1633,8 +1633,8 @@ function hubFr(): PageGuide {
           {
             type: 'tableau',
             legende: `Offres de bienvenue relevées sur les sites officiels, conditions relues le ${dateLongue(VERIFIE)}.`,
-            entetes: ['Casino', 'Offre de bienvenue', 'FAQ publique'],
-            lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).fr.avis})`, offreFr(m), avecFaq(m) ? 'Oui' : 'Non']
+            entetes: ['Casino', 'Offre de bienvenue', 'Détail du bonus', 'FAQ publique'],
+            lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).fr.avis})`, offreFr(m), `[Bonus ${m.nom}](${chemins(m).fr.bonus})`, avecFaq(m) ? 'Oui' : 'Non']
             )
           },
           {
@@ -1907,8 +1907,8 @@ function hubEn(): PageGuide {
           {
             type: 'tableau',
             legende: 'Welcome offers taken from the official sites, terms read on November 10, 2026.',
-            entetes: ['Casino', 'Welcome offer', 'Public FAQ'],
-            lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).en.avis})`, offreEn(m), avecFaq(m) ? 'Yes' : 'No'])
+            entetes: ['Casino', 'Welcome offer', 'Bonus details', 'Public FAQ'],
+            lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).en.avis})`, offreEn(m), `[${m.nom} bonus](${chemins(m).en.bonus})`, avecFaq(m) ? 'Yes' : 'No'])
           },
           {
             type: 'p',
