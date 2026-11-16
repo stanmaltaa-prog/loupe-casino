@@ -9,13 +9,14 @@ import opportunites from './opportunites';
 import paiements from './paiements';
 import tests from './tests';
 import intentions from './intentions';
+import statistiques from './statistiques';
 import { MARQUES_FR } from '../marques';
 
 /**
  * Registre de toutes les pages guides. Ajouter un fichier de bloc ici
  * suffit pour que ses pages entrent dans le plan du site et le contrôle.
  */
-const BRUT: PageGuide[] = [...jeux, ...canadaSport, ...rtp, ...opportunites, ...paiements, ...tests, ...intentions, ...MARQUES_FR];
+const BRUT: PageGuide[] = [...jeux, ...canadaSport, ...rtp, ...opportunites, ...paiements, ...tests, ...intentions, ...statistiques, ...MARQUES_FR];
 
 // Garde-fou : bloque le build si un titre ou une description dépasse ce que Google affiche.
 for (const p of BRUT) {
