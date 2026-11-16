@@ -52,6 +52,9 @@ type MarqueRewards = {
   noteOffreEn?: string;
   fideliteFr: string;
   fideliteEn: string;
+  /** Ce que la page d'accueil officielle annonce et qui distingue la marque du reste du groupe (relevé du 16 novembre 2026). */
+  distinctionsFr: string[];
+  distinctionsEn: string[];
   sourcesFr: { titre: string; url: string }[];
   sourcesEn: { titre: string; url: string }[];
   fr: Textes;
@@ -69,6 +72,20 @@ const YUKON: MarqueRewards = {
   paliers: [{ rang: 2, pourcentage: 100, plafond: 150 }],
   fideliteFr: 'Programme Casino Rewards, commun à plusieurs casinos du même groupe',
   fideliteEn: 'Casino Rewards program, shared by several casinos of the same group',
+  distinctionsFr: [
+    'Le site annonce « des centaines » de jeux, sans nombre précis.',
+    'Une section de jeux avec de vrais croupiers en direct, dont la roulette et le baccara.',
+    'Site disponible en français.',
+    'Service client par clavardage et par courriel, annoncé jour et nuit.',
+    'Programme de fidélité Casino Rewards à plusieurs niveaux, auquel tous les joueurs sont inscrits automatiquement.'
+  ],
+  distinctionsEn: [
+    'The site advertises “hundreds” of games, without an exact count.',
+    'A real-dealer live section, including roulette and baccarat.',
+    'Site available in French.',
+    'Support by live chat and email, advertised day and night.',
+    'Multi-tier Casino Rewards loyalty program, with every player enrolled automatically.'
+  ],
   sourcesFr: [
     { titre: 'Yukon Gold : page d’accueil officielle (licence, certification eCOGRA, exploitant)', url: 'https://yukongold.casino/en/' },
     { titre: 'Yukon Gold : page bonus officielle (150 chances pour 10 $, 100 % jusqu’à 150 $)', url: 'https://yukongold.casino/fr/bonus/' },
@@ -186,6 +203,20 @@ const ZODIAC: MarqueRewards = {
   noteOffreEn: 'The bonus page also mentions a 2nd deposit “of at least $20” without repeating it in the steps: check the minimum before depositing.',
   fideliteFr: 'Groupe Casino Rewards : ses conditions parlent des « casinos partenaires Casino Rewards »',
   fideliteEn: 'Casino Rewards group: its terms refer to “Casino Rewards partner casinos”',
+  distinctionsFr: [
+    'Plus de 1 000 jeux annoncés.',
+    'Site disponible en français, avec une équipe de soutien multilingue.',
+    'Service client annoncé 24 h sur 24 ; la page d’accueil ne précise pas les canaux.',
+    'L’entrée la moins chère du groupe : 80 chances pour 1 $.',
+    'Le site précise que ses machines à sous progressives ne sont pas offertes dans toutes les régions.'
+  ],
+  distinctionsEn: [
+    'More than 1,000 games advertised.',
+    'Site available in French, with a multilingual support team.',
+    'Support advertised 24/7; the home page does not list the channels.',
+    'The cheapest entry in the group: 80 chances for $1.',
+    'The site notes that its progressive slots are not available in every region.'
+  ],
   sourcesFr: [
     { titre: 'Zodiac Casino : page d’accueil officielle (offre, licence, certification eCOGRA, exploitant)', url: 'https://zodiac.casino/en/' },
     { titre: 'Zodiac Casino : page bonus officielle (80 chances pour 1 $, bonus des dépôts 2 à 5)', url: 'https://zodiac.casino/fr/bonus/' },
@@ -305,6 +336,20 @@ const LUXURY: MarqueRewards = {
     'The bonus page is inconsistent: its headline says “$150 free”, while the 5 tiers it lists add up to $1,000, the amount used in its description. It does not state the minimum deposit.',
   fideliteFr: 'Groupe Casino Rewards : le site renvoie vers le programme Casino Rewards',
   fideliteEn: 'Casino Rewards group: the site links to the Casino Rewards program',
+  distinctionsFr: [
+    'Plus de 1 000 jeux annoncés, avec de nouveaux jeux chaque semaine.',
+    'Une section casino en direct : Crazy Time, roulette, blackjack et baccara.',
+    'Site disponible en français.',
+    'Un dépôt minimum de 10 $, selon la description du site.',
+    'Inscription automatique au programme de fidélité VIP.'
+  ],
+  distinctionsEn: [
+    'More than 1,000 games advertised, with new games every week.',
+    'A live casino section: Crazy Time, roulette, blackjack and baccarat.',
+    'Site available in French.',
+    'A $10 minimum deposit, according to the site description.',
+    'Automatic enrolment in the VIP loyalty program.'
+  ],
   sourcesFr: [
     { titre: 'Luxury Casino : page d’accueil officielle (offre, licence, certification eCOGRA, exploitant)', url: 'https://luxury.casino/en/' },
     { titre: 'Luxury Casino : page bonus officielle (5 bonus de dépôt)', url: 'https://luxury.casino/fr/bonus/' },
@@ -420,6 +465,20 @@ const CAPTAIN: MarqueRewards = {
   faq: false,
   fideliteFr: 'Groupe Casino Rewards : ses conditions parlent des « casinos partenaires Casino Rewards »',
   fideliteEn: 'Casino Rewards group: its terms refer to “Casino Rewards partner casinos”',
+  distinctionsFr: [
+    'Un casino en direct avec de vrais croupiers, ouvert 24 h sur 24 : blackjack, roulette, baccara et sic bo.',
+    'Le casino affirme proposer chaque jeu dans sa version au taux de retour le plus élevé disponible, « généralement de 96 % à 99,9 % ».',
+    'Programme Casino Rewards à six niveaux ; les joueurs VIP d’autres casinos peuvent demander à conserver leur statut.',
+    'Clavardage 24 h sur 24, avec une équipe basée au Canada, en Australie, à Malte et au Royaume-Uni.',
+    'Site disponible en français.'
+  ],
+  distinctionsEn: [
+    'A real-dealer live casino open around the clock: blackjack, roulette, baccarat and sic bo.',
+    'The casino says it offers each game in its highest available return-to-player version, “typically ranging from 96% to 99.9%”.',
+    'Six-tier Casino Rewards program; VIP players from other casinos can ask for a status match.',
+    '24/7 live chat, with staff based in Canada, Australia, Malta and the UK.',
+    'Site available in French.'
+  ],
   sourcesFr: [
     { titre: 'Captain Cooks : page d’accueil officielle (offre, certifications, exploitant)', url: 'https://captaincooks.casino/en/' },
     { titre: 'Captain Cooks : page bonus officielle (100 chances pour 5 $, bonus des dépôts 2 à 5)', url: 'https://captaincooks.casino/fr/bonus/' },
@@ -529,6 +588,18 @@ const GRAND: MarqueRewards = {
   noteOffreEn: 'The bonus page presents the 2nd deposit bonus as available “for a limited time”: check it before depositing.',
   fideliteFr: 'Groupe Casino Rewards : le site renvoie vers le programme Casino Rewards',
   fideliteEn: 'Casino Rewards group: the site links to the Casino Rewards program',
+  distinctionsFr: [
+    'Plus de 1 000 jeux annoncés.',
+    'Site disponible en français.',
+    'Service client par téléphone, courriel et clavardage, annoncé 24 h sur 24, 7 jours sur 7 : le seul du groupe à afficher le téléphone sur sa page d’accueil.',
+    'La page d’accueil ne mentionne pas de casino en direct.'
+  ],
+  distinctionsEn: [
+    'More than 1,000 games advertised.',
+    'Site available in French.',
+    'Support by phone, email and live chat, advertised 24/7: the only casino in the group to show phone support on its home page.',
+    'The home page does not mention a live casino.'
+  ],
   sourcesFr: [
     { titre: 'Grand Mondial : page d’accueil officielle (offre, licence, certification eCOGRA, exploitant)', url: 'https://grandmondial.casino/en/' },
     { titre: 'Grand Mondial : page bonus officielle (150 chances pour 10 $, 100 % jusqu’à 250 $)', url: 'https://grandmondial.casino/fr/bonus/' },
@@ -822,6 +893,14 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         id: 'offre',
         titre: m.chances ? `L’offre de bienvenue : ${m.chances} chances pour ${fr(m.depot1!)}` : `L’offre de bienvenue : jusqu’à ${fr(k.total)} sur ${m.paliers.length} dépôts`,
         blocs: blocsOffre
+      },
+      {
+        id: 'specificites',
+        titre: `Ce qui distingue ${m.nom} des autres casinos du groupe`,
+        blocs: [
+          { type: 'liste', items: m.distinctionsFr },
+          { type: 'p', texte: `Relevé sur la page d’accueil officielle de ${m.nom} le 16 novembre 2026. Retraits, licence et règles du bonus sont communs au groupe : voir [Casino Rewards](${HUB_FR}).` }
+        ]
       },
       {
         id: 'mise',
@@ -1180,6 +1259,14 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         id: 'offer',
         titre: m.chances ? `The welcome offer: ${m.chances} chances for ${enM(m.depot1!)}` : `The welcome offer: up to ${enM(k.total)} over ${m.paliers.length} deposits`,
         blocs: blocsOffre
+      },
+      {
+        id: 'what-sets-it-apart',
+        titre: `What sets ${m.nom} apart within the group`,
+        blocs: [
+          { type: 'liste', items: m.distinctionsEn },
+          { type: 'p', texte: `Taken from the ${m.nom} official home page on November 16, 2026. Withdrawals, licence and bonus rules are shared across the group: see [Casino Rewards](${HUB_EN}).` }
+        ]
       },
       {
         id: 'wagering',
