@@ -3,6 +3,7 @@ import { CASINOS, cheminCasino, depotMinTexte, exempleMise, type Casino } from '
 import { cheminEn, depotMinEn, en } from '@/lib/en/casinos';
 import { classementRetraits, dernier } from '@/lib/tests';
 import { dateLongue, montant } from '@/lib/site';
+import { dateEn } from '@/lib/en/site';
 import { PAGES_EN } from '@/lib/en/pages';
 
 /**
@@ -30,8 +31,9 @@ const REWARDS = {
   retraitMinVirement: 300
 };
 
-type Type = 'avis' | 'bonus' | 'sansDepot' | 'retrait' | 'fiable';
-type Textes = Record<Type, { titre: string; description: string; h1: string; chapeau: string }>;
+type Texte = { titre: string; description: string; h1: string; chapeau: string };
+/** Retrait et fiabilité : anciennes pages, fusionnées dans l'avis (redirections 301 dans next.config.mjs). */
+type Textes = Record<'avis' | 'bonus' | 'sansDepot', Texte> & Partial<Record<'retrait' | 'fiable', Texte>>;
 
 type MarqueRewards = {
   nom: string;
@@ -48,6 +50,8 @@ type MarqueRewards = {
   articleReclamer?: string;
   /** Total annoncé par le site officiel, s'il en annonce un. */
   totalAnnonce?: number;
+  /** Faux si le pied de page du site ne nomme pas d'exploitant (seules les conditions nomment le gestionnaire). */
+  piedExploitant?: boolean;
   noteOffreFr?: string;
   noteOffreEn?: string;
   fideliteFr: string;
@@ -698,8 +702,302 @@ const GRAND: MarqueRewards = {
   }
 };
 
-/** Ordre : marques les plus cherchées au Canada d'abord (Ubersuggest, 10 novembre 2026). */
-const MARQUES: MarqueRewards[] = [YUKON, ZODIAC, LUXURY, CAPTAIN, GRAND];
+/* ---------- Golden Tiger : relevé du 16 novembre 2026 (FAQ sans paiements) ---------- */
+
+const GOLDEN: MarqueRewards = {
+  nom: 'Golden Tiger',
+  slug: 'golden-tiger-casino',
+  verifie: '2026-11-16',
+  paliers: [
+    { rang: 1, pourcentage: 100, plafond: 500 },
+    { rang: 2, pourcentage: 50, plafond: 300 },
+    { rang: 3, pourcentage: 20, plafond: 300 },
+    { rang: 4, pourcentage: 30, plafond: 300 },
+    { rang: 5, pourcentage: 100, plafond: 100 }
+  ],
+  totalAnnonce: 1500,
+  articleReclamer: '11.5',
+  faq: false,
+  noteOffreFr: 'La page bonus n’indique pas le dépôt minimum.',
+  noteOffreEn: 'The bonus page does not state the minimum deposit.',
+  fideliteFr: 'Programme Casino Rewards à six niveaux, auquel tous les joueurs sont inscrits automatiquement',
+  fideliteEn: 'Six-tier Casino Rewards program, with every player enrolled automatically',
+  distinctionsFr: [
+    'L’offre de bienvenue la plus élevée des casinos du groupe que nous avons analysés : jusqu’à 1 500 $ sur 5 dépôts.',
+    'Une section de casino en direct avec de vrais croupiers, ouverte 24 h sur 24 : blackjack, roulette, baccara et jeux télévisés.',
+    'Le casino affirme proposer chaque jeu dans sa version au taux de retour le plus élevé disponible, « généralement de 96 % à 99,9 % ».',
+    'Clavardage 24 h sur 24, avec une équipe basée au Canada, en Australie, à Malte et au Royaume-Uni.',
+    'Le sélecteur de langue propose le français.'
+  ],
+  distinctionsEn: [
+    'The highest welcome offer among the group’s casinos we reviewed: up to $1,500 over 5 deposits.',
+    'A real-dealer live casino open around the clock: blackjack, roulette, baccarat and game shows.',
+    'The casino says it offers each game in its highest available return-to-player version, “typically 96% to 99.9%”.',
+    '24/7 live chat, with staff based in Canada, Australia, Malta and the UK.',
+    'The language menu offers French.'
+  ],
+  sourcesFr: [
+    { titre: 'Golden Tiger : page d’accueil officielle (offre, licence, certification eCOGRA, exploitant, FAQ)', url: 'https://goldentiger.casino/en/' },
+    { titre: 'Golden Tiger : page bonus officielle (5 bonus de dépôt, jusqu’à 1 500 $)', url: 'https://goldentiger.casino/en/bonus/' },
+    { titre: 'Golden Tiger : conditions générales (mise, contribution des jeux, retraits, licence)', url: 'https://goldentiger.casino/en/terms/' }
+  ],
+  sourcesEn: [
+    { titre: 'Golden Tiger: official home page (offer, licence, eCOGRA certification, operator, FAQ)', url: 'https://goldentiger.casino/en/' },
+    { titre: 'Golden Tiger: official bonus page (5 deposit bonuses, up to $1,500)', url: 'https://goldentiger.casino/en/bonus/' },
+    { titre: 'Golden Tiger: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://goldentiger.casino/en/terms/' }
+  ],
+  fr: {
+    avis: {
+      titre: 'Avis Golden Tiger Casino 2026 : 1 500 $, mise de 200 fois',
+      description:
+        'Avis Golden Tiger au Canada : jusqu’à 1 500 $ sur 5 dépôts, mise de 200 fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions lues.',
+      h1: 'Avis Golden Tiger Casino (2026) : ce que disent vraiment les conditions',
+      chapeau:
+        'Golden Tiger est l’un des casinos en ligne les plus cherchés au Canada. Son offre : jusqu’à 1 500 $ de bonus sur vos 5 premiers dépôts, dont 100 % jusqu’à 500 $ au 1er. Nous avons lu ses conditions officielles : les bonus des deux premiers dépôts doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Bonus Golden Tiger Casino : 100 % jusqu’à 500 $ (2026)',
+      description:
+        'Bonus Golden Tiger : 100 % jusqu’à 500 $, puis 4 autres bonus, 1 500 $ au total. Mise de 200 fois, jeux à 2 % : exemple chiffré et comparaison.',
+      h1: 'Bonus Golden Tiger : jusqu’à 1 500 $, et le calcul à faire avant',
+      chapeau:
+        'Le bonus de Golden Tiger s’étale sur 5 dépôts et peut atteindre 1 500 $. Mais les bonus des deux premiers dépôts doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
+    },
+    sansDepot: {
+      titre: 'Golden Tiger Casino bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Golden Tiger a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre : jusqu’à 1 500 $ sur 5 dépôts. Explications et alternatives.',
+      h1: 'Golden Tiger bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Beaucoup de joueurs cherchent un bonus sans dépôt chez Golden Tiger. Sur ses pages officielles relues le 16 novembre 2026, il n’y en a pas. Voici ce qui s’en approche, et ce qu’il faut savoir avant de déposer.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Golden Tiger Casino Canada Review 2026: $1,500 Bonus, 200x',
+      description:
+        'Golden Tiger Casino review for Canada: up to $1,500 over 5 deposits, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Official terms read.',
+      h1: 'Golden Tiger Casino Review (2026): What the Terms Really Say',
+      chapeau:
+        'Golden Tiger is one of the most searched online casinos in Canada. Its offer: up to $1,500 in bonuses over your first 5 deposits, starting with 100% up to $500. We read its official terms: the first two deposit bonuses must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Golden Tiger Casino Bonus: 100% up to $500, $1,500 in Total',
+      description:
+        'Golden Tiger bonus: 100% up to $500, then 4 more bonuses, $1,500 in total. 200x wagering, 2% game weighting: a worked example and a comparison.',
+      h1: 'Golden Tiger Bonus: Up to $1,500, and the Math to Do First',
+      chapeau:
+        'The Golden Tiger bonus is spread over 5 deposits and can reach $1,500. But the first two deposit bonuses must be wagered 200 times. Here are the tiers, the rules and the math.'
+    },
+    sansDepot: {
+      titre: 'Golden Tiger Casino No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Golden Tiger offer a no deposit bonus? Not according to its official pages. Its offer is up to $1,500 over 5 deposits: what it costs, and alternatives.',
+      h1: 'Golden Tiger No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'Many players look for a Golden Tiger no deposit bonus. On its official pages, read on November 16, 2026, there is none. Here is the closest offer, and what to know before depositing.'
+    }
+  }
+};
+
+/* ---------- Casino Classic : relevé du 16 novembre 2026 (FAQ sans paiements) ---------- */
+
+const CLASSIC: MarqueRewards = {
+  nom: 'Casino Classic',
+  slug: 'casino-classic',
+  verifie: '2026-11-16',
+  paliers: [
+    { rang: 1, pourcentage: 100, plafond: 150 },
+    { rang: 2, pourcentage: 100, plafond: 150 },
+    { rang: 3, pourcentage: 50, plafond: 200 }
+  ],
+  totalAnnonce: 500,
+  articleReclamer: '11.5',
+  faq: false,
+  noteOffreFr: 'La page bonus n’indique pas le dépôt minimum.',
+  noteOffreEn: 'The bonus page does not state the minimum deposit.',
+  fideliteFr: 'Programme Casino Rewards à six niveaux ; les joueurs VIP d’autres casinos peuvent demander à conserver leur statut',
+  fideliteEn: 'Six-tier Casino Rewards program; VIP players from other casinos can ask for a status match',
+  distinctionsFr: [
+    'Pas de chances sur la roue à un million : l’offre se compose de 3 bonus de dépôt, jusqu’à 500 $ au total.',
+    'Le 2e dépôt est doublé comme le 1er : 100 % jusqu’à 150 $ chacun.',
+    'Une section de casino en direct ouverte 24 h sur 24 : blackjack, roulette, baccara et jeux télévisés.',
+    'Le casino affirme proposer chaque jeu dans sa version au taux de retour le plus élevé disponible, « généralement de 96 % à 99,9 % ».',
+    'Clavardage 24 h sur 24, avec une équipe basée au Canada, en Australie, à Malte et au Royaume-Uni. Le sélecteur de langue propose le français.'
+  ],
+  distinctionsEn: [
+    'No chances on the million-dollar wheel: the offer is made of 3 deposit bonuses, up to $500 in total.',
+    'The 2nd deposit is matched like the 1st: 100% up to $150 each.',
+    'A live casino section open around the clock: blackjack, roulette, baccarat and game shows.',
+    'The casino says it offers each game in its highest available return-to-player version, “typically 96% to 99.9%”.',
+    '24/7 live chat, with staff based in Canada, Australia, Malta and the UK. The language menu offers French.'
+  ],
+  sourcesFr: [
+    { titre: 'Casino Classic : page d’accueil officielle (offre, licence, certification eCOGRA, exploitant, FAQ)', url: 'https://casinoclassic.casino/en/' },
+    { titre: 'Casino Classic : page bonus officielle (3 bonus de dépôt, jusqu’à 500 $)', url: 'https://casinoclassic.casino/en/bonus/' },
+    { titre: 'Casino Classic : conditions générales (mise, contribution des jeux, retraits, licence)', url: 'https://casinoclassic.casino/en/terms/' }
+  ],
+  sourcesEn: [
+    { titre: 'Casino Classic: official home page (offer, licence, eCOGRA certification, operator, FAQ)', url: 'https://casinoclassic.casino/en/' },
+    { titre: 'Casino Classic: official bonus page (3 deposit bonuses, up to $500)', url: 'https://casinoclassic.casino/en/bonus/' },
+    { titre: 'Casino Classic: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://casinoclassic.casino/en/terms/' }
+  ],
+  fr: {
+    avis: {
+      titre: 'Avis Casino Classic 2026 : 500 $ de bonus, mise de 200 fois',
+      description:
+        'Avis Casino Classic au Canada : jusqu’à 500 $ sur 3 dépôts, mise de 200 fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions lues.',
+      h1: 'Avis Casino Classic (2026) : ce que disent vraiment les conditions',
+      chapeau:
+        'Casino Classic est l’un des casinos en ligne les plus cherchés au Canada. Son offre : jusqu’à 500 $ de bonus sur vos 3 premiers dépôts, dont 100 % jusqu’à 150 $ aux deux premiers. Nous avons lu ses conditions officielles : ces deux bonus doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Bonus Casino Classic : 100 % jusqu’à 150 $, deux fois (2026)',
+      description:
+        'Bonus Casino Classic : 100 % jusqu’à 150 $ aux 2 premiers dépôts, puis 50 % jusqu’à 200 $. Mise de 200 fois, jeux à 2 % : exemple chiffré et comparaison.',
+      h1: 'Bonus Casino Classic : jusqu’à 500 $, et le calcul à faire avant',
+      chapeau:
+        'Le bonus de Casino Classic double vos deux premiers dépôts, jusqu’à 150 $ chacun, puis ajoute 50 % au 3e. Mais les deux premiers bonus doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
+    },
+    sansDepot: {
+      titre: 'Casino Classic bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Casino Classic a-t-il un bonus sans dépôt ou des tours gratuits ? Pas d’après ses pages officielles. Son offre : jusqu’à 500 $ sur 3 dépôts. Explications.',
+      h1: 'Casino Classic bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Beaucoup de joueurs cherchent un bonus sans dépôt ou des tours gratuits chez Casino Classic. Sur ses pages officielles relues le 16 novembre 2026, il n’y en a pas. Voici ce qui s’en approche, et ce qu’il faut savoir avant de déposer.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Casino Classic Canada Review 2026: $500 Bonus, 200x Wagering',
+      description:
+        'Casino Classic review for Canada: up to $500 over 3 deposits, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Official terms read.',
+      h1: 'Casino Classic Review (2026): What the Terms Really Say',
+      chapeau:
+        'Casino Classic is one of the most searched online casinos in Canada. Its offer: up to $500 in bonuses over your first 3 deposits, with 100% up to $150 on each of the first two. We read its official terms: both of those bonuses must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Casino Classic Bonus: 100% up to $150 on Two Deposits',
+      description:
+        'Casino Classic bonus: 100% up to $150 on the first 2 deposits, then 50% up to $200. 200x wagering, 2% game weighting: a worked example and a comparison.',
+      h1: 'Casino Classic Bonus: Up to $500, and the Math to Do First',
+      chapeau:
+        'The Casino Classic bonus matches your first two deposits up to $150 each, then adds 50% on the 3rd. But the first two bonuses must be wagered 200 times. Here are the tiers, the rules and the math.'
+    },
+    sansDepot: {
+      titre: 'Casino Classic No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Casino Classic offer a no deposit bonus or free spins? Not according to its official pages. Its offer is up to $500 over 3 deposits: what it costs.',
+      h1: 'Casino Classic No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'Many players look for a Casino Classic no deposit bonus or free spins. On its official pages, read on November 16, 2026, there is none. Here is the closest offer, and what to know before depositing.'
+    }
+  }
+};
+
+/* ---------- Villento : relevé du 16 novembre 2026 ---------- */
+
+const VILLENTO: MarqueRewards = {
+  nom: 'Villento',
+  slug: 'villento-casino',
+  verifie: '2026-11-16',
+  paliers: [
+    { rang: 1, pourcentage: 100, plafond: 150 },
+    { rang: 2, pourcentage: 50, plafond: 250 },
+    { rang: 3, pourcentage: 30, plafond: 200 },
+    { rang: 4, pourcentage: 20, plafond: 200 },
+    { rang: 5, pourcentage: 50, plafond: 200 }
+  ],
+  totalAnnonce: 1000,
+  articleReclamer: '11.5',
+  piedExploitant: false,
+  noteOffreFr: 'Dépôt minimum : 20 $, selon la page bonus.',
+  noteOffreEn: 'Minimum deposit: $20, according to the bonus page.',
+  fideliteFr: 'Groupe Casino Rewards : le pied de page renvoie vers le programme Casino Rewards',
+  fideliteEn: 'Casino Rewards group: the footer links to the Casino Rewards program',
+  distinctionsFr: [
+    'Plus de 1 000 jeux annoncés, avec un taux de retour moyen de 97 % selon le casino.',
+    'Le dépôt minimum le plus élevé des casinos du groupe que nous avons analysés : 20 $.',
+    'Service client par courriel et clavardage, annoncé 24 h sur 24, 7 jours sur 7, avec une équipe multilingue. Le sélecteur de langue propose le français.',
+    'Des tirages « VIP Lucky Jackpots » toutes les 8 heures, selon la page d’accueil.',
+    'La page d’accueil ne mentionne pas de casino en direct, et son pied de page ne nomme pas d’exploitant.'
+  ],
+  distinctionsEn: [
+    'More than 1,000 games advertised, with an average 97% payout rate according to the casino.',
+    'The highest minimum deposit among the group’s casinos we reviewed: $20.',
+    'Support by email and live chat, advertised 24/7, with a multilingual team. The language menu offers French.',
+    '“VIP Lucky Jackpots” drawn every 8 hours, according to the home page.',
+    'The home page does not mention a live casino, and its footer names no operator.'
+  ],
+  sourcesFr: [
+    { titre: 'Villento : page d’accueil officielle (offre, licence, certification eCOGRA)', url: 'https://www.villento.com/en/' },
+    { titre: 'Villento : page bonus officielle (5 bonus de dépôt, jusqu’à 1 000 $, dépôt minimum de 20 $)', url: 'https://www.villento.com/en/bonus/' },
+    { titre: 'Villento : conditions générales (mise, contribution des jeux, retraits, licence)', url: 'https://www.villento.com/en/terms/' },
+    { titre: 'Villento : FAQ (moyens de paiement, délais et frais de retrait, âge minimum)', url: 'https://www.villento.com/en/faq/' }
+  ],
+  sourcesEn: [
+    { titre: 'Villento: official home page (offer, licence, eCOGRA certification)', url: 'https://www.villento.com/en/' },
+    { titre: 'Villento: official bonus page (5 deposit bonuses, up to $1,000, $20 minimum deposit)', url: 'https://www.villento.com/en/bonus/' },
+    { titre: 'Villento: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://www.villento.com/en/terms/' },
+    { titre: 'Villento: FAQ (payment methods, withdrawal times and fees, minimum age)', url: 'https://www.villento.com/en/faq/' }
+  ],
+  fr: {
+    avis: {
+      titre: 'Avis Villento Casino 2026 : 1 000 $ de bonus, mise de 200 fois',
+      description:
+        'Avis Villento au Canada : jusqu’à 1 000 $ sur 5 dépôts dès 20 $, mise de 200 fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions lues.',
+      h1: 'Avis Villento Casino (2026) : ce que disent vraiment les conditions',
+      chapeau:
+        'Villento fait partie des casinos du groupe Casino Rewards les plus cherchés au Canada. Son offre : jusqu’à 1 000 $ de bonus sur vos 5 premiers dépôts, dont 100 % jusqu’à 150 $ au 1er. Nous avons lu ses conditions officielles : les bonus des deux premiers dépôts doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Bonus Villento Casino : 100 % jusqu’à 150 $, 1 000 $ au total',
+      description:
+        'Bonus Villento : 100 % jusqu’à 150 $, puis 4 autres bonus, 1 000 $ au total, dès 20 $ de dépôt. Mise de 200 fois, jeux à 2 % : exemple chiffré.',
+      h1: 'Bonus Villento : jusqu’à 1 000 $, et le calcul à faire avant',
+      chapeau:
+        'Le bonus de Villento s’étale sur 5 dépôts et peut atteindre 1 000 $, avec un dépôt minimum de 20 $. Mais les bonus des deux premiers dépôts doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
+    },
+    sansDepot: {
+      titre: 'Villento Casino bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Villento a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre : jusqu’à 1 000 $ sur 5 dépôts, dès 20 $. Explications et alternatives.',
+      h1: 'Villento bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Beaucoup de joueurs cherchent un bonus sans dépôt chez Villento. Sur ses pages officielles relues le 16 novembre 2026, il n’y en a pas. Voici ce qui s’en approche, et ce qu’il faut savoir avant de déposer 20 $.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Villento Casino Canada Review 2026: $1,000 Bonus, 200x',
+      description:
+        'Villento Casino review for Canada: up to $1,000 over 5 deposits from $20, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Terms read.',
+      h1: 'Villento Casino Review (2026): What the Terms Really Say',
+      chapeau:
+        'Villento is one of the most searched Casino Rewards casinos in Canada. Its offer: up to $1,000 in bonuses over your first 5 deposits, starting with 100% up to $150. We read its official terms: the first two deposit bonuses must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Villento Casino Bonus: 100% up to $150, $1,000 in Total',
+      description:
+        'Villento bonus: 100% up to $150, then 4 more bonuses, $1,000 in total, from a $20 deposit. 200x wagering, 2% game weighting: a worked example.',
+      h1: 'Villento Bonus: Up to $1,000, and the Math to Do First',
+      chapeau:
+        'The Villento bonus is spread over 5 deposits and can reach $1,000, with a $20 minimum deposit. But the first two deposit bonuses must be wagered 200 times. Here are the tiers, the rules and the math.'
+    },
+    sansDepot: {
+      titre: 'Villento Casino No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Villento offer a no deposit bonus? Not according to its official pages. Its offer is up to $1,000 over 5 deposits, from $20: what it costs.',
+      h1: 'Villento No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'Many players look for a Villento no deposit bonus. On its official pages, read on November 16, 2026, there is none. Here is the closest offer, and what to know before depositing $20.'
+    }
+  }
+};
+
+/** Ordre : marques les plus cherchées au Canada d'abord (Ubersuggest, novembre 2026). */
+const MARQUES: MarqueRewards[] = [YUKON, ZODIAC, LUXURY, CAPTAIN, GRAND, GOLDEN, CLASSIC, VILLENTO];
 
 /* ---------- Calculs et formats communs ---------- */
 
@@ -866,13 +1164,13 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'tableau',
-            legende: 'Conditions officielles relues le 10 novembre 2026.',
+            legende: `Conditions officielles relues le ${dateLongue(m.verifie)}.`,
             entetes: ['Point', 'Ce que disent les conditions officielles'],
             lignes: [
               ['Offre de bienvenue', offreFr(m)],
               ['Mise exigée', `**${REWARDS.mise12} fois** pour les bonus des 2 premiers dépôts, ${REWARDS.mise3} fois à partir du 3e`],
               ['Jeux qui comptent pour la mise', 'Machines à sous : 100 %. Jeux de table et jeux en direct : 2 %'],
-              ['Dépôt par Interac', faq ? 'Mentionné dans la FAQ (traité par PayDirect Billing Solutions)' : 'Non mentionné : pas de FAQ publique'],
+              ['Dépôt par Interac', faq ? 'Mentionné dans la FAQ (traité par PayDirect Billing Solutions)' : 'Non mentionné : pas de FAQ sur les paiements'],
               [
                 'Retrait',
                 faq
@@ -934,7 +1232,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `Les conditions indiquent une licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et le site renvoie vers un certificat eCOGRA. Le pied de page nomme ${REWARDS.exploitantFr} ; les conditions parlent d’une marque gérée par ${REWARDS.gestionnaire}. Les clauses à connaître, communes au groupe : [Casino Rewards](${HUB_FR}).`
+            texte: `Les conditions indiquent une licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et le site renvoie vers un certificat eCOGRA. ${m.piedExploitant === false ? 'Le pied de page ne nomme pas d’exploitant' : `Le pied de page nomme ${REWARDS.exploitantFr}`} ; les conditions parlent d’une marque gérée par ${REWARDS.gestionnaire}. Les clauses à connaître, communes au groupe : [Casino Rewards](${HUB_FR}).`
           },
           {
             type: 'p',
@@ -980,15 +1278,15 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         q: `${m.nom} accepte-t-il Interac ?`,
         r: faq
           ? 'Sa FAQ mentionne les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas dans la liste des moyens de retrait : on retire notamment par virement EFT en dollars canadiens.'
-          : `${m.nom} ne publie pas de FAQ et ses conditions ne mentionnent pas Interac. Vérifiez la page de dépôt avant de vous inscrire.`
+          : `${m.nom} ne publie pas de FAQ sur les paiements et ses conditions ne mentionnent pas Interac. Vérifiez la page de dépôt avant de vous inscrire.`
       },
       {
-        q: `${m.nom.replace(/ Casino$/, '')} Casino Rewards est-il offert en français ?`,
+        q: /^Casino /.test(m.nom) ? `${m.nom} est-il offert en français ?` : `${m.nom.replace(/ Casino$/, '')} Casino Rewards est-il offert en français ?`,
         r: `Oui : la page d’accueil officielle de ${m.nom} propose une version française (relevé du 16 novembre 2026). Le programme de fidélité Casino Rewards est commun à tous les casinos du groupe.`
       },
       {
         q: `${m.nom} est-il fiable ?`,
-        r: `Rien dans ce que nous avons lu n’indique le contraire : la licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et l’exploitant sont publiés, et le site renvoie vers un certificat eCOGRA. Le vrai piège est ailleurs : le bonus à miser ${REWARDS.mise12} fois.`
+        r: `Rien dans ce que nous avons lu n’indique le contraire : la licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) ${m.piedExploitant === false ? 'et la société qui gère la marque sont publiées dans les conditions' : 'et l’exploitant sont publiés'}, et le site renvoie vers un certificat eCOGRA. Le vrai piège est ailleurs : le bonus à miser ${REWARDS.mise12} fois.`
       }
     ],
     connexes: [c.bonus, c.sansDepot, HUB_FR, '/casino-bonus-sans-depot/']
@@ -1009,7 +1307,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'tableau',
-            legende: 'Page bonus et conditions générales officielles, relues le 10 novembre 2026.',
+            legende: `Page bonus et conditions générales officielles, relues le ${dateLongue(m.verifie)}.`,
             entetes: ['Dépôt', 'Ce que vous recevez', 'Mise exigée'],
             lignes: [
               ...(m.chances ? [[`1er dépôt de ${fr(m.depot1!)}`, `${m.chances} tours sur la Mega Money Wheel, à 0,10 $ le tour`, `${REWARDS.mise12} fois les gains`]] : []),
@@ -1065,7 +1363,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `Non. La page bonus officielle, relue le 10 novembre 2026, ne demande aucun code : l’offre de bienvenue s’active avec le 1er dépôt, dans les 7 jours suivant l’inscription.`
+            texte: `Non. La page bonus officielle, relue le ${dateLongue(m.verifie)}, ne demande aucun code : l’offre de bienvenue s’active avec le 1er dépôt, dans les 7 jours suivant l’inscription.`
           },
           {
             type: 'p',
@@ -1260,13 +1558,13 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'tableau',
-            legende: 'Official terms read on November 10, 2026.',
+            legende: `Official terms read on ${dateEn(m.verifie)}.`,
             entetes: ['Item', 'What the official terms say'],
             lignes: [
               ['Welcome offer', offreEn(m)],
               ['Wagering', `**${REWARDS.mise12}x** on the first two deposit bonuses, ${REWARDS.mise3}x from the 3rd deposit`],
               ['Game weighting', 'Slots: 100%. Table and live games: 2%'],
-              ['Interac deposits', faq ? 'Mentioned in the FAQ (processed by PayDirect Billing Solutions)' : 'Not mentioned: no public FAQ'],
+              ['Interac deposits', faq ? 'Mentioned in the FAQ (processed by PayDirect Billing Solutions)' : 'Not mentioned: no payment FAQ'],
               [
                 'Withdrawals',
                 faq ? `48-hour pending period, then 1 to 10 business days by method. Minimum ${enM(REWARDS.retraitMin)}` : '48-hour pending period; times by method and minimum not published'
@@ -1326,7 +1624,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `The terms state a Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the site links to an eCOGRA certificate. The footer names ${REWARDS.exploitantEn}; the terms describe a brand managed by ${REWARDS.gestionnaire}. The clauses to know, shared by the group: [Casino Rewards](${HUB_EN}).`
+            texte: `The terms state a Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the site links to an eCOGRA certificate. ${m.piedExploitant === false ? 'The footer names no operator' : `The footer names ${REWARDS.exploitantEn}`}; the terms describe a brand managed by ${REWARDS.gestionnaire}. The clauses to know, shared by the group: [Casino Rewards](${HUB_EN}).`
           },
           { type: 'p', texte: `The same terms apply to the other casinos of the group we have reviewed: ${autresEn(m)}.` }
         ]
@@ -1369,7 +1667,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         q: `Does ${m.nom} accept Interac?`,
         r: faq
           ? 'Its FAQ mentions Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.'
-          : `${m.nom} publishes no FAQ and its terms do not mention Interac. Check the deposit page before signing up.`
+          : `${m.nom} publishes no payment FAQ and its terms do not mention Interac. Check the deposit page before signing up.`
       },
       {
         q: `Is ${m.nom} available in French?`,
@@ -1377,7 +1675,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       },
       {
         q: `Is ${m.nom} legit?`,
-        r: `Nothing we read suggests otherwise: the Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the operator are published, and the site links to an eCOGRA certificate. The real catch is elsewhere: the ${REWARDS.mise12}x bonus wagering.`
+        r: `Nothing we read suggests otherwise: the Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and ${m.piedExploitant === false ? 'the company managing the brand are named in the terms' : 'the operator are published'}, and the site links to an eCOGRA certificate. The real catch is elsewhere: the ${REWARDS.mise12}x bonus wagering.`
       }
     ],
     connexes: [c.bonus, c.sansDepot, HUB_EN, '/en-ca/casino-bonuses/']
@@ -1398,7 +1696,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'tableau',
-            legende: 'Official bonus page and terms, read on November 10, 2026.',
+            legende: `Official bonus page and terms, read on ${dateEn(m.verifie)}.`,
             entetes: ['Deposit', 'What you get', 'Wagering'],
             lignes: [
               ...(m.chances ? [[`1st deposit of ${enM(m.depot1!)}`, `${m.chances} spins on the Mega Money Wheel at $0.10 per spin`, `${REWARDS.mise12}x the winnings`]] : []),
@@ -1452,7 +1750,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `You do not need one. The official bonus page, checked on November 10, 2026, asks for no code: the welcome offer is triggered by your first deposit, within 7 days of registration.`
+            texte: `You do not need one. The official bonus page, checked on ${dateEn(m.verifie)}, asks for no code: the welcome offer is triggered by your first deposit, within 7 days of registration.`
           },
           {
             type: 'p',
@@ -1593,6 +1891,8 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
 const NOMS = MARQUES.map((m) => m.nom);
 const AVEC_FAQ = MARQUES.filter(avecFaq).map((m) => m.nom);
 const SANS_FAQ = MARQUES.filter((m) => !avecFaq(m)).map((m) => m.nom);
+const SANS_PIED = MARQUES.filter((m) => m.piedExploitant === false).map((m) => m.nom);
+const PLURIEL_SANS_FAQ = SANS_FAQ.length > 1;
 const VERIFIE = YUKON.verifie;
 const SOURCES_PROGRAMME = [
   { titre: 'Casino Rewards : FAQ officielle (points VIP, statuts, offre d’inscription)', url: 'https://www.casinorewards.com/en/faq/' },
@@ -1609,7 +1909,10 @@ const SUPPORT_FR: Record<string, string> = {
   Zodiac: 'Annoncé 24 h sur 24 (canaux non précisés)',
   'Luxury Casino': 'Non précisé sur la page d’accueil',
   'Captain Cooks': 'Clavardage 24 h sur 24',
-  'Grand Mondial': 'Téléphone, courriel et clavardage, 24 h sur 24'
+  'Grand Mondial': 'Téléphone, courriel et clavardage, 24 h sur 24',
+  'Golden Tiger': 'Clavardage 24 h sur 24',
+  'Casino Classic': 'Clavardage 24 h sur 24',
+  Villento: 'Courriel et clavardage, 24 h sur 24'
 };
 const MODIFIE_HUB = '2026-11-16';
 
@@ -1632,7 +1935,7 @@ function hubFr(): PageGuide {
         blocs: [
           {
             type: 'tableau',
-            legende: `Offres de bienvenue relevées sur les sites officiels, conditions relues le ${dateLongue(VERIFIE)}.`,
+            legende: 'Offres de bienvenue relevées sur les sites officiels, conditions relues entre le 10 et le 16 novembre 2026.',
             entetes: ['Casino', 'Offre de bienvenue', 'Détail du bonus', 'FAQ publique'],
             lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).fr.avis})`, offreFr(m), `[Bonus ${m.nom}](${chemins(m).fr.bonus})`, avecFaq(m) ? 'Oui' : 'Non']
             )
@@ -1688,7 +1991,7 @@ function hubFr(): PageGuide {
         blocs: [
           {
             type: 'tableau',
-            legende: `FAQ officielles de ${listeFr(AVEC_FAQ)}, relues le ${dateLongue(VERIFIE)}. Délais après les 48 h d’attente et le traitement. ${listeFr(SANS_FAQ)} ne publie pas de FAQ.`,
+            legende: `FAQ officielles de ${listeFr(AVEC_FAQ)}, relues en novembre 2026. Délais après les 48 h d’attente et le traitement. ${listeFr(SANS_FAQ)} ${PLURIEL_SANS_FAQ ? 'ne publient' : 'ne publie'} pas de FAQ sur les paiements.`,
             entetes: ['Moyen de retrait', 'Délai annoncé'],
             lignes: [
               ['Portefeuilles électroniques', '1 à 3 jours ouvrables'],
@@ -1710,7 +2013,7 @@ function hubFr(): PageGuide {
           {
             type: 'liste',
             items: [
-              `**Minimum** : ${fr(REWARDS.retraitMin)}, et ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct (FAQ ; ${listeFr(SANS_FAQ)} ne publie pas de minimum).`,
+              `**Minimum** : ${fr(REWARDS.retraitMin)}, et ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct (FAQ ; ${listeFr(SANS_FAQ)} ${PLURIEL_SANS_FAQ ? 'ne publient' : 'ne publie'} pas de minimum).`,
               '**Frais** : 50 $ par virement bancaire direct (100 $ au-delà de 3 000 $). Les autres moyens sont sans frais selon les FAQ.',
               '**Plafonds** : les conditions prévoient des limites par jour, par semaine et par mois selon le pays et le moyen, sans les chiffrer (article 14.2.2).',
               '**Cas particulier** : si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe, les retraits peuvent être limités à 4 000 $ par semaine (article 14.2.10).'
@@ -1753,7 +2056,7 @@ function hubFr(): PageGuide {
             items: [
               `**Licence** : Kahnawake Gaming Commission, licence n° ${REWARDS.licence} (article 2.1 des conditions).`,
               '**Certification** : chaque site renvoie vers un certificat eCOGRA, un organisme qui contrôle l’équité des jeux.',
-              `**Exploitant** : le pied de page nomme ${REWARDS.exploitantFr} ; les conditions parlent de marques gérées par ${REWARDS.gestionnaire}. Les sites ne précisent pas le lien entre les deux sociétés.`,
+              `**Exploitant** : le pied de page nomme ${REWARDS.exploitantFr}${SANS_PIED.length ? ` (sauf ${listeFr(SANS_PIED)}, qui n’en nomme aucun)` : ''} ; les conditions parlent de marques gérées par ${REWARDS.gestionnaire}. Les sites ne précisent pas le lien entre les deux sociétés.`,
               '**Âge** : 19 ans, même au Québec où l’âge légal est de 18 ans.',
               `**Fidélité** : ${YUKON.fideliteFr.charAt(0).toLowerCase()}${YUKON.fideliteFr.slice(1)}.`
             ]
@@ -1883,7 +2186,7 @@ function hubFr(): PageGuide {
         r: 'Loto-Québec est le seul casino en ligne autorisé par le gouvernement du Québec. La licence de Kahnawake n’est pas une autorisation du Québec : jouer sur ces sites relève d’une zone grise, expliquée sur notre page sur le casino en ligne légal au Québec.'
       }
     ],
-    connexes: [chemins(YUKON).fr.avis, chemins(ZODIAC).fr.avis, '/casino-retrait-rapide/', '/casino-en-ligne-fiable/']
+    connexes: [chemins(YUKON).fr.avis, chemins(ZODIAC).fr.avis, '/actualites/kahnawake-plaintes-joueurs-2025/', '/casino-retrait-rapide/', '/casino-en-ligne-fiable/']
   };
 }
 
@@ -1906,7 +2209,7 @@ function hubEn(): PageGuide {
         blocs: [
           {
             type: 'tableau',
-            legende: 'Welcome offers taken from the official sites, terms read on November 10, 2026.',
+            legende: 'Welcome offers taken from the official sites, terms read between November 10 and 16, 2026.',
             entetes: ['Casino', 'Welcome offer', 'Bonus details', 'Public FAQ'],
             lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).en.avis})`, offreEn(m), `[${m.nom} bonus](${chemins(m).en.bonus})`, avecFaq(m) ? 'Yes' : 'No'])
           },
@@ -1945,7 +2248,7 @@ function hubEn(): PageGuide {
         blocs: [
           {
             type: 'tableau',
-            legende: `Official FAQs of ${listeEn(AVEC_FAQ)}, read on November 10, 2026. Times after the 48-hour pending period and processing. ${listeEn(SANS_FAQ)} publishes no FAQ.`,
+            legende: `Official FAQs of ${listeEn(AVEC_FAQ)}, read in November 2026. Times after the 48-hour pending period and processing. ${listeEn(SANS_FAQ)} ${PLURIEL_SANS_FAQ ? 'publish' : 'publishes'} no payment FAQ.`,
             entetes: ['Withdrawal method', 'Announced time'],
             lignes: [
               ['E-wallets', '1 to 3 business days'],
@@ -1967,7 +2270,7 @@ function hubEn(): PageGuide {
           {
             type: 'liste',
             items: [
-              `**Minimum**: ${enM(REWARDS.retraitMin)}, or ${enM(REWARDS.retraitMinVirement)} by direct bank transfer (FAQ; ${listeEn(SANS_FAQ)} publishes no minimum).`,
+              `**Minimum**: ${enM(REWARDS.retraitMin)}, or ${enM(REWARDS.retraitMinVirement)} by direct bank transfer (FAQ; ${listeEn(SANS_FAQ)} ${PLURIEL_SANS_FAQ ? 'publish' : 'publishes'} no minimum).`,
               '**Fees**: $50 by direct bank transfer ($100 above $3,000). Other methods are free according to the FAQs.',
               '**Limits**: the terms allow daily, weekly and monthly limits by country and method, without giving figures (section 14.2.2).',
               '**Special case**: if your winnings are much higher than your deposits across the group’s casinos, withdrawals can be capped at $4,000 per week (section 14.2.10).'
@@ -2010,7 +2313,7 @@ function hubEn(): PageGuide {
             items: [
               `**Licence**: Kahnawake Gaming Commission, licence no. ${REWARDS.licence} (section 2.1 of the terms).`,
               '**Certification**: each site links to an eCOGRA certificate; eCOGRA audits game fairness.',
-              `**Operator**: the footer names ${REWARDS.exploitantEn}; the terms describe brands managed by ${REWARDS.gestionnaire}. The sites do not explain how the two companies are related.`,
+              `**Operator**: the footer names ${REWARDS.exploitantEn}${SANS_PIED.length ? ` (except ${listeEn(SANS_PIED)}, which names none)` : ''}; the terms describe brands managed by ${REWARDS.gestionnaire}. The sites do not explain how the two companies are related.`,
               '**Age**: 19, including in Quebec and Manitoba where the legal age is 18.',
               `**Loyalty**: ${YUKON.fideliteEn.charAt(0).toLowerCase()}${YUKON.fideliteEn.slice(1)}.`
             ]
