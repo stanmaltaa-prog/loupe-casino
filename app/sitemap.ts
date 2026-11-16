@@ -44,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...MACHINES.map((m) => page(cheminMachine(m), 0.7, new Date('2026-11-04'))),
     ...TABLES.map((t) => page(cheminTable(t), 0.7, new Date(t.verifieLe))),
     ...FOURNISSEURS.map((f) => page(cheminFournisseur(f), 0.6, new Date(f.modifie))),
-    page('/casino-en-ligne-legal-quebec/', 0.8, lancement),
+    page('/casino-en-ligne-legal-quebec/', 0.8, new Date('2026-11-16')),
     page('/bonus-casino-quebec/', 0.8),
     page('/casino-crypto-quebec/', 0.7),
     page('/conditions-de-mise/', 0.7),
