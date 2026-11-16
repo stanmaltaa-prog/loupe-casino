@@ -2,7 +2,7 @@ import type { PageGuide, SectionGuide } from './pages/types';
 import { CASINOS, cheminCasino, depotMinTexte, exempleMise, type Casino } from '@/lib/casinos';
 import { cheminEn, depotMinEn, en } from '@/lib/en/casinos';
 import { classementRetraits, dernier } from '@/lib/tests';
-import { montant } from '@/lib/site';
+import { dateLongue, montant } from '@/lib/site';
 import { PAGES_EN } from '@/lib/en/pages';
 
 /**
@@ -649,15 +649,19 @@ const rangFr = (n: number) => (n === 1 ? '1er dépôt' : `${n}e dépôt`);
 const rangEn = (n: number) => `${n}${n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th'} deposit`;
 const avecFaq = (m: MarqueRewards) => m.faq !== false;
 
+/**
+ * Page du groupe Casino Rewards : elle regroupe ce qui est commun aux 5 marques (retraits, clauses, licence).
+ * Les anciennes pages « retrait » et « fiabilité » de chaque marque y sont fondues (redirections dans next.config.mjs),
+ * pour éviter 20 pages presque identiques.
+ */
+const HUB_FR = '/casino-rewards/';
+const HUB_EN = '/en-ca/casino-rewards/';
+const listeFr = (x: string[]) => (x.length < 2 ? x.join('') : `${x.slice(0, -1).join(', ')} et ${x[x.length - 1]}`);
+const listeEn = (x: string[]) => (x.length < 2 ? x.join('') : `${x.slice(0, -1).join(', ')} and ${x[x.length - 1]}`);
+
 const chemins = (m: MarqueRewards) => ({
-  fr: { avis: `/${m.slug}/`, bonus: `/${m.slug}/bonus/`, sansDepot: `/${m.slug}/bonus-sans-depot/`, retrait: `/${m.slug}/retrait/`, fiable: `/${m.slug}/fiable/` },
-  en: {
-    avis: `/en-ca/${m.slug}/`,
-    bonus: `/en-ca/${m.slug}/bonus/`,
-    sansDepot: `/en-ca/${m.slug}/no-deposit-bonus/`,
-    retrait: `/en-ca/${m.slug}/withdrawal/`,
-    fiable: `/en-ca/${m.slug}/legit/`
-  }
+  fr: { avis: `/${m.slug}/`, bonus: `/${m.slug}/bonus/`, sansDepot: `/${m.slug}/bonus-sans-depot/` },
+  en: { avis: `/en-ca/${m.slug}/`, bonus: `/en-ca/${m.slug}/bonus/`, sansDepot: `/en-ca/${m.slug}/no-deposit-bonus/` }
 });
 
 function chiffres(m: MarqueRewards) {
@@ -837,8 +841,8 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'p',
             texte: faq
-              ? `Un retrait reste en attente 48 h, puis il est traité le jour ouvrable suivant. Il faut ensuite compter 1 à 3 jours ouvrables pour un portefeuille électronique, 2 à 3 pour un virement EFT en dollars canadiens, 3 pour une carte et 6 à 10 pour un virement bancaire direct. Le minimum est de ${fr(REWARDS.retraitMin)}. Le détail des délais et des frais : [retrait chez ${m.nom}](${c.retrait}).`
-              : `Un retrait reste en attente 48 h, et vous pouvez l’annuler tant qu’il n’est pas traité. ${m.nom} ne publie ni délais par moyen de paiement ni minimum de retrait. Le virement bancaire direct coûte 50 $ (100 $ au-delà de 3 000 $). Le détail : [retrait chez ${m.nom}](${c.retrait}).`
+              ? `Un retrait reste en attente 48 h, puis il est traité le jour ouvrable suivant. Il faut ensuite compter 1 à 3 jours ouvrables pour un portefeuille électronique, 2 à 3 pour un virement EFT en dollars canadiens, 3 pour une carte et 6 à 10 pour un virement bancaire direct. Le minimum est de ${fr(REWARDS.retraitMin)}. Délais par moyen, frais et plafonds, communs aux casinos du groupe : [Casino Rewards](${HUB_FR}).`
+              : `Un retrait reste en attente 48 h, et vous pouvez l’annuler tant qu’il n’est pas traité. ${m.nom} ne publie ni délais par moyen de paiement ni minimum de retrait. Le virement bancaire direct coûte 50 $ (100 $ au-delà de 3 000 $). Ce que disent les conditions du groupe : [Casino Rewards](${HUB_FR}).`
           }
         ]
       },
@@ -848,7 +852,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `Les conditions indiquent une licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et le site renvoie vers un certificat eCOGRA. Le pied de page nomme ${REWARDS.exploitantFr} ; les conditions parlent d’une marque gérée par ${REWARDS.gestionnaire}. Notre analyse complète : [${m.nom} est-il fiable ?](${c.fiable})`
+            texte: `Les conditions indiquent une licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et le site renvoie vers un certificat eCOGRA. Le pied de page nomme ${REWARDS.exploitantFr} ; les conditions parlent d’une marque gérée par ${REWARDS.gestionnaire}. Les clauses à connaître, communes au groupe : [Casino Rewards](${HUB_FR}).`
           },
           {
             type: 'p',
@@ -895,9 +899,13 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         r: faq
           ? 'Sa FAQ mentionne les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas dans la liste des moyens de retrait : on retire notamment par virement EFT en dollars canadiens.'
           : `${m.nom} ne publie pas de FAQ et ses conditions ne mentionnent pas Interac. Vérifiez la page de dépôt avant de vous inscrire.`
+      },
+      {
+        q: `${m.nom} est-il fiable ?`,
+        r: `Rien dans ce que nous avons lu n’indique le contraire : la licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et l’exploitant sont publiés, et le site renvoie vers un certificat eCOGRA. Le vrai piège est ailleurs : le bonus à miser ${REWARDS.mise12} fois.`
       }
     ],
-    connexes: [c.bonus, c.retrait, c.fiable, '/casino-bonus-sans-depot/']
+    connexes: [c.bonus, c.sansDepot, HUB_FR, '/casino-bonus-sans-depot/']
   };
 
   const bonus: PageGuide = {
@@ -1082,213 +1090,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
     connexes: [c.avis, c.bonus, '/casino-bonus-sans-depot/', '/casino-depot-minimum/']
   };
 
-  const retrait: PageGuide = {
-    ...base,
-    chemin: c.retrait,
-    nomFil: 'Retrait',
-    parent,
-    ...t.retrait,
-    resume: `Délais, minimums, frais et vérifications des retraits chez ${m.nom}.`,
-    sections: [
-      {
-        id: 'delais',
-        titre: faq ? 'Les délais de retrait annoncés' : 'Les délais de retrait : non publiés',
-        blocs: faq
-          ? [
-              {
-                type: 'tableau',
-                legende: 'FAQ officielle, relue le 10 novembre 2026. Délais après les 48 h d’attente et le traitement.',
-                entetes: ['Moyen de retrait', 'Délai annoncé'],
-                lignes: [
-                  ['Portefeuilles électroniques', '1 à 3 jours ouvrables'],
-                  ['Virement EFT ou eCheck en dollars canadiens (Canada seulement)', '2 à 3 jours ouvrables'],
-                  ['Visa, Mastercard', '3 jours ouvrables'],
-                  ['Virement bancaire direct', '6 à 10 jours ouvrables']
-                ]
-              }
-            ]
-          : [
-              {
-                type: 'p',
-                texte: `${m.nom} ne publie pas de FAQ, et ses conditions générales ne donnent pas de délai par moyen de paiement : elles disent seulement que ces délais varient selon les moyens, les processeurs et les banques. Avant un premier dépôt, demandez au service client le délai du moyen que vous comptez utiliser.`
-              }
-            ]
-      },
-      {
-        id: 'etapes',
-        titre: 'Ce qui se passe après votre demande',
-        blocs: [
-          {
-            type: 'liste',
-            ordonnee: true,
-            items: faq
-              ? [
-                  '**48 h d’attente.** Pendant ce temps, vous pouvez annuler le retrait. C’est souvent là que l’on rejoue ses gains : si vous voulez retirer, n’y touchez plus.',
-                  '**Traitement le jour ouvrable suivant.**',
-                  '**Délai du moyen choisi**, de 1 à 10 jours ouvrables (tableau ci-dessus).',
-                  '**Premier retrait par un nouveau moyen** : vérifications supplémentaires, jusqu’à 5 à 7 jours ouvrables.'
-                ]
-              : [
-                  '**48 h d’attente.** Pendant ce temps, vous pouvez annuler le retrait. C’est souvent là que l’on rejoue ses gains : si vous voulez retirer, n’y touchez plus.',
-                  '**Traitement**, puis délai du moyen choisi, non publié.',
-                  '**Vérifications** : le casino peut demander la preuve que le compte de paiement vous appartient.'
-                ]
-          }
-        ]
-      },
-      {
-        id: 'frais',
-        titre: 'Minimum, frais et plafonds',
-        blocs: [
-          {
-            type: 'liste',
-            items: [
-              faq
-                ? `**Minimum** : ${fr(REWARDS.retraitMin)}, et ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct.`
-                : '**Minimum** : non publié.',
-              faq
-                ? '**Frais** : 50 $ par virement bancaire direct (100 $ au-delà de 3 000 $). Les autres moyens sont sans frais.'
-                : '**Frais** : 50 $ par virement bancaire direct (100 $ au-delà de 3 000 $), selon les conditions générales.',
-              '**Plafonds** : les conditions prévoient des limites par jour, par semaine et par mois selon le pays et le moyen, sans les chiffrer (article 14.2.2).',
-              '**Cas particulier** : si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe, les retraits peuvent être limités à 4 000 $ par semaine (article 14.2.10).'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'comparaison',
-        titre: 'Comparé aux retraits testés de nos casinos',
-        blocs: [
-          {
-            type: 'tableau',
-            legende: `Nos casinos : délais constatés lors de nos retraits en argent réel. ${m.nom} : pas encore testé.`,
-            entetes: ['Casino', 'Retrait crypto constaté', 'Retrait carte constaté'],
-            lignes: [
-              faq
-                ? [`**${m.nom}**`, 'Crypto non listée', 'Pas encore testé (3 jours ouvrables annoncés après l’attente)']
-                : [`**${m.nom}**`, 'Non publié', 'Pas encore testé (délai non publié)'],
-              ...RAPIDES.map((x) => [`[${x.nom}](${cheminCasino(x)})`, heuresFr(dernier(x, 'crypto')?.delaiHeures), heuresFr(dernier(x, 'carte')?.delaiHeures)])
-            ]
-          },
-          { type: 'p', texte: 'Tous nos relevés, datés : [délais de retrait testés](/delais-de-retrait-casino/).' },
-          { type: 'offres', casinos: TOP3, titre: 'Des retraits plus rapides' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        q: `Pourquoi mon retrait ${m.nom} est-il en attente ?`,
-        r: faq
-          ? 'Tous les retraits restent 48 h en attente avant d’être traités le jour ouvrable suivant. Un premier retrait par un nouveau moyen peut demander jusqu’à 5 à 7 jours ouvrables de vérification.'
-          : 'Tous les retraits restent 48 h en attente, et peuvent être annulés tant qu’ils ne sont pas traités. Les délais suivants ne sont pas publiés.'
-      },
-      {
-        q: `Peut-on retirer par Interac chez ${m.nom} ?`,
-        r: faq
-          ? 'Interac ne figure pas dans la liste des moyens de retrait de la FAQ. Au Canada, le virement EFT ou eCheck en dollars canadiens prend 2 à 3 jours ouvrables.'
-          : `${m.nom} ne mentionne pas Interac dans ses conditions et ne publie pas de FAQ. Demandez au service client avant de déposer.`
-      },
-      {
-        q: `Quel est le retrait minimum chez ${m.nom} ?`,
-        r: faq
-          ? `${fr(REWARDS.retraitMin)} pour la plupart des moyens, ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct.`
-          : `${m.nom} ne publie pas de minimum de retrait.`
-      }
-    ],
-    connexes: [c.avis, c.fiable, '/casino-retrait-rapide/', '/delais-de-retrait-casino/']
-  };
-
-  const fiable: PageGuide = {
-    ...base,
-    chemin: c.fiable,
-    nomFil: 'Fiabilité',
-    parent,
-    ...t.fiable,
-    resume: `Licence, exploitant, certification et clauses de ${m.nom}.`,
-    sections: [
-      {
-        id: 'licence',
-        titre: 'La licence et la certification',
-        blocs: [
-          {
-            type: 'liste',
-            items: [
-              `**Licence** : Kahnawake Gaming Commission, licence n° ${REWARDS.licence} (article 2.1 des conditions). Le site renvoie vers le certificat sur le site de la commission.`,
-              '**Certification** : le site renvoie vers un certificat eCOGRA, un organisme qui contrôle l’équité des jeux.',
-              faq
-                ? '**Âge** : il faut avoir 19 ans ou l’âge de la majorité de votre province s’il est plus élevé.'
-                : '**Âge** : le site affiche un badge 19+ ; ses conditions renvoient à l’âge légal de votre province.'
-            ]
-          }
-        ]
-      },
-      {
-        id: 'exploitant',
-        titre: `Qui exploite ${m.nom}`,
-        blocs: [
-          {
-            type: 'p',
-            texte: `Le pied de page indique que le site est détenu et exploité par ${REWARDS.exploitantFr}. Les conditions générales parlent d’une marque gérée par ${REWARDS.gestionnaire}. Le site ne précise pas le lien entre les deux sociétés. Les mêmes noms figurent chez les autres casinos du groupe que nous avons analysés : ${autresFr(m)}.`
-          }
-        ]
-      },
-      {
-        id: 'vigilance',
-        titre: 'Les clauses à connaître',
-        blocs: [
-          {
-            type: 'liste',
-            items: [
-              `**Mise de ${REWARDS.mise12} fois** sur les bonus des deux premiers dépôts (article 12.4).`,
-              '**Grosse mise interdite** : une mise de 25 % du bonus ou plus, avant la fin de la mise exigée, peut faire perdre les gains (article 13.16.1).',
-              '**Retraits annulables** pendant les 48 h d’attente.',
-              '**Plafond possible** de 4 000 $ par semaine si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe (article 14.2.10).',
-              ...(faq ? [] : ['**Pas de FAQ publique** : délais de retrait par moyen, minimums et moyens de dépôt ne sont pas publiés.'])
-            ]
-          }
-        ]
-      },
-      {
-        id: 'rassurant',
-        titre: 'Les points rassurants',
-        blocs: [
-          {
-            type: 'liste',
-            items: [
-              'Le numéro de licence et l’exploitant sont affichés.',
-              'Une page de jeu responsable et un certificat eCOGRA sont accessibles depuis chaque page.',
-              faq
-                ? 'Les délais, minimums et frais de retrait sont publiés dans la FAQ.'
-                : 'Les frais du virement bancaire direct et l’attente de 48 h sont publiés dans les conditions générales.'
-            ]
-          },
-          {
-            type: 'p',
-            texte:
-              'Pour ce que dit la loi québécoise sur les sites autres que Loto-Québec, voyez notre page [casino en ligne légal au Québec](/casino-en-ligne-legal-quebec/).'
-          },
-          { type: 'offres', casinos: TOP3, titre: 'Nos casinos les mieux notés' }
-        ]
-      }
-    ],
-    faq: [
-      {
-        q: `${m.nom} est-il une arnaque ?`,
-        r: `Rien dans ce que nous avons lu ne l’indique : la licence et l’exploitant sont publiés, et le site est certifié par eCOGRA. Le vrai piège est ailleurs : le bonus à miser ${REWARDS.mise12} fois.`
-      },
-      {
-        q: `Quelle licence a ${m.nom} ?`,
-        r: `Une licence de la Kahnawake Gaming Commission, n° ${REWARDS.licence}, selon l’article 2.1 de ses conditions.`
-      },
-      {
-        q: `Qui est derrière ${m.nom} ?`,
-        r: `${REWARDS.exploitantFr}, selon le pied de page. Les conditions mentionnent aussi ${REWARDS.gestionnaire} comme gestionnaire de la marque.`
-      }
-    ],
-    connexes: [c.avis, c.retrait, '/casino-en-ligne-fiable/', '/casino-en-ligne-legal-quebec/']
-  };
-
-  return [avis, bonus, sansDepot, retrait, fiable];
+  return [avis, bonus, sansDepot];
 }
 
 /* =====================================================================
@@ -1397,8 +1199,8 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'p',
             texte: faq
-              ? `A withdrawal stays pending for 48 hours, then it is processed on the next business day. After that, allow 1 to 3 business days for e-wallets, 2 to 3 for a CAD EFT transfer, 3 for a card and 6 to 10 for a direct bank transfer. The minimum is ${enM(REWARDS.retraitMin)}. Times and fees in detail: [${m.nom} withdrawals](${c.retrait}).`
-              : `A withdrawal stays pending for 48 hours, and you can reverse it until it is processed. ${m.nom} publishes no times by payment method and no minimum withdrawal. A direct bank transfer costs $50 ($100 above $3,000). Details: [${m.nom} withdrawals](${c.retrait}).`
+              ? `A withdrawal stays pending for 48 hours, then it is processed on the next business day. After that, allow 1 to 3 business days for e-wallets, 2 to 3 for a CAD EFT transfer, 3 for a card and 6 to 10 for a direct bank transfer. The minimum is ${enM(REWARDS.retraitMin)}. Times by method, fees and limits shared by the group’s casinos: [Casino Rewards](${HUB_EN}).`
+              : `A withdrawal stays pending for 48 hours, and you can reverse it until it is processed. ${m.nom} publishes no times by payment method and no minimum withdrawal. A direct bank transfer costs $50 ($100 above $3,000). What the group’s terms say: [Casino Rewards](${HUB_EN}).`
           }
         ]
       },
@@ -1408,7 +1210,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: `The terms state a Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the site links to an eCOGRA certificate. The footer names ${REWARDS.exploitantEn}; the terms describe a brand managed by ${REWARDS.gestionnaire}. Our full analysis: [is ${m.nom} legit?](${c.fiable})`
+            texte: `The terms state a Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the site links to an eCOGRA certificate. The footer names ${REWARDS.exploitantEn}; the terms describe a brand managed by ${REWARDS.gestionnaire}. The clauses to know, shared by the group: [Casino Rewards](${HUB_EN}).`
           },
           { type: 'p', texte: `The same terms apply to the other casinos of the group we have reviewed: ${autresEn(m)}.` }
         ]
@@ -1452,9 +1254,13 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         r: faq
           ? 'Its FAQ mentions Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.'
           : `${m.nom} publishes no FAQ and its terms do not mention Interac. Check the deposit page before signing up.`
+      },
+      {
+        q: `Is ${m.nom} legit?`,
+        r: `Nothing we read suggests otherwise: the Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the operator are published, and the site links to an eCOGRA certificate. The real catch is elsewhere: the ${REWARDS.mise12}x bonus wagering.`
       }
     ],
-    connexes: [c.bonus, c.retrait, c.fiable, '/en-ca/casino-bonuses/']
+    connexes: [c.bonus, c.sansDepot, HUB_EN, '/en-ca/casino-bonuses/']
   };
 
   const bonus: PageGuide = {
@@ -1636,150 +1442,294 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
     connexes: [c.avis, c.bonus, '/en-ca/casino-bonuses/', '/en-ca/minimum-deposit-casinos/']
   };
 
-  const retrait: PageGuide = {
-    ...base,
-    chemin: c.retrait,
-    nomFil: 'Withdrawal',
-    parent,
-    ...t.retrait,
-    resume: `Times, minimums, fees and checks for ${m.nom} withdrawals.`,
+  return [avis, bonus, sansDepot];
+}
+
+/* =====================================================================
+   PAGE DU GROUPE CASINO REWARDS (français et anglais)
+   ===================================================================== */
+
+const NOMS = MARQUES.map((m) => m.nom);
+const AVEC_FAQ = MARQUES.filter(avecFaq).map((m) => m.nom);
+const SANS_FAQ = MARQUES.filter((m) => !avecFaq(m)).map((m) => m.nom);
+const VERIFIE = YUKON.verifie;
+const MODIFIE_HUB = '2026-11-16';
+
+function hubFr(): PageGuide {
+  return {
+    chemin: HUB_FR,
+    nomFil: 'Casino Rewards',
+    titre: 'Casino Rewards : avis sur le groupe et ses casinos au Canada',
+    description: `Casino Rewards au Canada : ${MARQUES.length} casinos du groupe analysés, mise de ${REWARDS.mise12} fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions lues.`,
+    h1: 'Casino Rewards : ce que valent ses casinos au Canada',
+    chapeau: `${listeFr(NOMS)} font partie du même groupe, Casino Rewards, et partagent les mêmes conditions générales. Nous les avons lues ligne par ligne. Le point commun qui pèse le plus : les bonus des deux premiers dépôts doivent être misés ${REWARDS.mise12} fois.`,
+    modifie: MODIFIE_HUB,
+    titreTop: 'Avant Casino Rewards : nos 3 casinos les mieux notés',
+    resume: `Retraits, mise de ${REWARDS.mise12} fois, clauses et licence communs aux casinos du groupe Casino Rewards.`,
+    sources: [...YUKON.sourcesFr, ...CAPTAIN.sourcesFr],
     sections: [
       {
-        id: 'times',
-        titre: faq ? 'Announced withdrawal times' : 'Withdrawal times: not published',
-        blocs: faq
-          ? [
-              {
-                type: 'tableau',
-                legende: 'Official FAQ, read on November 10, 2026. Times after the 48-hour pending period and processing.',
-                entetes: ['Withdrawal method', 'Announced time'],
-                lignes: [
-                  ['E-wallets', '1 to 3 business days'],
-                  ['CAD EFT or eCheck (Canada only)', '2 to 3 business days'],
-                  ['Visa, Mastercard', '3 business days'],
-                  ['Direct bank transfer', '6 to 10 business days']
-                ]
-              }
-            ]
-          : [
-              {
-                type: 'p',
-                texte: `${m.nom} publishes no FAQ, and its terms give no time by payment method: they only say these times vary by method, processor and bank. Before a first deposit, ask customer support how long the method you plan to use takes.`
-              }
-            ]
-      },
-      {
-        id: 'steps',
-        titre: 'What happens after you request a withdrawal',
+        id: 'casinos',
+        titre: `Les ${MARQUES.length} casinos du groupe que nous avons analysés`,
         blocs: [
           {
-            type: 'liste',
-            ordonnee: true,
-            items: faq
-              ? [
-                  '**48 hours pending.** During this time you can reverse the withdrawal. This is often when players gamble their winnings again: if you want to cash out, leave it alone.',
-                  '**Processing on the next business day.**',
-                  '**The method’s own delay**, from 1 to 10 business days (table above).',
-                  '**First withdrawal with a new method**: extra checks, up to 5 to 7 business days.'
-                ]
-              : [
-                  '**48 hours pending.** During this time you can reverse the withdrawal. This is often when players gamble their winnings again: if you want to cash out, leave it alone.',
-                  '**Processing**, then the method’s own delay, not published.',
-                  '**Checks**: the casino can ask for proof that the payment account is yours.'
-                ]
+            type: 'tableau',
+            legende: `Offres de bienvenue relevées sur les sites officiels, conditions relues le ${dateLongue(VERIFIE)}.`,
+            entetes: ['Casino', 'Offre de bienvenue', 'FAQ publique'],
+            lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).fr.avis})`, offreFr(m), avecFaq(m) ? 'Oui' : 'Non']
+            )
+          },
+          {
+            type: 'p',
+            texte: `Le groupe compte d’autres casinos, que nous n’avons pas encore analysés. Chaque casino a sa propre offre de bienvenue, mais la mise, les retraits, la licence et les clauses ci-dessous sont les mêmes partout.`
           }
         ]
       },
       {
-        id: 'fees',
-        titre: 'Minimums, fees and limits',
+        id: 'mise',
+        titre: `La mise de ${REWARDS.mise12} fois, commune à tout le groupe`,
+        blocs: [
+          {
+            type: 'p',
+            texte: `Les bonus des deux premiers dépôts doivent être misés **${REWARDS.mise12} fois** avant de pouvoir être retirés (article 12.4 des conditions). À partir du 3e dépôt, la mise passe à ${REWARDS.mise3} fois (article 12.5). Les machines à sous comptent à 100 % ; les jeux de table et en direct, à 2 % seulement.`
+          },
+          {
+            type: 'tableau',
+            legende: 'Pour un dépôt de 100 $. Casino Rewards : premier bonus à 100 % du groupe. Nos casinos : premier palier de leur offre de bienvenue, conditions officielles.',
+            entetes: ['Casino', 'Bonus reçu', 'Mise exigée', 'Montant à miser'],
+            lignes: [
+              ['**Casinos Casino Rewards**', fr(100), `${REWARDS.mise12} fois`, `**${fr(100 * REWARDS.mise12)}** (bonus seul) à ${fr(200 * REWARDS.mise12)} (dépôt + bonus)`],
+              ...EXEMPLES.map(({ c, ex }) => [`[${c.nom}](${cheminCasino(c)})`, fr(ex.bonus), `${c.offre.mise!.multiplicateur} fois`, `**${fr(ex.aMiser)}**`])
+            ]
+          },
+          {
+            type: 'p',
+            texte: 'Les conditions ne précisent pas si la mise porte sur le bonus seul ou sur le dépôt et le bonus : le tableau donne les deux. Pour faire le calcul avec votre propre dépôt : [calculateur de mise](/conditions-de-mise/).'
+          }
+        ]
+      },
+      {
+        id: 'retraits',
+        titre: 'Les retraits : 48 h d’attente, puis le délai du moyen choisi',
+        blocs: [
+          {
+            type: 'tableau',
+            legende: `FAQ officielles de ${listeFr(AVEC_FAQ)}, relues le ${dateLongue(VERIFIE)}. Délais après les 48 h d’attente et le traitement. ${listeFr(SANS_FAQ)} ne publie pas de FAQ.`,
+            entetes: ['Moyen de retrait', 'Délai annoncé'],
+            lignes: [
+              ['Portefeuilles électroniques', '1 à 3 jours ouvrables'],
+              ['Virement EFT ou eCheck en dollars canadiens (Canada seulement)', '2 à 3 jours ouvrables'],
+              ['Visa, Mastercard', '3 jours ouvrables'],
+              ['Virement bancaire direct', '6 à 10 jours ouvrables']
+            ]
+          },
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**48 h d’attente.** Pendant ce temps, vous pouvez annuler le retrait. C’est souvent là que l’on rejoue ses gains : si vous voulez retirer, n’y touchez plus.',
+              '**Traitement le jour ouvrable suivant.**',
+              '**Délai du moyen choisi**, de 1 à 10 jours ouvrables (tableau ci-dessus).',
+              '**Premier retrait par un nouveau moyen** : vérifications supplémentaires, jusqu’à 5 à 7 jours ouvrables.'
+            ]
+          },
+          {
+            type: 'liste',
+            items: [
+              `**Minimum** : ${fr(REWARDS.retraitMin)}, et ${fr(REWARDS.retraitMinVirement)} par virement bancaire direct (FAQ ; ${listeFr(SANS_FAQ)} ne publie pas de minimum).`,
+              '**Frais** : 50 $ par virement bancaire direct (100 $ au-delà de 3 000 $). Les autres moyens sont sans frais selon les FAQ.',
+              '**Plafonds** : les conditions prévoient des limites par jour, par semaine et par mois selon le pays et le moyen, sans les chiffrer (article 14.2.2).',
+              '**Cas particulier** : si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe, les retraits peuvent être limités à 4 000 $ par semaine (article 14.2.10).'
+            ]
+          },
+          {
+            type: 'tableau',
+            legende: 'Nos casinos : délais constatés lors de nos retraits en argent réel. Casinos du groupe Casino Rewards : pas encore testés.',
+            entetes: ['Casino', 'Retrait crypto constaté', 'Retrait carte constaté'],
+            lignes: [
+              ['**Casinos Casino Rewards**', 'Crypto non listée', 'Pas encore testé (3 jours ouvrables annoncés après l’attente)'],
+              ...RAPIDES.map((x) => [`[${x.nom}](${cheminCasino(x)})`, heuresFr(dernier(x, 'crypto')?.delaiHeures), heuresFr(dernier(x, 'carte')?.delaiHeures)])
+            ]
+          },
+          { type: 'p', texte: 'Tous nos relevés, datés : [délais de retrait testés](/delais-de-retrait-casino/).' },
+          { type: 'offres', casinos: TOP3, titre: 'Des retraits plus rapides' }
+        ]
+      },
+      {
+        id: 'clauses',
+        titre: 'Les clauses à connaître',
         blocs: [
           {
             type: 'liste',
             items: [
-              faq ? `**Minimum**: ${enM(REWARDS.retraitMin)}, or ${enM(REWARDS.retraitMinVirement)} by direct bank transfer.` : '**Minimum**: not published.',
-              faq
-                ? '**Fees**: $50 by direct bank transfer ($100 above $3,000). Other methods are free.'
-                : '**Fees**: $50 by direct bank transfer ($100 above $3,000), according to the terms.',
-              '**Limits**: the terms allow daily, weekly and monthly limits by country and method, without giving figures (section 14.2.2).',
-              '**Special case**: if your winnings are much higher than your deposits across the group’s casinos, withdrawals can be capped at $4,000 per week (section 14.2.10).'
+              `**Mise de ${REWARDS.mise12} fois** sur les bonus des deux premiers dépôts (article 12.4).`,
+              '**Grosse mise interdite** : une mise de 25 % du bonus ou plus, avant la fin de la mise exigée, peut faire perdre les gains (article 13.16.1).',
+              '**Retraits annulables** pendant les 48 h d’attente.',
+              '**Plafond possible** de 4 000 $ par semaine si vos gains sont très supérieurs à vos dépôts dans les casinos du groupe (article 14.2.10).'
             ]
           }
         ]
       },
       {
-        id: 'comparison',
-        titre: 'Compared with our casinos’ tested withdrawals',
+        id: 'licence',
+        titre: 'Licence, certification et exploitant',
         blocs: [
           {
-            type: 'tableau',
-            legende: `Our casinos: times measured during our real-money withdrawals. ${m.nom}: not tested yet.`,
-            entetes: ['Casino', 'Crypto withdrawal measured', 'Card withdrawal measured'],
-            lignes: [
-              faq
-                ? [`**${m.nom}**`, 'Crypto not listed', 'Not tested yet (3 business days announced after pending)']
-                : [`**${m.nom}**`, 'Not published', 'Not tested yet (time not published)'],
-              ...RAPIDES.map((x) => [`[${x.nom}](${cheminEn(x)})`, heuresEn(dernier(x, 'crypto')?.delaiHeures), heuresEn(dernier(x, 'carte')?.delaiHeures)])
+            type: 'liste',
+            items: [
+              `**Licence** : Kahnawake Gaming Commission, licence n° ${REWARDS.licence} (article 2.1 des conditions).`,
+              '**Certification** : chaque site renvoie vers un certificat eCOGRA, un organisme qui contrôle l’équité des jeux.',
+              `**Exploitant** : le pied de page nomme ${REWARDS.exploitantFr} ; les conditions parlent de marques gérées par ${REWARDS.gestionnaire}. Les sites ne précisent pas le lien entre les deux sociétés.`,
+              '**Âge** : 19 ans, même au Québec où l’âge légal est de 18 ans.',
+              `**Fidélité** : ${YUKON.fideliteFr.charAt(0).toLowerCase()}${YUKON.fideliteFr.slice(1)}.`
             ]
           },
-          { type: 'p', texte: 'All our dated results: [tested withdrawal times](/en-ca/casino-withdrawal-times/).' },
-          { type: 'offres', casinos: TOP3, titre: 'Faster withdrawals' }
+          {
+            type: 'p',
+            texte: 'La licence de Kahnawake n’est pas une autorisation du gouvernement du Québec. Ce que dit la loi : [casino en ligne légal au Québec](/casino-en-ligne-legal-quebec/).'
+          }
+        ]
+      },
+      {
+        id: 'verdict',
+        titre: 'Notre verdict',
+        blocs: [
+          {
+            type: 'liste',
+            items: [
+              '**Pour vous si** vous voulez beaucoup de crédit de jeu pour un petit dépôt, sans compter retirer le bonus.',
+              '**Pour vous si** vous jouez dans plusieurs casinos du groupe : le programme de fidélité est commun.',
+              `**Pas pour vous si** vous voulez un bonus que vous pourrez vraiment débloquer : ${REWARDS.mise12} fois, c’est l’une des mises les plus lourdes que nous ayons relevées.`,
+              '**Pas pour vous si** vous jouez surtout aux jeux de table ou en direct : ils ne comptent qu’à 2 % pour la mise.'
+            ]
+          },
+          { type: 'offres', casinos: TOP3, titre: 'Mise de 30 à 50 fois au lieu de 200 : nos casinos les mieux notés' }
         ]
       }
     ],
     faq: [
       {
-        q: `Why is my ${m.nom} withdrawal pending?`,
-        r: faq
-          ? 'All withdrawals stay pending for 48 hours before being processed on the next business day. A first withdrawal with a new method can take up to 5 to 7 business days of checks.'
-          : 'All withdrawals stay pending for 48 hours and can be reversed until processed. The next delays are not published.'
+        q: 'Casino Rewards est-il fiable ?',
+        r: `Rien dans ce que nous avons lu n’indique le contraire : la licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et l’exploitant sont publiés, et les sites renvoient vers un certificat eCOGRA. Le vrai piège est ailleurs : les bonus des deux premiers dépôts à miser ${REWARDS.mise12} fois.`
       },
       {
-        q: `Can you withdraw by Interac at ${m.nom}?`,
-        r: faq
-          ? 'Interac is not on the FAQ’s list of withdrawal methods. In Canada, a CAD EFT or eCheck transfer takes 2 to 3 business days.'
-          : `${m.nom} does not mention Interac in its terms and publishes no FAQ. Ask customer support before depositing.`
+        q: 'Quels casinos font partie de Casino Rewards ?',
+        r: `Nous avons analysé ${listeFr(NOMS)}, qui partagent les mêmes conditions générales. Le groupe compte d’autres casinos, que nous n’avons pas encore analysés.`
       },
       {
-        q: `What is the minimum withdrawal at ${m.nom}?`,
-        r: faq ? `${enM(REWARDS.retraitMin)} for most methods, ${enM(REWARDS.retraitMinVirement)} by direct bank transfer.` : `${m.nom} does not publish a minimum withdrawal.`
+        q: 'Combien de temps prend un retrait dans un casino Casino Rewards ?',
+        r: '48 h d’attente, traitement le jour ouvrable suivant, puis 1 à 10 jours ouvrables selon le moyen, d’après les FAQ du groupe. Un premier retrait par un nouveau moyen peut demander 5 à 7 jours ouvrables de vérification.'
+      },
+      {
+        q: 'Les casinos Casino Rewards acceptent-ils Interac ?',
+        r: `Les FAQ de ${listeFr(AVEC_FAQ)} mentionnent les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas parmi les moyens de retrait : on retire notamment par virement EFT en dollars canadiens.`
+      },
+      {
+        q: 'Casino Rewards est-il légal au Québec ?',
+        r: 'Loto-Québec est le seul casino en ligne autorisé par le gouvernement du Québec. La licence de Kahnawake n’est pas une autorisation du Québec : jouer sur ces sites relève d’une zone grise, expliquée sur notre page sur le casino en ligne légal au Québec.'
       }
     ],
-    connexes: [c.avis, c.fiable, '/en-ca/fast-withdrawal-casinos/', '/en-ca/casino-withdrawal-times/']
+    connexes: [chemins(YUKON).fr.avis, chemins(ZODIAC).fr.avis, '/casino-retrait-rapide/', '/casino-en-ligne-fiable/']
   };
+}
 
-  const fiable: PageGuide = {
-    ...base,
-    chemin: c.fiable,
-    nomFil: 'Is it legit?',
-    parent,
-    ...t.fiable,
-    resume: `Licence, operator, certification and clauses of ${m.nom}.`,
+function hubEn(): PageGuide {
+  return {
+    chemin: HUB_EN,
+    nomFil: 'Casino Rewards',
+    titre: 'Casino Rewards Review: The Group and Its Casinos in Canada',
+    description: `Casino Rewards in Canada: ${MARQUES.length} of the group’s casinos reviewed, ${REWARDS.mise12}x wagering, 48-hour pending withdrawals, Kahnawake licence. Terms read.`,
+    h1: 'Casino Rewards: What Its Casinos Are Really Worth in Canada',
+    chapeau: `${listeEn(NOMS)} belong to the same group, Casino Rewards, and share the same terms and conditions. We read them line by line. The shared point that matters most: the first two deposit bonuses must be wagered ${REWARDS.mise12} times.`,
+    modifie: MODIFIE_HUB,
+    titreTop: 'Before Casino Rewards: our 3 top-rated casinos',
+    resume: `Withdrawals, ${REWARDS.mise12}x wagering, clauses and licence shared by the Casino Rewards casinos.`,
+    sources: [...YUKON.sourcesEn, ...CAPTAIN.sourcesEn],
     sections: [
       {
-        id: 'licence',
-        titre: 'Licence and certification',
+        id: 'casinos',
+        titre: `The ${MARQUES.length} casinos of the group we reviewed`,
         blocs: [
           {
-            type: 'liste',
-            items: [
-              `**Licence**: Kahnawake Gaming Commission, licence no. ${REWARDS.licence} (section 2.1 of the terms). The site links to the certificate on the commission’s website.`,
-              '**Certification**: the site links to an eCOGRA certificate; eCOGRA audits game fairness.',
-              faq
-                ? '**Age**: you must be 19, or the age of majority in your province if higher.'
-                : '**Age**: the site shows a 19+ badge; its terms refer to the legal age in your province.'
-            ]
+            type: 'tableau',
+            legende: 'Welcome offers taken from the official sites, terms read on November 10, 2026.',
+            entetes: ['Casino', 'Welcome offer', 'Public FAQ'],
+            lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).en.avis})`, offreEn(m), avecFaq(m) ? 'Yes' : 'No'])
+          },
+          {
+            type: 'p',
+            texte: 'The group has other casinos we have not reviewed yet. Each casino has its own welcome offer, but the wagering, withdrawals, licence and clauses below are the same everywhere.'
           }
         ]
       },
       {
-        id: 'operator',
-        titre: `Who runs ${m.nom}`,
+        id: 'wagering',
+        titre: `${REWARDS.mise12}x wagering, shared by the whole group`,
         blocs: [
           {
             type: 'p',
-            texte: `The footer says the site is owned and operated by ${REWARDS.exploitantEn}. The terms describe a brand managed by ${REWARDS.gestionnaire}. The site does not explain how the two companies are related. The same names appear at the other casinos of the group we have reviewed: ${autresEn(m)}.`
+            texte: `The first two deposit bonuses must be wagered **${REWARDS.mise12} times** before they can be withdrawn (section 12.4 of the terms). From the 3rd deposit, wagering drops to ${REWARDS.mise3}x (section 12.5). Slots count 100%; table and live games only 2%.`
+          },
+          {
+            type: 'tableau',
+            legende: 'For a $100 deposit. Casino Rewards: the group’s first 100% bonus. Our casinos: first tier of their welcome offer, official terms.',
+            entetes: ['Casino', 'Bonus received', 'Wagering', 'Amount to wager'],
+            lignes: [
+              ['**Casino Rewards casinos**', enM(100), `${REWARDS.mise12}x`, `**${enM(100 * REWARDS.mise12)}** (bonus only) to ${enM(200 * REWARDS.mise12)} (deposit + bonus)`],
+              ...EXEMPLES.map(({ c, ex }) => [`[${c.nom}](${cheminEn(c)})`, enM(ex.bonus), `${c.offre.mise!.multiplicateur}x`, `**${enM(ex.aMiser)}**`])
+            ]
+          },
+          {
+            type: 'p',
+            texte: 'The terms do not say whether wagering applies to the bonus only or to the deposit and bonus, so the table shows both.'
           }
+        ]
+      },
+      {
+        id: 'withdrawals',
+        titre: 'Withdrawals: 48 hours pending, then the method’s own delay',
+        blocs: [
+          {
+            type: 'tableau',
+            legende: `Official FAQs of ${listeEn(AVEC_FAQ)}, read on November 10, 2026. Times after the 48-hour pending period and processing. ${listeEn(SANS_FAQ)} publishes no FAQ.`,
+            entetes: ['Withdrawal method', 'Announced time'],
+            lignes: [
+              ['E-wallets', '1 to 3 business days'],
+              ['CAD EFT or eCheck (Canada only)', '2 to 3 business days'],
+              ['Visa, Mastercard', '3 business days'],
+              ['Direct bank transfer', '6 to 10 business days']
+            ]
+          },
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**48 hours pending.** During this time you can reverse the withdrawal. This is often when players gamble their winnings again: if you want to cash out, leave it alone.',
+              '**Processing on the next business day.**',
+              '**The method’s own delay**, from 1 to 10 business days (table above).',
+              '**First withdrawal with a new method**: extra checks, up to 5 to 7 business days.'
+            ]
+          },
+          {
+            type: 'liste',
+            items: [
+              `**Minimum**: ${enM(REWARDS.retraitMin)}, or ${enM(REWARDS.retraitMinVirement)} by direct bank transfer (FAQ; ${listeEn(SANS_FAQ)} publishes no minimum).`,
+              '**Fees**: $50 by direct bank transfer ($100 above $3,000). Other methods are free according to the FAQs.',
+              '**Limits**: the terms allow daily, weekly and monthly limits by country and method, without giving figures (section 14.2.2).',
+              '**Special case**: if your winnings are much higher than your deposits across the group’s casinos, withdrawals can be capped at $4,000 per week (section 14.2.10).'
+            ]
+          },
+          {
+            type: 'tableau',
+            legende: 'Our casinos: times measured during our real-money withdrawals. Casino Rewards casinos: not tested yet.',
+            entetes: ['Casino', 'Crypto withdrawal measured', 'Card withdrawal measured'],
+            lignes: [
+              ['**Casino Rewards casinos**', 'Crypto not listed', 'Not tested yet (3 business days announced after pending)'],
+              ...RAPIDES.map((x) => [`[${x.nom}](${cheminEn(x)})`, heuresEn(dernier(x, 'crypto')?.delaiHeures), heuresEn(dernier(x, 'carte')?.delaiHeures)])
+            ]
+          },
+          { type: 'p', texte: 'All our dated results: [tested withdrawal times](/en-ca/casino-withdrawal-times/).' },
+          { type: 'offres', casinos: TOP3, titre: 'Faster withdrawals' }
         ]
       },
       {
@@ -1792,53 +1742,71 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
               `**${REWARDS.mise12}x wagering** on the first two deposit bonuses (section 12.4).`,
               '**No large bets**: a single bet of 25% of the bonus or more before wagering is complete can void winnings (section 13.16.1).',
               '**Reversible withdrawals** during the 48-hour pending period.',
-              '**Possible cap** of $4,000 per week if your winnings are much higher than your deposits across the group’s casinos (section 14.2.10).',
-              ...(faq ? [] : ['**No public FAQ**: withdrawal times by method, minimums and deposit methods are not published.'])
+              '**Possible cap** of $4,000 per week if your winnings are much higher than your deposits across the group’s casinos (section 14.2.10).'
             ]
           }
         ]
       },
       {
-        id: 'reassuring',
-        titre: 'The reassuring points',
+        id: 'licence',
+        titre: 'Licence, certification and operator',
         blocs: [
           {
             type: 'liste',
             items: [
-              'The licence number and operator are displayed.',
-              'A responsible gambling page and an eCOGRA certificate are linked from every page.',
-              faq ? 'Withdrawal times, minimums and fees are published in the FAQ.' : 'Direct bank transfer fees and the 48-hour pending period are published in the terms.'
+              `**Licence**: Kahnawake Gaming Commission, licence no. ${REWARDS.licence} (section 2.1 of the terms).`,
+              '**Certification**: each site links to an eCOGRA certificate; eCOGRA audits game fairness.',
+              `**Operator**: the footer names ${REWARDS.exploitantEn}; the terms describe brands managed by ${REWARDS.gestionnaire}. The sites do not explain how the two companies are related.`,
+              '**Age**: 19, including in Quebec and Manitoba where the legal age is 18.',
+              `**Loyalty**: ${YUKON.fideliteEn.charAt(0).toLowerCase()}${YUKON.fideliteEn.slice(1)}.`
             ]
           },
-          { type: 'p', texte: 'For the legal picture in Quebec, see our page on [online casinos in Quebec](/en-ca/online-casino-quebec/).' },
-          { type: 'offres', casinos: TOP3, titre: 'Our top-rated casinos' }
+          { type: 'p', texte: 'For the legal picture in Quebec, see our page on [online casinos in Quebec](/en-ca/online-casino-quebec/).' }
+        ]
+      },
+      {
+        id: 'verdict',
+        titre: 'Our verdict',
+        blocs: [
+          {
+            type: 'liste',
+            items: [
+              '**Good for you if** you want a lot of playing credit for a small deposit, without expecting to cash out the bonus.',
+              '**Good for you if** you play at several of the group’s casinos: the loyalty program is shared.',
+              `**Not for you if** you want a bonus you can realistically clear: ${REWARDS.mise12}x is one of the heaviest wagering requirements we have seen.`,
+              '**Not for you if** you mostly play table or live games: they count only 2% towards wagering.'
+            ]
+          },
+          { type: 'offres', casinos: TOP3, titre: '30x to 50x wagering instead of 200x: our top-rated casinos' }
         ]
       }
     ],
     faq: [
       {
-        q: `Is ${m.nom} a scam?`,
-        r: `Nothing we read suggests so: the licence and operator are published, and the site is eCOGRA certified. The real catch is elsewhere: the ${REWARDS.mise12}x bonus wagering.`
+        q: 'Is Casino Rewards legit?',
+        r: `Nothing we read suggests otherwise: the Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the operator are published, and the sites link to an eCOGRA certificate. The real catch is elsewhere: the first two deposit bonuses must be wagered ${REWARDS.mise12} times.`
       },
       {
-        q: `What licence does ${m.nom} hold?`,
-        r: `A Kahnawake Gaming Commission licence, no. ${REWARDS.licence}, according to section 2.1 of its terms.`
+        q: 'Which casinos are part of Casino Rewards?',
+        r: `We reviewed ${listeEn(NOMS)}, which share the same terms and conditions. The group has other casinos we have not reviewed yet.`
       },
       {
-        q: `Who owns ${m.nom}?`,
-        r: `${REWARDS.exploitantEn}, according to the footer. The terms also name ${REWARDS.gestionnaire} as the brand manager.`
+        q: 'How long does a withdrawal take at a Casino Rewards casino?',
+        r: '48 hours pending, processing on the next business day, then 1 to 10 business days depending on the method, according to the group’s FAQs. A first withdrawal with a new method can take 5 to 7 business days of checks.'
+      },
+      {
+        q: 'Do Casino Rewards casinos accept Interac?',
+        r: `The FAQs of ${listeEn(AVEC_FAQ)} mention Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.`
       }
     ],
-    connexes: [c.avis, c.retrait, '/en-ca/online-casino-quebec/', '/en-ca/fast-withdrawal-casinos/']
+    connexes: [chemins(YUKON).en.avis, chemins(ZODIAC).en.avis, '/en-ca/fast-withdrawal-casinos/', '/en-ca/online-casino-quebec/']
   };
-
-  return [avis, bonus, sansDepot, retrait, fiable];
 }
 
 /* ---------- Exports ---------- */
 
-export const MARQUES_FR: PageGuide[] = MARQUES.flatMap(pagesFr);
-export const MARQUES_EN: PageGuide[] = MARQUES.flatMap(pagesEn);
+export const MARQUES_FR: PageGuide[] = [...MARQUES.flatMap(pagesFr), hubFr()];
+export const MARQUES_EN: PageGuide[] = [...MARQUES.flatMap(pagesEn), hubEn()];
 
 // Garde-fou anglais (le français passe par le registre des guides).
 for (const p of MARQUES_EN) {
