@@ -31,7 +31,7 @@ export default function PiedEn() {
               ))}
               {LIENS_MARQUES.map((m) => (
                 <li key={m.en}>
-                  <Link href={m.en}>{m.nom.replace(/ Casino$/, '')} Casino review</Link>
+                  <Link href={m.en}>{/casino/i.test(m.nom) ? m.nom : `${m.nom} Casino`} review</Link>
                 </li>
               ))}
               <li>
