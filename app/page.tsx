@@ -214,7 +214,7 @@ export default function Accueil() {
             ['/casino-retrait-rapide/', 'Casino à retrait rapide', 'Délais et plafonds de retrait, tels que publiés.'],
             ['/casino-bonus-sans-depot/', 'Bonus sans dépôt', 'Ce qui existe vraiment, et les offres les plus proches.'],
             ['/casino-depot-minimum/', 'Casino dépôt 1 $', 'Les casinos à 1 $, 5 $ et 10 $, et ce que chaque dépôt débloque.'],
-            ['/casino-rewards/', 'Casino Rewards en français', 'Yukon Gold, Zodiac, Luxury et 5 autres : VIP et mise de 200 fois.'],
+            ['/casino-rewards/', 'Casino Rewards en français', 'Yukon Gold, Zodiac, Luxury et les autres : VIP et mise de 200 fois.'],
             ['/casino-en-ligne-fiable/', 'Casino en ligne fiable', 'Exploitant, licence et retraits testés, casino par casino.'],
             ['/delais-de-retrait-casino/', 'Délais de retrait testés', 'Chaque retrait mesuré en argent réel, daté.'],
             ['/statistiques-jeu-en-ligne-quebec/', 'Le jeu en ligne en chiffres', 'Loto-Québec, joueurs, aide : les chiffres officiels.']
