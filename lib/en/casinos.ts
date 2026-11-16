@@ -64,8 +64,7 @@ export const CASINOS_EN: Record<string, CasinoEn> = {
       { titre: 'VIP cashback', detail: '10% cashback with no wagering, on deposits made since your last withdrawal or bonus.' }
     ],
     licenceNote: CGA,
-    canada:
-      'Canada is not on the list of excluded countries in the general terms, and the sign-up form offers Canada and the Canadian dollar (checked November 9, 2026). Written confirmation from the affiliate manager is pending.',
+    canada: 'Canadian players accepted, confirmed in writing by the affiliate manager on November 16, 2026.',
     devises: 'AUD, BRL, CAD, EUR, GBP and USD (sign-up form)',
     retraits: {
       resume: 'Within 3 business days; $7,500 per week',
@@ -96,7 +95,7 @@ export const CASINOS_EN: Record<string, CasinoEn> = {
       '20% fee if a deposit is withdrawn before being wagered once',
       '20% monthly inactivity fee on a dormant account'
     ],
-    aConfirmer: ['Written acceptance of Canadian players by the affiliate manager', 'Interac support'],
+    aConfirmer: ['Interac support'],
     verdict: [
       'Velobet tops our grid because it pairs a transparent operator with the most workable bonus timeline in our comparison. The company behind it, Santeda International B.V., and its Curacao licence number are both displayed, and the 30x (deposit + bonus) wagering comes with 30 days to complete it.',
       'The bonus is still demanding: 30 times the deposit plus the bonus is a lot of play, and most of the free spins arrive 30 a day over nine days. Withdrawal rules are published, with limits of $7,500 a week and $15,000 a month.'
@@ -114,7 +113,7 @@ export const CASINOS_EN: Record<string, CasinoEn> = {
       },
       {
         q: 'Does Velobet accept Canadian players?',
-        r: 'Canada is not on the excluded-countries list of the general terms, and the sign-up form offers Canada and Canadian-dollar accounts. We are waiting for written confirmation from the affiliate manager. We do not cover Ontario or Alberta.'
+        r: 'Yes. The affiliate manager confirmed it in writing on November 16, 2026, and the sign-up form offers Canada and Canadian-dollar accounts. We do not cover Ontario or Alberta.'
       },
       {
         q: 'How long do Velobet withdrawals take?',
