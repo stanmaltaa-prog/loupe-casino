@@ -16,7 +16,7 @@ export default function PageConfidentialite() {
       h1="Politique de confidentialité"
       chapeau="Nous collectons le moins de renseignements possible. Voici exactement lesquels, pourquoi, et comment exercer vos droits."
       description={DESCRIPTION}
-      modifie="2026-11-03"
+      modifie="2026-11-16"
       emplacement="confidentialite"
       type="WebPage"
       sansOffre
