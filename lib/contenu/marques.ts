@@ -1056,6 +1056,26 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         ]
       },
       {
+        id: 'code',
+        titre: `Code bonus ${m.nom} : faut-il un code promo ?`,
+        blocs: [
+          {
+            type: 'p',
+            texte: `Non. La page bonus officielle, relue le 10 novembre 2026, ne demande aucun code : l’offre de bienvenue s’active avec le 1er dépôt, dans les 7 jours suivant l’inscription.`
+          },
+          {
+            type: 'p',
+            texte: m.chances
+              ? `Les ${m.chances} chances sont des tours sur la Mega Money Wheel, à 0,10 $ le tour, pas des tours gratuits sur une machine à sous au choix. Elles demandent un dépôt de ${fr(m.depot1!)}.`
+              : `L’offre de bienvenue de ${m.nom} ne comprend pas de tours gratuits : elle se compose de ${m.paliers.length} bonus de dépôt, jusqu’à ${fr(k.total)} au total.`
+          },
+          {
+            type: 'p',
+            texte: `Les « codes » et « liens bonus » annoncés sur d’autres sites ou des forums ne remplacent pas l’offre officielle : vérifiez toujours sur la page bonus du casino (lien dans les sources). Une fois inscrit, les promotions arrivent dans votre compte et par courriel, avec le [programme Casino Rewards](${HUB_FR}).`
+          }
+        ]
+      },
+      {
         id: 'comparaison',
         titre: 'Comparé aux bonus de nos casinos',
         blocs: [tableauMiseFr(m), { type: 'offres', casinos: TOP3, titre: 'Des bonus plus faciles à débloquer' }]
@@ -1417,6 +1437,26 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
               '**Expiry**: a bonus left unused for more than 60 days from registration is forfeited (section 13.7).',
               '**Cash and bonus**: wagers from both your cash and bonus balances count towards wagering (section 12.6).'
             ]
+          }
+        ]
+      },
+      {
+        id: 'bonus-code',
+        titre: `${m.nom} bonus code and promo code`,
+        blocs: [
+          {
+            type: 'p',
+            texte: `You do not need one. The official bonus page, checked on November 10, 2026, asks for no code: the welcome offer is triggered by your first deposit, within 7 days of registration.`
+          },
+          {
+            type: 'p',
+            texte: m.chances
+              ? `The ${m.chances} chances are spins on the Mega Money Wheel at $0.10 each, not free spins on a slot of your choice. They require a ${enM(m.depot1!)} deposit.`
+              : `The ${m.nom} welcome offer includes no free spins: it is made of ${m.paliers.length} deposit bonuses, up to ${enM(k.total)} in total.`
+          },
+          {
+            type: 'p',
+            texte: `“Codes” and “bonus links” posted on other sites or forums do not replace the official offer: always check the casino’s bonus page (linked in the sources). Once registered, promotions arrive in your account and by email through the [Casino Rewards program](${HUB_EN}).`
           }
         ]
       },
