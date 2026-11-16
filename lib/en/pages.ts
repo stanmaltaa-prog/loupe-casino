@@ -9,6 +9,8 @@ import { SITE } from '@/lib/site';
 import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, miseEn, retraitsEn } from './casinos';
 import { DERNIER_RELEVE, RELEVES, classementRetraits, dernier, nombreDeReleves } from '@/lib/tests';
 import { AIDE_PROVINCES, EN, MESSAGE_ZONE, SOURCE_AIDE, SOURCE_AIDE_NS, dateEn, montantEn, noteEn } from './site';
+import { MACHINES } from '@/lib/contenu/machines';
+import { TABLES } from '@/lib/contenu/tables';
 
 /** "1 h", "12 h" or "Not tested". */
 const heuresEn = (n: number | null | undefined) => (n === null || n === undefined ? 'Not tested' : `${n} h`);
@@ -73,6 +75,21 @@ const S = {
   provinces: { titre: 'Sumsub: online gambling in Canada, province by province (May 2026)', url: 'https://sumsub.com/blog/online-gambling-canada/' },
   lrgg: { titre: 'CCSA: the Lower-Risk Gambling Guidelines', url: 'https://gamblingguidelines.ca/lower-risk-gambling-guidelines/what-are-the-guidelines/' }
 };
+
+// ——— No deposit and best payout (16 November 2026)
+const PROCHE_EN: Record<string, string> = {
+  velobet: '30 free spins from a $10 first deposit, and a 10% VIP cashback with no wagering',
+  betportal: 'Daily cashback, up to 25%',
+  celsius: 'Its terms cap winnings from a no deposit bonus at $100'
+};
+const RAPIDES_EN = classementRetraits();
+const TOP_TABLES_EN = TABLES.filter((t) => t.rtp !== null).sort((a, b) => (b.rtp as number) - (a.rtp as number)).slice(0, 4);
+const TOP_SLOTS_EN = [...MACHINES].sort((a, b) => b.rtp - a.rtp).slice(0, 3);
+const FAMILLE_EN: Record<string, string> = { blackjack: 'Blackjack', roulette: 'Roulette', show: 'Game show' };
+const delaisEn = (moyen: 'crypto' | 'carte') =>
+  RAPIDES_EN.map((c) => dernier(c, moyen)?.delaiHeures).filter((n): n is number => typeof n === 'number');
+const fourchetteEn = (l: number[]) =>
+  l.length ? (Math.min(...l) === Math.max(...l) ? `${Math.min(...l)} h` : `${Math.min(...l)} to ${Math.max(...l)} h`) : 'not tested';
 
 export const PAGES_EN: PageGuide[] = [
   // ——————————————————————————— Casino bonuses
@@ -1390,6 +1407,261 @@ export const PAGES_EN: PageGuide[] = [
       { titre: 'Jeu : aide et référence, 21% increase in requests for help (August 13, 2024)', url: 'https://aidejeu.ca/en/articles/gambling-help-and-referral-records-a-21-increase-in-requests-for-help/' }
     ],
     connexes: ['/en-ca/online-casino-quebec/', '/en-ca/is-online-gambling-legal-in-canada/', '/en-ca/casino-withdrawal-times/']
+  },
+  // ——————————————————————————— No deposit bonus (16 November 2026)
+  {
+    chemin: '/en-ca/no-deposit-bonus-casinos/',
+    nomFil: 'No deposit bonus',
+    titre: 'No Deposit Bonus Casinos in Canada: What Exists in 2026',
+    description:
+      'Casino no deposit bonus in Canada: what we found casino by casino, the terms to read, and the closest offers with a $1 to $10 deposit. Checked in November 2026.',
+    h1: 'No deposit casino bonuses in Canada: what actually exists',
+    chapeau:
+      'At our last check, none of the casinos in our ranking offered a no deposit bonus to new players, and neither did the eight Casino Rewards casinos we reviewed. Here is what we found, how these offers work when they exist, and the closest options with a small deposit.',
+    modifie: '2026-11-16',
+    resume: 'What really exists in no deposit bonuses in Canada, and the closest offers with a small deposit.',
+    sections: [
+      {
+        id: 'found',
+        titre: 'What we found, casino by casino',
+        blocs: [
+          {
+            type: 'tableau',
+            entetes: ['Casino', 'No deposit bonus for new players', 'Closest offer', 'Checked on'],
+            lignes: CASINOS.map((c) => [
+              lien(c),
+              'None',
+              PROCHE_EN[c.id] ||
+                (typeof c.offre.depotMin === 'number' ? `Welcome bonus from a ${depotMinEn(c)} deposit` : 'Welcome bonus (minimum deposit not published)'),
+              dateEn(c.offre.verifieLe)
+            ])
+          }
+        ]
+      },
+      {
+        id: 'casino-rewards',
+        titre: 'The Casino Rewards casinos: from $1, but not free',
+        blocs: [
+          {
+            type: 'liste',
+            items: [
+              '[Zodiac Casino](/en-ca/zodiac-casino/no-deposit-bonus/): no no deposit bonus; the closest offer is 80 spins on the Mega Money Wheel for a **$1** deposit.',
+              '[Captain Cooks](/en-ca/captain-cooks-casino/no-deposit-bonus/): none; 100 spins for a **$5** deposit.',
+              '[Yukon Gold](/en-ca/yukon-gold-casino/no-deposit-bonus/): none; 150 spins for a $10 deposit.',
+              '[Grand Mondial](/en-ca/grand-mondial-casino/no-deposit-bonus/): none; 150 spins for a $10 deposit.',
+              '[Luxury Casino](/en-ca/luxury-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,000.',
+              '[Golden Tiger](/en-ca/golden-tiger-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,500.',
+              '[Casino Classic](/en-ca/casino-classic/no-deposit-bonus/): none; 3 deposit bonuses, up to $500.',
+              '[Villento](/en-ca/villento-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,000, from a $20 deposit.'
+            ]
+          },
+          {
+            type: 'p',
+            texte:
+              'Their first two deposit bonuses must be wagered 200 times. Once registered, members may receive free bonuses and email offers, according to the Casino Rewards FAQ: details on our [Casino Rewards page](/en-ca/casino-rewards/).'
+          }
+        ]
+      },
+      {
+        id: 'how',
+        titre: 'How a no deposit bonus works',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              'A no deposit bonus gives a small amount or a few free spins when you sign up, without a deposit. In return, its terms are usually stricter than those of a regular bonus:'
+          },
+          {
+            type: 'liste',
+            items: [
+              '**High wagering** before winnings can be withdrawn.',
+              '**A capped maximum win**, often a few tens or hundreds of dollars.',
+              '**A deposit required before the first withdrawal** at some casinos, to verify your payment method.',
+              '**Identity checks** before any payout.'
+            ]
+          },
+          {
+            type: 'encadre',
+            ton: 'alerte',
+            titre: 'Be careful with codes that look too good',
+            texte:
+              'A “no deposit” code found on a forum can be expired or meant for another country. Always check the offer on the casino’s promotions page before signing up.'
+          }
+        ]
+      },
+      {
+        id: 'free-chips',
+        titre: '“$300 free chip” and “free cash” offers',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              'Searches for a “$300 free chip no deposit” or “$500 free cash bonus” are common in Canada. We did not find such an offer at any casino we rank or review. If you see one, check three things before signing up: the casino’s operator and licence number, the offer on its own promotions page, and the maximum amount you can cash out.'
+          }
+        ]
+      },
+      {
+        id: 'alternatives',
+        titre: 'The alternatives with a small deposit',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              'With a first deposit of $10 to $20, you get the full welcome bonus at most casinos in our ranking, with published terms. Minimum deposits are compared in our guide to [$1 deposit casinos](/en-ca/minimum-deposit-casinos/).'
+          },
+          ZONE,
+          { type: 'offres', titre: 'The top-rated welcome bonuses' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: 'Is there a no deposit bonus in Canada?',
+        r: 'At our last check, none of the casinos we rank or review offered one to new players. These offers come and go quickly: check the casino’s promotions page.'
+      },
+      {
+        q: 'Can you withdraw winnings from a no deposit bonus?',
+        r: 'Yes, once the wagering is complete and up to the maximum win set by the casino. Some casinos also ask for a first deposit before the withdrawal.'
+      },
+      {
+        q: 'What is the closest thing to a no deposit bonus?',
+        r: 'Zodiac Casino’s 80 spins for a $1 deposit, or a welcome bonus with published wagering from $10 at the casinos we rank. Compare the amount to wager rather than the advertised percentage.'
+      }
+    ],
+    sources: [...SOURCES_BONUS, { titre: 'Casino Rewards: official FAQ (sign-up offer, free bonuses for members)', url: 'https://www.casinorewards.com/en/faq/' }],
+    connexes: ['/en-ca/minimum-deposit-casinos/', '/en-ca/casino-bonuses/', '/en-ca/casino-withdrawal-times/']
+  },
+
+  // ——————————————————————————— Best payout (16 November 2026)
+  {
+    chemin: '/en-ca/best-payout-online-casinos/',
+    nomFil: 'Best payout casinos',
+    titre: `Best Payout Online Casinos in Canada: Top ${RAPIDES_EN.length} Tested (2026)`,
+    description:
+      'Which online casino pays out best in Canada? Ranked by withdrawals tested with real money, limits, bonus wagering and the games with the highest return.',
+    h1: `Best payout online casinos in Canada: our top ${RAPIDES_EN.length}`,
+    chapeau:
+      'No casino makes you win more in the long run: the house always keeps an edge. What changes from one site to another is how fast and how much it pays out, the wagering on its bonus and the return of its games. Here are those four points, measured.',
+    modifie: '2026-11-16',
+    resume: 'Tested withdrawals, limits, bonus wagering and RTP: what really makes a casino pay.',
+    sections: [
+      {
+        id: 'ranking',
+        titre: 'The casinos ranked by what really pays',
+        blocs: [
+          {
+            type: 'tableau',
+            legende: `Times measured in our real-money tests (last check: ${dateEn(DERNIER_RELEVE)}). Limits and wagering from the official terms.`,
+            entetes: ['Casino', 'Crypto payout measured', 'Card payout measured', 'Withdrawal limit', 'Bonus wagering'],
+            lignes: RAPIDES_EN.map((c) => [
+              lien(c),
+              `**${heuresEn(dernier(c, 'crypto')?.delaiHeures)}**`,
+              heuresEn(dernier(c, 'carte')?.delaiHeures),
+              retraitDe(c).plafond,
+              miseEn(c)
+            ])
+          },
+          {
+            type: 'p',
+            texte: RAPIDES_EN[0]
+              ? `In our latest tests, ${lien(RAPIDES_EN[0])} paid out fastest: ${heuresEn(dernier(RAPIDES_EN[0], 'crypto')?.delaiHeures)} in crypto. Every measurement is in our [withdrawal times log](/en-ca/casino-withdrawal-times/).`
+              : 'No test published yet.'
+          }
+        ]
+      },
+      {
+        id: 'meaning',
+        titre: 'What “best payout” really means',
+        blocs: [
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**Return to player (RTP).** The share of stakes a game pays back on average, over millions of rounds. A 96% RTP promises nothing for one evening: it describes a very long-term average.',
+              '**Withdrawal speed.** A casino that pays within hours leaves you less time to gamble your winnings again.',
+              '**Withdrawal limits.** A big win can be paid in instalments, over weeks.',
+              '**Bonus wagering.** The higher it is, the more you play before you can withdraw, and the more the house edge weighs.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'games',
+        titre: 'The games with the highest return',
+        blocs: [
+          {
+            type: 'tableau',
+            legende: 'Main RTP published for each game in our catalogue. Blackjack figures assume perfect basic strategy.',
+            entetes: ['Game', 'Type', 'RTP'],
+            lignes: [
+              ...TOP_TABLES_EN.map((t) => [t.nom, FAMILLE_EN[t.famille] || t.famille, `${(t.rtp as number).toFixed(2)}%`]),
+              ...TOP_SLOTS_EN.map((m) => [m.nom, 'Slot', `${m.rtp.toFixed(2)}%`])
+            ]
+          },
+          {
+            type: 'p',
+            texte:
+              'These rates are averages over millions of rounds and guarantee nothing in a session. Some providers publish several versions of the same game: check the RTP shown in the game’s information screen. If you play with a bonus, check how much table games count towards wagering: often far less than slots.'
+          }
+        ]
+      },
+      {
+        id: 'faster',
+        titre: 'How to get paid faster',
+        blocs: [
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**Send your ID documents early.** A casino can ask for ID and proof of address before paying: sending them early avoids blocking your first withdrawal.',
+              `**Withdraw in crypto if you can.** In our tests, crypto payouts arrived in ${fourchetteEn(delaisEn('crypto'))}, against ${fourchetteEn(delaisEn('carte'))} by card.`,
+              '**Play without a bonus if you want to withdraw quickly.** With no wagering to complete, your winnings only follow the casino’s withdrawal rules.',
+              '**Make a small withdrawal first.** It shows you the real delay before you leave a large sum in the account.',
+              '**Keep records.** Screenshots of the terms you accepted and of your withdrawal requests help in a dispute.'
+            ]
+          },
+          ZONE,
+          { type: 'offres' }
+        ]
+      },
+      {
+        id: 'tax',
+        titre: 'Are your winnings taxable?',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              'According to the Canada Revenue Agency, winnings of a player who gambles for entertainment are generally not taxable; they can be if gambling becomes a business. The numbers behind online gambling in Quebec: [Quebec online gambling statistics](/en-ca/quebec-online-gambling-statistics/).'
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: 'Which online casino pays out best in Canada?',
+        r: RAPIDES_EN[0]
+          ? `No casino pays more in the long run: games always keep an edge for the house. In our real-money tests, ${RAPIDES_EN[0].nom} paid withdrawals fastest (${heuresEn(dernier(RAPIDES_EN[0], 'crypto')?.delaiHeures)} in crypto). Also compare limits and bonus wagering in the table above.`
+          : 'No casino pays more in the long run: games always keep an edge for the house.'
+      },
+      {
+        q: 'Which casino game pays the most?',
+        r: TOP_TABLES_EN[0]
+          ? `Among the games in our catalogue, ${TOP_TABLES_EN[0].nom} shows the highest return: ${(TOP_TABLES_EN[0].rtp as number).toFixed(2)}%${TOP_TABLES_EN[0].famille === 'blackjack' ? ', with perfect basic strategy' : ''}. It is a very long-term average: no game makes you win for sure.`
+          : 'Table games such as blackjack played with basic strategy usually have the highest return.'
+      },
+      {
+        q: 'Are online casino winnings taxable in Canada?',
+        r: 'According to the Canada Revenue Agency, winnings of a player who gambles for entertainment are generally not taxable. They can be if gambling becomes a business.'
+      }
+    ],
+    sources: [
+      ...CASINOS.filter((c) => c.retraits).map((c) => ({ titre: `${c.nom}: published withdrawal rules`, url: c.retraits!.source })),
+      {
+        titre: 'Canada Revenue Agency: sources of income',
+        url: 'https://www.canada.ca/en/revenue-agency/services/tax/businesses/small-businesses-self-employed-income/business-income-tax-reporting/business-income/sources-income.html'
+      }
+    ],
+    connexes: ['/en-ca/casino-withdrawal-times/', '/en-ca/fast-withdrawal-casinos/', '/en-ca/casino-bonuses/']
   }
 ];
 
