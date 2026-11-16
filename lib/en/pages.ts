@@ -6,7 +6,7 @@ import type { PageGuide } from '@/lib/contenu/pages/types';
 import { CASINOS, CRITERES, noteGlobale, type Casino } from '@/lib/casinos';
 import { AUTEUR } from '@/lib/auteur';
 import { SITE } from '@/lib/site';
-import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, miseEn, retraitsEn } from './casinos';
+import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, licenceEn, miseEn, retraitsEn } from './casinos';
 import { DERNIER_RELEVE, RELEVES, classementRetraits, dernier, nombreDeReleves } from '@/lib/tests';
 import { AIDE_PROVINCES, EN, MESSAGE_ZONE, SOURCE_AIDE, SOURCE_AIDE_NS, dateEn, montantEn, noteEn } from './site';
 import { MACHINES } from '@/lib/contenu/machines';
@@ -83,6 +83,15 @@ const PROCHE_EN: Record<string, string> = {
   celsius: 'Its terms cap winnings from a no deposit bonus at $100'
 };
 const RAPIDES_EN = classementRetraits();
+/** Date each casino was added to the ranking (same as the French page). */
+const AJOUTS_EN: Record<string, string> = {
+  velobet: '2026-11-09',
+  rolletto: '2026-11-03',
+  celsius: '2026-11-03',
+  betportal: '2026-11-03',
+  '1win': '2026-11-03'
+};
+const PAR_AJOUT_EN = [...CASINOS].sort((a, b) => (AJOUTS_EN[b.id] || '').localeCompare(AJOUTS_EN[a.id] || '') || a.nom.localeCompare(b.nom));
 const TOP_TABLES_EN = TABLES.filter((t) => t.rtp !== null).sort((a, b) => (b.rtp as number) - (a.rtp as number)).slice(0, 4);
 const TOP_SLOTS_EN = [...MACHINES].sort((a, b) => b.rtp - a.rtp).slice(0, 3);
 const FAMILLE_EN: Record<string, string> = { blackjack: 'Blackjack', roulette: 'Roulette', show: 'Game show' };
@@ -1662,6 +1671,92 @@ export const PAGES_EN: PageGuide[] = [
       }
     ],
     connexes: ['/en-ca/casino-withdrawal-times/', '/en-ca/fast-withdrawal-casinos/', '/en-ca/casino-bonuses/']
+  },
+
+  // ——————————————————————————— New online casinos (16 November 2026)
+  {
+    chemin: '/en-ca/new-online-casinos/',
+    nomFil: 'New online casinos',
+    titre: 'New Online Casinos in Canada: 6 Checks Before You Play (2026)',
+    description:
+      'New online casinos in Canada: our latest additions, tested with real money, and the 6 checks to make before depositing at a recently launched site.',
+    h1: 'New online casinos in Canada: our latest additions and how to check them',
+    chapeau:
+      'A recent casino may offer generous bonuses to get noticed, but it has no track record yet. Here are the latest casinos added to our ranking, all tested with real money, and the six checks to make before you deposit.',
+    modifie: '2026-11-16',
+    resume: 'Our latest casino additions, and the 6 checks before depositing at a recent site.',
+    sections: [
+      {
+        id: 'added',
+        titre: 'The latest casinos added to our ranking',
+        blocs: [
+          {
+            type: 'tableau',
+            entetes: ['Casino', 'Added on', 'Licence', 'Crypto payout measured'],
+            lignes: PAR_AJOUT_EN.map((c) => [lien(c), AJOUTS_EN[c.id] ? dateEn(AJOUTS_EN[c.id]) : '', licenceEn(c), heuresEn(dernier(c, 'crypto')?.delaiHeures)])
+          },
+          {
+            type: 'p',
+            texte:
+              'We only add a casino after testing it: a minimum deposit followed by a withdrawal, then a CA$1,000 deposit. The results are published in our [withdrawal times log](/en-ca/casino-withdrawal-times/).'
+          }
+        ]
+      },
+      {
+        id: 'checks',
+        titre: 'The 6 checks before you deposit',
+        blocs: [
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**The licence and its number.** A number you can check is worth more than a logo in the footer.',
+              '**The operator’s name.** The company running the site should be named in the terms and conditions.',
+              '**The bonus terms.** Wagering, deadline, maximum bet per round, excluded games: everything should be written down before you accept.',
+              '**The withdrawal rules.** Minimum amount, processing time and weekly or monthly limits.',
+              '**A small first deposit.** Deposit the minimum, then request a withdrawal to see how the casino pays.',
+              '**Identity checks.** Send your documents when you sign up: they are often what delays a first withdrawal.'
+            ]
+          },
+          {
+            type: 'encadre',
+            ton: 'info',
+            titre: 'What “new” does not guarantee',
+            texte:
+              'A recent site has no payout history yet, and its terms may change more often. Read them again before each new deposit, and keep a copy of the bonus pages you accept.'
+          },
+          ZONE,
+          { type: 'offres' }
+        ]
+      },
+      {
+        id: 'law',
+        titre: 'New casinos and the law in Canada',
+        blocs: [
+          {
+            type: 'p',
+            texte:
+              'Online gambling is run or licensed by each province. The casinos in our ranking, new or not, operate from outside Canada under other licences, and we do not cover Ontario or Alberta. Details in our guide [is online gambling legal in Canada?](/en-ca/is-online-gambling-legal-in-canada/).'
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: 'What is the latest casino added to your ranking?',
+        r: PAR_AJOUT_EN[0] ? `${PAR_AJOUT_EN[0].nom}, added on ${dateEn(AJOUTS_EN[PAR_AJOUT_EN[0].id])} after a real-money test.` : 'The table on this page lists our additions by date.'
+      },
+      {
+        q: 'Is a new casino less trustworthy?',
+        r: 'Not necessarily, but it has no track record yet. Check the licence, the operator and the withdrawal rules, and start with a small deposit followed by a withdrawal.'
+      },
+      {
+        q: 'Do new casinos have better bonuses?',
+        r: 'Often bigger, but not necessarily easier to clear. Compare the amount to wager and the deadline, not just the percentage.'
+      }
+    ],
+    sources: SOURCES_BONUS,
+    connexes: ['/en-ca/casino-withdrawal-times/', '/en-ca/best-payout-online-casinos/', '/en-ca/is-online-gambling-legal-in-canada/']
   }
 ];
 
