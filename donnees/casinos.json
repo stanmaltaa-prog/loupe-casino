@@ -298,8 +298,8 @@
         "verifieLe": "2026-11-09"
       },
       "quebec": {
-        "statut": "a-confirmer",
-        "note": "Le Canada ne figure pas dans la liste des pays exclus des conditions générales, et le formulaire d'inscription propose le Canada et le dollar canadien (vérifié le 9 novembre 2026). Confirmation écrite du gestionnaire d'affiliation en attente."
+        "statut": "confirme",
+        "note": "Joueurs du Canada et du Québec acceptés, confirmé par écrit par le gestionnaire d'affiliation le 16 novembre 2026."
       },
       "test": {
         "par": "Kenzo Fitzeral",
@@ -344,7 +344,6 @@
         "Frais d'inactivité de 20 % par mois sur un compte inactif"
       ],
       "aConfirmer": [
-        "Acceptation des joueurs du Québec par écrit (gestionnaire d'affiliation)",
         "Prise en charge d'Interac"
       ]
     },
