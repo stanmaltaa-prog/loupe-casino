@@ -29,9 +29,12 @@ export default function Pied() {
               ))}
               {LIENS_MARQUES.map((m) => (
                 <li key={m.fr}>
-                  <Link href={m.fr}>Avis {m.nom} Casino</Link>
+                  <Link href={m.fr}>Avis {m.nom.replace(/ Casino$/, '')} Casino</Link>
                 </li>
               ))}
+              <li>
+                <Link href="/casino-rewards/">Groupe Casino Rewards</Link>
+              </li>
               <li>
                 <Link href="/comparatif/">Tous les comparatifs</Link>
               </li>
