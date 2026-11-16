@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Guide from '@/components/Guide';
+import TopTrois from '@/components/TopTrois';
 import Faq from '@/components/Faq';
 import { CASINOS, cheminCasino } from '@/lib/casinos';
 import { SITE, dateLongue } from '@/lib/site';
@@ -33,6 +34,8 @@ export default function PageCrypto() {
       sommaire={SOMMAIRE}
       emplacement="guide-crypto"
     >
+      <TopTrois emplacement="guide-crypto-top" titre="Nos 3 casinos les mieux notés" />
+
       <h2 id="casinos">Les casinos qui acceptent la crypto</h2>
       <p>Relevé sur les sites officiels le {dateLongue(MAJ)} :</p>
       <div className="tableau-defilant">
