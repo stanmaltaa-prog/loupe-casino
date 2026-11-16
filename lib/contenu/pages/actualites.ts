@@ -3,7 +3,7 @@ import type { PageGuide } from './types';
 /**
  * Rubrique Actualités : analyses courtes et sourcées sur le jeu en ligne au Québec.
  * Chaque article est une PageGuide (rendu RenduGuide, plan du site automatique) placée sous /actualites/.
- * La date de publication est `modifie`. Le fil RSS (/actualites/rss.xml) et l'index lisent ARTICLES.
+ * La date de publication est `modifie`. Le fil RSS (/actualites/flux-rss/) et l'index lisent ARTICLES.
  * Pas d'offres en haut des articles : ce sont des pages d'information, faites pour être citées.
  */
 
