@@ -453,7 +453,7 @@ export const PAGES_EN: PageGuide[] = [
         blocs: [
           {
             type: 'tableau',
-            legende: 'Casino Rewards group, official bonus pages checked on November 10 and 16, 2026. Not part of our ranking.',
+            legende: 'Casino Rewards group, official bonus pages checked between November 10 and 17, 2026. Not part of our ranking.',
             entetes: ['Casino', 'Smallest deposit', 'What it unlocks', 'Wagering'],
             lignes: [
               ['[Zodiac Casino](/en-ca/zodiac-casino/)', '**$1**', '80 spins on the Mega Money Wheel', '200x the winnings'],
@@ -461,6 +461,7 @@ export const PAGES_EN: PageGuide[] = [
               ['[Yukon Gold](/en-ca/yukon-gold-casino/)', '$10', '150 spins on the Mega Money Wheel', '200x the winnings'],
               ['[Grand Mondial](/en-ca/grand-mondial-casino/)', '$10', '150 spins on the Mega Money Wheel', '200x the winnings'],
               ['[Luxury Casino](/en-ca/luxury-casino/)', '$10 (site description)', 'First of 5 deposit bonuses', '200x the bonus'],
+              ['[Casino Action](/en-ca/casino-action/)', '$10', '100% up to $150, first of 5 bonuses', '200x the bonus'],
               ['[Villento](/en-ca/villento-casino/)', '$20', '100% up to $150, first of 5 bonuses', '200x the bonus']
             ]
           },
@@ -1426,7 +1427,7 @@ export const PAGES_EN: PageGuide[] = [
       'Casino no deposit bonus in Canada: what we found casino by casino, the terms to read, and the closest offers with a $1 to $10 deposit. Checked in November 2026.',
     h1: 'No deposit casino bonuses in Canada: what actually exists',
     chapeau:
-      'At our last check, none of the casinos in our ranking offered a no deposit bonus to new players, and neither did the eight Casino Rewards casinos we reviewed. Here is what we found, how these offers work when they exist, and the closest options with a small deposit.',
+      'At our last check, none of the casinos in our ranking offered a no deposit bonus to new players, and neither did the Casino Rewards casinos we reviewed. Here is what we found, how these offers work when they exist, and the closest options with a small deposit.',
     modifie: '2026-11-16',
     resume: 'What really exists in no deposit bonuses in Canada, and the closest offers with a small deposit.',
     sections: [
@@ -1461,7 +1462,8 @@ export const PAGES_EN: PageGuide[] = [
               '[Luxury Casino](/en-ca/luxury-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,000.',
               '[Golden Tiger](/en-ca/golden-tiger-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,500.',
               '[Casino Classic](/en-ca/casino-classic/no-deposit-bonus/): none; 3 deposit bonuses, up to $500.',
-              '[Villento](/en-ca/villento-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,000, from a $20 deposit.'
+              '[Villento](/en-ca/villento-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,000, from a $20 deposit.',
+              '[Casino Action](/en-ca/casino-action/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,250, from a $10 deposit.'
             ]
           },
           {
