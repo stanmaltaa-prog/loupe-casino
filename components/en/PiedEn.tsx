@@ -49,6 +49,9 @@ export default function PiedEn() {
                 <Link href="/en-ca/online-casino-quebec/">Online casinos in Quebec</Link>
               </li>
               <li>
+                <Link href="/en-ca/quebec-online-gambling-statistics/">Quebec gambling statistics</Link>
+              </li>
+              <li>
                 <Link href="/en-ca/is-online-gambling-legal-in-canada/">Is online gambling legal in Canada?</Link>
               </li>
               <li>
