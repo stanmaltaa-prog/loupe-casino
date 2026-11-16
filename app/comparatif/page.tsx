@@ -4,6 +4,7 @@ import TableauComparatif from '@/components/TableauComparatif';
 import Tampon from '@/components/Tampon';
 import EncadreAide from '@/components/EncadreAide';
 import JsonLd from '@/components/JsonLd';
+import CtaCollant from '@/components/CtaCollant';
 import { CASINOS, paires } from '@/lib/casinos';
 import { DUELS } from '@/lib/contenu/duels';
 import { SITE, dateLongue } from '@/lib/site';
@@ -48,6 +49,7 @@ export default function PageComparatifs() {
           <EncadreAide />
         </div>
       </div>
+      <CtaCollant casino={CASINOS[0]} emplacement="comparatif-collant" />
       <JsonLd
         donnees={schemaPage({ titre: TITRE, description: DESCRIPTION, chemin: '/comparatif/', publie: '2026-11-03', modifie: SITE.derniereVerification, type: 'CollectionPage' })}
       />
