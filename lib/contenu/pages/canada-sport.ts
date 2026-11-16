@@ -324,7 +324,7 @@ const canadaSport: PageGuide[] = [
       }
     ],
     sources: [S.lq, S.espacejeux, S.miseojeu, S.poker, S.lqRevenus, S.debat],
-    connexes: ['/casino-de-montreal-en-ligne/', '/machines-a-sous-loto-quebec/', '/mise-o-jeu/', '/casino-en-ligne-canada/']
+    connexes: ['/actualites/loto-quebec-jeu-en-ligne-590-millions/', '/casino-de-montreal-en-ligne/', '/machines-a-sous-loto-quebec/', '/mise-o-jeu/', '/casino-en-ligne-canada/']
   },
 
   {

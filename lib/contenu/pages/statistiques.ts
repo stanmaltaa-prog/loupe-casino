@@ -256,7 +256,14 @@ const statistiques: PageGuide[] = [
       { titre: 'Coalition québécoise du jeu en ligne, mémoire prébudgétaire 2026-2027', url: 'https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/finances/publications-adm/Consultations_prebudgetaires/2026-2027/CQJL.pdf' },
       { titre: 'Agence du revenu du Canada, sources de revenus', url: 'https://www.canada.ca/fr/agence-revenu/services/impot/entreprises/revenu-petites-entreprises-travailleurs-independants/impot-revenu-entreprises/revenus-entreprise/sources-revenu.html' }
     ],
-    connexes: ['/casino-en-ligne-legal-quebec/', '/loto-quebec-casino-en-ligne/', '/delais-de-retrait-casino/', '/jeu-responsable/']
+    connexes: [
+      '/actualites/loto-quebec-jeu-en-ligne-590-millions/',
+      '/actualites/kahnawake-plaintes-joueurs-2025/',
+      '/actualites/ontario-quebec-jeu-en-ligne/',
+      '/casino-en-ligne-legal-quebec/',
+      '/loto-quebec-casino-en-ligne/',
+      '/delais-de-retrait-casino/'
+    ]
   }
 ];
 
