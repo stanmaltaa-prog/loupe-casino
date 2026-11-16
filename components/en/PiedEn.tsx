@@ -31,9 +31,12 @@ export default function PiedEn() {
               ))}
               {LIENS_MARQUES.map((m) => (
                 <li key={m.en}>
-                  <Link href={m.en}>{m.nom} Casino review</Link>
+                  <Link href={m.en}>{m.nom.replace(/ Casino$/, '')} Casino review</Link>
                 </li>
               ))}
+              <li>
+                <Link href="/en-ca/casino-rewards/">Casino Rewards group</Link>
+              </li>
               <li>
                 <Link href="/en-ca/compare/">All comparisons</Link>
               </li>
@@ -42,6 +45,9 @@ export default function PiedEn() {
           <div>
             <h2>Guides</h2>
             <ul>
+              <li>
+                <Link href="/en-ca/online-casino-quebec/">Online casinos in Quebec</Link>
+              </li>
               <li>
                 <Link href="/en-ca/is-online-gambling-legal-in-canada/">Is online gambling legal in Canada?</Link>
               </li>
