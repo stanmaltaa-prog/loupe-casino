@@ -412,18 +412,42 @@ export const PAGES_EN: PageGuide[] = [
   {
     chemin: '/en-ca/minimum-deposit-casinos/',
     nomFil: 'Minimum deposit casinos',
-    titre: 'Low Minimum Deposit Casinos in Canada (2026)',
+    titre: '$1 Deposit Casinos in Canada: Minimum Deposits Compared',
     description:
-      'Minimum deposit online casinos in Canada: the smallest deposit that unlocks each welcome bonus, and what you must wager afterwards, from the official terms.',
-    h1: 'Minimum deposit casinos: the smallest deposit that unlocks the bonus',
+      'Is there a $1 deposit casino in Canada? Zodiac asks $1, Captain Cooks $5, Yukon Gold $10. Minimum deposits compared, with the wagering that comes with them.',
+    h1: '$1, $5 and $10 deposit casinos in Canada: what each deposit gets you',
     chapeau:
-      'A low minimum deposit is a good way to test a casino before committing more. Here is the smallest deposit that unlocks each welcome bonus we compare, and what it commits you to.',
-    modifie: MAJ,
+      'A low minimum deposit is a good way to test a casino before committing more. Here are the casinos that accept $1, $5 or $10 to start, what that deposit unlocks, and what it commits you to, from the official terms.',
+    modifie: '2026-11-16',
     resume: 'The smallest qualifying deposit at each casino, and the wagering it implies.',
     sections: [
       {
+        id: 'one-dollar',
+        titre: '$1, $5 and $10 deposit casinos we reviewed',
+        blocs: [
+          {
+            type: 'tableau',
+            legende: 'Casino Rewards group, official bonus pages checked on November 10 and 16, 2026. Not part of our ranking.',
+            entetes: ['Casino', 'Smallest deposit', 'What it unlocks', 'Wagering'],
+            lignes: [
+              ['[Zodiac Casino](/en-ca/zodiac-casino/)', '**$1**', '80 spins on the Mega Money Wheel', '200x the winnings'],
+              ['[Captain Cooks](/en-ca/captain-cooks-casino/)', '**$5**', '100 spins on the Mega Money Wheel', '200x the winnings'],
+              ['[Yukon Gold](/en-ca/yukon-gold-casino/)', '$10', '150 spins on the Mega Money Wheel', '200x the winnings'],
+              ['[Grand Mondial](/en-ca/grand-mondial-casino/)', '$10', '150 spins on the Mega Money Wheel', '200x the winnings'],
+              ['[Luxury Casino](/en-ca/luxury-casino/)', '$10 (site description)', 'First of 5 deposit bonuses', '200x the bonus'],
+              ['[Villento](/en-ca/villento-casino/)', '$20', '100% up to $150, first of 5 bonuses', '200x the bonus']
+            ]
+          },
+          {
+            type: 'p',
+            texte:
+              'Zodiac Casino is the only $1 deposit casino we found, and Captain Cooks the only $5 one. Both belong to the [Casino Rewards group](/en-ca/casino-rewards/), whose welcome bonuses must be wagered 200 times: treat the spins as entertainment, not as money to withdraw. The casinos in our ranking start at $10, with 30x to 50x wagering where it is published.'
+          }
+        ]
+      },
+      {
         id: 'compared',
-        titre: 'Minimum deposits compared',
+        titre: 'Minimum deposits at the casinos we rank',
         blocs: [
           {
             type: 'tableau',
@@ -496,11 +520,22 @@ export const PAGES_EN: PageGuide[] = [
         r: 'You get the percentage of the first tier on the amount you deposit, so a small deposit gives a small bonus. The wagering multiplier stays the same.'
       },
       {
-        q: 'Is there a $1 deposit casino in your comparison?',
-        r: 'No. The lowest published minimum among the casinos we compare is 10.'
+        q: 'Is there a $1 deposit casino in Canada?',
+        r: 'Yes: Zodiac Casino asks a $1 first deposit for 80 spins on its Mega Money Wheel, according to its official bonus page. The winnings must be wagered 200 times. Captain Cooks starts at $5. The casinos in our ranking start at $10.'
+      },
+      {
+        q: 'Is there a $1 deposit casino in your ranking?',
+        r: 'No. The lowest published minimum among the casinos we rank is $10.'
       }
     ],
-    sources: SOURCES_BONUS,
+    sources: [
+      ...SOURCES_BONUS,
+      { titre: 'Zodiac Casino: official bonus page (80 chances for $1)', url: 'https://zodiac.casino/fr/bonus/' },
+      { titre: 'Captain Cooks: official bonus page (100 chances for $5)', url: 'https://captaincooks.casino/fr/bonus/' },
+      { titre: 'Yukon Gold: official bonus page (150 chances for $10)', url: 'https://yukongold.casino/en/bonus/' },
+      { titre: 'Grand Mondial: official bonus page (150 chances for $10)', url: 'https://grandmondial.casino/fr/bonus/' },
+      { titre: 'Villento: official bonus page ($20 minimum deposit)', url: 'https://www.villento.com/en/bonus/' }
+    ],
     connexes: ['/en-ca/casino-bonuses/', '/en-ca/interac-casinos/', '/en-ca/crypto-casinos/']
   },
 
