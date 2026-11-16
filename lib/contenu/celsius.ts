@@ -12,7 +12,8 @@ const celsius: ContenuCasino = {
     h1: 'Avis Celsius Casino : un immense catalogue, des conditions à lire de près',
     intro: [
       "Celsius mise sur le volume : plus de 6 000 machines à sous et 800 jeux en direct selon l'opérateur, et une longue liste de moyens de paiement, cryptomonnaies comprises. C'est aussi l'un des rares casinos du comparatif à publier ses règles de retrait chiffrées.",
-      "Le revers, c'est un bonus exigeant (50 fois le dépôt et le bonus) et une licence d'Anjouan affichée sans numéro. Voici notre lecture, point par point."
+      "Le revers, c'est un bonus exigeant (50 fois le dépôt et le bonus) et une licence d'Anjouan affichée sans numéro. Voici notre lecture, point par point.",
+      "Notre avis en bref : Celsius a payé nos retraits de test, mais la plupart des plaintes de joueurs portent sur des comptes bloqués à la vérification d'identité. Faites vérifier votre compte avant de jouer, jouez sans bonus ou respectez la mise maximale de 5 $, et commencez par un petit retrait."
     ],
     sections: [
       {
@@ -27,6 +28,28 @@ const celsius: ContenuCasino = {
         titre: 'Retraits',
         paragraphes: [
           "Celsius publie ses limites : les gains jusqu'à 10 000 $ sont versés par tranches hebdomadaires de 2 500 $ au maximum, et les montants plus élevés par tranches mensuelles de 10 000 $ au maximum. Pour la plupart des joueurs, ces plafonds ne posent pas de problème ; pour un gros gain, il faut prévoir plusieurs semaines, voire plusieurs mois."
+        ]
+      },
+      {
+        titre: 'Ce que disent les avis des joueurs',
+        paragraphes: [
+          "Sur [Trustpilot](https://fr.trustpilot.com/review/celsiuscasino.com), Celsius compte 664 avis, dont 65 % de 5 étoiles et 26 % de 1 étoile (relevé du 16 novembre 2026). Trustpilot n'affiche plus de note globale : la plateforme indique qu'elle l'a retirée pour une violation de ses conditions d'utilisation, et Celsius dit de son côté avoir signalé de faux avis. Trustpilot précise qu'il ne vérifie pas le contenu des avis.",
+          "Les avis positifs parlent surtout de retraits rapides, du choix de jeux et du paiement en cryptomonnaie. Les avis négatifs reviennent presque tous aux mêmes sujets : un compte bloqué ou un solde annulé au moment du retrait, souvent pendant la vérification d'identité, et un service client qui ne répond pas. Certains joueurs disent aussi que leur demande d'exclusion n'a pas été traitée.",
+          "Ces plaintes ne sont pas des faits vérifiés, mais elles sont assez nombreuses pour être prises au sérieux. Elles indiquent où se situe le risque chez Celsius : non pas le dépôt, mais le premier gros retrait."
+        ]
+      },
+      {
+        titre: 'Retrait bloqué chez Celsius : comment l’éviter',
+        paragraphes: [
+          "La plupart des blocages décrits par les joueurs se produisent au moment du retrait. Les conditions de Celsius prévoient plusieurs cas où les gains peuvent être annulés (mise trop élevée pendant un bonus, compte en double, jeu jugé irrégulier) et l'autorisent à demander une preuve d'identité à tout moment. Pour limiter le risque :"
+        ],
+        liste: [
+          "**Faites vérifier votre identité avant de jouer** : envoyez votre pièce d'identité et une preuve d'adresse dès l'inscription, avec vos vrais nom et adresse. N'ouvrez qu'un seul compte : un compte en double peut être fermé et son solde confisqué (article 1.8).",
+          "**Avec un bonus, ne dépassez jamais la mise maximale** : 5 $ par tour ou 10 % de votre solde, le plus bas des deux (article 1.25). Selon les conditions, une mise trop élevée peut entraîner l'annulation du bonus et des gains.",
+          "**Comptez les 20 jours** : la mise de 50 fois (dépôt + bonus) doit être terminée dans ce délai, sinon le bonus expire.",
+          "**Retirez d'abord un petit montant** avant de déposer davantage : vous saurez si votre compte est bien vérifié.",
+          "**Gardez une trace** : captures d'écran du solde, des mises et des échanges avec le service client. Comme Celsius n'est pas autorisé au Québec, aucun organisme québécois ne pourra trancher un litige.",
+          "**Si vous voulez arrêter de jouer**, demandez l'exclusion par écrit et gardez la réponse. Aide gratuite : Jeu : aide et référence, 1 800 461-0140."
         ]
       },
       {
@@ -80,6 +103,30 @@ const celsius: ContenuCasino = {
       {
         q: 'Celsius Casino est-il fiable ?',
         r: "L'exploitant est identifié (Celsius Holdings N.V., n° 157856, à Curaçao) et les règles de retrait sont publiées en détail, ce qui rassure. En revanche, la licence d'Anjouan est affichée sans numéro vérifiable : c'est son principal point faible. Notre conseil : un petit dépôt et un premier retrait modeste avant d'aller plus loin."
+      },
+      {
+        q: 'Celsius Casino est-il une arnaque ?',
+        r: avecTest(
+          'celsius',
+          (h) => `Rien ne permet de le dire : l'exploitant est identifié et nos retraits de test ont été payés, le retrait crypto en ${h} h. Mais la licence d'Anjouan n'affiche pas de numéro, et beaucoup de plaintes de joueurs portent sur des comptes bloqués au retrait. Faites vérifier votre compte avant de jouer et commencez petit.`,
+          "Rien ne permet de le dire : l'exploitant est identifié et les règles de retrait sont publiées. Mais la licence d'Anjouan n'affiche pas de numéro, et beaucoup de plaintes de joueurs portent sur des comptes bloqués au retrait. Faites vérifier votre compte avant de jouer et commencez petit."
+        )
+      },
+      {
+        q: 'Que disent les avis Trustpilot sur Celsius Casino ?',
+        r: "Au 16 novembre 2026 : 664 avis, 65 % de 5 étoiles et 26 % de 1 étoile. Trustpilot n'affiche plus de note globale, retirée selon lui pour une violation de ses conditions d'utilisation. Les plaintes portent surtout sur des comptes bloqués au retrait et sur le service client."
+      },
+      {
+        q: 'Combien de temps prend un retrait chez Celsius ?',
+        r: avecTest(
+          'celsius',
+          (h) => `Lors de notre test en argent réel de novembre 2026, le retrait en crypto est arrivé en ${h} h. Le premier retrait peut prendre plus longtemps si votre identité n'est pas encore vérifiée.`,
+          "Celsius ne publie pas de délai précis. Le premier retrait peut prendre plus longtemps si votre identité n'est pas encore vérifiée."
+        )
+      },
+      {
+        q: 'Pourquoi Celsius bloque-t-il un retrait ?',
+        r: "Les plaintes de joueurs parlent surtout de vérification d'identité en cours ou incomplète. Les conditions prévoient aussi l'annulation des gains en cas de mise supérieure au maximum pendant un bonus (5 $ ou 10 % du solde), de compte en double ou de jeu jugé irrégulier. Faites vérifier votre compte avant de jouer et gardez des captures d'écran."
       },
       {
         q: 'Peut-on jouer chez Celsius depuis le Québec ?',
