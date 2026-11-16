@@ -11,8 +11,9 @@ export const SITE = {
   url: (process.env.SITE_URL || 'https://loupecasino.com').replace(/\/$/, ''),
   /** Courriel de contact affiché sur le site (la variable SITE_COURRIEL sur Railway peut le remplacer). */
   courriel: process.env.SITE_COURRIEL || 'contact@loupecasino.com',
-  /** Responsable de la protection des renseignements personnels (Loi 25). À remplir. */
-  responsableDonnees: process.env.SITE_RESPONSABLE || '',
+  /** Responsable de la protection des renseignements personnels (Loi 25 : titre et coordonnées publiés). */
+  responsableDonnees:
+    process.env.SITE_RESPONSABLE || 'Le directeur de la publication de Loupe Casino est le responsable de la protection des renseignements personnels',
   /** Date de la dernière vérification générale des offres (AAAA-MM-JJ). */
   derniereVerification: '2026-11-03',
   langue: 'fr-CA',
