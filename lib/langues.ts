@@ -30,9 +30,8 @@ for (const m of ['yukon-gold-casino', 'zodiac-casino', 'luxury-casino', 'captain
   PAIRES[`/${m}/`] = `/en-ca/${m}/`;
   PAIRES[`/${m}/bonus/`] = `/en-ca/${m}/bonus/`;
   PAIRES[`/${m}/bonus-sans-depot/`] = `/en-ca/${m}/no-deposit-bonus/`;
-  PAIRES[`/${m}/retrait/`] = `/en-ca/${m}/withdrawal/`;
-  PAIRES[`/${m}/fiable/`] = `/en-ca/${m}/legit/`;
 }
+PAIRES['/casino-rewards/'] = '/en-ca/casino-rewards/';
 
 // Comparatifs : mêmes paires de casinos dans les deux langues (ordre du fichier de données).
 const DUELS_COMMUNS = [
