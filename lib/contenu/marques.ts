@@ -52,6 +52,8 @@ type MarqueRewards = {
   totalAnnonce?: number;
   /** Faux si le pied de page du site ne nomme pas d'exploitant (seules les conditions nomment le gestionnaire). */
   piedExploitant?: boolean;
+  /** Faux si la FAQ publie les délais de retrait mais ne cite pas Interac parmi les dépôts. */
+  faqInterac?: boolean;
   noteOffreFr?: string;
   noteOffreEn?: string;
   fideliteFr: string;
@@ -997,7 +999,108 @@ const VILLENTO: MarqueRewards = {
 };
 
 /** Ordre : marques les plus cherchées au Canada d'abord (Ubersuggest, novembre 2026). */
-const MARQUES: MarqueRewards[] = [YUKON, ZODIAC, LUXURY, CAPTAIN, GRAND, GOLDEN, CLASSIC, VILLENTO];
+/* ---------- Casino Action : relevé du 17 novembre 2026 (FAQ sans Interac) ---------- */
+
+const ACTION: MarqueRewards = {
+  nom: 'Casino Action',
+  slug: 'casino-action',
+  verifie: '2026-11-17',
+  paliers: [
+    { rang: 1, pourcentage: 100, plafond: 150 },
+    { rang: 2, pourcentage: 50, plafond: 200 },
+    { rang: 3, pourcentage: 25, plafond: 500 },
+    { rang: 4, pourcentage: 50, plafond: 250 },
+    { rang: 5, pourcentage: 100, plafond: 150 }
+  ],
+  totalAnnonce: 1250,
+  articleReclamer: '11.5',
+  piedExploitant: false,
+  faqInterac: false,
+  noteOffreFr: 'Dépôt minimum : 10 $ pour le 1er dépôt, selon la page bonus.',
+  noteOffreEn: 'Minimum deposit: $10 for the 1st deposit, according to the bonus page.',
+  fideliteFr: 'Programme de fidélité Casino Rewards (points), avec des « Lucky Jackpots » trois fois par jour selon la page d’accueil',
+  fideliteEn: 'Casino Rewards loyalty program (points), with “Lucky Jackpots” three times a day according to the home page',
+  distinctionsFr: [
+    'Plus de 1 000 jeux annoncés, dont des machines à sous progressives comme Mega Moolah.',
+    'Une offre sur 5 dépôts, jusqu’à 1 250 $ au total ; le plus gros plafond arrive au 3e dépôt (25 % jusqu’à 500 $).',
+    'Service client annoncé 24 h sur 24, 7 jours sur 7, par téléphone et courriel, selon la FAQ.',
+    'Retraits au Canada par Visa, virement EFT en dollars canadiens ou Skrill, selon la FAQ.',
+    'La page d’accueil ne mentionne pas de casino en direct, et son pied de page ne nomme pas d’exploitant. Le sélecteur de langue propose le français.'
+  ],
+  distinctionsEn: [
+    'More than 1,000 games advertised, including progressive slots such as Mega Moolah.',
+    'An offer over 5 deposits, up to $1,250 in total; the biggest cap comes with the 3rd deposit (25% up to $500).',
+    'Support advertised 24/7 by phone and email, according to the FAQ.',
+    'Withdrawals in Canada by Visa, CAD EFT transfer or Skrill, according to the FAQ.',
+    'The home page does not mention a live casino, and its footer names no operator. The language menu offers French.'
+  ],
+  sourcesFr: [
+    { titre: 'Casino Action : page d’accueil officielle (offre, licence, certification eCOGRA)', url: 'https://www.casinoaction.com/en/' },
+    { titre: 'Casino Action : page bonus officielle (5 bonus de dépôt, jusqu’à 1 250 $)', url: 'https://www.casinoaction.com/en/bonus/' },
+    { titre: 'Casino Action : conditions générales (mise, contribution des jeux, retraits, licence)', url: 'https://www.casinoaction.com/en/terms/' },
+    { titre: 'Casino Action : FAQ (moyens de paiement, délais et frais de retrait, âge minimum)', url: 'https://www.casinoaction.com/en/faq/' }
+  ],
+  sourcesEn: [
+    { titre: 'Casino Action: official home page (offer, licence, eCOGRA certification)', url: 'https://www.casinoaction.com/en/' },
+    { titre: 'Casino Action: official bonus page (5 deposit bonuses, up to $1,250)', url: 'https://www.casinoaction.com/en/bonus/' },
+    { titre: 'Casino Action: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://www.casinoaction.com/en/terms/' },
+    { titre: 'Casino Action: FAQ (payment methods, withdrawal times and fees, minimum age)', url: 'https://www.casinoaction.com/en/faq/' }
+  ],
+  fr: {
+    avis: {
+      titre: 'Avis Casino Action 2026 : 1 250 $ de bonus, mise de 200 fois',
+      description:
+        'Avis Casino Action au Canada : jusqu’à 1 250 $ sur 5 dépôts, mise de 200 fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions lues.',
+      h1: 'Avis Casino Action (2026) : ce que disent vraiment les conditions',
+      chapeau:
+        'Casino Action fait partie des casinos du groupe Casino Rewards les plus cherchés au Canada. Son offre : jusqu’à 1 250 $ de bonus sur vos 5 premiers dépôts, dont 100 % jusqu’à 150 $ au 1er. Nous avons lu ses conditions officielles : les bonus des deux premiers dépôts doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Bonus Casino Action : 100 % jusqu’à 150 $, 1 250 $ au total',
+      description:
+        'Bonus Casino Action : 100 % jusqu’à 150 $, puis 4 autres bonus, 1 250 $ au total, dès 10 $. Mise de 200 fois, jeux à 2 % : exemple chiffré et comparaison.',
+      h1: 'Bonus Casino Action : jusqu’à 1 250 $, et le calcul à faire avant',
+      chapeau:
+        'Le bonus de Casino Action s’étale sur 5 dépôts et peut atteindre 1 250 $. Mais les bonus des deux premiers dépôts doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
+    },
+    sansDepot: {
+      titre: 'Casino Action bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Casino Action a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre : jusqu’à 1 250 $ sur 5 dépôts, dès 10 $. Explications.',
+      h1: 'Casino Action bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Beaucoup de joueurs cherchent un bonus sans dépôt chez Casino Action. Sur ses pages officielles relues le 17 novembre 2026, il n’y en a pas. Voici ce qui s’en approche, et ce qu’il faut savoir avant de déposer.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Casino Action Canada Review 2026: $1,250 Bonus, 200x',
+      description:
+        'Casino Action review for Canada: up to $1,250 over 5 deposits, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Official terms read.',
+      h1: 'Casino Action Review (2026): What the Terms Really Say',
+      chapeau:
+        'Casino Action is one of the most searched Casino Rewards casinos in Canada. Its offer: up to $1,250 in bonuses over your first 5 deposits, starting with 100% up to $150. We read its official terms: the first two deposit bonuses must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Casino Action Bonus: 100% up to $150, $1,250 in Total',
+      description:
+        'Casino Action bonus: 100% up to $150, then 4 more bonuses, $1,250 in total, from $10. 200x wagering, 2% game weighting: a worked example and a comparison.',
+      h1: 'Casino Action Bonus: Up to $1,250, and the Math to Do First',
+      chapeau:
+        'The Casino Action bonus is spread over 5 deposits and can reach $1,250. But the first two deposit bonuses must be wagered 200 times. Here are the tiers, the rules and the math.'
+    },
+    sansDepot: {
+      titre: 'Casino Action No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Casino Action offer a no deposit bonus? Not according to its official pages. Its offer is up to $1,250 over 5 deposits, from $10: what it costs.',
+      h1: 'Casino Action No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'Many players look for a Casino Action no deposit bonus. On its official pages, read on November 17, 2026, there is none. Here is the closest offer, and what to know before depositing.'
+    }
+  }
+};
+
+const MARQUES: MarqueRewards[] = [YUKON, ZODIAC, LUXURY, CAPTAIN, GRAND, GOLDEN, CLASSIC, VILLENTO, ACTION];
 
 /* ---------- Calculs et formats communs ---------- */
 
@@ -1006,6 +1109,8 @@ const EXEMPLES = CASINOS.map((c) => ({ c, ex: exempleMise(c, 100) })).filter((x)
   ex: NonNullable<ReturnType<typeof exempleMise>>;
 }[];
 const TOP3 = CASINOS.slice(0, 3).map((c) => c.id);
+/** Date du relevé des pages d'accueil (16 novembre 2026 pour les premières marques, date de vérification ensuite). */
+const releveAccueil = (m: MarqueRewards) => (m.verifie > '2026-11-16' ? m.verifie : '2026-11-16');
 /** Dernière mise à jour du contenu des avis et des pages bonus (conditions relues : voir `verifie`). */
 const MODIFIE_CONTENU = '2026-11-16';
 const RAPIDES = classementRetraits();
@@ -1170,7 +1275,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
               ['Offre de bienvenue', offreFr(m)],
               ['Mise exigée', `**${REWARDS.mise12} fois** pour les bonus des 2 premiers dépôts, ${REWARDS.mise3} fois à partir du 3e`],
               ['Jeux qui comptent pour la mise', 'Machines à sous : 100 %. Jeux de table et jeux en direct : 2 %'],
-              ['Dépôt par Interac', faq ? 'Mentionné dans la FAQ (traité par PayDirect Billing Solutions)' : 'Non mentionné : pas de FAQ sur les paiements'],
+              ['Dépôt par Interac', faq ? (m.faqInterac === false ? 'Non cité dans la FAQ, qui renvoie à PayDirect Billing Solutions pour certains dépôts' : 'Mentionné dans la FAQ (traité par PayDirect Billing Solutions)') : 'Non mentionné : pas de FAQ sur les paiements'],
               [
                 'Retrait',
                 faq
@@ -1200,7 +1305,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         titre: `Ce qui distingue ${m.nom} des autres casinos du groupe`,
         blocs: [
           { type: 'liste', items: m.distinctionsFr },
-          { type: 'p', texte: `Relevé sur la page d’accueil officielle de ${m.nom} le 16 novembre 2026. Retraits, licence et règles du bonus sont communs au groupe : voir [Casino Rewards](${HUB_FR}).` }
+          { type: 'p', texte: `Relevé sur la page d’accueil officielle de ${m.nom} le ${dateLongue(releveAccueil(m))}. Retraits, licence et règles du bonus sont communs au groupe : voir [Casino Rewards](${HUB_FR}).` }
         ]
       },
       {
@@ -1277,12 +1382,14 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
       {
         q: `${m.nom} accepte-t-il Interac ?`,
         r: faq
-          ? 'Sa FAQ mentionne les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas dans la liste des moyens de retrait : on retire notamment par virement EFT en dollars canadiens.'
+          ? m.faqInterac === false
+            ? 'Sa FAQ ne cite pas Interac parmi les moyens de dépôt ; elle renvoie aux conditions de PayDirect Billing Solutions pour certains dépôts. On retire notamment par virement EFT en dollars canadiens.'
+            : 'Sa FAQ mentionne les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas dans la liste des moyens de retrait : on retire notamment par virement EFT en dollars canadiens.'
           : `${m.nom} ne publie pas de FAQ sur les paiements et ses conditions ne mentionnent pas Interac. Vérifiez la page de dépôt avant de vous inscrire.`
       },
       {
         q: /^Casino /.test(m.nom) ? `${m.nom} est-il offert en français ?` : `${m.nom.replace(/ Casino$/, '')} Casino Rewards est-il offert en français ?`,
-        r: `Oui : la page d’accueil officielle de ${m.nom} propose une version française (relevé du 16 novembre 2026). Le programme de fidélité Casino Rewards est commun à tous les casinos du groupe.`
+        r: `Oui : la page d’accueil officielle de ${m.nom} propose une version française (relevé du ${dateLongue(releveAccueil(m))}). Le programme de fidélité Casino Rewards est commun à tous les casinos du groupe.`
       },
       {
         q: `${m.nom} est-il fiable ?`,
@@ -1564,7 +1671,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
               ['Welcome offer', offreEn(m)],
               ['Wagering', `**${REWARDS.mise12}x** on the first two deposit bonuses, ${REWARDS.mise3}x from the 3rd deposit`],
               ['Game weighting', 'Slots: 100%. Table and live games: 2%'],
-              ['Interac deposits', faq ? 'Mentioned in the FAQ (processed by PayDirect Billing Solutions)' : 'Not mentioned: no payment FAQ'],
+              ['Interac deposits', faq ? (m.faqInterac === false ? 'Not named in the FAQ, which refers to PayDirect Billing Solutions for some deposits' : 'Mentioned in the FAQ (processed by PayDirect Billing Solutions)') : 'Not mentioned: no payment FAQ'],
               [
                 'Withdrawals',
                 faq ? `48-hour pending period, then 1 to 10 business days by method. Minimum ${enM(REWARDS.retraitMin)}` : '48-hour pending period; times by method and minimum not published'
@@ -1592,7 +1699,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         titre: `What sets ${m.nom} apart within the group`,
         blocs: [
           { type: 'liste', items: m.distinctionsEn },
-          { type: 'p', texte: `Taken from the ${m.nom} official home page on November 16, 2026. Withdrawals, licence and bonus rules are shared across the group: see [Casino Rewards](${HUB_EN}).` }
+          { type: 'p', texte: `Taken from the ${m.nom} official home page on ${dateEn(releveAccueil(m))}. Withdrawals, licence and bonus rules are shared across the group: see [Casino Rewards](${HUB_EN}).` }
         ]
       },
       {
@@ -1666,12 +1773,14 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       {
         q: `Does ${m.nom} accept Interac?`,
         r: faq
-          ? 'Its FAQ mentions Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.'
+          ? m.faqInterac === false
+            ? 'Its FAQ does not name Interac among deposit methods; it refers to PayDirect Billing Solutions terms for some deposits. Canadian players can withdraw by CAD EFT transfer, among other options.'
+            : 'Its FAQ mentions Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.'
           : `${m.nom} publishes no payment FAQ and its terms do not mention Interac. Check the deposit page before signing up.`
       },
       {
         q: `Is ${m.nom} available in French?`,
-        r: `Yes: the ${m.nom} official home page offers a French version (checked on November 16, 2026). The Casino Rewards loyalty program is shared by all the group’s casinos.`
+        r: `Yes: the ${m.nom} official home page offers a French version (checked on ${dateEn(releveAccueil(m))}). The Casino Rewards loyalty program is shared by all the group’s casinos.`
       },
       {
         q: `Is ${m.nom} legit?`,
@@ -1892,6 +2001,7 @@ const NOMS = MARQUES.map((m) => m.nom);
 const AVEC_FAQ = MARQUES.filter(avecFaq).map((m) => m.nom);
 const SANS_FAQ = MARQUES.filter((m) => !avecFaq(m)).map((m) => m.nom);
 const SANS_PIED = MARQUES.filter((m) => m.piedExploitant === false).map((m) => m.nom);
+const AVEC_INTERAC = MARQUES.filter((m) => avecFaq(m) && m.faqInterac !== false).map((m) => m.nom);
 const PLURIEL_SANS_FAQ = SANS_FAQ.length > 1;
 const VERIFIE = YUKON.verifie;
 const SOURCES_PROGRAMME = [
@@ -1912,7 +2022,8 @@ const SUPPORT_FR: Record<string, string> = {
   'Grand Mondial': 'Téléphone, courriel et clavardage, 24 h sur 24',
   'Golden Tiger': 'Clavardage 24 h sur 24',
   'Casino Classic': 'Clavardage 24 h sur 24',
-  Villento: 'Courriel et clavardage, 24 h sur 24'
+  Villento: 'Courriel et clavardage, 24 h sur 24',
+  'Casino Action': 'Téléphone et courriel, 24 h sur 24 (FAQ)'
 };
 const MODIFIE_HUB = '2026-11-16';
 
@@ -2179,7 +2290,7 @@ function hubFr(): PageGuide {
       },
       {
         q: 'Les casinos Casino Rewards acceptent-ils Interac ?',
-        r: `Les FAQ de ${listeFr(AVEC_FAQ)} mentionnent les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas parmi les moyens de retrait : on retire notamment par virement EFT en dollars canadiens.`
+        r: `Les FAQ de ${listeFr(AVEC_INTERAC)} mentionnent les dépôts Interac, traités par PayDirect Billing Solutions. Interac ne figure pas parmi les moyens de retrait : on retire notamment par virement EFT en dollars canadiens.`
       },
       {
         q: 'Casino Rewards est-il légal au Québec ?',
@@ -2433,7 +2544,7 @@ function hubEn(): PageGuide {
       },
       {
         q: 'Do Casino Rewards casinos accept Interac?',
-        r: `The FAQs of ${listeEn(AVEC_FAQ)} mention Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.`
+        r: `The FAQs of ${listeEn(AVEC_INTERAC)} mention Interac deposits, processed by PayDirect Billing Solutions. Interac is not listed as a withdrawal method: Canadian players can withdraw by CAD EFT transfer, among other options.`
       }
     ],
     connexes: [chemins(YUKON).en.avis, chemins(ZODIAC).en.avis, '/en-ca/fast-withdrawal-casinos/', '/en-ca/online-casino-quebec/']
