@@ -10,6 +10,7 @@ import BoutonCasino from '@/components/BoutonCasino';
 import TableauEn from '@/components/en/TableauEn';
 import MentionEn from '@/components/en/MentionEn';
 import AideEn from '@/components/en/AideEn';
+import CollantEn from '@/components/en/CollantEn';
 import SignatureEn from '@/components/en/SignatureEn';
 import { noteGlobale, paireParSlug, paires, type Casino } from '@/lib/casinos';
 import { cheminEn, en, exempleEn, miseEn } from '@/lib/en/casinos';
@@ -202,6 +203,7 @@ export default function DuelEn({ params }: { params: { duel: string } }) {
           <AideEn />
         </div>
       </div>
+      <CollantEn casino={gagnant} emplacement={`en-duel-${params.duel}-sticky`} />
       <JsonLd donnees={schemaPage({ titre: t.h1, description: t.description, chemin, publie: EN.publication, modifie, type: 'Article', langue: EN.langue })} />
     </>
   );
