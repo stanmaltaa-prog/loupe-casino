@@ -6,7 +6,7 @@ import type { PageGuide } from '@/lib/contenu/pages/types';
 import { CASINOS, CRITERES, noteGlobale, type Casino } from '@/lib/casinos';
 import { AUTEUR } from '@/lib/auteur';
 import { SITE } from '@/lib/site';
-import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, licenceEn, miseEn, retraitsEn } from './casinos';
+import { CRITERES_EN, cheminEn, depotMinEn, en, exempleEn, licenceEn, miseEn, operateurEn, retraitsEn } from './casinos';
 import { DERNIER_RELEVE, RELEVES, classementRetraits, dernier, nombreDeReleves } from '@/lib/tests';
 import { AIDE_PROVINCES, EN, MESSAGE_ZONE, SOURCE_AIDE, SOURCE_AIDE_NS, dateEn, montantEn, noteEn } from './site';
 import { MACHINES } from '@/lib/contenu/machines';
@@ -1757,6 +1757,111 @@ export const PAGES_EN: PageGuide[] = [
     ],
     sources: SOURCES_BONUS,
     connexes: ['/en-ca/casino-withdrawal-times/', '/en-ca/best-payout-online-casinos/', '/en-ca/is-online-gambling-legal-in-canada/']
+  },
+
+  // ——————————————————————————— Legit and safe online casinos (17 November 2026)
+  {
+    chemin: '/en-ca/legit-online-casinos/',
+    nomFil: 'Legit online casinos',
+    titre: 'Legit Online Casinos in Canada: How to Check One (2026)',
+    description:
+      'Legit and safe online casinos in Canada: operator, licence number, real-money withdrawal tests and player acceptance, checked casino by casino.',
+    h1: 'Legit and safe online casinos in Canada: what we checked',
+    chapeau:
+      'A legit casino shows facts you can check: a named company, a licence with its number, published withdrawal rules, and withdrawals that actually arrive. Here are those points, checked for every casino in our ranking.',
+    modifie: '2026-11-17',
+    resume: 'Operator, licence, tested withdrawals: the trust points checked for every casino.',
+    sections: [
+      {
+        id: 'checked',
+        titre: 'What we checked, casino by casino',
+        blocs: [
+          {
+            type: 'tableau',
+            entetes: ['Casino', 'Operator', 'Licence', 'Crypto payout measured'],
+            lignes: CASINOS.map((c) => [lien(c), operateurEn(c), licenceEn(c), heuresEn(dernier(c, 'crypto')?.delaiHeures)])
+          },
+          {
+            type: 'p',
+            texte:
+              'None of these licences is a Canadian provincial authorisation: online gambling is run or licensed by each province. Our guide [is online gambling legal in Canada?](/en-ca/is-online-gambling-legal-in-canada/) explains what that changes for you.'
+          }
+        ]
+      },
+      {
+        id: 'signs',
+        titre: 'The 6 signs of a legit casino',
+        blocs: [
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**A named operating company**, with its registration number.',
+              '**A licence with a number**, which you can check with the authority that issued it.',
+              '**Published withdrawal rules**: minimum, processing time, limits.',
+              '**Complete bonus terms**, readable before you accept.',
+              '**Withdrawals that arrive**: this is what our real-money tests check.',
+              '**Responsible gambling tools**: deposit limits, time-outs, self-exclusion.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'red-flags',
+        titre: 'Red flags that should slow you down',
+        blocs: [
+          {
+            type: 'liste',
+            items: [
+              'No company name or licence number in the terms and conditions.',
+              'Withdrawal rules you cannot find, or that change without a date.',
+              'Customer support that does not answer before your first deposit.',
+              'A bonus shown without wagering or a deadline.'
+            ]
+          },
+          {
+            type: 'p',
+            texte:
+              'One of these signs alone does not make a casino dishonest. It is a reason to start with a small deposit followed by a withdrawal before playing more.'
+          },
+          ZONE
+        ]
+      },
+      {
+        id: 'dispute',
+        titre: 'If something goes wrong',
+        blocs: [
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              'Write to customer support and keep a copy of every exchange.',
+              'Take screenshots of your balance, your withdrawal request and the bonus terms.',
+              'If nothing moves, file a complaint with the authority that issued the casino’s licence: it is your only recourse, since these sites are not regulated by a Canadian province.'
+            ]
+          },
+          { type: 'offres' }
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: 'How can I tell if an online casino is legit?',
+        r: 'Check that it names its operating company, shows a licence with a number and publishes its withdrawal rules, then test it with a small deposit followed by a withdrawal.'
+      },
+      {
+        q: 'Is a Curaçao-licensed casino safe in Canada?',
+        r: 'A Curaçao licence regulates the casino from abroad, not from Canada. It gives you recourse with the Curaçao regulator, but none with a Canadian provincial body.'
+      },
+      {
+        q: 'Do you really test withdrawals?',
+        r: 'Yes. The site’s author deposits and withdraws at every casino in our ranking with a Canadian-dollar account, and publishes every time measured in our withdrawal log.'
+      }
+    ],
+    sources: CASINOS.map((c) => ({ titre: `${c.nom}: licence and legal notices`, url: c.licence.source })).filter(
+      (s, i, arr) => arr.findIndex((x) => x.url === s.url) === i
+    ),
+    connexes: ['/en-ca/how-we-rate/', '/en-ca/casino-withdrawal-times/', '/en-ca/is-online-gambling-legal-in-canada/']
   }
 ];
 
