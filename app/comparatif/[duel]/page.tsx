@@ -5,6 +5,7 @@ import TableauComparatif from '@/components/TableauComparatif';
 import Tampon from '@/components/Tampon';
 import Signature from '@/components/Signature';
 import EncadreAide from '@/components/EncadreAide';
+import CtaCollant from '@/components/CtaCollant';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import Marque from '@/components/Marque';
@@ -172,6 +173,7 @@ export default function PageDuel({ params }: { params: { duel: string } }) {
           <EncadreAide />
         </div>
       </div>
+      <CtaCollant casino={gagnant} emplacement={`duel-${params.duel}-collant`} />
       <JsonLd donnees={schemaPage({ titre: t.titre, description: t.description, chemin, publie: '2026-11-03', modifie, type: 'Article' })} />
     </>
   );
