@@ -397,13 +397,13 @@ const paiements: PageGuide[] = [
   {
     chemin: '/casino-depot-minimum/',
     nomFil: 'Casino dépôt minimum',
-    titre: 'Casino dépôt minimum : 1 $, 5 $ ou 10 $ ? Nos relevés',
+    titre: 'Casino dépôt 1 $, 5 $ ou 10 $ au Québec : nos relevés (2026)',
     description:
-      'Casino à petit dépôt au Québec : le dépôt minimum de chaque casino de notre comparatif, ce qu’un bonus exige vraiment avec 10 $ et les pièges du dépôt à 1 $.',
-    h1: 'Casino à dépôt minimum : combien faut-il vraiment déposer ?',
+      'Casino à dépôt de 1 $ au Québec : Zodiac à 1 $, Captain Cooks à 5 $, le minimum de chaque casino du comparatif et ce que le bonus exige vraiment.',
+    h1: 'Casino à dépôt de 1 $, 5 $ ou 10 $ : combien faut-il vraiment déposer ?',
     chapeau:
       "Les casinos « à 1 $ » attirent l'œil, mais le vrai minimum dépend du bonus choisi et du moyen de paiement. Voici les minimums relevés chez chaque casino de notre comparatif, et ce que vaut un bonus avec un petit dépôt.",
-    modifie: MAJ,
+    modifie: '2026-11-16',
     resume: 'Dépôt minimum de chaque casino, et ce qu’un bonus exige avec un petit dépôt.',
     sections: [
       {
