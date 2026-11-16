@@ -76,6 +76,9 @@ export default function PiedEn() {
                 <Link href="/en-ca/best-payout-online-casinos/">Best payout casinos</Link>
               </li>
               <li>
+                <Link href="/en-ca/new-online-casinos/">New online casinos</Link>
+              </li>
+              <li>
                 <Link href="/en-ca/crypto-casinos/">Crypto casinos</Link>
               </li>
               <li>
