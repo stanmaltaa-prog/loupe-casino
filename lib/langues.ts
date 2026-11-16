@@ -36,6 +36,7 @@ PAIRES['/casino-rewards/'] = '/en-ca/casino-rewards/';
 PAIRES['/casino-bonus-sans-depot/'] = '/en-ca/no-deposit-bonus-casinos/';
 PAIRES['/casino-en-ligne-le-plus-payant/'] = '/en-ca/best-payout-online-casinos/';
 PAIRES['/nouveau-casino-en-ligne/'] = '/en-ca/new-online-casinos/';
+PAIRES['/casino-en-ligne-fiable/'] = '/en-ca/legit-online-casinos/';
 
 // Comparatifs : mêmes paires de casinos dans les deux langues (ordre du fichier de données).
 const DUELS_COMMUNS = [
