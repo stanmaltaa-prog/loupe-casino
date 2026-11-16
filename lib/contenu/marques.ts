@@ -708,6 +708,8 @@ const EXEMPLES = CASINOS.map((c) => ({ c, ex: exempleMise(c, 100) })).filter((x)
   ex: NonNullable<ReturnType<typeof exempleMise>>;
 }[];
 const TOP3 = CASINOS.slice(0, 3).map((c) => c.id);
+/** Dernière mise à jour du contenu des avis et des pages bonus (conditions relues : voir `verifie`). */
+const MODIFIE_CONTENU = '2026-11-16';
 const RAPIDES = classementRetraits();
 const GAIN_EXEMPLE = 20;
 
@@ -852,6 +854,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
 
   const avis: PageGuide = {
     ...base,
+    modifie: MODIFIE_CONTENU,
     chemin: c.avis,
     nomFil: `Avis ${m.nom}`,
     ...t.avis,
@@ -993,6 +996,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
 
   const bonus: PageGuide = {
     ...base,
+    modifie: MODIFIE_CONTENU,
     chemin: c.bonus,
     nomFil: 'Bonus',
     parent,
@@ -1244,6 +1248,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
 
   const avis: PageGuide = {
     ...base,
+    modifie: MODIFIE_CONTENU,
     chemin: c.avis,
     nomFil: `${m.nom} review`,
     ...t.avis,
@@ -1380,6 +1385,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
 
   const bonus: PageGuide = {
     ...base,
+    modifie: MODIFIE_CONTENU,
     chemin: c.bonus,
     nomFil: 'Bonus',
     parent,
