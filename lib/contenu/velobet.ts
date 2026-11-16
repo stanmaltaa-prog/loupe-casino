@@ -13,7 +13,7 @@ const velobet: ContenuCasino = {
     h1: 'Avis Velobet : le pack de Rolletto, avec le temps de le jouer',
     intro: [
       "Velobet appartient au même exploitant que Rolletto : Santeda International B.V., sous la même licence de Curaçao. La grande différence est le délai du bonus. Velobet laisse 30 jours pour compléter la mise, contre 5 jours chez Rolletto, pour la même règle de 30 fois le dépôt plus le bonus.",
-      "Ses conditions générales publient aussi un retrait minimum, un délai de traitement et des plafonds de retrait. Un point reste à confirmer par écrit : l'acceptation des joueurs du Québec, même si le Canada et le dollar canadien sont proposés à l'inscription."
+      "Ses conditions générales publient aussi un retrait minimum, un délai de traitement et des plafonds de retrait. Les joueurs du Québec sont acceptés : son gestionnaire d'affiliation nous l'a confirmé par écrit le 16 novembre 2026."
     ],
     sections: [
       {
@@ -71,7 +71,7 @@ const velobet: ContenuCasino = {
       },
       {
         q: 'Velobet accepte-t-il les joueurs du Québec ?',
-        r: "Le Canada ne figure pas dans la liste des pays exclus de ses conditions générales, et l'inscription propose le Canada et le dollar canadien. Nous attendons encore une confirmation écrite pour le Québec."
+        r: "Oui. Son gestionnaire d'affiliation nous l'a confirmé par écrit le 16 novembre 2026, et l'inscription propose le Canada et le dollar canadien. Velobet n'est toutefois pas autorisé par le gouvernement du Québec, où seul Loto-Québec l'est, et il faut avoir 18 ans pour jouer."
       }
     ]
   },
