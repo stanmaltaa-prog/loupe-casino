@@ -1221,7 +1221,141 @@ export const PAGES_EN: PageGuide[] = [
       ],
       connexes: ['/en-ca/is-online-gambling-legal-in-canada/', '/en-ca/casino-withdrawal-times/', '/en-ca/interac-casinos/']
     } satisfies PageGuide;
-  })()
+  })(),
+  // ——————————————————————————— Quebec online gambling statistics (data page made to be cited)
+  {
+    chemin: '/en-ca/quebec-online-gambling-statistics/',
+    nomFil: 'Quebec gambling statistics',
+    titre: 'Quebec Online Gambling Statistics (2026)',
+    description:
+      'Quebec online gambling in numbers: Loto-Québec online revenue, share of players online, help requests, Kahnawake and Ontario. Official sources.',
+    h1: 'Quebec online gambling in numbers (2026)',
+    chapeau:
+      'How much does online gambling bring Loto-Québec, how many Quebecers gamble online, and how big is the unregulated market? Here are the latest official figures, each with its period and source. You are welcome to reuse them with a credit and a link to Loupe Casino.',
+    modifie: '2026-11-16',
+    offresHaut: [],
+    resume: 'Official figures on online gambling in Quebec: Loto-Québec, players, help services, Kahnawake and Ontario.',
+    sections: [
+      {
+        id: 'key-figures',
+        titre: 'Key figures',
+        blocs: [
+          {
+            type: 'liste' as const,
+            items: [
+              '**$590.4M**: Loto-Québec online gaming revenue (lotoquebec.com) in 2025-2026, from its answers to the National Assembly (unaudited).',
+              '**+21%** year on year, from $488.8M in 2024-2025 (Loupe Casino calculation).',
+              '**About 19%** of Loto-Québec revenue now comes from online gaming (Loupe Casino calculation: $590.4M out of $3,098M).',
+              '**13%** of Quebecers gambled online in 2025, up from 5% in 2018 and 1.5% in 2012, according to INSPQ, Quebec’s public health institute.',
+              '**81%** of Quebec online players choose lotoquebec.com, according to Loto-Québec, which does not explain its method.',
+              '**6,848** requests to the helpline Jeu : aide et référence in 2023-2024, up 21%.',
+              '**1,143** player complaints received in 2025 by the Kahnawà:ke Gaming Commission.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'loto-quebec',
+        titre: 'Loto-Québec and online gaming',
+        blocs: [
+          {
+            type: 'tableau' as const,
+            legende: 'Online revenue: Loto-Québec answers to the National Assembly budget review (documents CFP-090 and CFP-114). Total revenue: Quebec Public Accounts. Shares: Loupe Casino calculation.',
+            entetes: ['Fiscal year', 'Online gaming', 'Loto-Québec total revenue', 'Online share'],
+            lignes: [
+              ['2023-2024', '$438.5M', 'Not collected', 'Not calculated'],
+              ['2024-2025', '$488.8M', '$3,005M', 'About 16%'],
+              ['2025-2026', '**$590.4M** (unaudited)', '$3,098M', '**About 19%**']
+            ]
+          },
+          {
+            type: 'p' as const,
+            texte: 'Loto-Québec spent $8.6M on online gaming advertising in 2024-2025 and planned $8.9M for 2025-2026. It does not publish its number of online player accounts, which it treats as commercially confidential.'
+          }
+        ]
+      },
+      {
+        id: 'law',
+        titre: 'The legal framework in dates',
+        blocs: [
+          {
+            type: 'liste' as const,
+            items: [
+              '**Criminal Code, section 207**: only a provincial government may run computer-based gambling in its province. In Quebec, that is Loto-Québec.',
+              '**May 18, 2016**: Quebec passes Bill 74, requiring internet providers to block unauthorised gambling sites.',
+              '**2018**: the Quebec Superior Court strikes it down.',
+              '**May 5, 2021**: the Quebec Court of Appeal confirms (2021 QCCA 730): blocking falls under federal telecommunications power.',
+              '**March 24, 2022**: the Supreme Court of Canada declines to hear the appeal.',
+              '**2022**: Ontario opens its market to licensed private operators; Quebec keeps Loto-Québec’s monopoly.'
+            ]
+          }
+        ]
+      },
+      {
+        id: 'grey-market',
+        titre: 'The unregulated market: what is actually known',
+        blocs: [
+          {
+            type: 'p' as const,
+            texte: 'The only official estimate found comes from a Quebec Finance Ministry analysis published around 2015-2016, based on a 2012 survey: a $250M online market, of which $200M went to unauthorised sites, with more than 2,200 sites accessible from Quebec. Recent figures come from interested parties and disagree: Loto-Québec claims 81% of online players, while a coalition of private operators says 73% of players use private sites.'
+          }
+        ]
+      },
+      {
+        id: 'ontario',
+        titre: 'Quebec versus Ontario',
+        blocs: [
+          {
+            type: 'tableau' as const,
+            legende: 'Ontario: iGaming Ontario (May and September 2026). Quebec: Loto-Québec answers to the budget review (May 2026).',
+            entetes: ['', 'Quebec', 'Ontario'],
+            lignes: [
+              ['Model', 'Loto-Québec monopoly', 'Licensed private operators'],
+              ['Authorised operators', '1', '49 operators, 84 sites (September 2026)'],
+              ['2025-2026', '$590.4M online gaming revenue (unaudited)', 'Over $103B in wagers, over $4.2B in gaming revenue (unaudited)'],
+              ['Players on authorised sites', '81% according to Loto-Québec', '91.1% according to an Ipsos study']
+            ]
+          }
+        ]
+      },
+      {
+        id: 'cite',
+        titre: 'Citing these figures',
+        blocs: [
+          {
+            type: 'p' as const,
+            texte: 'These figures are free to reuse. Please credit “Loupe Casino” with a link to this page. Figures marked “Loupe Casino calculation” are ours, based on official data; everything else comes from the sources below. French version: [le jeu en ligne au Québec en chiffres](/statistiques-jeu-en-ligne-quebec/). Our own real-money data: [tested withdrawal times](/en-ca/casino-withdrawal-times/).'
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: 'How much does online gambling earn Loto-Québec?',
+        r: '$590.4M in 2025-2026 according to its answers to the National Assembly (unaudited), about 21% more than in 2024-2025 and about 19% of its total revenue.'
+      },
+      {
+        q: 'How many Quebecers gamble online?',
+        r: '13% in 2025 according to INSPQ, up from 5% in 2018 and 1.5% in 2012.'
+      },
+      {
+        q: 'Where can I get help for a gambling problem in Quebec?',
+        r: 'Jeu : aide et référence, 1-800-461-0140, free, confidential and open 24/7.'
+      }
+    ],
+    sources: [
+      { titre: 'Loto-Québec, answers to the 2026-2027 budget review (CFP-114, May 12, 2026)', url: 'https://www.assnat.qc.ca/Media/Process.aspx?MediaId=ANQ.Vigie.Bll.DocumentGenerique_220733&process=Default&token=ZyMoxNwUn8ikQ+TRKYwPCjWrKwg+vIv9rjij7p3xLGTZDmLVSmJLoqe/vG7/YWzz' },
+      { titre: 'Quebec Public Accounts 2025-2026, volume 1', url: 'https://cdn-contenu.quebec.ca/cdn-contenu/adm/min/finances/publications-adm/Comptes-publics/FR/CPTFR_vol1-2025-2026.pdf' },
+      { titre: 'INSPQ, gambling and health (updated December 1, 2025)', url: 'https://www.inspq.qc.ca/jeux-de-hasard-et-d-argent-et-sante' },
+      { titre: 'Criminal Code, section 207', url: 'https://laws-lois.justice.gc.ca/eng/acts/c-46/section-207.html' },
+      { titre: 'Supreme Court of Canada, file 39774 (leave to appeal dismissed March 24, 2022)', url: 'https://decisions.scc-csc.ca/scc-csc/scc-l-csc-a/en/19249/1/document.do' },
+      { titre: 'Kahnawà:ke Gaming Commission, 2025 dispute resolution summary', url: 'https://gamingcommission.ca/wp-content/uploads/2026/01/2025-DisputeResolutionSummary.pdf' },
+      { titre: 'iGaming Ontario, Ipsos channelization study, year 4 (May 21, 2026)', url: 'https://igamingontario.ca/en/news/ipsos-channelization-study-year-4-results' },
+      { titre: 'iGaming Ontario, regulated market', url: 'https://igamingontario.ca/en/player/regulated-igaming-market' },
+      { titre: 'Jeu : aide et référence, 21% increase in requests for help (August 13, 2024)', url: 'https://aidejeu.ca/en/articles/gambling-help-and-referral-records-a-21-increase-in-requests-for-help/' }
+    ],
+    connexes: ['/en-ca/online-casino-quebec/', '/en-ca/is-online-gambling-legal-in-canada/', '/en-ca/casino-withdrawal-times/']
+  }
 ];
 
 
