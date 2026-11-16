@@ -980,6 +980,10 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           : `${m.nom} ne publie pas de FAQ et ses conditions ne mentionnent pas Interac. Vérifiez la page de dépôt avant de vous inscrire.`
       },
       {
+        q: `${m.nom.replace(/ Casino$/, '')} Casino Rewards est-il offert en français ?`,
+        r: `Oui : la page d’accueil officielle de ${m.nom} propose une version française (relevé du 16 novembre 2026). Le programme de fidélité Casino Rewards est commun à tous les casinos du groupe.`
+      },
+      {
         q: `${m.nom} est-il fiable ?`,
         r: `Rien dans ce que nous avons lu n’indique le contraire : la licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) et l’exploitant sont publiés, et le site renvoie vers un certificat eCOGRA. Le vrai piège est ailleurs : le bonus à miser ${REWARDS.mise12} fois.`
       }
@@ -1343,6 +1347,10 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           : `${m.nom} publishes no FAQ and its terms do not mention Interac. Check the deposit page before signing up.`
       },
       {
+        q: `Is ${m.nom} available in French?`,
+        r: `Yes: the ${m.nom} official home page offers a French version (checked on November 16, 2026). The Casino Rewards loyalty program is shared by all the group’s casinos.`
+      },
+      {
         q: `Is ${m.nom} legit?`,
         r: `Nothing we read suggests otherwise: the Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and the operator are published, and the site links to an eCOGRA certificate. The real catch is elsewhere: the ${REWARDS.mise12}x bonus wagering.`
       }
@@ -1540,20 +1548,37 @@ const NOMS = MARQUES.map((m) => m.nom);
 const AVEC_FAQ = MARQUES.filter(avecFaq).map((m) => m.nom);
 const SANS_FAQ = MARQUES.filter((m) => !avecFaq(m)).map((m) => m.nom);
 const VERIFIE = YUKON.verifie;
+const SOURCES_PROGRAMME = [
+  { titre: 'Casino Rewards : FAQ officielle (points VIP, statuts, offre d’inscription)', url: 'https://www.casinorewards.com/en/faq/' },
+  { titre: 'Casino Rewards : programme de fidélité', url: 'https://www.casinorewards.com/en/loyalty/' },
+  { titre: 'Casino Rewards : programme VIP (reconnaissance du statut, avantages)', url: 'https://www.casinorewards.com/en/vip-program/' }
+];
+const SOURCES_PROGRAMME_EN = [
+  { titre: 'Casino Rewards: official FAQ (VIP points, status levels, sign-up offer)', url: 'https://www.casinorewards.com/en/faq/' },
+  { titre: 'Casino Rewards: loyalty program', url: 'https://www.casinorewards.com/en/loyalty/' },
+  { titre: 'Casino Rewards: VIP program (status match, benefits)', url: 'https://www.casinorewards.com/en/vip-program/' }
+];
+const SUPPORT_FR: Record<string, string> = {
+  'Yukon Gold': 'Clavardage et courriel, annoncés jour et nuit',
+  Zodiac: 'Annoncé 24 h sur 24 (canaux non précisés)',
+  'Luxury Casino': 'Non précisé sur la page d’accueil',
+  'Captain Cooks': 'Clavardage 24 h sur 24',
+  'Grand Mondial': 'Téléphone, courriel et clavardage, 24 h sur 24'
+};
 const MODIFIE_HUB = '2026-11-16';
 
 function hubFr(): PageGuide {
   return {
     chemin: HUB_FR,
     nomFil: 'Casino Rewards',
-    titre: 'Casino Rewards : avis sur le groupe et ses casinos au Canada',
-    description: `Casino Rewards au Canada : ${MARQUES.length} casinos du groupe analysés, mise de ${REWARDS.mise12} fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions lues.`,
-    h1: 'Casino Rewards : ce que valent ses casinos au Canada',
+    titre: 'Casino Rewards en français : avis, VIP et bonus sans dépôt',
+    description: `Casino Rewards au Canada : ${MARQUES.length} casinos du groupe en français, points VIP et statuts, bonus sans dépôt, mise de ${REWARDS.mise12} fois et retraits. Conditions lues.`,
+    h1: 'Casino Rewards : avis, programme VIP et casinos en français',
     chapeau: `${listeFr(NOMS)} font partie du même groupe, Casino Rewards, et partagent les mêmes conditions générales. Nous les avons lues ligne par ligne. Le point commun qui pèse le plus : les bonus des deux premiers dépôts doivent être misés ${REWARDS.mise12} fois.`,
     modifie: MODIFIE_HUB,
     titreTop: 'Avant Casino Rewards : nos 3 casinos les mieux notés',
     resume: `Retraits, mise de ${REWARDS.mise12} fois, clauses et licence communs aux casinos du groupe Casino Rewards.`,
-    sources: [...YUKON.sourcesFr, ...CAPTAIN.sourcesFr],
+    sources: [...YUKON.sourcesFr, ...CAPTAIN.sourcesFr, ...SOURCES_PROGRAMME],
     sections: [
       {
         id: 'casinos',
@@ -1568,7 +1593,23 @@ function hubFr(): PageGuide {
           },
           {
             type: 'p',
-            texte: `Le groupe compte d’autres casinos, que nous n’avons pas encore analysés. Chaque casino a sa propre offre de bienvenue, mais la mise, les retraits, la licence et les clauses ci-dessous sont les mêmes partout.`
+            texte: `La page d’accueil de Casino Rewards annonce 16 casinos membres ; nous n’avons pas encore analysé les autres. Chaque casino a sa propre offre de bienvenue, mais la mise, les retraits, la licence et les clauses ci-dessous sont les mêmes partout.`
+          }
+        ]
+      },
+      {
+        id: 'francais',
+        titre: 'Casino Rewards en français : quels casinos du groupe',
+        blocs: [
+          {
+            type: 'p',
+            texte: `Les ${MARQUES.length} casinos que nous avons analysés ont tous une version française. Le site du programme, casinorewards.com, propose aussi le français dans son menu des langues.`
+          },
+          {
+            type: 'tableau',
+            legende: 'Relevé sur les pages d’accueil officielles le 16 novembre 2026. Le service client annoncé ne précise pas toujours la langue.',
+            entetes: ['Casino', 'Site en français', 'Service client annoncé'],
+            lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).fr.avis})`, 'Oui', SUPPORT_FR[m.nom] ?? 'Non précisé'])
           }
         ]
       },
@@ -1678,6 +1719,74 @@ function hubFr(): PageGuide {
         ]
       },
       {
+        id: 'vip',
+        titre: 'Le programme de fidélité et VIP Casino Rewards',
+        blocs: [
+          {
+            type: 'p',
+            texte: 'Le programme est commun aux casinos du groupe : votre statut est le même dans tous les casinos membres, d’après la FAQ officielle. Vous gagnez des points VIP en misant ; ils n’expirent jamais et s’échangent contre du crédit de jeu dès que vous en avez plus de 1 000.'
+          },
+          {
+            type: 'tableau',
+            legende: 'Points VIP gagnés pour 10 $ US misés, d’après la FAQ de Casino Rewards (relevé du 16 novembre 2026). Les taux varient selon la devise.',
+            entetes: ['Type de jeu', 'Points VIP pour 10 $ US misés'],
+            lignes: [
+              ['Machines à sous', '1'],
+              ['Jeux de table et roulette', '0,5'],
+              ['Vidéo poker, blackjack, jeux variés, jeux au taux de retour de 98 % ou plus', '0,1'],
+              ['Jeux au taux de retour de 99,5 % ou plus', '0'],
+              ['Tournois, All Aces Video Poker et jeux en direct', '0']
+            ]
+          },
+          {
+            type: 'tableau',
+            legende: 'Points de statut pour atteindre puis conserver chaque niveau, d’après la FAQ de Casino Rewards. 50 points VIP donnent 1 point de statut.',
+            entetes: ['Statut', 'Pour l’atteindre', 'Pour le conserver'],
+            lignes: [
+              ['Bronze', '1', '1'],
+              ['Argent (Silver)', '6', '4'],
+              ['Or (Gold)', '81', '40'],
+              ['Platine (Platinum)', '201', '100'],
+              ['Diamant (Diamond)', '401', '200']
+            ]
+          },
+          {
+            type: 'p',
+            texte: 'La page d’accueil du programme annonce six niveaux, mais la FAQ n’en détaille que cinq. Un statut atteint est garanti au moins jusqu’à la fin du mois en cours.'
+          },
+          {
+            type: 'p',
+            texte: '**Ce que cela représente** : le statut Or demande 81 points de statut, soit 4 050 points VIP, soit environ 40 500 $ US misés sur des machines à sous. Au blackjack, il faudrait miser dix fois plus, et les jeux en direct ne rapportent aucun point. Le programme récompense surtout les gros volumes de jeu sur les machines à sous.'
+          },
+          {
+            type: 'p',
+            texte: 'Un joueur qui a un statut VIP dans un autre casino peut demander au service client de le reconnaître ; la page VIP ne précise aucune condition. Les avantages VIP annoncés (hôte personnel, bonus d’anniversaire, limites de mise plus élevées) sont accordés à la discrétion du casino.'
+          },
+          {
+            type: 'p',
+            texte: 'Un programme de fidélité incite à jouer davantage : fixez votre budget avant de jouer, pas en fonction des points. Si le jeu cesse d’être un plaisir, appelez Jeu : aide et référence au 1 800 461-0140, 24 h sur 24.'
+          }
+        ]
+      },
+      {
+        id: 'sans-depot',
+        titre: 'Casino Rewards bonus sans dépôt : ce qui existe en 2026',
+        blocs: [
+          {
+            type: 'p',
+            texte: `D’après la FAQ de Casino Rewards, l’offre d’inscription se déclenche avec le premier dépôt. Aucun des casinos que nous avons analysés n’affiche de bonus sans dépôt à l’inscription. L’entrée la moins chère du groupe est celle de [Zodiac Casino](${chemins(ZODIAC).fr.avis}) : ${ZODIAC.chances} chances pour ${fr(ZODIAC.depot1!)}.`
+          },
+          {
+            type: 'p',
+            texte: 'Une fois inscrit, la FAQ indique que les membres peuvent recevoir des bonus gratuits et des promotions par courriel, dont les montants ne sont pas publics. Méfiez-vous des « codes » et des « liens bonus » partagés sur des forums : seules comptent les offres affichées sur le site officiel ou dans votre compte.'
+          },
+          {
+            type: 'liste',
+            items: MARQUES.map((m) => `[${m.nom} : bonus sans dépôt](${chemins(m).fr.sansDepot})`)
+          }
+        ]
+      },
+      {
         id: 'verdict',
         titre: 'Notre verdict',
         blocs: [
@@ -1701,7 +1810,19 @@ function hubFr(): PageGuide {
       },
       {
         q: 'Quels casinos font partie de Casino Rewards ?',
-        r: `Nous avons analysé ${listeFr(NOMS)}, qui partagent les mêmes conditions générales. Le groupe compte d’autres casinos, que nous n’avons pas encore analysés.`
+        r: `Nous avons analysé ${listeFr(NOMS)}, qui partagent les mêmes conditions générales. La page d’accueil de Casino Rewards annonce 16 casinos membres ; nous n’avons pas encore analysé les autres.`
+      },
+      {
+        q: 'Casino Rewards est-il en français ?',
+        r: `Oui : ${listeFr(NOMS)} ont une version française, relevée sur leurs pages d’accueil le 16 novembre 2026. Le site casinorewards.com propose aussi le français dans son menu des langues.`
+      },
+      {
+        q: 'Comment fonctionnent les points VIP Casino Rewards ?',
+        r: 'D’après la FAQ officielle : 1 point VIP pour 10 $ US misés sur les machines à sous, moins sur les autres jeux, aucun sur les jeux en direct. Les points n’expirent pas et s’échangent contre du crédit de jeu au-delà de 1 000 points. 50 points VIP donnent 1 point de statut (Bronze, Argent, Or, Platine, Diamant).'
+      },
+      {
+        q: 'Y a-t-il un bonus sans dépôt Casino Rewards ?',
+        r: `Pas à l’inscription : d’après la FAQ du groupe, l’offre de bienvenue se déclenche avec le premier dépôt. L’entrée la moins chère est celle de Zodiac Casino, ${ZODIAC.chances} chances pour ${fr(ZODIAC.depot1!)}.`
       },
       {
         q: 'Combien de temps prend un retrait dans un casino Casino Rewards ?',
@@ -1724,14 +1845,14 @@ function hubEn(): PageGuide {
   return {
     chemin: HUB_EN,
     nomFil: 'Casino Rewards',
-    titre: 'Casino Rewards Review: The Group and Its Casinos in Canada',
-    description: `Casino Rewards in Canada: ${MARQUES.length} of the group’s casinos reviewed, ${REWARDS.mise12}x wagering, 48-hour pending withdrawals, Kahnawake licence. Terms read.`,
-    h1: 'Casino Rewards: What Its Casinos Are Really Worth in Canada',
+    titre: 'Casino Rewards Review: VIP Points, Bonuses and Casinos (2026)',
+    description: `Casino Rewards in Canada: ${MARQUES.length} casinos reviewed, how VIP points and status levels work, no deposit offers, ${REWARDS.mise12}x wagering and withdrawals. Terms read.`,
+    h1: 'Casino Rewards Review: VIP Program, Bonuses and the Casinos',
     chapeau: `${listeEn(NOMS)} belong to the same group, Casino Rewards, and share the same terms and conditions. We read them line by line. The shared point that matters most: the first two deposit bonuses must be wagered ${REWARDS.mise12} times.`,
     modifie: MODIFIE_HUB,
     titreTop: 'Before Casino Rewards: our 3 top-rated casinos',
     resume: `Withdrawals, ${REWARDS.mise12}x wagering, clauses and licence shared by the Casino Rewards casinos.`,
-    sources: [...YUKON.sourcesEn, ...CAPTAIN.sourcesEn],
+    sources: [...YUKON.sourcesEn, ...CAPTAIN.sourcesEn, ...SOURCES_PROGRAMME_EN],
     sections: [
       {
         id: 'casinos',
@@ -1745,7 +1866,7 @@ function hubEn(): PageGuide {
           },
           {
             type: 'p',
-            texte: 'The group has other casinos we have not reviewed yet. Each casino has its own welcome offer, but the wagering, withdrawals, licence and clauses below are the same everywhere.'
+            texte: 'The Casino Rewards home page lists 16 member casinos; we have not reviewed the others yet. Each casino has its own welcome offer, but the wagering, withdrawals, licence and clauses below are the same everywhere. All the casinos we reviewed also have a French version.'
           }
         ]
       },
@@ -1852,6 +1973,74 @@ function hubEn(): PageGuide {
         ]
       },
       {
+        id: 'vip',
+        titre: 'The Casino Rewards loyalty and VIP program',
+        blocs: [
+          {
+            type: 'p',
+            texte: 'The program is shared by the group’s casinos: your status is the same at every member casino, according to the official FAQ. You earn VIP points by wagering; they never expire and can be redeemed for casino credits once you have more than 1,000.'
+          },
+          {
+            type: 'tableau',
+            legende: 'VIP points earned per US$10 wagered, according to the Casino Rewards FAQ (checked November 16, 2026). Rates vary by currency.',
+            entetes: ['Game type', 'VIP points per US$10 wagered'],
+            lignes: [
+              ['Slots', '1'],
+              ['Table games and roulette', '0.5'],
+              ['Video poker, blackjack, variety games, games with 98%+ RTP', '0.1'],
+              ['Games with 99.5%+ RTP', '0'],
+              ['Tournaments, All Aces Video Poker and live dealer games', '0']
+            ]
+          },
+          {
+            type: 'tableau',
+            legende: 'Status points needed to reach and keep each level, according to the Casino Rewards FAQ. 50 VIP points give 1 status point.',
+            entetes: ['Status', 'To reach', 'To keep'],
+            lignes: [
+              ['Bronze', '1', '1'],
+              ['Silver', '6', '4'],
+              ['Gold', '81', '40'],
+              ['Platinum', '201', '100'],
+              ['Diamond', '401', '200']
+            ]
+          },
+          {
+            type: 'p',
+            texte: 'The program home page mentions six levels, but the FAQ only details five. Once reached, a status is guaranteed at least until the end of the current month.'
+          },
+          {
+            type: 'p',
+            texte: '**What it takes**: Gold needs 81 status points, which is 4,050 VIP points, or about US$40,500 wagered on slots. At blackjack you would have to wager ten times more, and live dealer games earn no points at all. The program mainly rewards high slot volume.'
+          },
+          {
+            type: 'p',
+            texte: 'Players with VIP status at another casino can ask support to match it; the VIP page gives no conditions. The VIP perks advertised (personal host, birthday bonuses, higher bet limits) are granted at the casino’s discretion.'
+          },
+          {
+            type: 'p',
+            texte: 'A loyalty program encourages you to play more: set your budget before you play, not around the points. If gambling stops being fun, see the [help lines by province](/en-ca/responsible-gambling/).'
+          }
+        ]
+      },
+      {
+        id: 'no-deposit',
+        titre: 'Casino Rewards no deposit bonus: what exists in 2026',
+        blocs: [
+          {
+            type: 'p',
+            texte: `According to the Casino Rewards FAQ, the sign-up offer is triggered by your first deposit. None of the casinos we reviewed shows a no deposit bonus at sign-up. The cheapest entry in the group is [Zodiac Casino](${chemins(ZODIAC).en.avis}): ${ZODIAC.chances} chances for ${enM(ZODIAC.depot1!)}.`
+          },
+          {
+            type: 'p',
+            texte: 'Once registered, the FAQ says members may get free bonuses and email promotions, with amounts that are not public. Be careful with “codes” and “bonus links” shared on forums: only offers shown on the official site or in your account count.'
+          },
+          {
+            type: 'liste',
+            items: MARQUES.map((m) => `[${m.nom} no deposit bonus](${chemins(m).en.sansDepot})`)
+          }
+        ]
+      },
+      {
         id: 'verdict',
         titre: 'Our verdict',
         blocs: [
@@ -1875,7 +2064,19 @@ function hubEn(): PageGuide {
       },
       {
         q: 'Which casinos are part of Casino Rewards?',
-        r: `We reviewed ${listeEn(NOMS)}, which share the same terms and conditions. The group has other casinos we have not reviewed yet.`
+        r: `We reviewed ${listeEn(NOMS)}, which share the same terms and conditions. The Casino Rewards home page lists 16 member casinos; we have not reviewed the others yet.`
+      },
+      {
+        q: 'How do Casino Rewards VIP points work?',
+        r: 'According to the official FAQ: 1 VIP point per US$10 wagered on slots, less on other games, none on live dealer games. Points never expire and can be redeemed for casino credits above 1,000 points. 50 VIP points give 1 status point (Bronze, Silver, Gold, Platinum, Diamond).'
+      },
+      {
+        q: 'Is there a Casino Rewards no deposit bonus?',
+        r: `Not at sign-up: according to the group’s FAQ, the welcome offer is triggered by the first deposit. The cheapest entry is Zodiac Casino, ${ZODIAC.chances} chances for ${enM(ZODIAC.depot1!)}.`
+      },
+      {
+        q: 'Are Casino Rewards casinos available in French?',
+        r: `Yes: ${listeEn(NOMS)} all have a French version, checked on their home pages on November 16, 2026.`
       },
       {
         q: 'How long does a withdrawal take at a Casino Rewards casino?',
