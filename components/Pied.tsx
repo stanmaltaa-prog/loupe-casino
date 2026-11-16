@@ -50,6 +50,9 @@ export default function Pied() {
                 <Link href="/statistiques-jeu-en-ligne-quebec/">Le jeu en ligne au Québec en chiffres</Link>
               </li>
               <li>
+                <Link href="/actualites/">Actualités</Link>
+              </li>
+              <li>
                 <Link href="/bonus-casino-quebec/">Bonus de casino</Link>
               </li>
               <li>
