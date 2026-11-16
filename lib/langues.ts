@@ -16,6 +16,7 @@ export const PAIRES: Record<string, string> = {
   '/jeu-responsable/': '/en-ca/responsible-gambling/',
   '/a-propos/': '/en-ca/about/',
   '/delais-de-retrait-casino/': '/en-ca/casino-withdrawal-times/',
+  '/statistiques-jeu-en-ligne-quebec/': '/en-ca/quebec-online-gambling-statistics/',
   '/comparatif/': '/en-ca/compare/',
   ...Object.fromEntries(SLUGS_CASINOS.flatMap((s) => [
     [`/${s}/`, `/en-ca/${s}/`],
