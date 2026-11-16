@@ -18,6 +18,7 @@ import { CASINOS, CRITERES, cheminCasino, exempleMise, miseTexte, noteGlobale, p
 import { SITE, absolu, dateLongue, moisAnnee, montant } from '@/lib/site';
 import { meta, schemaPage } from '@/lib/seo';
 import { DERNIER_RELEVE, dernier } from '@/lib/tests';
+import { typo } from '@/lib/typo';
 
 const MAJ = SITE.derniereVerification;
 /** Délais de retrait crypto constatés lors des tests réels (donnees/tests.json). */
@@ -199,6 +200,29 @@ export default function Accueil() {
                   {x.titre} : {x.casino.nom}
                 </strong>
                 <span>{x.raison}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="conteneur">
+        <h2>Nos guides les plus utiles</h2>
+        <ul className="grille-liens">
+          {[
+            ['/casino-en-ligne-le-plus-payant/', 'Casino le plus payant', 'Le top 5 par retraits testés en argent réel, plafonds et RTP.'],
+            ['/casino-retrait-rapide/', 'Casino à retrait rapide', 'Délais et plafonds de retrait, tels que publiés.'],
+            ['/casino-bonus-sans-depot/', 'Bonus sans dépôt', 'Ce qui existe vraiment, et les offres les plus proches.'],
+            ['/casino-depot-minimum/', 'Casino dépôt 1 $', 'Les casinos à 1 $, 5 $ et 10 $, et ce que chaque dépôt débloque.'],
+            ['/casino-rewards/', 'Casino Rewards en français', 'Yukon Gold, Zodiac, Luxury et 5 autres : VIP et mise de 200 fois.'],
+            ['/casino-en-ligne-fiable/', 'Casino en ligne fiable', 'Exploitant, licence et retraits testés, casino par casino.'],
+            ['/delais-de-retrait-casino/', 'Délais de retrait testés', 'Chaque retrait mesuré en argent réel, daté.'],
+            ['/statistiques-jeu-en-ligne-quebec/', 'Le jeu en ligne en chiffres', 'Loto-Québec, joueurs, aide : les chiffres officiels.']
+          ].map(([href, titre, texte]) => (
+            <li key={href}>
+              <Link href={href}>
+                <strong>{typo(titre)}</strong>
+                <span>{typo(texte)}</span>
               </Link>
             </li>
           ))}
