@@ -10,7 +10,10 @@ const nextConfig = {
       { source: '/', has: [{ type: 'host', value: 'www.loupecasino.com' }], destination: 'https://loupecasino.com/', permanent: true },
       { source: '/:fichier(.+\\.\\w+)', has: [{ type: 'host', value: 'www.loupecasino.com' }], destination: 'https://loupecasino.com/:fichier', permanent: true },
       { source: '/:path+', has: [{ type: 'host', value: 'www.loupecasino.com' }], destination: 'https://loupecasino.com/:path+/', permanent: true },
-      { source: '/fournisseurs/', destination: '/machines-a-sous/#fournisseurs', permanent: false }
+      { source: '/fournisseurs/', destination: '/machines-a-sous/#fournisseurs', permanent: false },
+      // Pages retrait et fiabilité des marques Casino Rewards fondues dans l'avis de chaque marque (16 novembre 2026)
+      { source: '/:marque(yukon-gold-casino|zodiac-casino|luxury-casino|captain-cooks-casino|grand-mondial-casino)/:sous(retrait|fiable)/', destination: '/:marque/', permanent: true },
+      { source: '/en-ca/:marque(yukon-gold-casino|zodiac-casino|luxury-casino|captain-cooks-casino|grand-mondial-casino)/:sous(withdrawal|legit)/', destination: '/en-ca/:marque/', permanent: true }
     ];
   },
   async headers() {
