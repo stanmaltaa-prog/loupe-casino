@@ -281,6 +281,11 @@ const paiements: PageGuide[] = [
               "Velobet a été le plus rapide : retrait en crypto reçu en 1 heure, par carte en 12 heures. Vos délais peuvent varier selon la vérification d'identité et le moyen de paiement. Côté conditions, Rolletto annonce un retrait instantané en crypto et sous 24 heures par virement, selon son gestionnaire d'affiliation ; ses conditions générales, comme celles de Velobet (même exploitant), prévoient au plus trois jours ouvrables et un plafond de 7 500 $ par semaine. Celsius plafonne les gains à 2 500 $ par semaine jusqu'à 10 000 $."
           },
           {
+            type: 'p',
+            texte:
+              "La vitesse n'est qu'un critère : les plafonds de retrait, la mise du bonus et le taux de retour des jeux comptent autant. Notre classement qui réunit les quatre : [le casino en ligne le plus payant au Québec](/casino-en-ligne-le-plus-payant/)."
+          },
+          {
             type: 'cta',
             casino: 'velobet',
             titre: 'Retrait en crypto reçu en 1 heure lors de notre test',

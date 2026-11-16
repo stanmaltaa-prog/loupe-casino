@@ -59,6 +59,11 @@ const tests: PageGuide[] = [
           },
           { type: 'p', texte: phrasePremier },
           {
+            type: 'p',
+            texte:
+              'Pour choisir un casino, le délai ne suffit pas : plafonds de retrait, mise du bonus et taux de retour des jeux comptent aussi. Voyez [le casino en ligne le plus payant au Québec](/casino-en-ligne-le-plus-payant/).'
+          },
+          {
             type: 'encadre',
             ton: 'info',
             titre: 'Vos délais peuvent être différents',
