@@ -79,6 +79,9 @@ export default function PiedEn() {
                 <Link href="/en-ca/new-online-casinos/">New online casinos</Link>
               </li>
               <li>
+                <Link href="/en-ca/legit-online-casinos/">Legit online casinos</Link>
+              </li>
+              <li>
                 <Link href="/en-ca/crypto-casinos/">Crypto casinos</Link>
               </li>
               <li>
