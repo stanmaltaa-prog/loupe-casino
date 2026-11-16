@@ -160,7 +160,13 @@ export default function AccueilEn() {
             ['/en-ca/fast-withdrawal-casinos/', 'Fast withdrawal casinos', 'Processing times and weekly limits, as published.'],
             ['/en-ca/interac-casinos/', 'Interac casinos', 'What we found casino by casino, and the alternatives.'],
             ['/en-ca/crypto-casinos/', 'Crypto casinos', 'Coins accepted, crypto bonuses and safe transfers.'],
-            ['/en-ca/minimum-deposit-casinos/', 'Minimum deposit casinos', 'The smallest deposit that unlocks each bonus.'],
+            ['/en-ca/minimum-deposit-casinos/', '$1 deposit casinos', 'Casinos from $1, $5 and $10, and what each deposit unlocks.'],
+            ['/en-ca/no-deposit-bonus-casinos/', 'No deposit bonus', 'What really exists in Canada, and the closest offers.'],
+            ['/en-ca/best-payout-online-casinos/', 'Best payout casinos', 'Withdrawals tested with real money, limits and RTP.'],
+            ['/en-ca/legit-online-casinos/', 'Legit online casinos', 'Operator, licence and tested payouts, casino by casino.'],
+            ['/en-ca/new-online-casinos/', 'New online casinos', 'Our latest additions and the 6 checks before depositing.'],
+            ['/en-ca/casino-rewards/', 'Casino Rewards review', 'Yukon Gold, Zodiac, Luxury and 5 more: VIP points and 200x wagering.'],
+            ['/en-ca/casino-withdrawal-times/', 'Withdrawal times tested', 'Every real-money payout we measured, dated.'],
             ['/en-ca/is-online-gambling-legal-in-canada/', 'Is it legal?', 'The rules in each province, and the minimum age.']
           ].map(([href, titre, texte]) => (
             <li key={href}>
