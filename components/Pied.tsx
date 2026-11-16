@@ -29,7 +29,7 @@ export default function Pied() {
               ))}
               {LIENS_MARQUES.map((m) => (
                 <li key={m.fr}>
-                  <Link href={m.fr}>Avis {m.nom.replace(/ Casino$/, '')} Casino</Link>
+                  <Link href={m.fr}>Avis {/casino/i.test(m.nom) ? m.nom : `${m.nom} Casino`}</Link>
                 </li>
               ))}
               <li>
