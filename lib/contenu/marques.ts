@@ -108,7 +108,7 @@ const YUKON: MarqueRewards = {
         'Yukon Gold est l’un des casinos en ligne les plus cherchés au Canada. Son offre attire : 150 chances de gagner un million pour 10 $. Nous avons lu ses conditions officielles ligne par ligne. Le point qui change tout : les bonus des deux premiers dépôts doivent être misés 200 fois.'
     },
     bonus: {
-      titre: 'Bonus Yukon Gold : 150 chances pour 10 $, ce qu’il faut miser',
+      titre: 'Bonus Yukon Gold Casino : 150 chances pour 10 $ (2026)',
       description:
         'Bonus Yukon Gold : 150 chances pour 10 $, puis 100 % jusqu’à 150 $. Mise de 200 fois, jeux à 2 %, délais : exemple chiffré et comparaison avec nos casinos.',
       h1: 'Bonus Yukon Gold : 150 chances pour 10 $, et le calcul à faire avant',
@@ -116,7 +116,7 @@ const YUKON: MarqueRewards = {
         'Le bonus de Yukon Gold coûte peu à activer et rapporte des tours sur une roue à un million. Mais les gains doivent être misés 200 fois. Voici les paliers, les règles et le calcul, d’après les conditions officielles.'
     },
     sansDepot: {
-      titre: 'Yukon Gold bonus sans dépôt : existe-t-il en 2026 ?',
+      titre: 'Yukon Gold Casino bonus sans dépôt : existe-t-il en 2026 ?',
       description:
         'Yukon Gold a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre la plus proche : 150 chances pour 10 $. Explications et alternatives.',
       h1: 'Yukon Gold bonus sans dépôt : la réponse honnête',
@@ -150,7 +150,7 @@ const YUKON: MarqueRewards = {
         'Yukon Gold is one of the most searched online casinos in Canada. Its offer is tempting: 150 chances to win a million for $10. We read its official terms line by line. The detail that changes everything: the first two deposit bonuses must be wagered 200 times.'
     },
     bonus: {
-      titre: 'Yukon Gold Bonus: 150 Chances for $10 and the 200x Catch',
+      titre: 'Yukon Gold Casino Bonus: 150 Chances for $10, 200x Wagering',
       description:
         'Yukon Gold bonus: 150 chances for $10, then 100% up to $150. 200x wagering, 2% game weighting, deadlines: a worked example and a comparison with our casinos.',
       h1: 'Yukon Gold Bonus: 150 Chances for $10, and the Math to Do First',
@@ -158,7 +158,7 @@ const YUKON: MarqueRewards = {
         'The Yukon Gold bonus is cheap to activate and pays out spins on a million-dollar wheel. But winnings must be wagered 200 times. Here are the tiers, the rules and the math, from the official terms.'
     },
     sansDepot: {
-      titre: 'Yukon Gold No Deposit Bonus: Is There One in 2026?',
+      titre: 'Yukon Gold Casino No Deposit Bonus: Is There One in 2026?',
       description:
         'Does Yukon Gold offer a no deposit bonus? Not according to its official pages. The closest offer is 150 chances for $10: what it costs, and alternatives.',
       h1: 'Yukon Gold No Deposit Bonus: the Honest Answer',
@@ -499,7 +499,7 @@ const CAPTAIN: MarqueRewards = {
         'Captain Cooks est l’un des casinos en ligne les plus cherchés au Canada. Son offre : 100 chances de gagner un million pour 5 $. Nous avons lu ses conditions officielles. Le point à connaître : les bonus des deux premiers dépôts doivent être misés 200 fois.'
     },
     bonus: {
-      titre: 'Bonus Captain Cooks : 100 chances pour 5 $ et mise de 200 fois',
+      titre: 'Bonus Captain Cooks Casino : 100 chances pour 5 $ (2026)',
       description:
         'Bonus Captain Cooks : 100 chances pour 5 $, puis jusqu’à 475 $ sur 4 dépôts. Mise de 200 fois puis 30 fois, jeux à 2 % : exemple chiffré et comparaison.',
       h1: 'Bonus Captain Cooks : 100 chances pour 5 $, puis 475 $, et le calcul à faire',
@@ -507,7 +507,7 @@ const CAPTAIN: MarqueRewards = {
         'Pour 5 $, Captain Cooks donne 100 tours sur une roue à un million, puis des bonus sur les 4 dépôts suivants. Mais les gains des deux premiers dépôts doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
     },
     sansDepot: {
-      titre: 'Captain Cooks bonus sans dépôt : existe-t-il en 2026 ?',
+      titre: 'Captain Cooks Casino bonus sans dépôt : existe-t-il en 2026 ?',
       description:
         'Captain Cooks a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre la plus proche : 100 chances pour 5 $. Ce qu’elle coûte vraiment.',
       h1: 'Captain Cooks bonus sans dépôt : la réponse honnête',
@@ -541,7 +541,7 @@ const CAPTAIN: MarqueRewards = {
         'Captain Cooks is one of the most searched online casinos in Canada. Its offer: 100 chances to win a million for $5. We read its official terms. The key detail: the first two deposit bonuses must be wagered 200 times.'
     },
     bonus: {
-      titre: 'Captain Cooks Bonus: 100 Chances for $5 and the 200x Catch',
+      titre: 'Captain Cooks Casino Bonus: 100 Chances for $5, 200x Wagering',
       description:
         'Captain Cooks bonus: 100 chances for $5, then up to $475 over 4 deposits. 200x then 30x wagering, 2% game weighting: a worked example and a comparison.',
       h1: 'Captain Cooks Bonus: 100 Chances for $5, Then $475, and the Math to Do',
@@ -622,7 +622,7 @@ const GRAND: MarqueRewards = {
         'Grand Mondial est l’un des casinos en ligne les plus cherchés au Canada. Son offre : 150 chances de gagner un million pour 10 $, puis jusqu’à 250 $ au 2e dépôt. Nous avons lu ses conditions officielles : ces deux bonus doivent être misés 200 fois.'
     },
     bonus: {
-      titre: 'Bonus Grand Mondial : 150 chances pour 10 $ et jusqu’à 250 $',
+      titre: 'Bonus Casino Grand Mondial : 150 chances pour 10 $ (2026)',
       description:
         'Bonus Grand Mondial : 150 chances pour 10 $, puis 100 % jusqu’à 250 $. Mise de 200 fois, jeux à 2 %, délais : exemple chiffré et comparaison avec nos casinos.',
       h1: 'Bonus Grand Mondial : 150 chances pour 10 $, et le calcul à faire avant',
@@ -630,7 +630,7 @@ const GRAND: MarqueRewards = {
         'Le bonus de Grand Mondial coûte peu à activer et rapporte des tours sur une roue à un million, puis un bonus au 2e dépôt. Mais les gains doivent être misés 200 fois. Voici les paliers, les règles et le calcul.'
     },
     sansDepot: {
-      titre: 'Grand Mondial bonus sans dépôt : existe-t-il en 2026 ?',
+      titre: 'Casino Grand Mondial bonus sans dépôt : existe-t-il en 2026 ?',
       description:
         'Grand Mondial a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Son offre la plus proche : 150 chances pour 10 $. Explications et alternatives.',
       h1: 'Grand Mondial bonus sans dépôt : la réponse honnête',
@@ -664,7 +664,7 @@ const GRAND: MarqueRewards = {
         'Grand Mondial is one of the most searched online casinos in Canada. Its offer: 150 chances to win a million for $10, then up to $250 on the 2nd deposit. We read its official terms: both bonuses must be wagered 200 times.'
     },
     bonus: {
-      titre: 'Grand Mondial Bonus: 150 Chances for $10, Up to $250',
+      titre: 'Grand Mondial Casino Bonus: 150 Chances for $10, Up to $250',
       description:
         'Grand Mondial bonus: 150 chances for $10, then 100% up to $250. 200x wagering, 2% game weighting, deadlines: a worked example and a comparison.',
       h1: 'Grand Mondial Bonus: 150 Chances for $10, and the Math to Do First',
@@ -672,7 +672,7 @@ const GRAND: MarqueRewards = {
         'The Grand Mondial bonus is cheap to activate and pays out spins on a million-dollar wheel, then a 2nd deposit bonus. But winnings must be wagered 200 times. Here are the tiers, the rules and the math.'
     },
     sansDepot: {
-      titre: 'Grand Mondial No Deposit Bonus: Is There One in 2026?',
+      titre: 'Grand Mondial Casino No Deposit Bonus: Is There One in 2026?',
       description:
         'Does Grand Mondial offer a no deposit bonus? Not according to its official pages. The closest offer is 150 chances for $10: what it costs, and alternatives.',
       h1: 'Grand Mondial No Deposit Bonus: the Honest Answer',
