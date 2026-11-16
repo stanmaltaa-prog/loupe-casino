@@ -9,6 +9,7 @@ import { SITE, absolu } from '@/lib/site';
 import { PAIRES, versionAnglaise, versionFrancaise } from '@/lib/langues';
 import { PAGES_EN } from '@/lib/en/pages';
 import { EN } from '@/lib/en/site';
+import { MARQUES_EN } from '@/lib/contenu/marques';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const maj = new Date(SITE.derniereVerification);
@@ -60,7 +61,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Section anglaise (Canada hors Ontario et Alberta)
     ...Object.values(PAIRES)
       .filter((c) => !PAGES_EN.some((p) => p.chemin === c))
-      .map((c) => page(c, c === '/en-ca/' ? 0.9 : 0.8, new Date(EN.verification))),
+      .map((c) => {
+        const marque = MARQUES_EN.find((p) => p.chemin === c);
+        return page(c, c === '/en-ca/' ? 0.9 : 0.8, new Date(marque ? marque.modifie : EN.verification));
+      }),
     ...PAGES_EN.map((p) => page(p.chemin, 0.7, new Date(p.modifie)))
   ];
 }
