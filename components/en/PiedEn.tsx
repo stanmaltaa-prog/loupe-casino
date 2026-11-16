@@ -67,7 +67,13 @@ export default function PiedEn() {
                 <Link href="/en-ca/interac-casinos/">Interac casinos</Link>
               </li>
               <li>
-                <Link href="/en-ca/minimum-deposit-casinos/">Minimum deposit casinos</Link>
+                <Link href="/en-ca/minimum-deposit-casinos/">$1 deposit casinos</Link>
+              </li>
+              <li>
+                <Link href="/en-ca/no-deposit-bonus-casinos/">No deposit bonus</Link>
+              </li>
+              <li>
+                <Link href="/en-ca/best-payout-online-casinos/">Best payout casinos</Link>
               </li>
               <li>
                 <Link href="/en-ca/crypto-casinos/">Crypto casinos</Link>
