@@ -20,7 +20,7 @@ function phraseLicence(c: Casino): string {
 }
 
 const CHEMIN = '/casino-en-ligne-legal-quebec/';
-const MAJ = '2026-11-09';
+const MAJ = '2026-11-16';
 const DESCRIPTION =
   "Loto-Québec est le seul casino en ligne autorisé au Québec ; les sites étrangers sont dans une zone grise. La loi 74 et vos recours, expliqués simplement.";
 
@@ -150,6 +150,12 @@ export default function PageLegalite() {
         Si le Québec adopte un modèle d&apos;autorisation comme celui de l&apos;Ontario, la liste des sites accessibles et les
         règles de publicité pourraient changer. Nous mettrons ce guide et notre classement à jour dès qu&apos;un projet de loi
         sera connu.
+      </p>
+      <p>
+        Les chiffres montrent l&apos;enjeu : le jeu en ligne a rapporté 590,4 M$ à Loto-Québec en 2025-2026 (chiffre non
+        vérifié), environ 21 % de plus qu&apos;un an plus tôt, et 13 % des Québécois jouent désormais en ligne selon
+        l&apos;INSPQ. Tous les chiffres, avec leurs sources :{' '}
+        <Link href="/statistiques-jeu-en-ligne-quebec/">le jeu en ligne au Québec en chiffres</Link>.
       </p>
 
       <h2 id="impots">Gains et impôt</h2>
