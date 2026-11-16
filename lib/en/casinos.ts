@@ -5,6 +5,10 @@
 import type { Question } from '@/components/Faq';
 import { CRITERES, type Casino, type Critere, type Palier } from '@/lib/casinos';
 import { montantEn } from './site';
+import { heuresCrypto } from '@/lib/contenu/titre-test';
+
+/** Celsius: last tested crypto withdrawal time (hours), from donnees/casinos.json. */
+const H_CELSIUS = heuresCrypto('celsius');
 
 export type CasinoEn = {
   accroche: string;
@@ -283,7 +287,8 @@ export const CASINOS_EN: Record<string, CasinoEn> = {
     aConfirmer: ['Dollar cap of each bonus tier', 'Anjouan licence number'],
     verdict: [
       'Celsius is a catalogue-first casino: more than 6,000 slots and 800 live games according to the operator, nine cryptocurrencies and several e-wallets, and withdrawal rules written out with figures.',
-      'Two things hold it back. The welcome bonus asks for 50 times the deposit plus the bonus, among the heaviest we have seen, with no cap displayed. And the licence shown is from Anjouan, without a number, next to a Curacao badge that does not prove a Curacao licence.'
+      'Two things hold it back. The welcome bonus asks for 50 times the deposit plus the bonus, among the heaviest we have seen, with no cap displayed. And the licence shown is from Anjouan, without a number, next to a Curacao badge that does not prove a Curacao licence.',
+      'What players report: on Trustpilot, Celsius has 664 reviews, 65% five-star and 26% one-star (as of November 16, 2026). Trustpilot no longer shows an overall score and says it removed it for a breach of its terms; Celsius says it reported fake reviews. Most complaints are about accounts blocked or balances voided at withdrawal, often during identity checks, and slow support. Our advice: verify your identity before playing, never exceed the $5 maximum bet with a bonus, keep one account only, and start with a small withdrawal.'
     ],
     pourQui: ['Players who want a huge game library', 'Players who use e-wallets or crypto', 'Players who read withdrawal limits before depositing'],
     pasPourQui: ['Players who want a bonus they can realistically clear', 'Players who want a numbered licence', 'High rollers (withdrawals of $2,500 per week)'],
@@ -295,6 +300,18 @@ export const CASINOS_EN: Record<string, CasinoEn> = {
       {
         q: 'Is Celsius Casino legit?',
         r: 'Celsius displays its company, Celsius Holdings N.V. (no. 157856, Curacao). The footer mentions an Anjouan gaming licence without a number, and a Curacao badge that links to BeGambleAware rather than to a licence. Neither is an authorization from a Canadian province.'
+      },
+      {
+        q: 'Is Celsius Casino a scam?',
+        r: `Nothing proves that: the company is identified${H_CELSIUS !== null ? ` and our test withdrawals were paid, the crypto one in ${H_CELSIUS} h` : ' and its withdrawal rules are published'}. But the Anjouan licence shows no number, and many player complaints are about accounts blocked at withdrawal. Verify your account before playing and start small.`
+      },
+      {
+        q: 'What do Trustpilot reviews say about Celsius Casino?',
+        r: 'As of November 16, 2026: 664 reviews, 65% five-star and 26% one-star. Trustpilot no longer shows an overall score, which it says it removed for a breach of its terms. Complaints are mostly about accounts blocked at withdrawal and about support.'
+      },
+      {
+        q: 'Why would Celsius block a withdrawal?',
+        r: 'Player complaints mostly mention pending or incomplete identity checks. The terms also allow winnings to be voided for bets above the maximum during a bonus ($5 or 10% of the balance), duplicate accounts or play judged irregular. Verify your account first and keep screenshots.'
       },
       {
         q: 'Does Celsius accept Canadian players?',
