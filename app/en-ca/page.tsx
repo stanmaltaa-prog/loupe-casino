@@ -14,6 +14,7 @@ import { CRITERES_EN, cheminEn, en, exempleEn, miseEn } from '@/lib/en/casinos';
 import { EN, MESSAGE_ZONE, dateEn, moisEn } from '@/lib/en/site';
 import { absolu } from '@/lib/site';
 import { metaEn, schemaPage } from '@/lib/seo';
+import { MARQUES_POPULAIRES } from '@/lib/contenu/marques';
 
 const MAJ = EN.verification;
 
@@ -175,6 +176,24 @@ export default function AccueilEn() {
               <Link href={href}>
                 <strong>{titre}</strong>
                 <span>{texte}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="conteneur">
+        <h2>The most searched casinos in Canada: our reviews</h2>
+        <p>
+          These Casino Rewards casinos are not part of our rankings. We read their official terms: everywhere, the first deposit
+          bonuses must be wagered 200 times. <Link href="/en-ca/casino-rewards/">The Casino Rewards group in detail</Link>.
+        </p>
+        <ul className="grille-liens">
+          {MARQUES_POPULAIRES.map((m) => (
+            <li key={m.en.avis}>
+              <Link href={m.en.avis}>
+                <strong>{`${/casino/i.test(m.nom) ? m.nom : `${m.nom} Casino`} review`}</strong>
+                <span>{m.offreEn.charAt(0).toUpperCase() + m.offreEn.slice(1) + '.'}</span>
               </Link>
             </li>
           ))}
