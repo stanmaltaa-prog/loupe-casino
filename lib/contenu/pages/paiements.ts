@@ -444,7 +444,7 @@ const paiements: PageGuide[] = [
           },
           {
             type: 'tableau',
-            legende: 'Casinos très cherchés au Canada, hors de notre comparatif. Conditions officielles relues le 10 novembre 2026.',
+            legende: 'Casinos très cherchés au Canada, hors de notre comparatif. Conditions officielles relues entre le 10 et le 17 novembre 2026.',
             entetes: ['Casino (notre avis)', 'Premier dépôt', 'Ce qu’il donne'],
             lignes: RESUMES_MARQUES.filter((m) => m.depot !== null)
               .sort((a, b) => (a.depot ?? 0) - (b.depot ?? 0))
