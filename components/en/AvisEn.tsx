@@ -37,14 +37,14 @@ export function textesAvis(c: Casino) {
   return {
     titre:
       typeof c.test?.retraitCryptoHeures === 'number'
-        ? `${c.nom} Casino Review ${EN.verification.slice(0, 4)}: Crypto Payout in ${c.test.retraitCryptoHeures}h (Tested)`
+        ? `${c.nom} ${c.id === '1win' ? 'Canada' : 'Casino'} Review ${EN.verification.slice(0, 4)}: Crypto Payout in ${c.test.retraitCryptoHeures}h (Tested)`
         : `${c.nom} Casino Review ${EN.verification.slice(0, 4)}: Bonus, Terms, Withdrawals`,
     description: [
       `${c.nom} review for Canadian players: ${t.offre.titre}. Wagering ${miseEn(c)}. Licence and withdrawals checked. Score ${note}/10.`,
       `${c.nom} review for Canada: ${t.offre.titre}. Wagering ${miseEn(c)}. Licence and withdrawals checked. Score ${note}/10.`,
       `${c.nom} review for Canada: ${t.offre.titre}. Wagering ${miseEn(c)}. Score ${note}/10.`
     ].find((d) => d.length <= 155) as string,
-    h1: `${c.nom} Casino review: bonus, licence and withdrawals`
+    h1: `${c.nom} ${c.id === '1win' ? 'Canada' : 'Casino'} review: bonus, licence and withdrawals`
   };
 }
 
@@ -196,6 +196,12 @@ export default function AvisEn({ c }: { c: Casino }) {
           <p>
             Every term, traps included: <Link href={cheminEn(c, true)}>the {c.nom} bonus explained</Link>.
           </p>
+          {c.id === '1win' ? (
+            <p>
+              No code needed? See <Link href="/en-ca/1win-promo-code/">1win promo code</Link>. Logging in or playing on your phone:{' '}
+              <Link href="/en-ca/1win-login/">1win login and app</Link>.
+            </p>
+          ) : null}
 
           <h2>Licence and operator</h2>
           <p>

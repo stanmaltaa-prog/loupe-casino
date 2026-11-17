@@ -85,6 +85,12 @@ export default function PiedEn() {
                 <Link href="/en-ca/crypto-casinos/">Crypto casinos</Link>
               </li>
               <li>
+                <Link href="/en-ca/1win-login/">1win login and app</Link>
+              </li>
+              <li>
+                <Link href="/en-ca/1win-promo-code/">1win promo code</Link>
+              </li>
+              <li>
                 <Link href="/en-ca/responsible-gambling/">Responsible gambling</Link>
               </li>
             </ul>
