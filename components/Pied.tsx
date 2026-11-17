@@ -147,6 +147,9 @@ export default function Pied() {
               <li>
                 <Link href="/mise-o-jeu/">Mise-o-jeu</Link>
               </li>
+              <li>
+                <Link href="/sports-interaction/">Avis Sports Interaction</Link>
+              </li>
             </ul>
           </div>
           <div>
