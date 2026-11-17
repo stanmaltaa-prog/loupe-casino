@@ -462,6 +462,7 @@ export const PAGES_EN: PageGuide[] = [
               ['[Grand Mondial](/en-ca/grand-mondial-casino/)', '$10', '150 spins on the Mega Money Wheel', '200x the winnings'],
               ['[Luxury Casino](/en-ca/luxury-casino/)', '$10 (site description)', 'First of 5 deposit bonuses', '200x the bonus'],
               ['[Casino Action](/en-ca/casino-action/)', '$10', '100% up to $150, first of 5 bonuses', '200x the bonus'],
+              ['[Quatro Casino](/en-ca/quatro-casino/)', '$10', '$10 bonus + 10 free spins a day for 7 days (up to 700 spins and $100 from $100)', '200x the bonus and spin winnings'],
               ['[Villento](/en-ca/villento-casino/)', '$20', '100% up to $150, first of 5 bonuses', '200x the bonus']
             ]
           },
@@ -561,7 +562,8 @@ export const PAGES_EN: PageGuide[] = [
       { titre: 'Captain Cooks: official bonus page (100 chances for $5)', url: 'https://captaincooks.casino/fr/bonus/' },
       { titre: 'Yukon Gold: official bonus page (150 chances for $10)', url: 'https://yukongold.casino/en/bonus/' },
       { titre: 'Grand Mondial: official bonus page (150 chances for $10)', url: 'https://grandmondial.casino/fr/bonus/' },
-      { titre: 'Villento: official bonus page ($20 minimum deposit)', url: 'https://www.villento.com/en/bonus/' }
+      { titre: 'Villento: official bonus page ($20 minimum deposit)', url: 'https://www.villento.com/en/bonus/' },
+      { titre: 'Quatro Casino: official bonus page (up to 700 free spins from a $10 deposit)', url: 'https://www.quatrocasino.com/en/bonus/' }
     ],
     connexes: ['/en-ca/casino-bonuses/', '/en-ca/interac-casinos/', '/en-ca/crypto-casinos/']
   },
@@ -1463,7 +1465,8 @@ export const PAGES_EN: PageGuide[] = [
               '[Golden Tiger](/en-ca/golden-tiger-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,500.',
               '[Casino Classic](/en-ca/casino-classic/no-deposit-bonus/): none; 3 deposit bonuses, up to $500.',
               '[Villento](/en-ca/villento-casino/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,000, from a $20 deposit.',
-              '[Casino Action](/en-ca/casino-action/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,250, from a $10 deposit.'
+              '[Casino Action](/en-ca/casino-action/no-deposit-bonus/): none; 5 deposit bonuses, up to $1,250, from a $10 deposit.',
+              '[Quatro Casino](/en-ca/quatro-casino/no-deposit-bonus/): none; up to 700 free spins over 7 days, which require a first deposit (70 spins from $10).'
             ]
           },
           {
