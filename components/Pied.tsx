@@ -109,6 +109,15 @@ export default function Pied() {
                 <Link href="/machines-a-sous-gratuites/">Machines à sous gratuites</Link>
               </li>
               <li>
+                <Link href="/roulette-en-ligne/">Roulette en ligne</Link>
+              </li>
+              <li>
+                <Link href="/blackjack-en-ligne/">Blackjack en ligne</Link>
+              </li>
+              <li>
+                <Link href="/baccarat-en-ligne/">Baccara en ligne</Link>
+              </li>
+              <li>
                 <Link href="/casino-en-direct/">Casino en direct</Link>
               </li>
               <li>
