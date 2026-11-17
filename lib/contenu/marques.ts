@@ -1170,13 +1170,15 @@ const QUATRO: MarqueRewards = {
     { titre: 'Quatro Casino : page d’accueil officielle (offre, langues, certificats Kahnawake et eCOGRA)', url: 'https://www.quatrocasino.com/en/' },
     { titre: 'Quatro Casino : page bonus officielle en français (jusqu’à 700 tours gratuits et 100 $)', url: 'https://www.quatrocasino.com/fr/bonus/' },
     { titre: 'Quatro Casino : conditions générales (paliers, jeux du jour, mise, contribution des jeux, retraits, licence)', url: 'https://www.quatrocasino.com/en/terms/' },
-    { titre: 'Quatro Casino : FAQ (Interac, délais et minimum de retrait, connexion, service client)', url: 'https://www.quatrocasino.com/en/faq/' }
+    { titre: 'Quatro Casino : FAQ (Interac, délais et minimum de retrait, connexion, service client)', url: 'https://www.quatrocasino.com/en/faq/' },
+    { titre: 'Google Play : fiche de l’application « Quatro Online » (jeu social de Code Nest Hub LLC, sans argent réel)', url: 'https://play.google.com/store/apps/details?id=com.cnh.quatrocasino' }
   ],
   sourcesEn: [
     { titre: 'Quatro Casino: official home page (offer, languages, Kahnawake and eCOGRA certificates)', url: 'https://www.quatrocasino.com/en/' },
     { titre: 'Quatro Casino: official bonus page (up to 700 free spins and $100)', url: 'https://www.quatrocasino.com/en/bonus/' },
     { titre: 'Quatro Casino: terms and conditions (tiers, daily games, wagering, game weighting, withdrawals, licence)', url: 'https://www.quatrocasino.com/en/terms/' },
-    { titre: 'Quatro Casino: FAQ (Interac, withdrawal times and minimum, login, support)', url: 'https://www.quatrocasino.com/en/faq/' }
+    { titre: 'Quatro Casino: FAQ (Interac, withdrawal times and minimum, login, support)', url: 'https://www.quatrocasino.com/en/faq/' },
+    { titre: 'Google Play: “Quatro Online” app listing (a Code Nest Hub LLC social game, no real money)', url: 'https://play.google.com/store/apps/details?id=com.cnh.quatrocasino' }
   ],
   faqAvisFr: [
     {
@@ -1185,7 +1187,7 @@ const QUATRO: MarqueRewards = {
     },
     {
       q: 'Quatro Casino a-t-il une application mobile ?',
-      r: 'Sa FAQ ne décrit pas d’application pour téléphone : elle décrit surtout un logiciel à installer sur ordinateur, sous Windows. Ouvrez le site officiel depuis votre téléphone pour voir ce qui y est proposé.'
+      r: 'Sa FAQ ne décrit pas d’application pour téléphone : elle décrit surtout un logiciel à installer sur ordinateur, sous Windows. Attention : l’application « Quatro Online » de Google Play n’est pas le casino Quatro. Sa fiche, consultée le 17 novembre 2026, la présente comme un jeu de casino social gratuit, sans argent réel, publié par Code Nest Hub LLC, une société du Wyoming. Pour jouer chez Quatro Casino, passez par le site officiel, quatrocasino.com.'
     }
   ],
   faqAvisEn: [
@@ -1195,12 +1197,12 @@ const QUATRO: MarqueRewards = {
     },
     {
       q: 'Does Quatro Casino have a mobile app?',
-      r: 'Its FAQ describes no phone app: it mainly describes desktop software for Windows. Open the official site on your phone to see what it offers there.'
+      r: 'Its FAQ describes no phone app: it mainly describes desktop software for Windows. Careful: the “Quatro Online” app on Google Play is not Quatro Casino. Its store listing, checked on November 17, 2026, describes a free social casino game with no real money, published by Code Nest Hub LLC, a Wyoming company. To play at Quatro Casino, use the official site, quatrocasino.com.'
     }
   ],
   fr: {
     avis: {
-      titre: 'Quatro Casino avis 2026 : 700 tours gratuits, mise de 200 fois',
+      titre: 'Quatro Casino avis 2026 : 700 tours gratuits, site en français',
       description:
         'Avis Quatro Casino au Canada : jusqu’à 700 tours gratuits et 100 $ de bonus, mise de 200 fois, retraits après 48 h d’attente, en français. Conditions lues.',
       h1: 'Avis Quatro Casino (2026) : ce que disent vraiment les conditions',
@@ -1226,7 +1228,7 @@ const QUATRO: MarqueRewards = {
   },
   en: {
     avis: {
-      titre: 'Quatro Casino Review 2026: 700 Free Spins, 200x Wagering',
+      titre: 'Quatro Casino Canada Review 2026: 700 Free Spins + $100',
       description:
         'Quatro Casino review for Canada: up to 700 free spins and a $100 bonus, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Terms read.',
       h1: 'Quatro Casino Review (2026): What the Terms Really Say',
