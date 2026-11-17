@@ -136,6 +136,9 @@ export default function Pied() {
                 <Link href="/jeux-de-crash/">Jeux de crash</Link>
               </li>
               <li>
+                <Link href="/machines-a-sous-noel/">Machines à sous de Noël</Link>
+              </li>
+              <li>
                 <Link href="/paris-sportifs-quebec/">Paris sportifs au Québec</Link>
               </li>
               <li>
