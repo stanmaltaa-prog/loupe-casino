@@ -606,7 +606,7 @@ const sitesSport: PageGuide = {
         {
           type: 'p',
           texte:
-            'Pour aller plus loin : nos guides [paris sur le hockey](/paris-sportifs-hockey/), [paris sur le soccer](/paris-sportifs-soccer/) et [bonus paris sportifs](/bonus-paris-sportifs/).'
+            'Pour aller plus loin : nos guides [paris sur le hockey](/paris-sportifs-hockey/), [paris sur le soccer](/paris-sportifs-soccer/) et [bonus paris sportifs](/bonus-paris-sportifs/), et notre [avis Sports Interaction](/sports-interaction/), le site de paris le plus cherché au Canada.'
         }
       ]
     },

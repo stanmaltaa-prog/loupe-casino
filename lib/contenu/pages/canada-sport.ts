@@ -381,7 +381,7 @@ const canadaSport: PageGuide[] = [
           {
             type: 'p',
             texte:
-              "**1win** propose aussi des paris sportifs, mais nous n'avons pas pu vérifier les conditions de son bonus sport. [Celsius](/celsius-casino/) ne fait pas partie de cette comparaison : nous n'avons pas confirmé d'offre de paris sportifs chez lui."
+              "**1win** propose aussi des paris sportifs, mais nous n'avons pas pu vérifier les conditions de son bonus sport. [Celsius](/celsius-casino/) ne fait pas partie de cette comparaison : nous n'avons pas confirmé d'offre de paris sportifs chez lui. Vous hésitez avec Sports Interaction ? Notre [avis Sports Interaction](/sports-interaction/) compare son bonus sport à ces trois offres."
           }
         ]
       },
