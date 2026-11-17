@@ -113,7 +113,7 @@ const YUKON: MarqueRewards = {
   ],
   fr: {
     avis: {
-      titre: 'Avis Yukon Gold Casino 2026 : 150 chances, mise de 200 fois',
+      titre: 'Yukon Gold Casino Rewards en français : avis 2026, 150 chances',
       description:
         'Avis Yukon Gold Casino au Canada : 150 chances pour 10 $, mise de 200 fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions officielles lues.',
       h1: 'Avis Yukon Gold Casino (2026) : ce que disent vraiment les conditions',
@@ -155,7 +155,7 @@ const YUKON: MarqueRewards = {
   },
   en: {
     avis: {
-      titre: 'Yukon Gold Casino Canada Review 2026: Bonus and 200x Wagering',
+      titre: 'Yukon Gold Casino Rewards Canada Review 2026: 150 Chances',
       description:
         'Yukon Gold Casino review for Canada: 150 chances for $10, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Official terms read line by line.',
       h1: 'Yukon Gold Casino Review (2026): What the Terms Really Say',
@@ -244,7 +244,7 @@ const ZODIAC: MarqueRewards = {
   ],
   fr: {
     avis: {
-      titre: 'Avis Zodiac Casino 2026 : 80 chances à 1 $, mise de 200 fois',
+      titre: 'Zodiac Casino Rewards en français : avis 2026, 80 chances',
       description:
         'Avis Zodiac Casino au Canada : 80 chances pour 1 $, jusqu’à 480 $ de bonus, mise de 200 fois, retraits après 48 h d’attente. Conditions officielles lues.',
       h1: 'Avis Zodiac Casino (2026) : 80 chances pour 1 $, et le reste des conditions',
@@ -286,7 +286,7 @@ const ZODIAC: MarqueRewards = {
   },
   en: {
     avis: {
-      titre: 'Zodiac Casino Canada Review 2026: 80 Chances for $1, 200x',
+      titre: 'Zodiac Casino Rewards Canada Review 2026: 80 Chances for $1',
       description:
         'Zodiac Casino review for Canada: 80 chances for $1, up to $480 in bonuses, 200x wagering, 48-hour pending withdrawals. Official terms read line by line.',
       h1: 'Zodiac Casino Review (2026): 80 Chances for $1, and the Rest of the Terms',
@@ -389,7 +389,7 @@ const LUXURY: MarqueRewards = {
   ],
   fr: {
     avis: {
-      titre: 'Avis Luxury Casino 2026 : jusqu’à 1 000 $, mise de 200 fois',
+      titre: 'Luxury Casino Rewards en français : avis 2026, jusqu’à 1 000 $',
       description:
         'Avis Luxury Casino au Canada : 5 bonus de dépôt jusqu’à 1 000 $, mise de 200 fois sur les deux premiers, retraits après 48 h d’attente. Conditions lues.',
       h1: 'Avis Luxury Casino (2026) : 1 000 $ de bonus, et ce qu’il faut miser',
@@ -431,7 +431,7 @@ const LUXURY: MarqueRewards = {
   },
   en: {
     avis: {
-      titre: 'Luxury Casino Canada Review 2026: Up to $1,000, 200x Wagering',
+      titre: 'Luxury Casino Rewards Canada Review 2026: Up to $1,000',
       description:
         'Luxury Casino review for Canada: 5 deposit bonuses up to $1,000, 200x wagering on the first two, 48-hour pending withdrawals. Official terms checked.',
       h1: 'Luxury Casino Review (2026): $1,000 in Bonuses, and What You Must Wager',
@@ -516,7 +516,7 @@ const CAPTAIN: MarqueRewards = {
   ],
   fr: {
     avis: {
-      titre: 'Avis Captain Cooks Casino 2026 : 100 chances pour 5 $',
+      titre: 'Captain Cooks Casino Rewards en français : avis 2026',
       description:
         'Avis Captain Cooks au Canada : 100 chances pour 5 $, jusqu’à 475 $ de bonus, mise de 200 fois, retraits après 48 h d’attente. Conditions officielles lues.',
       h1: 'Avis Captain Cooks Casino (2026) : 100 chances pour 5 $, et le reste des conditions',
@@ -558,7 +558,7 @@ const CAPTAIN: MarqueRewards = {
   },
   en: {
     avis: {
-      titre: 'Captain Cooks Casino Canada Review 2026: 100 Chances for $5',
+      titre: 'Captain Cooks Casino Rewards Canada Review 2026: 100 Chances',
       description:
         'Captain Cooks Casino review for Canada: 100 chances for $5, up to $475 in bonuses, 200x wagering, 48-hour pending withdrawals. Official terms checked.',
       h1: 'Captain Cooks Casino Review (2026): 100 Chances for $5, and the Rest of the Terms',
@@ -639,7 +639,7 @@ const GRAND: MarqueRewards = {
   ],
   fr: {
     avis: {
-      titre: 'Avis Grand Mondial Casino 2026 : 150 chances, mise de 200 fois',
+      titre: 'Grand Mondial Casino Rewards en français : avis 2026',
       description:
         'Avis Grand Mondial au Canada : 150 chances pour 10 $, 100 % jusqu’à 250 $, mise de 200 fois, retraits après 48 h d’attente. Conditions officielles lues.',
       h1: 'Avis Grand Mondial Casino (2026) : ce que disent vraiment les conditions',
@@ -681,7 +681,7 @@ const GRAND: MarqueRewards = {
   },
   en: {
     avis: {
-      titre: 'Grand Mondial Casino Canada Review 2026: 150 Chances, 200x',
+      titre: 'Grand Mondial Casino Rewards Canada Review 2026: 150 Chances',
       description:
         'Grand Mondial Casino review for Canada: 150 chances for $10, 100% up to $250, 200x wagering, 48-hour pending withdrawals. Official terms read line by line.',
       h1: 'Grand Mondial Casino Review (2026): What the Terms Really Say',
@@ -769,7 +769,7 @@ const GOLDEN: MarqueRewards = {
   ],
   fr: {
     avis: {
-      titre: 'Avis Golden Tiger Casino 2026 : 1 500 $, mise de 200 fois',
+      titre: 'Golden Tiger Casino Rewards en français : avis 2026, 1 500 $',
       description:
         'Avis Golden Tiger au Canada : jusqu’à 1 500 $ sur 5 dépôts, mise de 200 fois, retraits après 48 h d’attente, licence de Kahnawake. Conditions lues.',
       h1: 'Avis Golden Tiger Casino (2026) : ce que disent vraiment les conditions',
@@ -795,7 +795,7 @@ const GOLDEN: MarqueRewards = {
   },
   en: {
     avis: {
-      titre: 'Golden Tiger Casino Canada Review 2026: $1,500 Bonus, 200x',
+      titre: 'Golden Tiger Casino Rewards Canada Review 2026: $1,500 Bonus',
       description:
         'Golden Tiger Casino review for Canada: up to $1,500 over 5 deposits, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Official terms read.',
       h1: 'Golden Tiger Casino Review (2026): What the Terms Really Say',
