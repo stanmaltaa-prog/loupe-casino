@@ -42,6 +42,13 @@ type MarqueRewards = {
   /** Dépôt minimum de l'offre de bienvenue, et nombre de chances sur la Mega Money Wheel (absents si l'offre n'a pas de chances). */
   depot1?: number;
   chances?: number;
+  /** Tours gratuits sur 7 jours selon le montant du 1er dépôt (Quatro), à la place des chances. */
+  tours?: { paliers: { depot: number; jusqua?: number; bonus: number; parJour: number }[]; jeux: string[] };
+  /** Numéros d'articles qui diffèrent du gabarit commun (Quatro : section 12 décalée). */
+  articles?: { suivants: string; jeux: [string, string]; argent: string };
+  /** Questions propres à la marque, ajoutées à la FAQ de l'avis. */
+  faqAvisFr?: { q: string; r: string }[];
+  faqAvisEn?: { q: string; r: string }[];
   /** Bonus en argent des dépôts (1er ou 2e, puis suivants), tels qu'affichés sur la page bonus officielle. */
   paliers: { rang: number; pourcentage: number; plafond: number }[];
   /** Faux si le casino ne publie pas de FAQ (délais par moyen, minimums et Interac non publiés). */
@@ -1100,7 +1107,140 @@ const ACTION: MarqueRewards = {
   }
 };
 
-const MARQUES: MarqueRewards[] = [YUKON, ZODIAC, LUXURY, CAPTAIN, GRAND, GOLDEN, CLASSIC, VILLENTO, ACTION];
+/* ---------- Quatro Casino : relevé du 17 novembre 2026 ---------- */
+
+const QUATRO: MarqueRewards = {
+  nom: 'Quatro Casino',
+  slug: 'quatro-casino',
+  verifie: '2026-11-17',
+  depot1: 10,
+  tours: {
+    paliers: [
+      { depot: 10, jusqua: 19.99, bonus: 10, parJour: 10 },
+      { depot: 20, jusqua: 49.99, bonus: 20, parJour: 20 },
+      { depot: 50, jusqua: 99.99, bonus: 50, parJour: 50 },
+      { depot: 100, bonus: 100, parJour: 100 }
+    ],
+    jeux: [
+      'Thunderstruck Wild Lightning',
+      'Casino Rewards Midnight Assassin',
+      '9 Masks of Fire',
+      'Immortal Romance',
+      'Casino Rewards 20 Year Celebration',
+      'Amazing Link: Zeus',
+      'Casino Rewards Hyper Strike'
+    ]
+  },
+  /** Bonus du 1er dépôt : égal au dépôt aux montants de palier (100 $ pour 100 $), plafonné à 100 $. */
+  paliers: [{ rang: 1, pourcentage: 100, plafond: 100 }],
+  articles: { suivants: '12.6', jeux: ['12.15', '12.17'], argent: '12.8' },
+  articleReclamer: '11.7',
+  piedExploitant: false,
+  noteOffreFr: 'Seul le 1er dépôt fixe le bonus et le nombre de tours (article 11.3) : un dépôt de 30 $, par exemple, donne le palier de 20 $.',
+  noteOffreEn: 'Only the first deposit sets the bonus and the number of spins (section 11.3): a $30 deposit, for example, gets the $20 tier.',
+  fideliteFr: 'Programme de fidélité Casino Rewards à 6 statuts ; tout joueur qui mise y est inscrit automatiquement, selon la FAQ',
+  fideliteEn: 'Casino Rewards loyalty program with 6 status levels; every player who wagers is enrolled automatically, according to the FAQ',
+  distinctionsFr: [
+    'Parmi les casinos du groupe que nous avons analysés, c’est le seul dont l’offre de bienvenue donne des tours gratuits sur des machines à sous, au lieu de chances sur la roue Mega Money Wheel ou de bonus étalés sur plusieurs dépôts.',
+    'L’offre dépend du montant du 1er dépôt : de 10 tours par jour pendant 7 jours (dès 10 $) à 100 tours par jour (dès 100 $), plus un bonus de 10 $ à 100 $.',
+    'Il faut se connecter chaque jour pendant 7 jours pour recevoir les tours du jour, à jouer le jour même.',
+    'Service client annoncé 24 h sur 24, 7 jours sur 7, par téléphone et courriel, selon la FAQ.',
+    'La page d’accueil ne mentionne pas de casino en direct, et son pied de page ne nomme pas d’exploitant. Le sélecteur de langue propose le français.'
+  ],
+  distinctionsEn: [
+    'Among the group’s casinos we have reviewed, it is the only one whose welcome offer gives free spins on slots, instead of chances on the Mega Money Wheel or bonuses spread over several deposits.',
+    'The offer depends on the size of your first deposit: from 10 spins a day for 7 days (from $10) to 100 spins a day (from $100), plus a $10 to $100 bonus.',
+    'You must log in every day for 7 days to receive that day’s spins, which must be played the same day.',
+    'Support advertised 24/7 by phone and email, according to the FAQ.',
+    'The home page does not mention a live casino, and its footer names no operator. The language menu offers French.'
+  ],
+  sourcesFr: [
+    { titre: 'Quatro Casino : page d’accueil officielle (offre, langues, certificats Kahnawake et eCOGRA)', url: 'https://www.quatrocasino.com/en/' },
+    { titre: 'Quatro Casino : page bonus officielle en français (jusqu’à 700 tours gratuits et 100 $)', url: 'https://www.quatrocasino.com/fr/bonus/' },
+    { titre: 'Quatro Casino : conditions générales (paliers, jeux du jour, mise, contribution des jeux, retraits, licence)', url: 'https://www.quatrocasino.com/en/terms/' },
+    { titre: 'Quatro Casino : FAQ (Interac, délais et minimum de retrait, connexion, service client)', url: 'https://www.quatrocasino.com/en/faq/' }
+  ],
+  sourcesEn: [
+    { titre: 'Quatro Casino: official home page (offer, languages, Kahnawake and eCOGRA certificates)', url: 'https://www.quatrocasino.com/en/' },
+    { titre: 'Quatro Casino: official bonus page (up to 700 free spins and $100)', url: 'https://www.quatrocasino.com/en/bonus/' },
+    { titre: 'Quatro Casino: terms and conditions (tiers, daily games, wagering, game weighting, withdrawals, licence)', url: 'https://www.quatrocasino.com/en/terms/' },
+    { titre: 'Quatro Casino: FAQ (Interac, withdrawal times and minimum, login, support)', url: 'https://www.quatrocasino.com/en/faq/' }
+  ],
+  faqAvisFr: [
+    {
+      q: 'Comment se connecter à Quatro Casino ?',
+      r: 'Sur le site officiel, quatrocasino.com, avec le nom d’utilisateur et le mot de passe choisis à l’inscription. D’après la FAQ, le mot de passe tient compte des majuscules et des minuscules ; en cas d’oubli, le lien « mot de passe oublié » du site permet de le récupérer. Tapez l’adresse vous-même plutôt que de suivre un lien de connexion reçu par courriel.'
+    },
+    {
+      q: 'Quatro Casino a-t-il une application mobile ?',
+      r: 'Sa FAQ ne décrit pas d’application pour téléphone : elle décrit surtout un logiciel à installer sur ordinateur, sous Windows. Ouvrez le site officiel depuis votre téléphone pour voir ce qui y est proposé.'
+    }
+  ],
+  faqAvisEn: [
+    {
+      q: 'How do I log in to Quatro Casino?',
+      r: 'On the official site, quatrocasino.com, with the username and password you chose at sign-up. According to the FAQ, the password is case sensitive; if you forget it, use the site’s “forgot password” link. Type the address yourself rather than following a login link received by email.'
+    },
+    {
+      q: 'Does Quatro Casino have a mobile app?',
+      r: 'Its FAQ describes no phone app: it mainly describes desktop software for Windows. Open the official site on your phone to see what it offers there.'
+    }
+  ],
+  fr: {
+    avis: {
+      titre: 'Quatro Casino avis 2026 : 700 tours gratuits, mise de 200 fois',
+      description:
+        'Avis Quatro Casino au Canada : jusqu’à 700 tours gratuits et 100 $ de bonus, mise de 200 fois, retraits après 48 h d’attente, en français. Conditions lues.',
+      h1: 'Avis Quatro Casino (2026) : ce que disent vraiment les conditions',
+      chapeau:
+        'Quatro Casino est l’un des casinos du groupe Casino Rewards les plus cherchés au Canada. Son offre : jusqu’à 700 tours gratuits sur vos 7 premiers jours et jusqu’à 100 $ de bonus au 1er dépôt. Nous avons lu ses conditions officielles : le bonus et les gains des tours doivent être misés 200 fois.'
+    },
+    bonus: {
+      titre: 'Quatro Casino 700 tours gratuits : bonus, jeux et conditions',
+      description:
+        'Bonus Quatro Casino : 10 à 100 tours gratuits par jour pendant 7 jours et 10 $ à 100 $ de bonus, selon le 1er dépôt. Mise de 200 fois : exemple chiffré.',
+      h1: 'Bonus Quatro Casino : 700 tours gratuits, et le calcul à faire avant',
+      chapeau:
+        'Chez Quatro Casino, tout dépend du 1er dépôt : de 10 $ (70 tours et 10 $ de bonus) à 100 $ ou plus (700 tours et 100 $). Mais le bonus et les gains des tours doivent être misés 200 fois. Voici les paliers, les jeux du jour, les règles et le calcul.'
+    },
+    sansDepot: {
+      titre: 'Quatro Casino bonus sans dépôt : existe-t-il en 2026 ?',
+      description:
+        'Quatro Casino a-t-il un bonus sans dépôt ? Non, d’après ses pages officielles. Ses 700 tours gratuits demandent un dépôt, dès 10 $. Explications.',
+      h1: 'Quatro Casino bonus sans dépôt : la réponse honnête',
+      chapeau:
+        'Beaucoup de joueurs cherchent un bonus sans dépôt ou des tours gratuits sans dépôt chez Quatro Casino. Sur ses pages officielles relues le 17 novembre 2026, il n’y en a pas. Voici ce qui s’en approche, et ce qu’il faut savoir avant de déposer.'
+    }
+  },
+  en: {
+    avis: {
+      titre: 'Quatro Casino Review 2026: 700 Free Spins, 200x Wagering',
+      description:
+        'Quatro Casino review for Canada: up to 700 free spins and a $100 bonus, 200x wagering, 48-hour pending withdrawals, Kahnawake licence. Terms read.',
+      h1: 'Quatro Casino Review (2026): What the Terms Really Say',
+      chapeau:
+        'Quatro Casino is one of the most searched Casino Rewards casinos in Canada. Its offer: up to 700 free spins over your first 7 days and up to a $100 bonus on your first deposit. We read its official terms: the bonus and the spin winnings must be wagered 200 times.'
+    },
+    bonus: {
+      titre: 'Quatro Casino Bonus: 700 Free Spins and Up to $100',
+      description:
+        'Quatro Casino bonus: 10 to 100 free spins a day for 7 days plus a $10 to $100 bonus, set by your first deposit. 200x wagering: a worked example.',
+      h1: 'Quatro Casino Bonus: 700 Free Spins, and the Math to Do First',
+      chapeau:
+        'At Quatro Casino, everything depends on your first deposit: from $10 (70 spins and a $10 bonus) to $100 or more (700 spins and $100). But the bonus and the spin winnings must be wagered 200 times. Here are the tiers, the daily games, the rules and the math.'
+    },
+    sansDepot: {
+      titre: 'Quatro Casino No Deposit Bonus: Is There One in 2026?',
+      description:
+        'Does Quatro Casino offer a no deposit bonus? Not according to its official pages. Its 700 free spins require a deposit, from $10: the details.',
+      h1: 'Quatro Casino No Deposit Bonus: the Honest Answer',
+      chapeau:
+        'Many players look for a Quatro Casino no deposit bonus or no deposit free spins. On its official pages, read on November 17, 2026, there is none. Here is the closest offer, and what to know before depositing.'
+    }
+  }
+};
+
+const MARQUES: MarqueRewards[] = [QUATRO, YUKON, ZODIAC, LUXURY, CAPTAIN, GRAND, GOLDEN, CLASSIC, VILLENTO, ACTION];
 
 /* ---------- Calculs et formats communs ---------- */
 
@@ -1160,15 +1300,35 @@ function chiffres(m: MarqueRewards) {
   };
 }
 
+const JOURS_TOURS = 7;
+const ARTICLES_COMMUNS = { suivants: '12.5', jeux: ['12.13', '12.15'] as [string, string], argent: '12.6' };
+/** Paliers de tours (Quatro) : le plus petit, le plus grand, et le total de tours sur 7 jours. */
+function tours(m: MarqueRewards) {
+  const t = m.tours!;
+  const min = t.paliers[0];
+  const max = t.paliers[t.paliers.length - 1];
+  return { t, min, max, toursMin: min.parJour * JOURS_TOURS, toursMax: max.parJour * JOURS_TOURS, misesGain: GAIN_EXEMPLE * REWARDS.mise12 };
+}
+const trancheFr = (p: { depot: number; jusqua?: number }) => (p.jusqua ? `${fr(p.depot)} à ${montant(p.jusqua, '$')}` : `${fr(p.depot)} ou plus`);
+const trancheEn = (p: { depot: number; jusqua?: number }) => (p.jusqua ? `${enM(p.depot)} to $${p.jusqua.toFixed(2)}` : `${enM(p.depot)} or more`);
+
 /** Résumé de l'offre en une ligne. */
 function offreFr(m: MarqueRewards): string {
   const k = chiffres(m);
+  if (m.tours) {
+    const q = tours(m);
+    return `jusqu’à ${q.toursMax} tours gratuits sur ${JOURS_TOURS} jours et un bonus de ${fr(q.min.bonus)} à ${fr(q.max.bonus)}, selon le montant du 1er dépôt`;
+  }
   if (!m.chances) return `${m.paliers.length} bonus de dépôt, jusqu’à ${fr(k.total)} au total, dont ${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)} au 1er dépôt`;
   if (m.paliers.length === 1) return `${m.chances} chances pour un 1er dépôt de ${fr(m.depot1!)}, puis ${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)} au 2e dépôt`;
   return `${m.chances} chances pour un 1er dépôt de ${fr(m.depot1!)}, puis jusqu’à ${fr(k.total)} de bonus sur les ${m.paliers.length} dépôts suivants`;
 }
 function offreEn(m: MarqueRewards): string {
   const k = chiffres(m);
+  if (m.tours) {
+    const q = tours(m);
+    return `up to ${q.toursMax} free spins over ${JOURS_TOURS} days and a ${enM(q.min.bonus)} to ${enM(q.max.bonus)} bonus, depending on your first deposit`;
+  }
   if (!m.chances) return `${m.paliers.length} deposit bonuses, up to ${enM(k.total)} in total, starting with ${k.p.pourcentage}% up to ${enM(k.p.plafond)} on the 1st deposit`;
   if (m.paliers.length === 1) return `${m.chances} chances for a first deposit of ${enM(m.depot1!)}, then ${k.p.pourcentage}% up to ${enM(k.p.plafond)} on the 2nd deposit`;
   return `${m.chances} chances for a first deposit of ${enM(m.depot1!)}, then up to ${enM(k.total)} in bonuses over the next ${m.paliers.length} deposits`;
@@ -1176,9 +1336,13 @@ function offreEn(m: MarqueRewards): string {
 
 /** Offre courte, pour les tableaux. */
 const offreCourteFr = (m: MarqueRewards) =>
-  m.chances ? `${m.chances} chances, mise de ${REWARDS.mise12} fois` : `${chiffres(m).p.pourcentage} % jusqu’à ${fr(chiffres(m).p.plafond)}, mise de ${REWARDS.mise12} fois`;
+  m.tours
+    ? `${tours(m).toursMin} tours gratuits et ${fr(tours(m).min.bonus)} de bonus dès ${fr(tours(m).min.depot)}, jusqu’à ${tours(m).toursMax} tours et ${fr(tours(m).max.bonus)} dès ${fr(tours(m).max.depot)} ; mise de ${REWARDS.mise12} fois`
+    : m.chances ? `${m.chances} chances, mise de ${REWARDS.mise12} fois` : `${chiffres(m).p.pourcentage} % jusqu’à ${fr(chiffres(m).p.plafond)}, mise de ${REWARDS.mise12} fois`;
 const offreCourteEn = (m: MarqueRewards) =>
-  m.chances ? `${m.chances} chances, ${REWARDS.mise12}x wagering` : `${chiffres(m).p.pourcentage}% up to ${enM(chiffres(m).p.plafond)}, ${REWARDS.mise12}x wagering`;
+  m.tours
+    ? `${tours(m).toursMin} free spins and a ${enM(tours(m).min.bonus)} bonus from ${enM(tours(m).min.depot)}, up to ${tours(m).toursMax} spins and ${enM(tours(m).max.bonus)} from ${enM(tours(m).max.depot)}; ${REWARDS.mise12}x wagering`
+    : m.chances ? `${m.chances} chances, ${REWARDS.mise12}x wagering` : `${chiffres(m).p.pourcentage}% up to ${enM(chiffres(m).p.plafond)}, ${REWARDS.mise12}x wagering`;
 
 /** Autres marques du groupe, pour les liens internes. */
 const autresFr = (m: MarqueRewards) => MARQUES.filter((x) => x !== m).map((x) => `[${x.nom}](${chemins(x).fr.avis})`).join(', ');
@@ -1222,8 +1386,31 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
   const titreTop = `Avant ${m.nom} : nos 3 casinos les mieux notés`;
   const base = { modifie: m.verifie, titreTop, sources: m.sourcesFr };
   const art = m.articleReclamer ?? '11.8';
+  const a = m.articles ?? ARTICLES_COMMUNS;
+  const q = m.tours ? tours(m) : null;
 
-  const blocsOffre: SectionGuide['blocs'] = m.chances
+  const blocsOffre: SectionGuide['blocs'] = q
+    ? [
+        {
+          type: 'p',
+          texte: `${m.nom} ne donne pas de chances sur la roue Mega Money Wheel : son offre de bienvenue, ce sont des tours gratuits chaque jour pendant vos ${JOURS_TOURS} premiers jours, plus un bonus au 1er dépôt. Le nombre de tours et le bonus dépendent du montant de ce dépôt (article 11.4).`
+        },
+        {
+          type: 'tableau',
+          legende: `Conditions générales et page bonus officielles, relues le ${dateLongue(m.verifie)}.`,
+          entetes: ['1er dépôt', 'Bonus', 'Tours gratuits'],
+          lignes: q.t.paliers.map((p) => [trancheFr(p), fr(p.bonus), `${p.parJour} par jour pendant ${JOURS_TOURS} jours, soit **${p.parJour * JOURS_TOURS}**`])
+        },
+        {
+          type: 'p',
+          texte: `**Les tours ne tombent pas tous d’un coup.** Il faut se connecter chaque jour : les tours ne sont crédités que les jours où vous vous connectez, et ceux du jour sont perdus s’ils ne sont pas joués le jour même (article 11.5). Chaque jour a sa machine à sous imposée, de ${q.t.jeux[0]} le 1er jour à ${q.t.jeux[q.t.jeux.length - 1]} le ${JOURS_TOURS}e.`
+        },
+        {
+          type: 'p',
+          texte: `Les gains des tours sont versés en bonus (article 12.7) et, comme le bonus du 1er dépôt, ils doivent être misés **${REWARDS.mise12} fois** avant de pouvoir être retirés (article 12.5). Par exemple, si vos tours rapportent ${fr(GAIN_EXEMPLE)}, il faut miser ${fr(q.misesGain)} avant de toucher ces ${fr(GAIN_EXEMPLE)}. Le détail jour par jour et l’exemple chiffré : [le bonus ${m.nom}](${c.bonus}).`
+        }
+      ]
+    : m.chances
     ? [
         {
           type: 'p',
@@ -1257,7 +1444,7 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
 
   const avis: PageGuide = {
     ...base,
-    modifie: MODIFIE_CONTENU,
+    modifie: m.verifie > MODIFIE_CONTENU ? m.verifie : MODIFIE_CONTENU,
     chemin: c.avis,
     nomFil: `Avis ${m.nom}`,
     ...t.avis,
@@ -1273,7 +1460,12 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             entetes: ['Point', 'Ce que disent les conditions officielles'],
             lignes: [
               ['Offre de bienvenue', offreFr(m)],
-              ['Mise exigée', `**${REWARDS.mise12} fois** pour les bonus des 2 premiers dépôts, ${REWARDS.mise3} fois à partir du 3e`],
+              [
+                'Mise exigée',
+                q
+                  ? `**${REWARDS.mise12} fois** pour le bonus du 1er dépôt et les gains des tours gratuits, ${REWARDS.mise3} fois à partir du 3e dépôt`
+                  : `**${REWARDS.mise12} fois** pour les bonus des 2 premiers dépôts, ${REWARDS.mise3} fois à partir du 3e`
+              ],
               ['Jeux qui comptent pour la mise', 'Machines à sous : 100 %. Jeux de table et jeux en direct : 2 %'],
               ['Dépôt par Interac', faq ? (m.faqInterac === false ? 'Non cité dans la FAQ, qui renvoie à PayDirect Billing Solutions pour certains dépôts' : 'Mentionné dans la FAQ (traité par PayDirect Billing Solutions)') : 'Non mentionné : pas de FAQ sur les paiements'],
               [
@@ -1297,7 +1489,11 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
       },
       {
         id: 'offre',
-        titre: m.chances ? `L’offre de bienvenue : ${m.chances} chances pour ${fr(m.depot1!)}` : `L’offre de bienvenue : jusqu’à ${fr(k.total)} sur ${m.paliers.length} dépôts`,
+        titre: q
+          ? `L’offre de bienvenue : jusqu’à ${q.toursMax} tours gratuits sur ${JOURS_TOURS} jours`
+          : m.chances
+          ? `L’offre de bienvenue : ${m.chances} chances pour ${fr(m.depot1!)}`
+          : `L’offre de bienvenue : jusqu’à ${fr(k.total)} sur ${m.paliers.length} dépôts`,
         blocs: blocsOffre
       },
       {
@@ -1352,7 +1548,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              m.chances
+              q
+                ? `**Pour vous si** vous voulez une semaine de tours gratuits sur des machines à sous connues, dès ${fr(q.min.depot)}, et que vous pouvez vous connecter chaque jour, sans compter retirer les gains.`
+                : m.chances
                 ? `**Pour vous si** vous voulez tenter la roue à un million avec ${fr(m.depot1!)}, sans compter retirer le bonus.`
                 : `**Pour vous si** vous voulez plus de crédit sur vos ${m.paliers.length} premiers dépôts, sans compter retirer le bonus.`,
               '**Pour vous si** vous jouez déjà sur un autre casino du groupe Casino Rewards : les points de fidélité sont communs.',
@@ -1394,14 +1592,15 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
       {
         q: `${m.nom} est-il fiable ?`,
         r: `Rien dans ce que nous avons lu n’indique le contraire : la licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) ${m.piedExploitant === false ? 'et la société qui gère la marque sont publiées dans les conditions' : 'et l’exploitant sont publiés'}, et le site renvoie vers un certificat eCOGRA. Le vrai piège est ailleurs : le bonus à miser ${REWARDS.mise12} fois.`
-      }
+      },
+      ...(m.faqAvisFr ?? [])
     ],
     connexes: [c.bonus, c.sansDepot, HUB_FR, '/casino-bonus-sans-depot/']
   };
 
   const bonus: PageGuide = {
     ...base,
-    modifie: MODIFIE_CONTENU,
+    modifie: m.verifie > MODIFIE_CONTENU ? m.verifie : MODIFIE_CONTENU,
     chemin: c.bonus,
     nomFil: 'Bonus',
     parent,
@@ -1416,15 +1615,44 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
             type: 'tableau',
             legende: `Page bonus et conditions générales officielles, relues le ${dateLongue(m.verifie)}.`,
             entetes: ['Dépôt', 'Ce que vous recevez', 'Mise exigée'],
-            lignes: [
-              ...(m.chances ? [[`1er dépôt de ${fr(m.depot1!)}`, `${m.chances} tours sur la Mega Money Wheel, à 0,10 $ le tour`, `${REWARDS.mise12} fois les gains`]] : []),
-              ...m.paliers.map((p) => [rangFr(p.rang), `${p.pourcentage} % jusqu’à ${fr(p.plafond)}`, `${miseDe(p.rang)} fois`]),
-              [m.paliers.length === 1 ? '3e dépôt et suivants' : 'Dépôts suivants', 'Selon les promotions du moment', `${REWARDS.mise3} fois`]
-            ]
+            lignes: q
+              ? [
+                  ...q.t.paliers.map((p) => [
+                    `1er dépôt de ${trancheFr(p)}`,
+                    `${fr(p.bonus)} de bonus + ${p.parJour} tours gratuits par jour pendant ${JOURS_TOURS} jours (${p.parJour * JOURS_TOURS} tours)`,
+                    `${REWARDS.mise12} fois le bonus et les gains des tours`
+                  ]),
+                  ['Dépôts suivants', 'Selon les promotions du moment', `${REWARDS.mise12} fois au 2e dépôt, ${REWARDS.mise3} fois à partir du 3e`]
+                ]
+              : [
+                  ...(m.chances ? [[`1er dépôt de ${fr(m.depot1!)}`, `${m.chances} tours sur la Mega Money Wheel, à 0,10 $ le tour`, `${REWARDS.mise12} fois les gains`]] : []),
+                  ...m.paliers.map((p) => [rangFr(p.rang), `${p.pourcentage} % jusqu’à ${fr(p.plafond)}`, `${miseDe(p.rang)} fois`]),
+                  [m.paliers.length === 1 ? '3e dépôt et suivants' : 'Dépôts suivants', 'Selon les promotions du moment', `${REWARDS.mise3} fois`]
+                ]
           },
           ...(m.noteOffreFr ? [{ type: 'p' as const, texte: m.noteOffreFr }] : [])
         ]
       },
+      ...(q
+        ? [
+            {
+              id: 'jeux',
+              titre: 'Les tours gratuits jour par jour',
+              blocs: [
+                {
+                  type: 'tableau' as const,
+                  legende: `Machine à sous imposée chaque jour, d’après les conditions générales (article 11.4.5), relues le ${dateLongue(m.verifie)}.`,
+                  entetes: ['Jour', 'Machine à sous'],
+                  lignes: q.t.jeux.map((j, i) => [`Jour ${i + 1}${i === 0 ? ' (jour du 1er dépôt)' : ''}`, j])
+                },
+                {
+                  type: 'p' as const,
+                  texte: `Les tours d’un jour se jouent ce jour-là, sur cette machine. Si vous ne vous connectez pas un jour, ses tours sont perdus (article 11.5) : sur ${q.toursMax} tours annoncés, vous ne recevrez que ceux des jours où vous vous connectez. Les conditions que nous avons lues ne donnent pas la valeur d’un tour.`
+                }
+              ]
+            }
+          ]
+        : []),
       {
         id: 'exemple',
         titre: 'L’exemple chiffré',
@@ -1432,7 +1660,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              ...(m.chances
+              ...(q
+                ? [`**Les tours gratuits** : leurs gains sont versés en bonus. S’ils rapportent ${fr(GAIN_EXEMPLE)}, il faut miser ${fr(q.misesGain)} avant de pouvoir retirer.`]
+                : m.chances
                 ? [`**Les ${m.chances} chances** : si elles rapportent ${fr(GAIN_EXEMPLE)}, il faut miser ${fr(k.misesGain)} avant de pouvoir retirer.`]
                 : []),
               `**Le ${rangFr(k.p.rang)}** : avec le bonus maximum de ${fr(k.p.plafond)}, il faut miser **${fr(k.misePlafond)}** si la mise porte sur le bonus seul, ${fr(k.misePlafondTotal)} si elle porte sur le dépôt et le bonus. Les conditions ne le précisent pas.`,
@@ -1455,11 +1685,17 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              '**Jeux** : les machines à sous comptent à 100 % ; les jeux de table, de salon et en direct à 2 % (articles 12.13 et 12.15).',
+              `**Jeux** : les machines à sous comptent à 100 % ; les jeux de table, de salon et en direct à 2 % (articles ${a.jeux[0]} et ${a.jeux[1]}).`,
+              ...(q
+                ? [
+                    '**Connexion chaque jour** : les tours ne sont crédités que les jours où vous vous connectez, et ceux du jour sont perdus s’ils ne sont pas joués le jour même (article 11.5).',
+                    '**Un seul dépôt compte** : le bonus et le nombre de tours sont fixés par votre 1er dépôt uniquement (article 11.3).'
+                  ]
+                : []),
               '**Grosse mise** : une mise égale à 25 % du bonus ou plus, avant la fin de la mise exigée, est traitée comme du jeu irrégulier et peut faire perdre les gains (article 13.16.1).',
               `**Délai pour réclamer** : l’offre de bienvenue doit être activée par un 1er dépôt dans les 7 jours suivant l’inscription (article ${art}).`,
               '**Expiration** : un bonus inutilisé pendant plus de 60 jours depuis l’inscription est perdu (article 13.7).',
-              '**Argent réel et bonus** : les mises faites avec votre argent et avec le bonus comptent toutes pour la mise exigée (article 12.6).'
+              `**Argent réel et bonus** : les mises faites avec votre argent et avec le bonus comptent toutes pour la mise exigée (article ${a.argent}).`
             ]
           }
         ]
@@ -1474,7 +1710,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
           },
           {
             type: 'p',
-            texte: m.chances
+            texte: q
+              ? `Les tours gratuits de ${m.nom} ne se jouent pas sur un jeu au choix : chaque jour a sa machine à sous imposée (tableau ci-dessus). Leur nombre dépend du 1er dépôt : ${q.toursMin} tours dès ${fr(q.min.depot)}, ${q.toursMax} dès ${fr(q.max.depot)}.`
+              : m.chances
               ? `Les ${m.chances} chances sont des tours sur la Mega Money Wheel, à 0,10 $ le tour, pas des tours gratuits sur une machine à sous au choix. Elles demandent un dépôt de ${fr(m.depot1!)}.`
               : `L’offre de bienvenue de ${m.nom} ne comprend pas de tours gratuits : elle se compose de ${m.paliers.length} bonus de dépôt, jusqu’à ${fr(k.total)} au total.`
           },
@@ -1490,7 +1728,26 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [tableauMiseFr(m), { type: 'offres', casinos: TOP3, titre: 'Des bonus plus faciles à débloquer' }]
       }
     ],
-    faq: m.chances
+    faq: q
+      ? [
+          {
+            q: `Les ${q.toursMax} tours gratuits de ${m.nom} sont-ils vraiment gratuits ?`,
+            r: `Non : il faut un 1er dépôt. ${fr(q.min.depot)} donnent ${q.toursMin} tours (${q.min.parJour} par jour) ; il faut ${fr(q.max.depot)} ou plus pour en recevoir ${q.toursMax}. Leurs gains sont versés en bonus, à miser ${REWARDS.mise12} fois.`
+          },
+          {
+            q: `Peut-on retirer les gains des tours gratuits de ${m.nom} ?`,
+            r: `Oui, mais seulement après avoir misé ${REWARDS.mise12} fois ces gains, sur des jeux qui comptent pour la mise. Avec ${fr(GAIN_EXEMPLE)} de gains, cela fait ${fr(q.misesGain)} de mises.`
+          },
+          {
+            q: `Que se passe-t-il si je ne me connecte pas un jour ?`,
+            r: 'Vous perdez les tours de ce jour-là : ils ne sont crédités que les jours où vous vous connectez, et doivent être joués le jour même (article 11.5 des conditions).'
+          },
+          {
+            q: `Y a-t-il un code promo ${m.nom} ?`,
+            r: 'La page bonus officielle n’en demande aucun : l’offre s’active avec le dépôt. Méfiez-vous des codes annoncés ailleurs et vérifiez toujours sur la page officielle.'
+          }
+        ]
+      : m.chances
       ? [
           {
             q: `Les ${m.chances} chances de ${m.nom} sont-elles gratuites ?`,
@@ -1536,7 +1793,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: m.chances
+            texte: q
+              ? `**Non.** ${m.nom} n’affiche aucun bonus sans dépôt sur ses pages officielles, ni tours gratuits sans dépôt. Ses tours gratuits demandent un 1er dépôt : ${fr(q.min.depot)} pour ${q.toursMin} tours, ${fr(q.max.depot)} ou plus pour ${q.toursMax}, et leurs gains doivent être misés ${REWARDS.mise12} fois.`
+              : m.chances
               ? `**Non.** ${m.nom} n’affiche aucun bonus sans dépôt sur ses pages officielles. Son offre la plus proche demande un dépôt de ${fr(m.depot1!)} : ${m.chances} tours sur la roue Mega Money Wheel, dont les gains doivent être misés ${REWARDS.mise12} fois.`
               : `**Non.** ${m.nom} n’affiche aucun bonus sans dépôt sur ses pages officielles. Son offre la plus proche demande un dépôt : ${k.p.pourcentage} % jusqu’à ${fr(k.p.plafond)} au 1er dépôt, à miser ${REWARDS.mise12} fois.`
           },
@@ -1549,11 +1808,22 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
       },
       {
         id: 'chances',
-        titre: m.chances ? `Pourquoi les ${m.chances} chances ne sont pas un bonus sans dépôt` : 'Pourquoi le bonus du 1er dépôt n’en est pas un',
+        titre: q
+          ? `Pourquoi les ${q.toursMax} tours gratuits ne sont pas un bonus sans dépôt`
+          : m.chances
+          ? `Pourquoi les ${m.chances} chances ne sont pas un bonus sans dépôt`
+          : 'Pourquoi le bonus du 1er dépôt n’en est pas un',
         blocs: [
           {
             type: 'liste',
-            items: m.chances
+            items: q
+              ? [
+                  `Ils demandent un 1er dépôt d’au moins ${fr(q.min.depot)}, à faire dans les 7 jours suivant l’inscription (article ${art}).`,
+                  `Il faut se connecter chaque jour pendant ${JOURS_TOURS} jours pour les recevoir, et les jouer le jour même.`,
+                  `Leurs gains sont versés en bonus, à miser ${REWARDS.mise12} fois : ${fr(GAIN_EXEMPLE)} de gains demandent ${fr(q.misesGain)} de mises.`,
+                  'Un bonus inutilisé pendant plus de 60 jours depuis l’inscription est perdu.'
+                ]
+              : m.chances
               ? [
                   `Elles demandent un 1er dépôt de ${fr(m.depot1!)}, à faire dans les 7 jours suivant l’inscription.`,
                   `Leurs gains sont versés en bonus, à miser ${REWARDS.mise12} fois : ${fr(GAIN_EXEMPLE)} de gains demandent ${fr(k.misesGain)} de mises.`,
@@ -1588,7 +1858,9 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
     faq: [
       {
         q: `${m.nom} offre-t-il des tours gratuits sans dépôt ?`,
-        r: m.chances
+        r: q
+          ? `Pas d’après ses pages officielles. Ses tours gratuits demandent un 1er dépôt : ${q.toursMin} tours dès ${fr(q.min.depot)}, ${q.toursMax} dès ${fr(q.max.depot)}.`
+          : m.chances
           ? `Pas d’après ses pages officielles. Les ${m.chances} chances demandent un dépôt de ${fr(m.depot1!)}.`
           : `Non. L’offre de bienvenue de ${m.nom} ne comprend pas de tours, seulement des bonus de dépôt.`
       },
@@ -1618,8 +1890,31 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
   const titreTop = `Before ${m.nom}: our 3 top-rated casinos`;
   const base = { modifie: m.verifie, titreTop, sources: m.sourcesEn };
   const art = m.articleReclamer ?? '11.8';
+  const a = m.articles ?? ARTICLES_COMMUNS;
+  const q = m.tours ? tours(m) : null;
 
-  const blocsOffre: SectionGuide['blocs'] = m.chances
+  const blocsOffre: SectionGuide['blocs'] = q
+    ? [
+        {
+          type: 'p',
+          texte: `${m.nom} gives no chances on the Mega Money Wheel: its welcome offer is free spins every day for your first ${JOURS_TOURS} days, plus a bonus on your first deposit. The number of spins and the bonus depend on the size of that deposit (section 11.4).`
+        },
+        {
+          type: 'tableau',
+          legende: `Official terms and bonus page, read on ${dateEn(m.verifie)}.`,
+          entetes: ['First deposit', 'Bonus', 'Free spins'],
+          lignes: q.t.paliers.map((p) => [trancheEn(p), enM(p.bonus), `${p.parJour} a day for ${JOURS_TOURS} days, so **${p.parJour * JOURS_TOURS}**`])
+        },
+        {
+          type: 'p',
+          texte: `**The spins do not all land at once.** You must log in every day: spins are only credited on the days you log in, and each day’s spins are forfeited if not played that day (section 11.5). Each day has its own set slot, from ${q.t.jeux[0]} on day 1 to ${q.t.jeux[q.t.jeux.length - 1]} on day ${JOURS_TOURS}.`
+        },
+        {
+          type: 'p',
+          texte: `Spin winnings are paid as bonus funds (section 12.7) and, like the first deposit bonus, they must be wagered **${REWARDS.mise12} times** before they can be withdrawn (section 12.5). For example, if your spins pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(q.misesGain)} before you can cash out those ${enM(GAIN_EXEMPLE)}. The day-by-day games and a worked example: [the ${m.nom} bonus](${c.bonus}).`
+        }
+      ]
+    : m.chances
     ? [
         {
           type: 'p',
@@ -1653,7 +1948,7 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
 
   const avis: PageGuide = {
     ...base,
-    modifie: MODIFIE_CONTENU,
+    modifie: m.verifie > MODIFIE_CONTENU ? m.verifie : MODIFIE_CONTENU,
     chemin: c.avis,
     nomFil: `${m.nom} review`,
     ...t.avis,
@@ -1669,7 +1964,12 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             entetes: ['Item', 'What the official terms say'],
             lignes: [
               ['Welcome offer', offreEn(m)],
-              ['Wagering', `**${REWARDS.mise12}x** on the first two deposit bonuses, ${REWARDS.mise3}x from the 3rd deposit`],
+              [
+                'Wagering',
+                q
+                  ? `**${REWARDS.mise12}x** on the first deposit bonus and free spin winnings, ${REWARDS.mise3}x from the 3rd deposit`
+                  : `**${REWARDS.mise12}x** on the first two deposit bonuses, ${REWARDS.mise3}x from the 3rd deposit`
+              ],
               ['Game weighting', 'Slots: 100%. Table and live games: 2%'],
               ['Interac deposits', faq ? (m.faqInterac === false ? 'Not named in the FAQ, which refers to PayDirect Billing Solutions for some deposits' : 'Mentioned in the FAQ (processed by PayDirect Billing Solutions)') : 'Not mentioned: no payment FAQ'],
               [
@@ -1691,7 +1991,11 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       },
       {
         id: 'offer',
-        titre: m.chances ? `The welcome offer: ${m.chances} chances for ${enM(m.depot1!)}` : `The welcome offer: up to ${enM(k.total)} over ${m.paliers.length} deposits`,
+        titre: q
+          ? `The welcome offer: up to ${q.toursMax} free spins over ${JOURS_TOURS} days`
+          : m.chances
+          ? `The welcome offer: ${m.chances} chances for ${enM(m.depot1!)}`
+          : `The welcome offer: up to ${enM(k.total)} over ${m.paliers.length} deposits`,
         blocs: blocsOffre
       },
       {
@@ -1743,7 +2047,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              m.chances
+              q
+                ? `**Good for you if** you want a week of free spins on well-known slots, from ${enM(q.min.depot)}, and can log in every day, without expecting to cash out the winnings.`
+                : m.chances
                 ? `**Good for you if** you want to try the million-dollar wheel for ${enM(m.depot1!)}, without expecting to cash out the bonus.`
                 : `**Good for you if** you want more credit on your first ${m.paliers.length} deposits, without expecting to cash out the bonus.`,
               '**Good for you if** you already play at another Casino Rewards casino: loyalty points are shared.',
@@ -1785,14 +2091,15 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       {
         q: `Is ${m.nom} legit?`,
         r: `Nothing we read suggests otherwise: the Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and ${m.piedExploitant === false ? 'the company managing the brand are named in the terms' : 'the operator are published'}, and the site links to an eCOGRA certificate. The real catch is elsewhere: the ${REWARDS.mise12}x bonus wagering.`
-      }
+      },
+      ...(m.faqAvisEn ?? [])
     ],
     connexes: [c.bonus, c.sansDepot, HUB_EN, '/en-ca/casino-bonuses/']
   };
 
   const bonus: PageGuide = {
     ...base,
-    modifie: MODIFIE_CONTENU,
+    modifie: m.verifie > MODIFIE_CONTENU ? m.verifie : MODIFIE_CONTENU,
     chemin: c.bonus,
     nomFil: 'Bonus',
     parent,
@@ -1807,15 +2114,44 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
             type: 'tableau',
             legende: `Official bonus page and terms, read on ${dateEn(m.verifie)}.`,
             entetes: ['Deposit', 'What you get', 'Wagering'],
-            lignes: [
-              ...(m.chances ? [[`1st deposit of ${enM(m.depot1!)}`, `${m.chances} spins on the Mega Money Wheel at $0.10 per spin`, `${REWARDS.mise12}x the winnings`]] : []),
-              ...m.paliers.map((p) => [rangEn(p.rang), `${p.pourcentage}% up to ${enM(p.plafond)}`, `${miseDe(p.rang)}x`]),
-              [m.paliers.length === 1 ? '3rd deposit and later' : 'Later deposits', 'Depends on current promotions', `${REWARDS.mise3}x`]
-            ]
+            lignes: q
+              ? [
+                  ...q.t.paliers.map((p) => [
+                    `1st deposit of ${trancheEn(p)}`,
+                    `${enM(p.bonus)} bonus + ${p.parJour} free spins a day for ${JOURS_TOURS} days (${p.parJour * JOURS_TOURS} spins)`,
+                    `${REWARDS.mise12}x the bonus and spin winnings`
+                  ]),
+                  ['Later deposits', 'Depends on current promotions', `${REWARDS.mise12}x on the 2nd deposit, ${REWARDS.mise3}x from the 3rd`]
+                ]
+              : [
+                  ...(m.chances ? [[`1st deposit of ${enM(m.depot1!)}`, `${m.chances} spins on the Mega Money Wheel at $0.10 per spin`, `${REWARDS.mise12}x the winnings`]] : []),
+                  ...m.paliers.map((p) => [rangEn(p.rang), `${p.pourcentage}% up to ${enM(p.plafond)}`, `${miseDe(p.rang)}x`]),
+                  [m.paliers.length === 1 ? '3rd deposit and later' : 'Later deposits', 'Depends on current promotions', `${REWARDS.mise3}x`]
+                ]
           },
           ...(m.noteOffreEn ? [{ type: 'p' as const, texte: m.noteOffreEn }] : [])
         ]
       },
+      ...(q
+        ? [
+            {
+              id: 'daily-games',
+              titre: 'The free spins, day by day',
+              blocs: [
+                {
+                  type: 'tableau' as const,
+                  legende: `Set slot for each day, according to the terms (section 11.4.5), read on ${dateEn(m.verifie)}.`,
+                  entetes: ['Day', 'Slot'],
+                  lignes: q.t.jeux.map((j, i) => [`Day ${i + 1}${i === 0 ? ' (first deposit day)' : ''}`, j])
+                },
+                {
+                  type: 'p' as const,
+                  texte: `Each day’s spins are played that day, on that slot. If you do not log in on a given day, its spins are lost (section 11.5): out of the ${q.toursMax} spins advertised, you only get those of the days you log in. The terms we read do not give the value of a spin.`
+                }
+              ]
+            }
+          ]
+        : []),
       {
         id: 'example',
         titre: 'A worked example',
@@ -1823,7 +2159,11 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              ...(m.chances ? [`**The ${m.chances} chances**: if they pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(k.misesGain)} before you can withdraw.`] : []),
+              ...(q
+                ? [`**The free spins**: their winnings are paid as bonus funds. If they pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(q.misesGain)} before you can withdraw.`]
+                : m.chances
+                ? [`**The ${m.chances} chances**: if they pay ${enM(GAIN_EXEMPLE)}, you must wager ${enM(k.misesGain)} before you can withdraw.`]
+                : []),
               `**The ${rangEn(k.p.rang)}**: with the maximum ${enM(k.p.plafond)} bonus, you must wager **${enM(k.misePlafond)}** if wagering applies to the bonus only, ${enM(k.misePlafondTotal)} if it applies to deposit and bonus. The terms do not say which.`,
               `**The average cost**: at a 96% return to player, wagering ${enM(k.misePlafond)} costs ${enM(k.pertePlafond)} on average, far more than the ${enM(k.p.plafond)} bonus.`
             ]
@@ -1844,11 +2184,17 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           {
             type: 'liste',
             items: [
-              '**Games**: slots count 100%; table, parlour and live games count 2% (sections 12.13 and 12.15).',
+              `**Games**: slots count 100%; table, parlour and live games count 2% (sections ${a.jeux[0]} and ${a.jeux[1]}).`,
+              ...(q
+                ? [
+                    '**Log in every day**: spins are only credited on the days you log in, and each day’s spins are forfeited if not played that day (section 11.5).',
+                    '**Only one deposit counts**: the bonus and the number of spins are set by your first deposit only (section 11.3).'
+                  ]
+                : []),
               '**Large bets**: a single bet of 25% of the bonus or more before wagering is complete is treated as irregular play and can void winnings (section 13.16.1).',
               `**Claim window**: the welcome offer must be activated with a first deposit within 7 days of registration (section ${art}).`,
               '**Expiry**: a bonus left unused for more than 60 days from registration is forfeited (section 13.7).',
-              '**Cash and bonus**: wagers from both your cash and bonus balances count towards wagering (section 12.6).'
+              `**Cash and bonus**: wagers from both your cash and bonus balances count towards wagering (section ${a.argent}).`
             ]
           }
         ]
@@ -1863,7 +2209,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
           },
           {
             type: 'p',
-            texte: m.chances
+            texte: q
+              ? `The ${m.nom} free spins are not played on a game of your choice: each day has its own set slot (table above). Their number depends on your first deposit: ${q.toursMin} spins from ${enM(q.min.depot)}, ${q.toursMax} from ${enM(q.max.depot)}.`
+              : m.chances
               ? `The ${m.chances} chances are spins on the Mega Money Wheel at $0.10 each, not free spins on a slot of your choice. They require a ${enM(m.depot1!)} deposit.`
               : `The ${m.nom} welcome offer includes no free spins: it is made of ${m.paliers.length} deposit bonuses, up to ${enM(k.total)} in total.`
           },
@@ -1879,7 +2227,26 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [tableauMiseEn(m), { type: 'offres', casinos: TOP3, titre: 'Bonuses that are easier to clear' }]
       }
     ],
-    faq: m.chances
+    faq: q
+      ? [
+          {
+            q: `Are the ${q.toursMax} ${m.nom} free spins really free?`,
+            r: `No: they require a first deposit. ${enM(q.min.depot)} gets you ${q.toursMin} spins (${q.min.parJour} a day); you need ${enM(q.max.depot)} or more to get ${q.toursMax}. Their winnings are paid as bonus funds, with ${REWARDS.mise12}x wagering.`
+          },
+          {
+            q: `Can you withdraw ${m.nom} free spin winnings?`,
+            r: `Yes, but only after wagering those winnings ${REWARDS.mise12} times on eligible games. ${enM(GAIN_EXEMPLE)} of winnings means ${enM(q.misesGain)} in wagers.`
+          },
+          {
+            q: 'What happens if I do not log in one day?',
+            r: 'You lose that day’s spins: they are only credited on the days you log in, and must be played the same day (section 11.5 of the terms).'
+          },
+          {
+            q: `Is there a ${m.nom} promo code?`,
+            r: 'The official bonus page asks for none: the offer is triggered by the deposit. Be careful with codes advertised elsewhere and always check the official page.'
+          }
+        ]
+      : m.chances
       ? [
           {
             q: `Are the ${m.chances} ${m.nom} chances free?`,
@@ -1925,7 +2292,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         blocs: [
           {
             type: 'p',
-            texte: m.chances
+            texte: q
+              ? `**No.** ${m.nom} shows no no deposit bonus and no no deposit free spins on its official pages. Its free spins require a first deposit: ${enM(q.min.depot)} for ${q.toursMin} spins, ${enM(q.max.depot)} or more for ${q.toursMax}, with winnings to be wagered ${REWARDS.mise12} times.`
+              : m.chances
               ? `**No.** ${m.nom} shows no no-deposit bonus on its official pages. The closest offer requires a ${enM(m.depot1!)} deposit: ${m.chances} spins on the Mega Money Wheel, with winnings to be wagered ${REWARDS.mise12} times.`
               : `**No.** ${m.nom} shows no no-deposit bonus on its official pages. The closest offer requires a deposit: ${k.p.pourcentage}% up to ${enM(k.p.plafond)} on the first deposit, with ${REWARDS.mise12}x wagering.`
           },
@@ -1938,11 +2307,22 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
       },
       {
         id: 'chances',
-        titre: m.chances ? `Why the ${m.chances} chances are not a no deposit bonus` : 'Why the first deposit bonus is not one',
+        titre: q
+          ? `Why the ${q.toursMax} free spins are not a no deposit bonus`
+          : m.chances
+          ? `Why the ${m.chances} chances are not a no deposit bonus`
+          : 'Why the first deposit bonus is not one',
         blocs: [
           {
             type: 'liste',
-            items: m.chances
+            items: q
+              ? [
+                  `They require a first deposit of at least ${enM(q.min.depot)}, made within 7 days of registration (section ${art}).`,
+                  `You must log in every day for ${JOURS_TOURS} days to receive them, and play them the same day.`,
+                  `Their winnings are paid as bonus funds with ${REWARDS.mise12}x wagering: ${enM(GAIN_EXEMPLE)} of winnings means ${enM(q.misesGain)} in wagers.`,
+                  'A bonus left unused for more than 60 days from registration is forfeited.'
+                ]
+              : m.chances
               ? [
                   `They require a first deposit of ${enM(m.depot1!)}, made within 7 days of registration.`,
                   `Their winnings are paid as bonus funds with ${REWARDS.mise12}x wagering: ${enM(GAIN_EXEMPLE)} of winnings means ${enM(k.misesGain)} in wagers.`,
@@ -1976,7 +2356,9 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
     faq: [
       {
         q: `Does ${m.nom} give free spins without a deposit?`,
-        r: m.chances
+        r: q
+          ? `Not according to its official pages. Its free spins require a first deposit: ${q.toursMin} spins from ${enM(q.min.depot)}, ${q.toursMax} from ${enM(q.max.depot)}.`
+          : m.chances
           ? `Not according to its official pages. The ${m.chances} chances require a ${enM(m.depot1!)} deposit.`
           : `No. The ${m.nom} welcome offer includes no spins, only deposit bonuses.`
       },
@@ -2023,7 +2405,8 @@ const SUPPORT_FR: Record<string, string> = {
   'Golden Tiger': 'Clavardage 24 h sur 24',
   'Casino Classic': 'Clavardage 24 h sur 24',
   Villento: 'Courriel et clavardage, 24 h sur 24',
-  'Casino Action': 'Téléphone et courriel, 24 h sur 24 (FAQ)'
+  'Casino Action': 'Téléphone et courriel, 24 h sur 24 (FAQ)',
+  'Quatro Casino': 'Téléphone et courriel, 24 h sur 24 (FAQ)'
 };
 const MODIFIE_HUB = '2026-11-16';
 
@@ -2046,7 +2429,7 @@ function hubFr(): PageGuide {
         blocs: [
           {
             type: 'tableau',
-            legende: 'Offres de bienvenue relevées sur les sites officiels, conditions relues entre le 10 et le 16 novembre 2026.',
+            legende: 'Offres de bienvenue relevées sur les sites officiels, conditions relues entre le 10 et le 17 novembre 2026.',
             entetes: ['Casino', 'Offre de bienvenue', 'Détail du bonus', 'FAQ publique'],
             lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).fr.avis})`, offreFr(m), `[Bonus ${m.nom}](${chemins(m).fr.bonus})`, avecFaq(m) ? 'Oui' : 'Non']
             )
@@ -2079,7 +2462,7 @@ function hubFr(): PageGuide {
         blocs: [
           {
             type: 'p',
-            texte: `Les bonus des deux premiers dépôts doivent être misés **${REWARDS.mise12} fois** avant de pouvoir être retirés (article 12.4 des conditions). À partir du 3e dépôt, la mise passe à ${REWARDS.mise3} fois (article 12.5). Les machines à sous comptent à 100 % ; les jeux de table et en direct, à 2 % seulement.`
+            texte: `Les bonus des deux premiers dépôts doivent être misés **${REWARDS.mise12} fois** avant de pouvoir être retirés (article 12.4 des conditions). À partir du 3e dépôt, la mise passe à ${REWARDS.mise3} fois (article 12.5, ou 12.6 chez Quatro Casino). Les machines à sous comptent à 100 % ; les jeux de table et en direct, à 2 % seulement.`
           },
           {
             type: 'tableau',
@@ -2320,7 +2703,7 @@ function hubEn(): PageGuide {
         blocs: [
           {
             type: 'tableau',
-            legende: 'Welcome offers taken from the official sites, terms read between November 10 and 16, 2026.',
+            legende: 'Welcome offers taken from the official sites, terms read between November 10 and 17, 2026.',
             entetes: ['Casino', 'Welcome offer', 'Bonus details', 'Public FAQ'],
             lignes: MARQUES.map((m) => [`[${m.nom}](${chemins(m).en.avis})`, offreEn(m), `[${m.nom} bonus](${chemins(m).en.bonus})`, avecFaq(m) ? 'Yes' : 'No'])
           },
@@ -2336,7 +2719,7 @@ function hubEn(): PageGuide {
         blocs: [
           {
             type: 'p',
-            texte: `The first two deposit bonuses must be wagered **${REWARDS.mise12} times** before they can be withdrawn (section 12.4 of the terms). From the 3rd deposit, wagering drops to ${REWARDS.mise3}x (section 12.5). Slots count 100%; table and live games only 2%.`
+            texte: `The first two deposit bonuses must be wagered **${REWARDS.mise12} times** before they can be withdrawn (section 12.4 of the terms). From the 3rd deposit, wagering drops to ${REWARDS.mise3}x (section 12.5, or 12.6 at Quatro Casino). Slots count 100%; table and live games only 2%.`
           },
           {
             type: 'tableau',
