@@ -1326,6 +1326,19 @@ function tours(m: MarqueRewards) {
 const trancheFr = (p: { depot: number; jusqua?: number }) => (p.jusqua ? `${fr(p.depot)} à ${montant(p.jusqua, '$')}` : `${fr(p.depot)} ou plus`);
 const trancheEn = (p: { depot: number; jusqua?: number }) => (p.jusqua ? `${enM(p.depot)} to $${p.jusqua.toFixed(2)}` : `${enM(p.depot)} or more`);
 
+/** Adresse officielle de la marque (première source citée), sans « www. ». */
+const adresseOfficielle = (m: MarqueRewards) => new URL(m.sourcesFr[0].url).hostname.replace(/^www\./, '');
+const nomComplet = (m: MarqueRewards) => (/casino/i.test(m.nom) ? m.nom : `${m.nom} Casino`);
+/** Question « connexion », ajoutée à l'avis quand la marque n'en a pas déjà une. */
+const connexionFr = (m: MarqueRewards) => ({
+  q: `Comment se connecter à ${nomComplet(m)} ?`,
+  r: `Sur le site officiel, ${adresseOfficielle(m)}, avec le nom d’utilisateur et le mot de passe choisis à l’inscription. Tapez l’adresse vous-même plutôt que de suivre un lien de connexion reçu par courriel ou trouvé sur un autre site. En cas d’oubli du mot de passe, passez par la récupération proposée sur la page de connexion ou par le service client.`
+});
+const connexionEn = (m: MarqueRewards) => ({
+  q: `How do I log in to ${nomComplet(m)}?`,
+  r: `On the official site, ${adresseOfficielle(m)}, with the username and password you chose at sign-up. Type the address yourself rather than following a login link received by email or found on another site. If you forgot your password, use the recovery option on the login page or contact customer support.`
+});
+
 /** Résumé de l'offre en une ligne. */
 function offreFr(m: MarqueRewards): string {
   const k = chiffres(m);
@@ -1607,7 +1620,8 @@ function pagesFr(m: MarqueRewards): PageGuide[] {
         q: `${m.nom} est-il fiable ?`,
         r: `Rien dans ce que nous avons lu n’indique le contraire : la licence de la Kahnawake Gaming Commission (n° ${REWARDS.licence}) ${m.piedExploitant === false ? 'et la société qui gère la marque sont publiées dans les conditions' : 'et l’exploitant sont publiés'}, et le site renvoie vers un certificat eCOGRA. Le vrai piège est ailleurs : le bonus à miser ${REWARDS.mise12} fois.`
       },
-      ...(m.faqAvisFr ?? [])
+      ...(m.faqAvisFr ?? []),
+      ...(m.faqAvisFr?.some((x) => /connecter/.test(x.q)) ? [] : [connexionFr(m)])
     ],
     connexes: [c.bonus, c.sansDepot, HUB_FR, '/casino-bonus-sans-depot/']
   };
@@ -2106,7 +2120,8 @@ function pagesEn(m: MarqueRewards): PageGuide[] {
         q: `Is ${m.nom} legit?`,
         r: `Nothing we read suggests otherwise: the Kahnawake Gaming Commission licence (no. ${REWARDS.licence}) and ${m.piedExploitant === false ? 'the company managing the brand are named in the terms' : 'the operator are published'}, and the site links to an eCOGRA certificate. The real catch is elsewhere: the ${REWARDS.mise12}x bonus wagering.`
       },
-      ...(m.faqAvisEn ?? [])
+      ...(m.faqAvisEn ?? []),
+      ...(m.faqAvisEn?.some((x) => /log in/i.test(x.q)) ? [] : [connexionEn(m)])
     ],
     connexes: [c.bonus, c.sansDepot, HUB_EN, '/en-ca/casino-bonuses/']
   };
