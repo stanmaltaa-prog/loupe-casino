@@ -165,7 +165,8 @@ export default function AccueilEn() {
             ['/en-ca/best-payout-online-casinos/', 'Best payout casinos', 'Withdrawals tested with real money, limits and RTP.'],
             ['/en-ca/legit-online-casinos/', 'Legit online casinos', 'Operator, licence and tested payouts, casino by casino.'],
             ['/en-ca/new-online-casinos/', 'New online casinos', 'Our latest additions and the 6 checks before depositing.'],
-            ['/en-ca/casino-rewards/', 'Casino Rewards review', 'Yukon Gold, Zodiac, Luxury and more: VIP points and 200x wagering.'],
+            ['/en-ca/quatro-casino/', 'Quatro Casino review', 'The 700 free spins, day by day, and the 200x wagering.'],
+            ['/en-ca/casino-rewards/', 'Casino Rewards review', 'Quatro, Yukon Gold, Zodiac and more: VIP points and 200x wagering.'],
             ['/en-ca/casino-withdrawal-times/', 'Withdrawal times tested', 'Every real-money payout we measured, dated.'],
             ['/en-ca/is-online-gambling-legal-in-canada/', 'Is it legal?', 'The rules in each province, and the minimum age.']
           ].map(([href, titre, texte]) => (
