@@ -163,9 +163,9 @@ const YUKON: MarqueRewards = {
         'Yukon Gold is one of the most searched online casinos in Canada. Its offer is tempting: 150 chances to win a million for $10. We read its official terms line by line. The detail that changes everything: the first two deposit bonuses must be wagered 200 times.'
     },
     bonus: {
-      titre: 'Yukon Gold Casino Bonus: 150 Chances for $10, 200x Wagering',
+      titre: 'Yukon Gold Casino 150 Free Spins for $10: What You Really Get',
       description:
-        'Yukon Gold bonus: 150 chances for $10, then 100% up to $150. 200x wagering, 2% game weighting, deadlines: a worked example and a comparison with our casinos.',
+        'Yukon Gold “150 free spins”: 150 chances on the Mega Money Wheel for $10, then 100% up to $150. 200x wagering, 2% game weighting: a worked example.',
       h1: 'Yukon Gold Bonus: 150 Chances for $10, and the Math to Do First',
       chapeau:
         'The Yukon Gold bonus is cheap to activate and pays out spins on a million-dollar wheel. But winnings must be wagered 200 times. Here are the tiers, the rules and the math, from the official terms.'
@@ -294,9 +294,9 @@ const ZODIAC: MarqueRewards = {
         'Zodiac is one of the most searched online casinos in Canada, mostly for its offer: 80 chances to win a million for $1. We read its official terms. The key detail: the first two deposit bonuses must be wagered 200 times.'
     },
     bonus: {
-      titre: 'Zodiac Casino Bonus: 80 Chances for $1, Up to $480',
+      titre: 'Zodiac Casino 80 Free Spins for $1: What You Really Get',
       description:
-        'Zodiac Casino bonus: 80 chances for $1, then up to $480 over 4 deposits. 200x then 30x wagering, 2% game weighting: a worked example and a comparison.',
+        'Zodiac Casino “80 free spins”: 80 chances on the Mega Money Wheel for a $1 deposit, then up to $480. 200x then 30x wagering: a worked example.',
       h1: 'Zodiac Casino Bonus: 80 Chances for $1, Then $480, and the Math to Do',
       chapeau:
         'For $1, Zodiac gives 80 spins on a million-dollar wheel, then bonuses on the next 4 deposits. But winnings from the first two deposits must be wagered 200 times. Here are the tiers, the rules and the math.'
@@ -566,9 +566,9 @@ const CAPTAIN: MarqueRewards = {
         'Captain Cooks is one of the most searched online casinos in Canada. Its offer: 100 chances to win a million for $5. We read its official terms. The key detail: the first two deposit bonuses must be wagered 200 times.'
     },
     bonus: {
-      titre: 'Captain Cooks Casino Bonus: 100 Chances for $5, 200x Wagering',
+      titre: 'Captain Cooks Casino 100 Free Spins for $5: What You Get',
       description:
-        'Captain Cooks bonus: 100 chances for $5, then up to $475 over 4 deposits. 200x then 30x wagering, 2% game weighting: a worked example and a comparison.',
+        'Captain Cooks “100 free spins”: 100 chances on the Mega Money Wheel for $5, then up to $475 over 4 deposits. 200x then 30x wagering: a worked example.',
       h1: 'Captain Cooks Bonus: 100 Chances for $5, Then $475, and the Math to Do',
       chapeau:
         'For $5, Captain Cooks gives 100 spins on a million-dollar wheel, then bonuses on the next 4 deposits. But winnings from the first two deposits must be wagered 200 times. Here are the tiers, the rules and the math.'
@@ -689,9 +689,9 @@ const GRAND: MarqueRewards = {
         'Grand Mondial is one of the most searched online casinos in Canada. Its offer: 150 chances to win a million for $10, then up to $250 on the 2nd deposit. We read its official terms: both bonuses must be wagered 200 times.'
     },
     bonus: {
-      titre: 'Grand Mondial Casino Bonus: 150 Chances for $10, Up to $250',
+      titre: 'Grand Mondial Casino 150 Free Spins for $10: What You Get',
       description:
-        'Grand Mondial bonus: 150 chances for $10, then 100% up to $250. 200x wagering, 2% game weighting, deadlines: a worked example and a comparison.',
+        'Grand Mondial “150 free spins”: 150 chances on the Mega Money Wheel for $10, then 100% up to $250. 200x wagering, 2% game weighting: a worked example.',
       h1: 'Grand Mondial Bonus: 150 Chances for $10, and the Math to Do First',
       chapeau:
         'The Grand Mondial bonus is cheap to activate and pays out spins on a million-dollar wheel, then a 2nd deposit bonus. But winnings must be wagered 200 times. Here are the tiers, the rules and the math.'
@@ -2986,9 +2986,16 @@ export const RESUMES_MARQUES = MARQUES.map((m) => ({
   nom: m.nom,
   depot: m.depot1 ?? null,
   offreFr: offreCourteFr(m),
+  offreEn: offreCourteEn(m),
   fr: chemins(m).fr,
   en: chemins(m).en
 }));
+
+/** Marques par volume de recherche au Canada (relevé Ubersuggest du 17 novembre 2026), pour les pages d'accueil. */
+const ORDRE_RECHERCHE = ['yukon-gold-casino', 'zodiac-casino', 'luxury-casino', 'captain-cooks-casino', 'grand-mondial-casino', 'golden-tiger-casino', 'quatro-casino', 'casino-classic', 'villento-casino', 'casino-action'];
+export const MARQUES_POPULAIRES = [...RESUMES_MARQUES].sort(
+  (a, b) => ORDRE_RECHERCHE.indexOf(a.fr.avis.replace(/\//g, '')) - ORDRE_RECHERCHE.indexOf(b.fr.avis.replace(/\//g, ''))
+);
 
 /** Adresses de base des marques (pour les paires français-anglais). */
 export const SLUGS_MARQUES = MARQUES.map((m) => m.slug);
