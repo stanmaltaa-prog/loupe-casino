@@ -100,6 +100,194 @@ const delaisEn = (moyen: 'crypto' | 'carte') =>
 const fourchetteEn = (l: number[]) =>
   l.length ? (Math.min(...l) === Math.max(...l) ? `${Math.min(...l)} h` : `${Math.min(...l)} to ${Math.max(...l)} h`) : 'not tested';
 
+/* ——————————————————————————— 1win: promo code, login and app (17 November 2026) */
+
+const UNWIN = CASINOS.find((c) => c.id === '1win');
+
+const PAGES_1WIN: PageGuide[] = UNWIN
+  ? [
+      {
+        chemin: '/en-ca/1win-promo-code/',
+        nomFil: '1win promo code',
+        titre: '1win Promo Code Canada: Do You Need One? (2026)',
+        description:
+          '1win promo code in Canada: what the official bonus page shows, how to get the welcome offer without a code, and the terms to check before you deposit.',
+        h1: '1win promo code: do you need a code for the bonus?',
+        chapeau:
+          'When we checked on November 10, 2026, the 1win bonus page showed no promo code to enter. Here is the offer we found, how to get it, and what to check before your first deposit.',
+        modifie: '2026-11-17',
+        offresHaut: ['1win'],
+        resume: 'Do you need a 1win promo code? The offer we found and the terms to check.',
+        sections: [
+          {
+            id: 'offer',
+            titre: 'The welcome offer we found',
+            blocs: [
+              {
+                type: 'liste',
+                items: [
+                  `**${en(UNWIN).offre.titre}**, ${en(UNWIN).offre.sousTitre.charAt(0).toLowerCase()}${en(UNWIN).offre.sousTitre.slice(1)}.`,
+                  `Tiers: ${UNWIN.offre.paliers.map((p) => `${p.pourcentage}%`).join(', ')}. ${en(UNWIN).offre.toursDetail}`,
+                  `Minimum deposit: ${depotMinEn(UNWIN)}.`,
+                  'The bonus goes to a separate balance: you play your real money first, then wager the bonus on the games 1win sets aside for it.'
+                ]
+              },
+              {
+                type: 'encadre',
+                ton: 'alerte',
+                titre: 'What we could not confirm',
+                texte: `We could not confirm the wagering requirement or the deadline to complete it. Read them in the bonus section of your account before your first deposit. The details are on our [1win bonus page](${cheminEn(UNWIN, true)}).`
+              }
+            ]
+          },
+          {
+            id: 'how',
+            titre: 'How to get the bonus without a code',
+            blocs: [
+              {
+                type: 'liste',
+                ordonnee: true,
+                items: [
+                  'Open the official 1win site and create an account in Canadian dollars.',
+                  `Make a first deposit of at least ${depotMinEn(UNWIN)}.`,
+                  'Check in your account that the first-tier bonus shows up before you play.',
+                  'Send your ID documents right after sign-up: they will be requested at your first withdrawal.'
+                ]
+              }
+            ]
+          },
+          {
+            id: 'codes',
+            titre: 'Codes found elsewhere',
+            blocs: [
+              {
+                type: 'p',
+                texte:
+                  'Some sites publish “1win codes” without saying which country they work in. A code can be expired, reserved for another market, or replace the welcome offer with a weaker one. We have no exclusive code: if we get one, it will be published on this page, with its date.'
+              },
+              { type: 'p', texte: `Logging in or playing on your phone: [1win login and app](/en-ca/1win-login/). Our full verdict: [1win Canada review](${cheminEn(UNWIN)}).` }
+            ]
+          }
+        ],
+        faq: [
+          {
+            q: 'Do you need a promo code for the 1win bonus?',
+            r: 'When we checked on November 10, 2026, the 1win bonus page showed no code to enter. Still check in your account that the bonus is active before you play.'
+          },
+          {
+            q: 'Does Loupe Casino have an exclusive 1win code?',
+            r: 'No, not at the moment. If we get one, it will be published on this page, with its date.'
+          },
+          {
+            q: 'What is the minimum deposit at 1win?',
+            r: `${depotMinEn(UNWIN)} according to our checks, for an account in Canadian dollars.`
+          }
+        ],
+        sources: [{ titre: '1win: bonus page', url: UNWIN.offre.source }],
+        connexes: ['/en-ca/1win-login/', '/en-ca/casino-bonuses/', '/en-ca/no-deposit-bonus-casinos/']
+      },
+      {
+        chemin: '/en-ca/1win-login/',
+        nomFil: '1win login and app',
+        titre: '1win Login and App in Canada: The Safe Way (2026)',
+        description:
+          '1win in Canada: how to log in, recover your password, play on your phone without a risky app file, and what our real-money withdrawal tests showed.',
+        h1: '1win login and app: playing safely from Canada',
+        chapeau:
+          'How to log in to 1win, get back into your account and play on your phone safely. With the withdrawal times we measured in our real-money tests.',
+        modifie: '2026-11-17',
+        offresHaut: ['1win'],
+        resume: 'Login, password, phone play and tested withdrawals at 1win.',
+        sections: [
+          {
+            id: 'what-is-1win',
+            titre: 'What is 1win?',
+            blocs: [
+              {
+                type: 'p',
+                texte: `1win is an online casino and sportsbook. It announces more than 11,000 games, according to the operator, plus a live casino and sports betting. Its affiliate manager confirmed in writing on November 4, 2026 that it accepts Canadian players; we do not cover Ontario or Alberta. Our full verdict, including what we could not verify: [1win Canada review](${cheminEn(UNWIN)}).`
+              }
+            ]
+          },
+          {
+            id: 'login',
+            titre: 'Logging in to your account',
+            blocs: [
+              {
+                type: 'liste',
+                ordonnee: true,
+                items: [
+                  'Open the official 1win site, ideally through a link you already know: copies of the site circulate.',
+                  'Click “Login”, then enter the email address or phone number of your account and your password.',
+                  'Forgot your password: use the recovery link on the login page. The casino sends a link to the account’s email address or phone number.',
+                  'Account blocked or verification pending: write to customer support from the site and keep a copy of every exchange.'
+                ]
+              }
+            ]
+          },
+          {
+            id: 'app',
+            titre: 'Playing on your phone: app and APK',
+            blocs: [
+              {
+                type: 'p',
+                texte:
+                  'The 1win site opens in your phone’s browser and can be added to your home screen like an app. When we checked, we found no app download link on the bonus page.'
+              },
+              {
+                type: 'encadre',
+                ton: 'alerte',
+                titre: 'Be careful with files to install',
+                texte:
+                  'Never install an app file (APK) found on any site other than the official one. A fake file can steal your login details or your payment data.'
+              }
+            ]
+          },
+          {
+            id: 'access',
+            titre: 'If the site does not open',
+            blocs: [
+              {
+                type: 'p',
+                texte:
+                  'From our checking location, 1win sometimes showed a message saying its service was limited in the region. Do not try to get around that block: most casinos’ terms forbid it, and it can freeze your withdrawals. 1win does not target players in Ontario or Alberta.'
+              }
+            ]
+          },
+          {
+            id: 'withdrawals',
+            titre: 'What our withdrawal tests showed',
+            blocs: [
+              {
+                type: 'p',
+                texte: `In our latest real-money tests, 1win paid a crypto withdrawal in ${heuresEn(dernier(UNWIN, 'crypto')?.delaiHeures)} and a card withdrawal in ${heuresEn(dernier(UNWIN, 'carte')?.delaiHeures)}. Every result is in our [withdrawal log](/en-ca/casino-withdrawal-times/). Bonus without a code: [1win promo code](/en-ca/1win-promo-code/).`
+              }
+            ]
+          }
+        ],
+        faq: [
+          {
+            q: 'What is 1win?',
+            r: 'An online casino and sportsbook that announces more than 11,000 games, a live casino and sports betting. Its affiliate manager confirmed in writing that it accepts Canadian players; we do not cover Ontario or Alberta.'
+          },
+          {
+            q: 'Does 1win have an app in Canada?',
+            r: 'When we checked, we found no download link on the bonus page. The site works in your phone’s browser and can be added to your home screen.'
+          },
+          {
+            q: 'What should I do if I forgot my 1win password?',
+            r: 'Use the recovery link on the login page: 1win sends a link to the email address or phone number of the account.'
+          },
+          {
+            q: 'Why does the 1win site not open?',
+            r: 'Access can be limited by region. Do not try to get around the block: most casinos’ terms forbid it, and it can lead to your account and withdrawals being frozen.'
+          }
+        ],
+        connexes: ['/en-ca/1win-promo-code/', '/en-ca/casino-withdrawal-times/', '/en-ca/fast-withdrawal-casinos/']
+      }
+    ]
+  : [];
+
 export const PAGES_EN: PageGuide[] = [
   // ——————————————————————————— Casino bonuses
   {
@@ -1867,7 +2055,8 @@ export const PAGES_EN: PageGuide[] = [
       (s, i, arr) => arr.findIndex((x) => x.url === s.url) === i
     ),
     connexes: ['/en-ca/how-we-rate/', '/en-ca/casino-withdrawal-times/', '/en-ca/is-online-gambling-legal-in-canada/']
-  }
+  },
+  ...PAGES_1WIN
 ];
 
 
