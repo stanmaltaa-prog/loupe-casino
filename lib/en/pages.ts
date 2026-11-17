@@ -12,6 +12,7 @@ import { AIDE_PROVINCES, EN, MESSAGE_ZONE, SOURCE_AIDE, SOURCE_AIDE_NS, dateEn, 
 import { MACHINES } from '@/lib/contenu/machines';
 import { TABLES } from '@/lib/contenu/tables';
 import { SPORTS_INTERACTION_EN } from './sports-interaction';
+import { POWERPLAY_EN } from './powerplay';
 
 /** "1 h", "12 h" or "Not tested". */
 const heuresEn = (n: number | null | undefined) => (n === null || n === undefined ? 'Not tested' : `${n} h`);
@@ -2223,7 +2224,8 @@ export const PAGES_EN: PageGuide[] = [
   },
   ...PAGES_1WIN,
   ...PAGES_MOYENS_EN,
-  SPORTS_INTERACTION_EN
+  SPORTS_INTERACTION_EN,
+  POWERPLAY_EN
 ];
 
 
