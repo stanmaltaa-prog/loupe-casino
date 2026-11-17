@@ -11,6 +11,7 @@ import { DERNIER_RELEVE, RELEVES, classementRetraits, dernier, nombreDeReleves }
 import { AIDE_PROVINCES, EN, MESSAGE_ZONE, SOURCE_AIDE, SOURCE_AIDE_NS, dateEn, montantEn, noteEn } from './site';
 import { MACHINES } from '@/lib/contenu/machines';
 import { TABLES } from '@/lib/contenu/tables';
+import { SPORTS_INTERACTION_EN } from './sports-interaction';
 
 /** "1 h", "12 h" or "Not tested". */
 const heuresEn = (n: number | null | undefined) => (n === null || n === undefined ? 'Not tested' : `${n} h`);
@@ -2221,7 +2222,8 @@ export const PAGES_EN: PageGuide[] = [
     connexes: ['/en-ca/how-we-rate/', '/en-ca/casino-withdrawal-times/', '/en-ca/is-online-gambling-legal-in-canada/']
   },
   ...PAGES_1WIN,
-  ...PAGES_MOYENS_EN
+  ...PAGES_MOYENS_EN,
+  SPORTS_INTERACTION_EN
 ];
 
 
