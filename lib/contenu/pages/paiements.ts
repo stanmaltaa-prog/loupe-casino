@@ -522,4 +522,169 @@ const paiements: PageGuide[] = [
   }
 ];
 
+// ——— PayPal, Paysafecard, Apple Pay (17 novembre 2026) ———
+
+type Moyen = {
+  id: string;
+  nom: string;
+  chemin: string;
+  titre: string;
+  description: string;
+  h1: string;
+  chapeau: string;
+  fonctionnement: string[];
+  alerte: { titre: string; texte: string };
+  sources: { titre: string; url: string }[];
+  faqPlus: { q: string; r: string }[];
+};
+
+const MAJ_MOYENS = '2026-11-17';
+const accepte = (c: Casino, nom: string) => c.paiements.autres.some((a) => a.toLowerCase() === nom.toLowerCase());
+
+const MOYENS: Moyen[] = [
+  {
+    id: 'paypal',
+    nom: 'PayPal',
+    chemin: '/casino-paypal/',
+    titre: 'Casino PayPal au Québec : qui l’accepte vraiment (2026)',
+    description:
+      'Casino PayPal au Québec : quels casinos de notre comparatif l’affichent, ce que dit la politique de PayPal sur le jeu et les autres façons de payer.',
+    h1: 'Casino PayPal : qui l’accepte vraiment, casino par casino',
+    chapeau:
+      'PayPal est rare chez les casinos en ligne accessibles depuis le Québec. Nous avons regardé, sur les pages officielles de chaque casino de notre comparatif, s’il était affiché. Voici ce que nous avons trouvé, et ce qu’il faut vérifier avant de déposer.',
+    fonctionnement: [
+      'PayPal est un portefeuille électronique : vous payez avec le solde de votre compte PayPal, ou avec la carte ou le compte bancaire que vous y avez associé, sans donner vos numéros au casino.',
+      'Sa politique d’utilisation acceptable (version du 2 novembre 2022) range les jeux d’argent parmi les activités qui demandent **son accord préalable**, et seulement si l’exploitant et ses clients se trouvent dans des territoires où ces jeux sont permis par la loi. C’est pourquoi PayPal manque chez la plupart des casinos internationaux.'
+    ],
+    alerte: {
+      titre: 'PayPal affiché ne veut pas dire PayPal pour tous',
+      texte:
+        'Un casino peut afficher le logo PayPal sans le proposer dans votre pays ni pour les retraits. Ouvrez la caisse une fois connecté, vérifiez que PayPal apparaît pour le dépôt et pour le retrait, puis seulement déposez.'
+    },
+    sources: [{ titre: 'PayPal Canada : politique d’utilisation acceptable (jeux d’argent soumis à approbation)', url: 'https://www.paypal.com/ca/legalhub/acceptableuse-full' }],
+    faqPlus: [
+      {
+        q: 'Pourquoi si peu de casinos acceptent PayPal ?',
+        r: 'Parce que PayPal exige son accord préalable pour les paiements de jeux d’argent, et seulement là où ces jeux sont permis par la loi pour l’exploitant et pour ses clients, selon sa politique d’utilisation acceptable.'
+      }
+    ]
+  },
+  {
+    id: 'paysafecard',
+    nom: 'Paysafecard',
+    chemin: '/casino-paysafecard/',
+    titre: 'Casino Paysafecard au Québec : dépôts et limites (2026)',
+    description:
+      'Casino Paysafecard au Québec : qui l’affiche dans notre comparatif, où acheter un code au Canada, la limite de 400 $ par transaction et comment retirer.',
+    h1: 'Casino Paysafecard : dépôts, limites et retraits',
+    chapeau:
+      'Paysafecard permet de déposer avec un code prépayé acheté en magasin, sans carte bancaire. Nous avons regardé quels casinos de notre comparatif l’affichent, et ce qu’il faut prévoir pour retirer vos gains.',
+    fonctionnement: [
+      'Paysafecard est un **code prépayé de 16 chiffres** que l’on achète en point de vente. Au Canada, son site cite notamment Postes Canada, Esso et Mobil. Pour payer, on saisit simplement le code.',
+      'Selon le site canadien de Paysafecard, le montant maximal est de **400 $ CA par transaction**, et des frais d’entretien mensuels s’appliquent à partir du deuxième mois sur un code non utilisé en entier.'
+    ],
+    alerte: {
+      titre: 'Prévoyez un autre moyen pour retirer',
+      texte:
+        'Un code Paysafecard sert à payer : le site canadien de Paysafecard ne décrit pas de retrait vers un code. Avant de déposer, ouvrez la caisse de retrait du casino et vérifiez par quel moyen vous récupérerez vos gains.'
+    },
+    sources: [{ titre: 'Paysafecard Canada : fonctionnement, points de vente et limite par transaction', url: 'https://www.paysafecard.com/en-ca/' }],
+    faqPlus: [
+      {
+        q: 'Où acheter un code Paysafecard au Québec ?',
+        r: 'En point de vente : le site canadien de Paysafecard cite notamment Postes Canada, Esso et Mobil, et propose un outil pour trouver le magasin le plus proche.'
+      }
+    ]
+  },
+  {
+    id: 'apple-pay',
+    nom: 'Apple Pay',
+    chemin: '/casino-apple-pay/',
+    titre: 'Casino Apple Pay au Québec : qui l’accepte (2026)',
+    description:
+      'Casino Apple Pay au Québec : quels casinos de notre comparatif affichent Apple Pay, comment se passe un dépôt depuis un iPhone et comment retirer ensuite.',
+    h1: 'Casino Apple Pay : qui l’accepte, et comment retirer ensuite',
+    chapeau:
+      'Apple Pay permet de déposer en quelques secondes depuis un iPhone. Nous avons regardé quels casinos de notre comparatif l’affichent sur leurs pages officielles, et ce qu’il faut vérifier pour récupérer vos gains.',
+    fonctionnement: [
+      'Apple Pay utilise une carte bancaire enregistrée dans l’app Cartes de votre iPhone : le casino reçoit un paiement par carte, sans voir votre numéro.',
+      'Comme pour un paiement par carte, votre banque peut refuser une transaction vers un site de jeu, et des frais de conversion peuvent s’appliquer si votre compte de jeu n’est pas en dollars canadiens.'
+    ],
+    alerte: {
+      titre: 'Le retrait passe souvent par un autre moyen',
+      texte:
+        'Un moyen accepté au dépôt n’est pas toujours disponible au retrait. Avant de déposer avec Apple Pay, ouvrez la caisse de retrait et vérifiez comment vous récupérerez vos gains, avec quels délais et quels plafonds.'
+    },
+    sources: [],
+    faqPlus: []
+  }
+];
+
+function pageMoyenFr(m: Moyen): PageGuide {
+  const avec = CASINOS.filter((c) => accepte(c, m.nom));
+  const reponse = avec.length
+    ? `Parmi les casinos de notre comparatif, ${liste(avec.map((c) => `**${c.nom}**`))} ${avec.length > 1 ? 'affichent' : 'affiche'} ${m.nom} sur ${avec.length > 1 ? 'leurs pages officielles' : 'ses pages officielles'}. Nous ne l’avons pas vu chez les autres.`
+    : `Aucun casino de notre comparatif n’affiche ${m.nom} sur ses pages officielles.`;
+  return {
+    chemin: m.chemin,
+    nomFil: `Casino ${m.nom}`,
+    titre: m.titre,
+    description: m.description,
+    h1: m.h1,
+    chapeau: m.chapeau,
+    modifie: MAJ_MOYENS,
+    offresHaut: avec.length ? avec.map((c) => c.id) : undefined,
+    resume: `${m.nom} chez chaque casino du comparatif, et comment retirer ensuite.`,
+    sections: [
+      {
+        id: 'releve',
+        titre: `${m.nom} chez les casinos de notre comparatif`,
+        blocs: [
+          { type: 'p', texte: reponse },
+          {
+            type: 'tableau',
+            legende: 'Moyens de paiement affichés sur les pages officielles de chaque casino, à la date de notre dernier relevé.',
+            entetes: ['Casino', m.nom, 'Autres moyens affichés', 'Relevé du'],
+            lignes: CASINOS.map((c) => [lienCasino(c), accepte(c, m.nom) ? '**Affiché**' : 'Non affiché', moyens(c), dateLongue(c.paiements.verifieLe)])
+          },
+          ...avec
+            .filter((c) => c.retraits)
+            .map((c) => ({ type: 'p' as const, texte: `**Retraits chez ${c.nom}** : ${c.retraits!.resume.charAt(0).toLowerCase()}${c.retraits!.resume.slice(1)}. Le détail : [les retraits chez ${c.nom}](${cheminCasino(c, c.sousPages.includes('retrait') ? 'retrait' : undefined)}).` }))
+        ]
+      },
+      {
+        id: 'fonctionnement',
+        titre: `Comment fonctionne un dépôt avec ${m.nom}`,
+        blocs: [...m.fonctionnement.map((t) => ({ type: 'p' as const, texte: t })), { type: 'encadre', ton: 'alerte', titre: m.alerte.titre, texte: m.alerte.texte }]
+      },
+      {
+        id: 'alternatives',
+        titre: `Sans ${m.nom} : les autres façons de déposer`,
+        blocs: [
+          {
+            type: 'liste',
+            items: [
+              `**Cryptomonnaies** : acceptées chez ${liste(AVEC_CRYPTO.map((c) => c.nom))}, selon leurs pages officielles. Notre guide [casino crypto](/casino-crypto-quebec/) explique comment déposer sans erreur de réseau.`,
+              '**Interac** : ce que nous avons trouvé casino par casino est sur notre page [casino Interac](/casino-interac/).',
+              ...(AVEC_CARTES.length ? [`**Cartes Visa et Mastercard** : affichées chez ${liste(AVEC_CARTES.map((c) => c.nom))}.`] : [])
+            ]
+          }
+        ]
+      }
+    ],
+    faq: [
+      { q: `Quels casinos acceptent ${m.nom} au Québec ?`, r: reponse.replace(/\*\*/g, '') },
+      {
+        q: `Peut-on retirer ses gains avec ${m.nom} ?`,
+        r: `Cela dépend du casino : un moyen accepté au dépôt n’est pas toujours proposé au retrait. Vérifiez la caisse de retrait avant votre premier dépôt.`
+      },
+      ...m.faqPlus
+    ],
+    sources: [...avec.map((c) => ({ titre: `${c.nom} : moyens de paiement affichés`, url: c.paiements.source })), ...m.sources],
+    connexes: ['/casino-interac/', '/casino-crypto-quebec/', '/casino-retrait-rapide/']
+  };
+}
+
+paiements.push(...MOYENS.map(pageMoyenFr));
+
 export default paiements;
