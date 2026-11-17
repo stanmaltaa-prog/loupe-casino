@@ -150,6 +150,9 @@ export default function Pied() {
               <li>
                 <Link href="/sports-interaction/">Avis Sports Interaction</Link>
               </li>
+              <li>
+                <Link href="/powerplay-casino/">Avis PowerPlay</Link>
+              </li>
             </ul>
           </div>
           <div>
