@@ -62,6 +62,15 @@ export default function Pied() {
                 <Link href="/casino-interac/">Casino Interac</Link>
               </li>
               <li>
+                <Link href="/casino-paypal/">Casino PayPal</Link>
+              </li>
+              <li>
+                <Link href="/casino-paysafecard/">Casino Paysafecard</Link>
+              </li>
+              <li>
+                <Link href="/casino-apple-pay/">Casino Apple Pay</Link>
+              </li>
+              <li>
                 <Link href="/casino-retrait-rapide/">Casino à retrait rapide</Link>
               </li>
               <li>
