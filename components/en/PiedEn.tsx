@@ -85,6 +85,9 @@ export default function PiedEn() {
                 <Link href="/en-ca/free-spins-casinos/">Free spins casinos</Link>
               </li>
               <li>
+                <Link href="/en-ca/sports-interaction-review/">Sports Interaction review</Link>
+              </li>
+              <li>
                 <Link href="/en-ca/best-payout-online-casinos/">Best payout casinos</Link>
               </li>
               <li>
