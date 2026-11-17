@@ -375,6 +375,18 @@ const LUXURY: MarqueRewards = {
     { titre: 'Luxury Casino: terms and conditions (wagering, game weighting, withdrawals, licence)', url: 'https://luxury.casino/en/terms/' },
     { titre: 'Luxury Casino: FAQ (payment methods, withdrawal times and fees, minimum age)', url: 'https://luxury.casino/en/faq/' }
   ],
+  faqAvisFr: [
+    {
+      q: 'Qu’est devenu Colosseum Casino ?',
+      r: 'Le 17 novembre 2026, l’adresse colosseumcasino.com redirigeait vers la page de Luxury Casino sur le site de Casino Rewards. Nous n’avons pas trouvé d’annonce officielle qui explique ce changement. Si vous aviez un compte chez Colosseum Casino, contactez le service client de Casino Rewards avant de déposer ailleurs.'
+    }
+  ],
+  faqAvisEn: [
+    {
+      q: 'What happened to Colosseum Casino?',
+      r: 'On November 17, 2026, the colosseumcasino.com address redirected to the Luxury Casino page on the Casino Rewards site. We found no official announcement explaining the change. If you had a Colosseum Casino account, contact Casino Rewards support before depositing elsewhere.'
+    }
+  ],
   fr: {
     avis: {
       titre: 'Avis Luxury Casino 2026 : jusqu’à 1 000 $, mise de 200 fois',
