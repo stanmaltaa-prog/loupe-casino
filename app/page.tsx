@@ -19,6 +19,7 @@ import { SITE, absolu, dateLongue, moisAnnee, montant } from '@/lib/site';
 import { meta, schemaPage } from '@/lib/seo';
 import { DERNIER_RELEVE, dernier } from '@/lib/tests';
 import { typo } from '@/lib/typo';
+import { MARQUES_POPULAIRES } from '@/lib/contenu/marques';
 
 const MAJ = SITE.derniereVerification;
 /** Délais de retrait crypto constatés lors des tests réels (donnees/tests.json). */
@@ -224,6 +225,26 @@ export default function Accueil() {
               <Link href={href}>
                 <strong>{typo(titre)}</strong>
                 <span>{typo(texte)}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="conteneur">
+        <h2>Les casinos les plus cherchés au Canada : nos avis</h2>
+        <p>
+          {typo(
+            'Ces casinos du groupe Casino Rewards ne font pas partie de notre classement. Nous avons lu leurs conditions officielles : partout, le bonus des premiers dépôts doit être misé 200 fois.'
+          )}{' '}
+          <Link href="/casino-rewards/">{typo('Le groupe Casino Rewards en détail')}</Link>.
+        </p>
+        <ul className="grille-liens">
+          {MARQUES_POPULAIRES.map((m) => (
+            <li key={m.fr.avis}>
+              <Link href={m.fr.avis}>
+                <strong>{typo(`Avis ${/casino/i.test(m.nom) ? m.nom : `${m.nom} Casino`}`)}</strong>
+                <span>{typo(m.offreFr.charAt(0).toUpperCase() + m.offreFr.slice(1) + '.')}</span>
               </Link>
             </li>
           ))}
