@@ -14,6 +14,7 @@ export const PAIRES: Record<string, string> = {
   '/casino-apple-pay/': '/en-ca/apple-pay-casinos/',
   '/casino-tours-gratuits/': '/en-ca/free-spins-casinos/',
   '/sports-interaction/': '/en-ca/sports-interaction-review/',
+  '/powerplay-casino/': '/en-ca/powerplay-casino-review/',
   '/casino-depot-minimum/': '/en-ca/minimum-deposit-casinos/',
   '/casino-crypto-quebec/': '/en-ca/crypto-casinos/',
   '/casino-en-ligne-canada/': '/en-ca/is-online-gambling-legal-in-canada/',
