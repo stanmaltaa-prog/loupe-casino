@@ -288,6 +288,170 @@ const PAGES_1WIN: PageGuide[] = UNWIN
     ]
   : [];
 
+/* ——————————————————————————— PayPal, Paysafecard, Apple Pay (17 November 2026) */
+
+type MoyenEn = {
+  nom: string;
+  chemin: string;
+  titre: string;
+  description: string;
+  h1: string;
+  chapeau: string;
+  fonctionnement: string[];
+  alerte: { titre: string; texte: string };
+  sources: { titre: string; url: string }[];
+  faqPlus: { q: string; r: string }[];
+};
+
+const accepteEn = (c: Casino, nom: string) => c.paiements.autres.some((a) => a.toLowerCase() === nom.toLowerCase());
+const AVEC_CARTES_EN = CASINOS.filter((c) => c.paiements.autres.some((a) => /visa|mastercard/i.test(a)));
+
+const MOYENS_EN: MoyenEn[] = [
+  {
+    nom: 'PayPal',
+    chemin: '/en-ca/paypal-casinos/',
+    titre: 'PayPal Casinos in Canada: Who Really Accepts It (2026)',
+    description:
+      'PayPal casinos in Canada: which casinos we compare show PayPal, what PayPal’s own policy says about gambling, and the other ways to deposit and withdraw.',
+    h1: 'PayPal casinos: who really accepts it, casino by casino',
+    chapeau:
+      'PayPal is rare at the online casinos Canadians can reach. We checked the official pages of every casino we compare to see whether it is shown. Here is what we found, and what to check before you deposit.',
+    fonctionnement: [
+      'PayPal is an e-wallet: you pay from your PayPal balance, or with the card or bank account linked to it, without giving your numbers to the casino.',
+      'Its Acceptable Use Policy (version of November 2, 2022) lists gambling among the activities that need **PayPal’s pre-approval**, and only where the operator and its customers are in places where such gambling is legal. That is why PayPal is missing at most international casinos.'
+    ],
+    alerte: {
+      titre: 'A PayPal logo does not mean PayPal for everyone',
+      texte:
+        'A casino can show the PayPal logo without offering it in your country or for withdrawals. Once logged in, open the cashier, check that PayPal appears for both deposits and withdrawals, and only then deposit.'
+    },
+    sources: [{ titre: 'PayPal Canada: Acceptable Use Policy (gambling requires approval)', url: 'https://www.paypal.com/ca/legalhub/acceptableuse-full' }],
+    faqPlus: [
+      {
+        q: 'Why do so few casinos accept PayPal?',
+        r: 'Because PayPal requires its pre-approval for gambling payments, and only where the gambling is legal for both the operator and its customers, according to its Acceptable Use Policy.'
+      }
+    ]
+  },
+  {
+    nom: 'Paysafecard',
+    chemin: '/en-ca/paysafecard-casinos/',
+    titre: 'Paysafecard Casinos in Canada: Deposits and Limits (2026)',
+    description:
+      'Paysafecard casinos in Canada: which casinos we compare show it, where to buy a code, the $400 per transaction limit and how to withdraw your winnings.',
+    h1: 'Paysafecard casinos: deposits, limits and withdrawals',
+    chapeau:
+      'Paysafecard lets you deposit with a prepaid code bought in a store, without a bank card. We checked which casinos we compare show it, and what you need to plan to withdraw your winnings.',
+    fonctionnement: [
+      'Paysafecard is a **16-digit prepaid code** bought at a sales outlet. In Canada, its site lists outlets such as Canada Post, Esso and Mobil. To pay, you simply enter the code.',
+      'According to Paysafecard’s Canadian site, the maximum is **CA$400 per transaction**, and a monthly maintenance fee applies from the second month on a code that has not been fully used.'
+    ],
+    alerte: {
+      titre: 'Plan another way to withdraw',
+      texte:
+        'A Paysafecard code is for paying: Paysafecard’s Canadian site does not describe withdrawals to a code. Before you deposit, open the casino’s withdrawal cashier and check how you will get your winnings back.'
+    },
+    sources: [{ titre: 'Paysafecard Canada: how it works, sales outlets and per-transaction limit', url: 'https://www.paysafecard.com/en-ca/' }],
+    faqPlus: [
+      {
+        q: 'Where can I buy a Paysafecard code in Canada?',
+        r: 'At a sales outlet: Paysafecard’s Canadian site lists Canada Post, Esso and Mobil among others, and has a tool to find the nearest store.'
+      }
+    ]
+  },
+  {
+    nom: 'Apple Pay',
+    chemin: '/en-ca/apple-pay-casinos/',
+    titre: 'Apple Pay Casinos in Canada: Who Accepts It (2026)',
+    description:
+      'Apple Pay casinos in Canada: which casinos we compare show Apple Pay on their official pages, how a deposit from an iPhone works, and how to withdraw after.',
+    h1: 'Apple Pay casinos: who accepts it, and how to withdraw after',
+    chapeau:
+      'Apple Pay lets you deposit in seconds from an iPhone. We checked which casinos we compare show it on their official pages, and what to check to get your winnings back.',
+    fonctionnement: [
+      'Apple Pay uses a bank card stored in the Wallet app on your iPhone: the casino receives a card payment without seeing your card number.',
+      'As with any card payment, your bank may decline a transaction to a gambling site, and conversion fees may apply if your casino account is not in Canadian dollars.'
+    ],
+    alerte: {
+      titre: 'Withdrawals often use another method',
+      texte:
+        'A method accepted for deposits is not always available for withdrawals. Before you deposit with Apple Pay, open the withdrawal cashier and check how you will get your winnings back, with what delays and limits.'
+    },
+    sources: [],
+    faqPlus: []
+  }
+];
+
+function pageMoyenEn(m: MoyenEn): PageGuide {
+  const avec = CASINOS.filter((c) => accepteEn(c, m.nom));
+  const reponse = avec.length
+    ? `Among the casinos we compare, ${liste(avec.map((c) => `**${c.nom}**`))} ${avec.length > 1 ? 'show' : 'shows'} ${m.nom} on ${avec.length > 1 ? 'their' : 'its'} official pages. We did not see it at the others.`
+    : `None of the casinos we compare shows ${m.nom} on its official pages.`;
+  return {
+    chemin: m.chemin,
+    nomFil: `${m.nom} casinos`,
+    titre: m.titre,
+    description: m.description,
+    h1: m.h1,
+    chapeau: m.chapeau,
+    modifie: '2026-11-17',
+    offresHaut: avec.length ? avec.map((c) => c.id) : undefined,
+    resume: `${m.nom} at each casino we compare, and how to withdraw after.`,
+    sections: [
+      {
+        id: 'found',
+        titre: `${m.nom} at the casinos we compare`,
+        blocs: [
+          { type: 'p', texte: reponse },
+          {
+            type: 'tableau',
+            legende: 'Payment methods shown on each casino’s official pages, at the date of our latest check.',
+            entetes: ['Casino', m.nom, 'Other methods shown', 'Checked on'],
+            lignes: CASINOS.map((c) => [lien(c), accepteEn(c, m.nom) ? '**Shown**' : 'Not shown', moyens(c), dateEn(c.paiements.verifieLe)])
+          },
+          ...avec
+            .filter((c) => en(c).retraits)
+            .map((c) => ({
+              type: 'p' as const,
+              texte: `**Withdrawals at ${c.nom}**: ${en(c).retraits!.resume.charAt(0).toLowerCase()}${en(c).retraits!.resume.slice(1)}.${c.sousPages.includes('retrait') ? ` The details: [${c.nom} withdrawals](${cheminEn(c, 'withdrawal')}).` : ''}`
+            }))
+        ]
+      },
+      {
+        id: 'how',
+        titre: `How a ${m.nom} deposit works`,
+        blocs: [...m.fonctionnement.map((t) => ({ type: 'p' as const, texte: t })), { type: 'encadre', ton: 'alerte', titre: m.alerte.titre, texte: m.alerte.texte }]
+      },
+      {
+        id: 'alternatives',
+        titre: `Without ${m.nom}: other ways to deposit`,
+        blocs: [
+          {
+            type: 'liste',
+            items: [
+              `**Crypto**: accepted at ${liste(AVEC_CRYPTO.map((c) => c.nom))}, according to their official pages. Our [crypto casinos](/en-ca/crypto-casinos/) guide explains how to deposit without a network mistake.`,
+              '**Interac**: what we found casino by casino is on our [Interac casinos](/en-ca/interac-casinos/) page.',
+              ...(AVEC_CARTES_EN.length ? [`**Visa and Mastercard**: shown at ${liste(AVEC_CARTES_EN.map((c) => c.nom))}.`] : [])
+            ]
+          }
+        ]
+      }
+    ],
+    faq: [
+      { q: `Which casinos accept ${m.nom} in Canada?`, r: reponse.replace(/\*\*/g, '') },
+      {
+        q: `Can I withdraw my winnings with ${m.nom}?`,
+        r: 'It depends on the casino: a method accepted for deposits is not always offered for withdrawals. Check the withdrawal cashier before your first deposit.'
+      },
+      ...m.faqPlus
+    ],
+    sources: [...avec.map((c) => ({ titre: `${c.nom}: payment methods shown`, url: c.paiements.source })), ...m.sources],
+    connexes: ['/en-ca/interac-casinos/', '/en-ca/crypto-casinos/', '/en-ca/fast-withdrawal-casinos/']
+  };
+}
+
+const PAGES_MOYENS_EN = MOYENS_EN.map(pageMoyenEn);
+
 export const PAGES_EN: PageGuide[] = [
   // ——————————————————————————— Casino bonuses
   {
@@ -2056,7 +2220,8 @@ export const PAGES_EN: PageGuide[] = [
     ),
     connexes: ['/en-ca/how-we-rate/', '/en-ca/casino-withdrawal-times/', '/en-ca/is-online-gambling-legal-in-canada/']
   },
-  ...PAGES_1WIN
+  ...PAGES_1WIN,
+  ...PAGES_MOYENS_EN
 ];
 
 
