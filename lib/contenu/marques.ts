@@ -1,6 +1,6 @@
 import type { PageGuide, SectionGuide } from './pages/types';
-import { CASINOS, cheminCasino, depotMinTexte, exempleMise, type Casino } from '@/lib/casinos';
-import { cheminEn, depotMinEn, en } from '@/lib/en/casinos';
+import { CASINOS, cheminCasino, depotMinTexte, exempleMise, miseTexte, type Casino } from '@/lib/casinos';
+import { cheminEn, depotMinEn, en, miseEn } from '@/lib/en/casinos';
 import { classementRetraits, dernier } from '@/lib/tests';
 import { dateLongue, montant } from '@/lib/site';
 import { dateEn } from '@/lib/en/site';
@@ -2965,8 +2965,215 @@ function hubEn(): PageGuide {
 
 /* ---------- Exports ---------- */
 
-export const MARQUES_FR: PageGuide[] = [...MARQUES.flatMap(pagesFr), hubFr()];
-export const MARQUES_EN: PageGuide[] = [...MARQUES.flatMap(pagesEn), hubEn()];
+/* ---------- Tours gratuits : nos casinos et le groupe Casino Rewards (17 novembre 2026) ---------- */
+
+const AVEC_TOURS = CASINOS.filter((c) => c.offre.toursTotal > 0).sort((a, b) => b.offre.toursTotal - a.offre.toursTotal);
+const CHANCES = MARQUES.filter((m) => m.chances).sort((a, b) => (a.depot1 ?? 0) - (b.depot1 ?? 0));
+const lienBonusFr = (c: Casino) => `[${c.nom}](${cheminCasino(c, c.sousPages.includes('bonus') ? 'bonus' : undefined)})`;
+const lienBonusEn = (c: Casino) => `[${c.nom}](${cheminEn(c, c.sousPages.includes('bonus'))})`;
+const PLUS_TOURS = AVEC_TOURS[0];
+const MIN_CHANCES = CHANCES[0];
+
+function toursFr(): PageGuide {
+  const q = tours(QUATRO);
+  return {
+    chemin: '/casino-tours-gratuits/',
+    nomFil: 'Tours gratuits',
+    titre: 'Casino tours gratuits au Canada : les offres comparées (2026)',
+    description:
+      'Tours gratuits au Canada : combien chaque casino en donne, pour quel dépôt, sur quels jeux et avec quelle mise, et si des tours sans dépôt existent.',
+    h1: 'Casino tours gratuits : les offres comparées, et les vraies conditions',
+    chapeau:
+      'Les tours gratuits sont l’argument préféré des casinos. Nous avons relevé sur leurs pages officielles combien chacun en donne, pour quel dépôt, sur quels jeux et avec quelle mise. Aucun n’en donne sans dépôt.',
+    modifie: '2026-11-17',
+    offresHaut: AVEC_TOURS.slice(0, 3).map((c) => c.id),
+    titreTop: 'Les tours gratuits de nos casinos les mieux notés',
+    resume: 'Les tours gratuits de chaque casino comparés : dépôt, jeux, mise.',
+    sections: [
+      {
+        id: 'sans-depot',
+        titre: 'Tours gratuits sans dépôt : ce que nous avons trouvé',
+        blocs: [
+          {
+            type: 'p',
+            texte: `Aucun des casinos de notre comparatif, ni des ${MARQUES.length} casinos Casino Rewards que nous avons analysés, n’affiche de tours gratuits sans dépôt à l’inscription. L’offre la moins chère est celle de [${nomComplet(MIN_CHANCES)}](${chemins(MIN_CHANCES).fr.bonus}) : ${MIN_CHANCES.chances} chances sur la roue Mega Money Wheel pour ${fr(MIN_CHANCES.depot1!)}. Notre page [bonus sans dépôt](/casino-bonus-sans-depot/) fait le point sur ce qui existe vraiment.`
+          }
+        ]
+      },
+      {
+        id: 'comparatif',
+        titre: 'Les tours gratuits de nos casinos',
+        blocs: [
+          {
+            type: 'tableau',
+            legende: 'Offres de bienvenue relevées sur les pages officielles de chaque casino.',
+            entetes: ['Casino', 'Tours gratuits', 'Dépôt minimum', 'Comment ils arrivent', 'Mise du bonus'],
+            lignes: AVEC_TOURS.map((c) => [lienBonusFr(c), `**${c.offre.toursTotal}**`, depotMinTexte(c), c.offre.toursDetail || 'Non précisé', miseTexte(c)])
+          },
+          {
+            type: 'p',
+            texte: `${PLUS_TOURS.nom} annonce le plus de tours (${PLUS_TOURS.offre.toursTotal}), mais regardez aussi comment ils arrivent : répartis sur plusieurs dépôts ou versés par lots quotidiens, avec une connexion obligatoire chaque jour.`
+          }
+        ]
+      },
+      {
+        id: 'casino-rewards',
+        titre: 'Chez Casino Rewards : tours gratuits et « chances »',
+        blocs: [
+          {
+            type: 'p',
+            texte: `Dans le groupe Casino Rewards, seul [Quatro Casino](${chemins(QUATRO).fr.bonus}) donne de vrais tours gratuits sur des machines à sous. Les autres offrent des « chances » : des tours sur la roue Mega Money Wheel, à 0,10 $ le tour, que beaucoup de joueurs appellent aussi tours gratuits. Partout, les gains doivent être misés ${REWARDS.mise12} fois.`
+          },
+          {
+            type: 'tableau',
+            entetes: ['Casino', 'Offre', 'Dépôt', 'Mise des gains'],
+            lignes: [
+              [`[Quatro Casino](${chemins(QUATRO).fr.bonus})`, `${q.toursMin} à ${q.toursMax} tours gratuits sur ${JOURS_TOURS} jours, sur des machines à sous imposées`, `Dès ${fr(q.min.depot)} (${q.toursMax} tours dès ${fr(q.max.depot)})`, `${REWARDS.mise12} fois`],
+              ...CHANCES.map((m) => [`[${nomComplet(m)}](${chemins(m).fr.bonus})`, `${m.chances} chances sur la Mega Money Wheel`, fr(m.depot1!), `${REWARDS.mise12} fois`])
+            ]
+          }
+        ]
+      },
+      {
+        id: 'pieges',
+        titre: 'Les 4 pièges des tours gratuits',
+        blocs: [
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**La connexion quotidienne** : chez Velobet, Rolletto ou Quatro Casino, les tours arrivent par lots, un jour après l’autre. Un jour sans connexion fait perdre les tours de ce jour, et même tous les tours restants chez Rolletto.',
+              '**Les gains ne sont pas de l’argent réel** : ils sont versés en bonus et doivent être misés avant tout retrait.',
+              '**Le jeu imposé** : les tours se jouent sur une machine choisie par le casino, pas sur celle de votre choix.',
+              '**La durée de validité** : les tours expirent, souvent en quelques jours. Lisez la section bonus de votre compte avant de déposer.'
+            ]
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: 'Existe-t-il des tours gratuits sans dépôt au Canada ?',
+        r: `Pas chez les casinos que nous avons analysés : tous demandent un premier dépôt. L’entrée la moins chère est ${nomComplet(MIN_CHANCES)}, avec ${MIN_CHANCES.chances} chances pour ${fr(MIN_CHANCES.depot1!)}.`
+      },
+      {
+        q: 'Quel casino donne le plus de tours gratuits ?',
+        r: `Dans notre comparatif, ${PLUS_TOURS.nom} en annonce ${PLUS_TOURS.offre.toursTotal}. Chez Casino Rewards, Quatro Casino va jusqu’à ${q.toursMax} tours, à condition de déposer au moins ${fr(q.max.depot)}, avec des gains à miser ${REWARDS.mise12} fois.`
+      },
+      {
+        q: 'Peut-on retirer les gains des tours gratuits ?',
+        r: 'Oui, mais seulement après avoir rempli la condition de mise du bonus, sur des jeux qui comptent pour cette mise et avant la date limite.'
+      }
+    ],
+    sources: [
+      ...AVEC_TOURS.map((c) => ({ titre: `${c.nom} : conditions du bonus de bienvenue`, url: c.offre.source })),
+      { titre: 'Quatro Casino : page bonus officielle en français', url: 'https://www.quatrocasino.com/fr/bonus/' }
+    ],
+    connexes: ['/casino-bonus-sans-depot/', '/casino-depot-minimum/', '/conditions-de-mise/', '/casino-rewards/']
+  };
+}
+
+function toursEn(): PageGuide {
+  const q = tours(QUATRO);
+  return {
+    chemin: '/en-ca/free-spins-casinos/',
+    nomFil: 'Free spins',
+    titre: 'Free Spins Casinos in Canada: Offers Compared (2026)',
+    description:
+      'Free spins in Canada: how many each casino gives, for what deposit, on which games and with what wagering, and whether no deposit free spins exist.',
+    h1: 'Free spins casinos: the offers compared, and the real terms',
+    chapeau:
+      'Free spins are the casinos’ favourite selling point. We checked their official pages to see how many each one gives, for what deposit, on which games and with what wagering. None gives them without a deposit.',
+    modifie: '2026-11-17',
+    offresHaut: AVEC_TOURS.slice(0, 3).map((c) => c.id),
+    titreTop: 'Free spins at our top-rated casinos',
+    resume: 'Every casino’s free spins compared: deposit, games, wagering.',
+    sections: [
+      {
+        id: 'no-deposit',
+        titre: 'No deposit free spins: what we found',
+        blocs: [
+          {
+            type: 'p',
+            texte: `None of the casinos we compare, and none of the ${MARQUES.length} Casino Rewards casinos we reviewed, shows free spins without a deposit at sign-up. The cheapest offer is [${nomComplet(MIN_CHANCES)}](${chemins(MIN_CHANCES).en.bonus}): ${MIN_CHANCES.chances} chances on the Mega Money Wheel for ${enM(MIN_CHANCES.depot1!)}. Our [no deposit bonus](/en-ca/no-deposit-bonus-casinos/) page covers what really exists.`
+          }
+        ]
+      },
+      {
+        id: 'compared',
+        titre: 'Free spins at the casinos we compare',
+        blocs: [
+          {
+            type: 'tableau',
+            legende: 'Welcome offers checked on each casino’s official pages.',
+            entetes: ['Casino', 'Free spins', 'Minimum deposit', 'How they arrive', 'Bonus wagering'],
+            lignes: AVEC_TOURS.map((c) => [lienBonusEn(c), `**${c.offre.toursTotal}**`, depotMinEn(c), en(c).offre.toursDetail || 'Not stated', miseEn(c)])
+          },
+          {
+            type: 'p',
+            texte: `${PLUS_TOURS.nom} advertises the most spins (${PLUS_TOURS.offre.toursTotal}), but check how they arrive too: spread over several deposits, or in daily batches with a log-in required every day.`
+          }
+        ]
+      },
+      {
+        id: 'casino-rewards',
+        titre: 'At Casino Rewards: free spins and “chances”',
+        blocs: [
+          {
+            type: 'p',
+            texte: `In the Casino Rewards group, only [Quatro Casino](${chemins(QUATRO).en.bonus}) gives real free spins on slots. The others offer “chances”: spins on the Mega Money Wheel at $0.10 each, which many players also call free spins. Everywhere, the winnings must be wagered ${REWARDS.mise12} times.`
+          },
+          {
+            type: 'tableau',
+            entetes: ['Casino', 'Offer', 'Deposit', 'Winnings wagering'],
+            lignes: [
+              [`[Quatro Casino](${chemins(QUATRO).en.bonus})`, `${q.toursMin} to ${q.toursMax} free spins over ${JOURS_TOURS} days, on set slots`, `From ${enM(q.min.depot)} (${q.toursMax} spins from ${enM(q.max.depot)})`, `${REWARDS.mise12}x`],
+              ...CHANCES.map((m) => [`[${nomComplet(m)}](${chemins(m).en.bonus})`, `${m.chances} chances on the Mega Money Wheel`, enM(m.depot1!), `${REWARDS.mise12}x`])
+            ]
+          }
+        ]
+      },
+      {
+        id: 'traps',
+        titre: 'The 4 free spins traps',
+        blocs: [
+          {
+            type: 'liste',
+            ordonnee: true,
+            items: [
+              '**Daily log-ins**: at Velobet, Rolletto or Quatro Casino, spins arrive in batches, one day after another. Missing a day loses that day’s spins, and even all remaining spins at Rolletto.',
+              '**Winnings are not cash**: they are paid as bonus funds and must be wagered before any withdrawal.',
+              '**Set games**: the spins are played on a slot chosen by the casino, not one of your choice.',
+              '**Expiry**: spins expire, often within days. Read the bonus section of your account before you deposit.'
+            ]
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        q: 'Are there no deposit free spins in Canada?',
+        r: `Not at the casinos we reviewed: all require a first deposit. The cheapest entry is ${nomComplet(MIN_CHANCES)}, with ${MIN_CHANCES.chances} chances for ${enM(MIN_CHANCES.depot1!)}.`
+      },
+      {
+        q: 'Which casino gives the most free spins?',
+        r: `Among the casinos we compare, ${PLUS_TOURS.nom} advertises ${PLUS_TOURS.offre.toursTotal}. At Casino Rewards, Quatro Casino goes up to ${q.toursMax} spins if you deposit at least ${enM(q.max.depot)}, with winnings to be wagered ${REWARDS.mise12} times.`
+      },
+      {
+        q: 'Can I withdraw free spin winnings?',
+        r: 'Yes, but only after meeting the bonus wagering requirement, on eligible games and before the deadline.'
+      }
+    ],
+    sources: [
+      ...AVEC_TOURS.map((c) => ({ titre: `${c.nom}: welcome bonus terms`, url: c.offre.source })),
+      { titre: 'Quatro Casino: official bonus page', url: 'https://www.quatrocasino.com/en/bonus/' }
+    ],
+    connexes: ['/en-ca/no-deposit-bonus-casinos/', '/en-ca/minimum-deposit-casinos/', '/en-ca/casino-bonuses/', '/en-ca/casino-rewards/']
+  };
+}
+
+export const MARQUES_FR: PageGuide[] = [...MARQUES.flatMap(pagesFr), hubFr(), toursFr()];
+export const MARQUES_EN: PageGuide[] = [...MARQUES.flatMap(pagesEn), hubEn(), toursEn()];
 
 // Garde-fou anglais (le français passe par le registre des guides).
 for (const p of MARQUES_EN) {
