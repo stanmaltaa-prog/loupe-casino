@@ -56,6 +56,9 @@ export default function Pied() {
                 <Link href="/bonus-casino-quebec/">Bonus de casino</Link>
               </li>
               <li>
+                <Link href="/casino-tours-gratuits/">Casino tours gratuits</Link>
+              </li>
+              <li>
                 <Link href="/casino-crypto-quebec/">Casino crypto</Link>
               </li>
               <li>
