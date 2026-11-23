@@ -7,6 +7,7 @@ import EnteteEn from '@/components/en/EnteteEn';
 import PiedEn from '@/components/en/PiedEn';
 import SelonLangue from '@/components/SelonLangue';
 import JsonLd from '@/components/JsonLd';
+import Mesure from '@/components/Mesure';
 import { SITE } from '@/lib/site';
 import { schemaOrganisation } from '@/lib/seo';
 
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="contenu">{children}</main>
         <SelonLangue fr={<Pied />} en={<PiedEn />} />
         <JsonLd donnees={schemaOrganisation()} />
+        <Mesure />
       </body>
     </html>
   );
