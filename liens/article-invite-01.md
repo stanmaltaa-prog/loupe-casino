@@ -36,4 +36,4 @@ Regardez si le site accepte les dollars canadiens et les moyens que vous utilise
 
 Décidez à l'avance d'un budget que vous pouvez perdre, et réglez une limite de dépôt dans votre compte : la plupart des sites le permettent. Les jeux de casino sont conçus pour que la maison garde un avantage ; aucune méthode ne garantit de gagner.
 
-Il faut avoir 18 ans pour jouer au Québec. Si le jeu cesse d'être un plaisir, Jeu : aide et référence répond gratuitement et de façon confidentielle au 1 800 461-0140.
+Il faut avoir 18 ans pour jouer au Québec. Si le jeu cesse d'être un plaisir, Jeu : aide et référence répond gratuitement au 1 800 461-0140.
